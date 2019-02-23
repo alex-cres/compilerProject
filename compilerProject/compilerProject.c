@@ -74,6 +74,7 @@ int main()
 			printf(" ");
 			i++;
 		}
+		printf("\\0 ");
 
 		// Closing the file using fclose() 
 
