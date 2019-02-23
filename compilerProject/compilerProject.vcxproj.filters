@@ -27,4 +27,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SourceCode3Test.cx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="SourceCode2Test.cx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="SourceCode1Test.cx">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="SourceCode4Test.cx">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
