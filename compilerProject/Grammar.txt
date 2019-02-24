@@ -114,7 +114,6 @@
 <string> --> "<ascii_word>"
 			| <Scasting>
 			| <scan>
-			| <concat>
 			
 <type_identifier> --> <idn_decimal>
 					| <idn_number>

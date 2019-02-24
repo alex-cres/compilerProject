@@ -1,13 +1,13 @@
 // compilerProject.cpp : This file contains the 'main' function. Program execution begins and ends there.
-
-
-
 #include "pch.h"
+#include <Windows.h>
 #include <stdio.h>
 #include <string.h>
-#include <Windows.h>
+
 #define _CRT_SECURE_NO_WARNINGS
 #define _countof(array) (sizeof(array) / sizeof(array[0]))
+#define True 1
+#define False 0
 
 
 
@@ -69,15 +69,16 @@ void escapedPrint(char ch) {
 int main()
 { 
 	normalColor();
-	char fnamer[300] = "";		//Storing File Path/Name of File to Display
+	char fileName[300] = "";		//Storing File Path/Name of File to Display
 	printf("\n\nPlease Enter the Full Path of the File to read: \n");
-	scanf("%s", &fnamer);
+	scanf("%s", &fileName);
 	
-	char* content = readFile(fnamer);//gets the file and reads it
-	printf("\n\n\n\nData successfully read from file\n");
-	printf("The file is now closed.\n\n\n");
+	char* content = readFile(fileName);//gets the file and reads it
 	size_t i = 0;
 	if (content != NULL) {
+		printf("\n\n\n\nData successfully read from file\n");
+		printf("The file is now closed.\n\n\n");
+
 		while (content[i] != '\0') {
 			char ch = content[i];
 			escapedPrint(ch);
@@ -119,4 +120,5 @@ marineColor() {
 //4. Use the Error List window to view errors
 //5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
 //6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+
 

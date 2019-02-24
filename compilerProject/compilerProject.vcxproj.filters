@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\Example">
+      <UniqueIdentifier>{79776b8c-d4c1-4894-ac20-6a6398ae0159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Grammar">
+      <UniqueIdentifier>{893d3135-b822-4487-8a2c-20d979c64f5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -28,17 +34,34 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SourceCode3Test.cx">
-      <Filter>Source Files</Filter>
+    <None Include="BreakExample.cx">
+      <Filter>Source Files\Example</Filter>
     </None>
-    <None Include="SourceCode2Test.cx">
-      <Filter>Source Files</Filter>
+    <None Include="BreakIfExample.cx">
+      <Filter>Source Files\Example</Filter>
     </None>
-    <None Include="SourceCode1Test.cx">
-      <Filter>Source Files</Filter>
+    <None Include="ContinueExample.cx">
+      <Filter>Source Files\Example</Filter>
     </None>
-    <None Include="SourceCode4Test.cx">
-      <Filter>Source Files</Filter>
+    <None Include="AttributionAndWriteExample.cx">
+      <Filter>Source Files\Example</Filter>
     </None>
+    <None Include="StringAndWriteInConsoleExample.cx">
+      <Filter>Source Files\Example</Filter>
+    </None>
+    <None Include="SimpleLooperExample.cx">
+      <Filter>Source Files\Example</Filter>
+    </None>
+    <None Include="ForLoopExample.cx">
+      <Filter>Source Files\Example</Filter>
+    </None>
+    <None Include="FunctionExample.cx">
+      <Filter>Source Files\Example</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Grammar.txt">
+      <Filter>Source Files\Grammar</Filter>
+    </Text>
   </ItemGroup>
 </Project>
