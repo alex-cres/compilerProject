@@ -1,6 +1,6 @@
 Comment(This is not Executed);
 N a = 0;
-Loop(5).This(
+Loop(5).Do(
 	Comment(This is not Executed);	
 	BreakIf(a>2);
 	a=a+1;

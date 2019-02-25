@@ -16,6 +16,12 @@
 				| <return>
 				| <continue>
 				| <break>
+				| <fprint>
+				| <fscan>
+				| <dowhile>
+				| <while>
+				| <fscanEnder>
+				| <fscanSize> 
 				
 
 <function> --> <type_identifier> <function_name>(<params>).Do(<instructionList>)
@@ -38,7 +44,19 @@
 
 <params_call> -->  <exp>
 			| <exp>, <params_call> 
-			
+
+<fprint> --> On.File(<string>,<string>,<mode>)
+		| OnF(<string>,<string>,<mode>)
+
+<mode> --> "W" | "A" | "w" | "a"
+
+<fscan> --> In.File(<string>,<number>)
+		| InF(<string>,<number>)
+
+<fscanEnder> --> In.FileEnder(<string>)
+
+<fscanSize> --> In.FileSize(<string>,<number>)
+
 <scan> --> In.Console()
 		| InCon()
 
@@ -65,6 +83,10 @@
 
 <for> --> For(<idn_number> <var> = <signed_number>).Step(<signed_number>).If(<bool>).Do(<instructionList>)
 
+<while> --> While(<bool>).Do(<instructionList>)
+
+<dowhile> --> Do(<instructionList>).While(<bool>)
+
 <if_struct> --> If(<bool>).Then(<instructionList>)
 			| If(<bool>).Then(<instructionList>).Else(<instructionList>)
 
@@ -73,6 +95,8 @@
 		| Add(<exp> , <term>)
 		| Sub(<exp> , <term>)
 		| <term>
+		
+		
 
 <term> --> <term> * <factor>
 		| <term> / <factor>
@@ -89,6 +113,7 @@
 			| <string>
 			| <char>
 			| <call_function>
+			 
 		
 
 <bool> --> <exp> < <exp>
@@ -130,18 +155,22 @@
 
 <Scasting> --> <var>.toString()
 			| <scan>.toString()
+			| <fscan>.toString()
 			
 <Dcasting> --> <var>.toDecimal()
 			| <scan>.toDecimal()
+			| <fscan>.toDecimal()
 			
 <Ncasting> --> <var>.toNumber()
 			| <scan>.toNumber()
+			| <fscan>.toNumber()
 			
 <Ccasting> --> <var>.toChar()
 			| <scan>.toChar()
-			
+			| <fscan>.toChar()
 <Bcasting> --> <var>.toBool()
 			| <scan>.toBool()
+			| <fscan>.toBool()
 
 <idn_decimal> --> D
 <idn_number> --> N
@@ -171,6 +200,8 @@
 
 <number_type> --> <Ncasting>
 				| <signed_number>
+				| <fscanEnder>
+				| <fscanSize>
 
 <signed_number> --> +<number>
 				| -<number>
