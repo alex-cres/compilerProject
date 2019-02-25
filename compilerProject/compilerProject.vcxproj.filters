@@ -58,9 +58,15 @@
     <None Include="FunctionExample.cx">
       <Filter>Source Files\Example</Filter>
     </None>
+    <None Include="FileReadingExample.cx">
+      <Filter>Source Files\Example</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Grammar.txt">
+      <Filter>Source Files\Grammar</Filter>
+    </Text>
+    <Text Include="RefinedGrammarFor2.0.txt">
       <Filter>Source Files\Grammar</Filter>
     </Text>
   </ItemGroup>

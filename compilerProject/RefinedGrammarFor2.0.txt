@@ -22,7 +22,8 @@
 				| <while>
 				| <fscanEnder>
 				| <fscanSize> 
-				
+
+
 
 <function> --> <type_identifier> <function_name>(<params>).Do(<instructionList>)
 
@@ -95,8 +96,6 @@
 		| Add(<exp> , <term>)
 		| Sub(<exp> , <term>)
 		| <term>
-		
-		
 
 <term> --> <term> * <factor>
 		| <term> / <factor>
@@ -114,8 +113,6 @@
 			| <char>
 			| <call_function>
 			 
-		
-
 <bool> --> <exp> < <exp>
 		| <exp> > <exp>
 		| <exp> >= <exp>
@@ -135,10 +132,12 @@
 
 <char> --> '<ascii>'
 		| <Ccasting>
+		| <charindex>
 
 <string> --> "<ascii_word>"
 			| <Scasting>
 			| <scan>
+			| <fscan>
 			
 <type_identifier> --> <idn_decimal>
 					| <idn_number>
@@ -152,6 +151,12 @@
 			| <Ncasting>
 			| <Ccasting>
 			| <Bcasting>
+
+<sringLength> --> <string>.toLength()
+				| <var>.toLength()
+
+<charindex> --> <string>.fromIndex(<number>)
+			| <var>.fromIndex(<number>)
 
 <Scasting> --> <var>.toString()
 			| <scan>.toString()
@@ -168,6 +173,7 @@
 <Ccasting> --> <var>.toChar()
 			| <scan>.toChar()
 			| <fscan>.toChar()
+
 <Bcasting> --> <var>.toBool()
 			| <scan>.toBool()
 			| <fscan>.toBool()

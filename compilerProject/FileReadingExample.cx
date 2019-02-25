@@ -1,0 +1,17 @@
+Comment(Read the File and write in the file);
+
+N i=0;
+
+S(100) fileName="";
+
+Loop(In.FileEnder(fileName)).Do( Comment(Loop to end of file);
+	
+	S(In.FileSize(fileName,i)) x=In.File(fileName,i); Comment(Reads a line in the file);
+
+	i -> i+1;
+
+	On.Console(x);
+
+);
+
+On.Console("End of File Reached");

@@ -166,6 +166,7 @@
     <None Include="BreakExample.cx" />
     <None Include="BreakIfExample.cx" />
     <None Include="ContinueExample.cx" />
+    <None Include="FileReadingExample.cx" />
     <None Include="StringAndWriteInConsoleExample.cx" />
     <None Include="SimpleLooperExample.cx" />
     <None Include="AttributionAndWriteExample.cx" />
@@ -173,6 +174,7 @@
     <None Include="FunctionExample.cx" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="RefinedGrammarFor2.0.txt" />
     <Text Include="Grammar.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
