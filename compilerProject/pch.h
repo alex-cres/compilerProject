@@ -9,7 +9,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include "SyntaxAnalyser.h"
+#include "LexicalAnalyser.h"
 
 
 #endif //PCH_H

@@ -1,4 +1,4 @@
-#include "SyntaxAnalyser.h"
+#include "LexicalAnalyser.h"
 #include <stdio.h>
 //used to get the next char on the file
 NextChar getChar(FILE * file)
