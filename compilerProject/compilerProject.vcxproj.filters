@@ -24,7 +24,7 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SyntaxAnalyser.h">
+    <ClInclude Include="LexicalAnalyser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -35,7 +35,7 @@
     <ClCompile Include="pch.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SyntaxAnalyser.c">
+    <ClCompile Include="LexicalAnalyser.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -38,6 +38,7 @@ typedef struct nextChar {
 	char value;
 	int type;
 } NextChar;
+
 typedef struct lexeme {
 	char* value;
 	int type;
