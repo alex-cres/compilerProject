@@ -24,12 +24,18 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SyntaxAnalyser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="compilerProject.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="pch.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SyntaxAnalyser.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,6 +65,9 @@
       <Filter>Source Files\Example</Filter>
     </None>
     <None Include="FileReadingExample.cx">
+      <Filter>Source Files\Example</Filter>
+    </None>
+    <None Include="SimpleExample.cx">
       <Filter>Source Files\Example</Filter>
     </None>
   </ItemGroup>

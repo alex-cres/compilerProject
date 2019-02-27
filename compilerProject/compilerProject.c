@@ -6,92 +6,55 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 #define _countof(array) (sizeof(array) / sizeof(array[0]))
+
 #define True 1
 #define False 0
 
+#define ERR_FILE_NOT_OPENED 2
 
 
-char *readFile(char *fileName) { //reads the entire file and puts it in a char*
-	FILE *file = fopen(fileName, "r");//opens the file in reading mode
-	char *code;
-	size_t n = 0;
-	int c;
 
-	if (file == NULL) return NULL; //could not open file
-	fseek(file, 0, SEEK_END);//goto the end of the file
-	long f_size = ftell(file);//gets the size of the file with the pointer at the end of the file
-	fseek(file, 0, SEEK_SET);//goto the beginning of the file
-	code = malloc(f_size);//allocate the memory for the char* to fit the whole file
 
-	while ((c = fgetc(file)) != EOF) {//go until the end of the file, reading char by char
-		code[n++] = (char)c;
-	}
-	
-	code[n] = '\0';//terminate the char* with a string terminator
-	fclose(file);//close the file
-	return code;
-}
-void escapedPrint(char ch) {
-	marineColor();
-	switch (ch) {
-	case '\"':
-		printf("\\\"");
-		break;
-	case '\'':
-		printf("\\\'");
-		break;
-	case '\\':
-		printf("\\\\");
-		break;
-	case '\a':
-		printf("\\a");
-		break;
-	case '\b':
-		printf("\\b");
-		break;
-	case '\n':
-		printf("\\n");
-		break;
-	case '\t':
-		printf("\\t");
-		break;
-		
-	default:
-		if (iscntrl(ch)) { printf("\\%03o", ch); }
-		else {
-			normalColor();
-			printf("%c", ch);
-		}
-		normalColor();
-	}
-}
 
 int main()
 { 
+	FILE * fp = NULL;
+
 	normalColor();
 	char fileName[300] = "";		//Storing File Path/Name of File to Display
 	printf("\n\nPlease Enter the Full Path of the File to read: \n");
 	scanf("%s", &fileName);
-	
-	char* content = readFile(fileName);//gets the file and reads it
-	size_t i = 0;
-	if (content != NULL) {
-		printf("\n\n\n\nData successfully read from file\n");
-		printf("The file is now closed.\n\n\n");
+	fp = fopen(fileName,"r");
+	Lexeme * tokenList=NULL;
+	if (fp!=NULL) {
+		printf("\n\n File Opened, Starting Reading\n\n");
+		char nextLexeme[MAX_LEXEME_SIZE];
+		int nextToken;
+		NextChar nextChar;
 
-		while (content[i] != '\0') {
-			char ch = content[i];
-			escapedPrint(ch);
-			i++;
+		nextChar = getChar(fp);
+		do 
+		{
+			nextToken = lex(fp,&nextChar,nextLexeme);
+			Lexeme lexeme;
+			lexeme.value = nextLexeme;
+			lexeme.type = nextToken;
+			lexeme.next = NULL;
+			addLexemeToEndOfList(tokenList,&lexeme);
+		} while (nextToken!=EOF);
+		//Printing the stored lexemes
+		Lexeme * pointer = tokenList;
+		while (pointer != NULL)
+		{
+			printf("Token: %d, Lexeme: %s", pointer->type, pointer->value);
+			pointer = pointer->next;
 		}
-		marineColor();
-		printf("\\0");
-		normalColor();
 	}
 	else {
 		errorColor();
 		printf("Error: File could not be opened\n");
 		normalColor();
+		return ERR_FILE_NOT_OPENED;
 	}
 }
 
@@ -107,6 +70,8 @@ normalColor(){
 marineColor() {
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_INTENSITY | BACKGROUND_BLUE);
 }
+
+
 
 
 
