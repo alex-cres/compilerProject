@@ -25,11 +25,14 @@
 #define	OP_DIV	23
 #define	OP_MUL	24
 #define	OP_MOD	25
+#define OP_SUM 26
 
-#define LEFT_PARENTESIS 26
-#define OPEN_PARENTESIS 26
-#define RIGHT_PARENTESIS 27
-#define CLOSE_PARENTESIS 27
+#define LEFT_PARENTESIS 27
+#define OPEN_PARENTESIS LEFT_PARENTESIS
+#define RIGHT_PARENTESIS 28
+#define CLOSE_PARENTESIS RIGHT_PARENTESIS
+
+#define LINE_ENDER 29
 
 typedef struct nextChar {
 	char value;
