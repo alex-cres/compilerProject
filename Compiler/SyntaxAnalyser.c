@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "SyntaxAnalyser.h"
 #include "ErrorHandling.h"
 
@@ -46,7 +47,17 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		do {
 			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
 			*nextChar = getChar(file);
+			
 		} while (nextChar->tp_code == LETTER_SMALL || nextChar->tp_code == DIGIT);
+		if (strcmp(nextLexeme, "int")) {
+			nextToken = IDN_NUMBER;
+			break;
+			
+		}
+		else if (strcmp(nextLexeme, "float")) {
+			nextToken = IDN_DECIMAL;
+			break;
+		}
 		nextToken = IDENTIFIER;
 		break;
 	case DIGIT:
@@ -139,6 +150,10 @@ int lookup(char ch, char * lexeme, int * lexemeLength)
 	case '=':
 		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
 		nextToken = OP_ATTRIBUTION;
+		break;
+	case ';':
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		nextToken = POINT_COMMA;
 		break;
 	default:
 		*lexemeLength = addChar(lexeme, *lexemeLength, ch);

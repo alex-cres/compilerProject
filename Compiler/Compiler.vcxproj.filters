@@ -37,5 +37,17 @@
     <Text Include="Code2.txt">
       <Filter>Source Files</Filter>
     </Text>
+    <Text Include="Code.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Code1.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Code3.txt">
+      <Filter>Source Files</Filter>
+    </Text>
+    <Text Include="Code4.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

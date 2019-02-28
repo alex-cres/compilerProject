@@ -14,7 +14,7 @@ int main()
 	NextChar nextChar;
 	int nextToken;
 	char nextLexeme[MAX_LEXEME_SIZE];
-	filePointer = fopen("Code2.txt", "r");
+	filePointer = fopen("Code4.txt", "r");
 	if (filePointer != NULL) {
 		nextChar = getChar(filePointer);
 		do {

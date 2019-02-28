@@ -132,7 +132,11 @@
     <ClInclude Include="SyntaxAnalyser.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="Code.txt" />
+    <Text Include="Code1.txt" />
     <Text Include="Code2.txt" />
+    <Text Include="Code3.txt" />
+    <Text Include="Code4.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
