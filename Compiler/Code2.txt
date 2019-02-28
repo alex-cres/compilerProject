@@ -1,0 +1,1 @@
+resultado = (soma+87.2)/total
