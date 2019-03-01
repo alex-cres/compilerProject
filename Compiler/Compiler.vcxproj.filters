@@ -13,23 +13,26 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\ExamplesCX">
+      <UniqueIdentifier>{6c6895b4-b388-4185-82e2-6f8b61c854a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SyntaxAnalyser.c">
+    <ClCompile Include="ErrorHandling.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ErrorHandling.c">
+    <ClCompile Include="LexicalAnalyser.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SyntaxAnalyser.h">
+    <ClInclude Include="ErrorHandling.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ErrorHandling.h">
+    <ClInclude Include="LexicalAnalyser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -49,5 +52,37 @@
     <Text Include="Code4.txt">
       <Filter>Source Files</Filter>
     </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Examples\AttributionAndWriteExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\BreakExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\BreakIfExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\ContinueExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\FileReadingExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\ForLoopExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\FunctionExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\SimpleExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\SimpleLooperExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\StringAndWriteInConsoleExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
   </ItemGroup>
 </Project>

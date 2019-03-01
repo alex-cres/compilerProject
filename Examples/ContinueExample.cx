@@ -1,9 +1,9 @@
 Comment(This is not Executed);
-N a = 0;
+N a << 0;
 Loop(5).Do(
 	Comment(This is not Executed);	
 	Continue();
-	a=a+1;
+	a<<a+1;
 	
 );
 

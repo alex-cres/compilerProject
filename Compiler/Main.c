@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ErrorHandling.h"
-#include "SyntaxAnalyser.h"
+#include "LexicalAnalyser.h"
 
 #define _countof(array) (sizeof(array) / sizeof(array[0]))
+typedef int bool;
 #define True 1
 #define False 0
 
@@ -14,7 +15,7 @@ int main()
 	NextChar nextChar;
 	int nextToken;
 	char nextLexeme[MAX_LEXEME_SIZE];
-	filePointer = fopen("Code4.txt", "r");
+	filePointer = fopen("C:\\Users\\Alex\\Documents\\GitHub\\compilerProject\\Examples\\StringAndWriteInConsoleExample.cx", "r");
 	if (filePointer != NULL) {
 		nextChar = getChar(filePointer);
 		do {

@@ -125,11 +125,11 @@
   <ItemGroup>
     <ClCompile Include="ErrorHandling.c" />
     <ClCompile Include="Main.c" />
-    <ClCompile Include="SyntaxAnalyser.c" />
+    <ClCompile Include="LexicalAnalyser.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ErrorHandling.h" />
-    <ClInclude Include="SyntaxAnalyser.h" />
+    <ClInclude Include="LexicalAnalyser.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Code.txt" />
@@ -137,6 +137,18 @@
     <Text Include="Code2.txt" />
     <Text Include="Code3.txt" />
     <Text Include="Code4.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Examples\AttributionAndWriteExample.cx" />
+    <None Include="..\Examples\BreakExample.cx" />
+    <None Include="..\Examples\BreakIfExample.cx" />
+    <None Include="..\Examples\ContinueExample.cx" />
+    <None Include="..\Examples\FileReadingExample.cx" />
+    <None Include="..\Examples\ForLoopExample.cx" />
+    <None Include="..\Examples\FunctionExample.cx" />
+    <None Include="..\Examples\SimpleExample.cx" />
+    <None Include="..\Examples\SimpleLooperExample.cx" />
+    <None Include="..\Examples\StringAndWriteInConsoleExample.cx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

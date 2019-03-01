@@ -16,8 +16,23 @@
 				| <return>
 				| <continue>
 				| <break>
-				
+				| <fprint>
+				| <fscan>
+				| <fscanEnder>
+				| <fscanSize>
+			
+<fprint> --> On.File(<string>,<string>,<mode>)
 
+
+<mode> --> "W" | "A" | "w" | "a"
+
+<fscan> --> In.File(<string>,<number>)
+
+
+<fscanEnder> --> In.FileEnder(<string>)
+
+<fscanSize> --> In.FileSize(<string>,<number>)
+			
 <function> --> <type_identifier> <function_name>(<params>).Do(<instructionList>)
 
 <return> --> Exit(<var>)
@@ -40,10 +55,10 @@
 			| <exp>, <params_call> 
 			
 <scan> --> In.Console()
-		| InCon()
+		
 
 <print> --> On.Console(<string>)
-		| OnCon(<string>)
+		
 
 <declaration> --> <type_identifier> <declareExpr>
 
@@ -52,14 +67,11 @@
 				| <declareExpr>,<declareExpr>
 
 <attribution> --> <var> << <exp>
-				| <var> Equals <exp>
-				| <var> -> <exp>
-				| Equals(<var>,<exp>)
+				
 
 <looper> --> Loop(<number>).Do(<instructionList>)
 
 <comment> --> Comment(<ascii_word>)
-			| Com(<ascii_word>)
 			| Todo(<ascii_word>)
 			| Fix(<ascii_word>)
 
@@ -70,16 +82,11 @@
 
 <exp> --> <exp> + <term>
 		| <exp> - <term>
-		| Add(<exp> , <term>)
-		| Sub(<exp> , <term>)
 		| <term>
 
 <term> --> <term> * <factor>
 		| <term> / <factor>
 		| <term> % <factor>
-		| Mul(<term>,<factor>)
-		| Div(<term>,<factor>)
-		| Mod(<term>,<factor>)
 		| <factor>
 
 <factor> --> (<exp>)
@@ -95,15 +102,12 @@
 		| <exp> > <exp>
 		| <exp> >= <exp>
 		| <exp> <= <exp>
-		| <exp> == <exp>
+		| <exp> = <exp>
 		| !(<bool>)
 		| (<bool>)
-		| <bool> && <bool>
-		| <bool> || <bool>
-		| Xor(<bool>,<bool>)
-		| And(<bool>,<bool>)
-		| Or(<bool>,<bool>)
-		| Not(<bool>)
+		| <bool> & <bool>
+		| <bool> | <bool>
+		| <bool> X <bool>
 		| True
 		| False
 		| <Bcasting>
@@ -114,11 +118,13 @@
 <string> --> "<ascii_word>"
 			| <Scasting>
 			| <scan>
+			| <fscan>
 			
+		
 <type_identifier> --> <idn_decimal>
 					| <idn_number>
 					| <idn_char>
-					| <idn_string>
+					| <idn_array>
 					| <idn_bool>
 					| <idn_void>
 
@@ -146,9 +152,14 @@
 <idn_decimal> --> D
 <idn_number> --> N
 <idn_char> --> C
-<idn_string> --> S(<number>)
+<idn_string> --> S[<number>]
 <idn_bool> --> B
 <idn_void> --> V
+<idn_array> --> <idn_decimal>[<number>]
+					| <idn_number>[<number>]
+					| <idn_char>[<number>]
+					| <idn_string>
+					| <idn_bool>[<number>]
 
 <var> --> <letter><word>
 		|<letter>
@@ -178,6 +189,8 @@
 
 <number> --> 0...9 
 		|<number><number>
+		| <fscanEnder>
+		| <fscanSize>
 
 <ascii> --> TAB...~
 

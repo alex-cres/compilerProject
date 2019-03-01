@@ -1,14 +1,14 @@
 Comment(Read the File and write in the file);
 
-N i=0;
+N i<<0;
 
-S(100) fileName="";
+S[100] fileName<<"";
 
-Loop(In.FileEnder(fileName)).Do( Comment(Loop to end of file);
+Loop(In.FileEnder(fileName)).Do(Comment(Loop to end of file);
 	
-	S(In.FileSize(fileName,i)) x=In.File(fileName,i); Comment(Reads a line in the file);
+	S(In.FileSize(fileName,i)) x<<In.File(fileName,i); Comment(Reads a line in the file);
 
-	i -> i+1;
+	i << i+1;
 
 	On.Console(x);
 

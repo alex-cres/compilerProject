@@ -1,17 +1,17 @@
 D CalcArea(D x, D y).Do(
 	Comment(Calculate the Area);
-	D area=x*y;
+	D area<<x*y;
 	Exit(area);
 );
 
-D x=0, y=0;
+D x<<0, y<<0;
 
 On.Console("\nGive me the x: ");
-x=In.Console().toDecimal();
+x<<In.Console().toDecimal();
 
 On.Console("\nGive me the y: ");
-y=In.Console().toDecimal();
+y<<In.Console().toDecimal();
 
-D area = F.CalcArea(x,y);
+D area <<F.CalcArea(x,y);
 On.Console("\nThe Area: ");
 On.Console(area.toString());

@@ -1,2 +1,2 @@
-S(5) a="aula";
-In.Console(a);
+S[5] a<<"aula";
+On.Console(a);
