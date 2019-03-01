@@ -86,6 +86,10 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			nextToken = RESERVED_BOOL_FALSE;
 			break;
 		}
+		else if (0 == strcmp(nextLexeme, RESERVED_EXIT_FUNCTION_LEXEME)) {
+			nextToken = RESERVED_EXIT_FUNCTION;
+			break;
+		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CONSOLE_LEXEME)) {
 			nextToken = RESERVED_CONSOLE;
 			break;
@@ -136,7 +140,6 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			break;
 		}
 		else if ((0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT3_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT2_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT1_LEXEME))) {
-			*nextChar = getChar(file);
 			if (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme) != OPEN_PARENTESIS) {
 				errorColor();
 				printf("ERROR:COMMENT NOT FORMATED CORRECTLY %s", nextLexeme);
@@ -145,12 +148,11 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			
 			}
 			*nextChar = getChar(file);
-			while (nextChar->tp_code != CLOSE_PARENTESIS) {
-
-				lookup(nextChar->ch, nextLexeme, &sizeOfLexeme);
+			
+			while (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme) != CLOSE_PARENTESIS) {
 				*nextChar = getChar(file);
 			}
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			
 			*nextChar = getChar(file);
 			nextToken=RESERVED_COMMENT;
 
@@ -201,6 +203,18 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			nextToken = OP_XOR;
 			break;
 		}
+		else if (0 == strcmp(nextLexeme, RESERVED_FILE_LEXEME)) {
+		nextToken = OP_XOR;
+		break;
+		}
+		else if (0 == strcmp(nextLexeme, RESERVED_FILE_ENDER_LEXEME)) {
+		nextToken = RESERVED_FILE_ENDER;
+		break;
+		}
+		else if (0 == strcmp(nextLexeme, RESERVED_FILE_SIZE_LEXEME)) {
+		nextToken = RESERVED_FILE_SIZE;
+		break;
+		}
 		
 
 		break;
@@ -211,7 +225,9 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			*nextChar = getChar(file);
 		} while (nextChar->tp_code == DIGIT);
 		if (isLETTER(nextChar->tp_code)) {//error handling
+			errorColor();
 			printf("ERROR: NUMBER_WITH_LETTERS_IN_IT, %s", nextLexeme);
+			normalColor();
 			exit(ERROR_NUMBER_WITH_LETTERS_IN_IT);
 		}
 		if (nextChar->tp_code == POINT) {//decimal handling
@@ -219,8 +235,10 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
 				*nextChar = getChar(file);
 			} while (nextChar->tp_code == DIGIT);
-			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handleing
+			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
+				errorColor();
 				printf("ERROR: DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT, %s", nextLexeme);
+				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT);
 			}
 			nextToken = LITERAL_DECIMAL;
@@ -276,7 +294,9 @@ int addChar(char * lexeme, int lexemeLength, char nextChar)
 		lexeme[lexemeLength + 1] = 0;
 	}
 	else {
-		printf("ERROR: MAX_LEXEME_SIZE_EXCEDED (255) : %s \n", lexeme);
+		errorColor();
+		printf("ERROR: MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", MAX_LEXEME_SIZE,lexeme);
+		normalColor();
 		exit(ERROR_MAX_LEXEME_SIZE_EXCEDED);
 	}
 	return lexemeLength;
@@ -362,3 +382,77 @@ int lookup(char ch, char * lexeme, int * lexemeLength)
 	return nextToken;
 }
 
+
+char * tokenDescription(int tokenType) {
+	switch (tokenType) {
+	case EOF: return"EOF"; break;
+	case DIGIT: return"DIGIT"; break;
+	case LETTER_BIG: return"LETTER_BIG"; break;
+	case LETTER_SMALL: return"LETTER_SMALL"; break;
+	case POINT: return"POINT"; break;
+	case POINT_COMMA: return"POINT_COMMA"; break;
+	case DOUBLE_QUOTE: return"DOUBLE_QUOTE"; break;
+	case QUOTE: return"QUOTE"; break;
+	case COMMA: return"COMMA"; break;
+	case UNKNOWN: return"UNKNOWN"; break;
+	case IDENTIFIER_FUNCTION: return"IDENTIFIER_FUNCTION"; break;
+	case IDENTIFIER: return"IDENTIFIER"; break;
+	case IDN_NUMBER: return"IDN_NUMBER"; break;
+	case IDN_DECIMAL: return"IDN_DECIMAL"; break;
+	case IDN_CHAR: return"IDN_CHAR"; break;
+	case IDN_BOOL: return"IDN_BOOL"; break;
+	case IDN_VOID: return"IDN_VOID"; break;
+	case IDN_STRING: return"IDN_STRING"; break;
+	case LITERAL_NUMBER: return"LITERAL_NUMBER"; break;
+	case LITERAL_DECIMAL: return"LITERAL_DECIMAL"; break;
+	case LITERAL_STRING: return"LITERAL_STRING"; break;
+	case LITERAL_CHAR: return"LITERAL_CHAR"; break;
+	case OPEN_BRACKETS: return"OPEN_BRACKETS"; break;
+	case CLOSE_BRACKETS: return"CLOSE_BRACKETS"; break;
+	case OPEN_PARENTESIS: return"OPEN_PARENTESIS"; break;
+	case CLOSE_PARENTESIS: return"CLOSE_PARENTESIS"; break;
+	case OP_ATTRIBUTION: return"OP_ATTRIBUTION"; break;
+	case OP_MINUS: return"OP_MINUS"; break;
+	case OP_ADD: return"OP_ADD"; break;
+	case OP_DIV: return"OP_DIV"; break;
+	case OP_MUL: return"OP_MUL"; break;
+	case OP_MOD: return"OP_MOD"; break;
+	case OP_MINOR: return"OP_MINOR"; break;
+	case OP_BIGGER: return"OP_BIGGER"; break;
+	case OP_BIGGER_EQUAL: return"OP_BIGGER_EQUAL "; break;
+	case OP_MINOR_EQUAL: return"OP_MINOR_EQUAL"; break;
+	case OP_EQUAL: return"OP_EQUAL"; break;
+	case OP_AND: return"OP_AND"; break;
+	case OP_OR: return"OP_OR"; break;
+	case OP_NOT: return"OP_NOT"; break;
+	case OP_XOR: return"OP_XOR"; break;
+	case RESERVED_BOOL_TRUE: return"RESERVED_BOOL_TRUE"; break;
+	case RESERVED_BOOL_FALSE: return"RESERVED_BOOL_FALSE"; break;
+	case RESERVED_IF: return"RESERVED_IF"; break;
+	case RESERVED_THEN: return"RESERVED_THEN"; break;
+	case RESERVED_ELSE: return"RESERVED_ELSE"; break;
+	case RESERVED_LOOP: return"RESERVED_LOOP"; break;
+	case RESERVED_DO: return"RESERVED_DO"; break;
+	case RESERVED_IN: return"RESERVED_IN"; break;
+	case RESERVED_ON: return"RESERVED_ON"; break;
+	case RESERVED_CONSOLE: return"RESERVED_CONSOLE"; break;
+	case RESERVED_CALL_FUNCTION: return"RESERVED_CALL_FUNCTION"; break;
+	case RESERVED_FOR: return"RESERVED_FOR"; break;
+	case RESERVED_STEP: return"RESERVED_STEP"; break;
+	case RESERVED_COMMENT: return"RESERVED_COMMENT"; break;
+	case RESERVED_EXIT_FUNCTION: return"RESERVED_EXIT_FUNCTION"; break;
+	case RESERVED_BREAK: return"RESERVED_BREAK"; break;
+	case RESERVED_BREAKIF: return"RESERVED_BREAKIF"; break;
+	case RESERVED_CONTINUE: return"RESERVED_CONTINUE"; break;
+	case RESERVED_CONTINUEIF: return"RESERVED_CONTINUEIF"; break;
+	case RESERVED_CAST_NUMBER: return"RESERVED_CAST_NUMBER"; break;
+	case RESERVED_CAST_CHAR: return"RESERVED_CAST_CHAR"; break;
+	case RESERVED_CAST_BOOL: return"RESERVED_CAST_BOOL"; break;
+	case RESERVED_CAST_STRING: return"RESERVED_CAST_STRING"; break;
+	case RESERVED_CAST_DECIMAL: return"RESERVED_CAST_DECIMAL"; break;
+	case RESERVED_FILE: return"RESERVED_FILE"; break;
+	case RESERVED_FILE_ENDER: return"RESERVED_FILE_ENDER"; break;
+	case RESERVED_FILE_SIZE: return"RESERVED_FILE_SIZE"; break;
+	default: return"TOKEN_NOT_IDENTIFIED"; break;
+	}
+}

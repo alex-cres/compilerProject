@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 #define MAX_LEXEME_SIZE 255
-
 #define DIGIT 1
 #define LETTER_BIG 2
 #define LETTER_SMALL 3
@@ -53,8 +52,6 @@
 #define OP_NOT 43
 #define OP_XOR 44
 
-
-
 #define RESERVED_BOOL_TRUE 70
 #define RESERVED_BOOL_FALSE 71
 #define RESERVED_IF 72
@@ -79,7 +76,11 @@
 #define RESERVED_CAST_BOOL 92
 #define RESERVED_CAST_STRING 93
 #define RESERVED_CAST_DECIMAL 94
+#define RESERVED_FILE 95
+#define RESERVED_FILE_ENDER 96
+#define RESERVED_FILE_SIZE 97
 //reserved strings
+
 #define IDN_NUMBER_LEXEME "N"
 #define IDN_DECIMAL_LEXEME "D"
 #define IDN_CHAR_LEXEME "C"
@@ -111,8 +112,8 @@
 #define OP_AND_LEXEME "&"
 #define OP_OR_LEXEME "|"
 #define OP_NOT_LEXEME "!"
-
 #define OP_XOR_LEXEME "X"
+
 #define RESERVED_CALL_FUNCTION_LEXEME "F"
 #define RESERVED_EXIT_FUNCTION_LEXEME "Exit"
 #define RESERVED_COMMENT_VARIANT1_LEXEME "Comment"
@@ -129,6 +130,9 @@
 #define RESERVED_CAST_BOOL_LEXEME "toBool"
 #define RESERVED_CAST_STRING_LEXEME "toString"
 #define RESERVED_CAST_DECIMAL_LEXEME "toDecimal"
+#define RESERVED_FILE_LEXEME "File"
+#define RESERVED_FILE_ENDER_LEXEME "FileEnder"
+#define RESERVED_FILE_SIZE_LEXEME "FileSize"
 
 
 
@@ -150,3 +154,5 @@ int addChar(char* lexeme, int lexemeLength, char nextChar);
 int lookup(char ch, char* lexeme, int * lexemeLength);
 
 int isLETTER(int type);
+
+char * tokenDescription(int tokenType);

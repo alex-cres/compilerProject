@@ -15,16 +15,18 @@ int main()
 	NextChar nextChar;
 	int nextToken;
 	char nextLexeme[MAX_LEXEME_SIZE];
-	filePointer = fopen("C:\\Users\\Alex\\Documents\\GitHub\\compilerProject\\Examples\\StringAndWriteInConsoleExample.cx", "r");
+	filePointer = fopen("C:\\Users\\Alex\\Documents\\GitHub\\compilerProject\\Examples\\FunctionExample.cx", "r");
 	if (filePointer != NULL) {
 		nextChar = getChar(filePointer);
 		do {
 			nextToken = lex(filePointer, &nextChar, nextLexeme);
-			printf("Token: %d , Lexeme: %s\n", nextToken, nextLexeme);
+			printf("Token: %d --> %s , Lexeme: %s\n", nextToken, tokenDescription(nextToken), nextLexeme);
 		} while (nextToken != EOF);
 	}
 	else {
+		errorColor();
 		printf("\n\nError: File not found");
+		normalColor();
 		return ERROR_FILE_NOT_FOUND;
 	}
 
