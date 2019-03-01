@@ -2,7 +2,7 @@
 #include <string.h>
 #include "LexicalAnalyser.h"
 #include "ErrorHandling.h"
-
+int lineNumber = 1;
 int isLETTER(int type) {
 	return type == LETTER_SMALL || type == LETTER_BIG;
 }
@@ -29,12 +29,16 @@ NextChar getChar(FILE * file)
 	else {
 		nextCh.tp_code = EOF;
 	}
+	if (nextCh.ch == '\n') {
+		lineNumber++;
+	}
 	return nextCh;
 }
 
 NextChar getNonBlankChar(FILE * file, NextChar nextChar)
 {
 	while (isspace(nextChar.ch)) {
+		
 		nextChar = getChar(file);
 	}
 	return nextChar;
@@ -142,7 +146,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		else if ((0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT3_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT2_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT1_LEXEME))) {
 			if (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme) != OPEN_PARENTESIS) {
 				errorColor();
-				printf("ERROR:COMMENT NOT FORMATED CORRECTLY %s", nextLexeme);
+				printf("ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_COMMENT_NOT_FORMATED_CORRECTLY);
 			
@@ -215,8 +219,26 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		nextToken = RESERVED_FILE_SIZE;
 		break;
 		}
-		
-
+		else if (0 == strcmp(nextLexeme, RESERVED_CAST_NUMBER_LEXEME)) {
+		nextToken = RESERVED_CAST_NUMBER;
+		break;
+		}
+		else if (0 == strcmp(nextLexeme, RESERVED_CAST_CHAR_LEXEME)) {
+		nextToken = RESERVED_CAST_CHAR;
+		break;
+		}
+		else if (0 == strcmp(nextLexeme, RESERVED_CAST_BOOL_LEXEME)) {
+		nextToken = RESERVED_CAST_BOOL;
+		break;
+		}
+		else if (0 == strcmp(nextLexeme, RESERVED_CAST_STRING_LEXEME)) {
+		nextToken = RESERVED_CAST_STRING;
+		break;
+		}
+		else if (0 == strcmp(nextLexeme, RESERVED_CAST_DECIMAL_LEXEME)) {
+		nextToken = RESERVED_CAST_DECIMAL;
+		break;
+		}
 		break;
 	case DIGIT:
 
@@ -226,7 +248,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		} while (nextChar->tp_code == DIGIT);
 		if (isLETTER(nextChar->tp_code)) {//error handling
 			errorColor();
-			printf("ERROR: NUMBER_WITH_LETTERS_IN_IT, %s", nextLexeme);
+			printf("ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
 			normalColor();
 			exit(ERROR_NUMBER_WITH_LETTERS_IN_IT);
 		}
@@ -237,7 +259,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
-				printf("ERROR: DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT, %s", nextLexeme);
+				printf("ERROR:At Line %i : DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
 				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT);
 			}
@@ -295,7 +317,7 @@ int addChar(char * lexeme, int lexemeLength, char nextChar)
 	}
 	else {
 		errorColor();
-		printf("ERROR: MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", MAX_LEXEME_SIZE,lexeme);
+		printf("ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber,MAX_LEXEME_SIZE,lexeme);
 		normalColor();
 		exit(ERROR_MAX_LEXEME_SIZE_EXCEDED);
 	}
