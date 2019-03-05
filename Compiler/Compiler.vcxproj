@@ -126,10 +126,12 @@
     <ClCompile Include="ErrorHandling.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LexicalAnalyser.c" />
+    <ClCompile Include="SyntaxAnalyser.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ErrorHandling.h" />
     <ClInclude Include="LexicalAnalyser.h" />
+    <ClInclude Include="SyntaxAnalyser.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Code.txt" />
