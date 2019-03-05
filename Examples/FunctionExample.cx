@@ -4,7 +4,7 @@ D CalcArea(D x, D y).Do(
 	Exit(area);
 );
 
-D x<<0, y<<0;
+D x<<.0, y<<.0;
 
 On.Console("\nGive me the x: ");
 x<<In.Console().toDecimal();

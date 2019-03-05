@@ -259,9 +259,9 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
-				printf("ERROR:At Line %i : DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
+				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
 				normalColor();
-				exit(ERROR_DECIMAL_WITH_LETTERS_AND_SECOND_POINTS_IN_IT);
+				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
 			}
 			nextToken = LITERAL_DECIMAL;
 			break;
@@ -273,6 +273,20 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
 		nextToken = POINT;
 		*nextChar = getChar(file);
+		if (nextChar->tp_code==DIGIT) {
+			do {
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				*nextChar = getChar(file);
+			} while (nextChar->tp_code == DIGIT);
+			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
+				errorColor();
+				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
+			}
+			nextToken = LITERAL_DECIMAL;
+			break;
+		}
 		break;
 	case UNKNOWN:
 		nextToken = lookup(nextChar->ch, nextLexeme, &sizeOfLexeme);
@@ -294,6 +308,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			}
 			*nextChar = getChar(file);
 		}
+		
 		
 		break;
 	case EOF:
@@ -405,7 +420,7 @@ int lookup(char ch, char * lexeme, int * lexemeLength)
 }
 
 
-char * tokenDescription(int tokenType) {
+char* tokenDescription(int tokenType) {
 	switch (tokenType) {
 	case EOF: return"EOF"; break;
 	case DIGIT: return"DIGIT"; break;

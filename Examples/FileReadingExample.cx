@@ -6,7 +6,7 @@ S[100] fileName<<"";
 
 Loop(In.FileEnder(fileName)).Do( Comment(Loop to end of file);
 	
-	S[In.FileSize(fileName,i)] x<<In.File(fileName,i); Comment(Reads a line in the file);
+	S[In.FileSize(fileName,i)] x<<In.File(fileName,i); Comment(Reads a line in the file while ajusting the size of the string);
 
 	i << i+1;
 

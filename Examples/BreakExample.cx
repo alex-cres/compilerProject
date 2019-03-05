@@ -6,4 +6,4 @@ Loop(5).Do(
 	Break();
 );
 
-In.Console(a.toString());
+On.Console(a.toString());

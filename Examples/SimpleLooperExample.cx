@@ -5,4 +5,4 @@ Loop(5).Do(
 	a<<a+1;
 );
 
-In.Console(a.toString());
+On.Console(a.toString());
