@@ -102,6 +102,7 @@
 		| <exp> >= <exp>
 		| <exp> <= <exp>
 		| <exp> = <exp>
+		| <exp> != <exp>
 		| !(<bool>)
 		| (<bool>)
 		| <bool> & <bool>
