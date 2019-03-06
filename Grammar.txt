@@ -23,7 +23,6 @@
 			
 <fprint> --> On.File(<string>,<string>,<mode>)
 
-
 <mode> --> "W" | "A" | "w" | "a"
 
 <fscan> --> In.File(<string>,<number>)

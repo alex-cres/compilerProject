@@ -6,6 +6,8 @@ D CalcArea(D x, D y).Do(
 
 D x<<.0, y<<.0;
 
+If(x!=0.2).Then(x<<5.9;);
+
 On.Console("\nGive me the x: ");
 x<<In.Console().toDecimal();
 

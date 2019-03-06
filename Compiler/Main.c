@@ -53,7 +53,7 @@ int main()
 			pad(nameToken, 30);
 			
 			//printing with tabs
-			printf("Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
+			printf("\nToken:\t%03d --> %s\tLex:\t", nextToken, nameToken);
 			//tabs formating
 			if (nextToken == CLOSE_PARENTESIS) {
 				inlinetabs--;
@@ -63,7 +63,7 @@ int main()
 				printf("   ");
 			}
 			//lexeme printing
-			printf("%s\n", nextLexeme);
+			printf("%s", nextLexeme);
 			//tabs formating
 			if (nextToken == OPEN_PARENTESIS) {
 				inlinetabs++;

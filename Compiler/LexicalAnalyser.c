@@ -308,7 +308,13 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			}
 			*nextChar = getChar(file);
 		}
-		
+		else if (nextToken == OP_NOT) {
+			if (nextChar->ch == '=') {
+				nextToken = OP_NOT_EQUAL;
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			}
+			*nextChar = getChar(file);
+		}
 		
 		break;
 	case EOF:
@@ -463,6 +469,7 @@ char* tokenDescription(int tokenType) {
 	case OP_OR: return"OP_OR"; break;
 	case OP_NOT: return"OP_NOT"; break;
 	case OP_XOR: return"OP_XOR"; break;
+	case OP_NOT_EQUAL: return "OP_NOT_EQUAL"; break;
 	case RESERVED_BOOL_TRUE: return"RESERVED_BOOL_TRUE"; break;
 	case RESERVED_BOOL_FALSE: return"RESERVED_BOOL_FALSE"; break;
 	case RESERVED_IF: return"RESERVED_IF"; break;
@@ -490,6 +497,7 @@ char* tokenDescription(int tokenType) {
 	case RESERVED_FILE: return"RESERVED_FILE"; break;
 	case RESERVED_FILE_ENDER: return"RESERVED_FILE_ENDER"; break;
 	case RESERVED_FILE_SIZE: return"RESERVED_FILE_SIZE"; break;
+	
 	default: return"TOKEN_NOT_IDENTIFIED"; break;
 	}
 }
