@@ -34,42 +34,14 @@ int main()
 	filePointer = fopen(fileName, "r");
 	if (filePointer != NULL) {
 		nextChar = getChar(filePointer);
-		int i = 0;
-		int inlinetabs = 0;
+
 		do {
-			//color change in output
-			if (i%2) {
-				marine2Color();
-			}
-			else {
-				normalColor();
-			}
+			
 			//identifying the lexemes
 			nextToken = lex(filePointer, &nextChar, nextLexeme);
-
-			//getting the string of the tokenType and formatting it
-			char nameToken[60];
-			strcpy(nameToken, tokenDescription(nextToken));
-			pad(nameToken, 30);
+			nextToken = instructionList(filePointer,nextToken, &nextChar, nextLexeme);
 			
-			//printing with tabs
-			printf("\nToken:\t%03d --> %s\tLex:\t", nextToken, nameToken);
-			//tabs formating
-			if (nextToken == CLOSE_PARENTESIS) {
-				inlinetabs--;
-			}
-			//tabs formating
-			for (int j = 0; j < inlinetabs;j++) {
-				printf("   ");
-			}
-			//lexeme printing
-			printf("%s", nextLexeme);
-			//tabs formating
-			if (nextToken == OPEN_PARENTESIS) {
-				inlinetabs++;
-			}
 			
-			i++;
 		} while (nextToken != EOF);
 		normalColor();
 	}
@@ -86,17 +58,3 @@ int main()
 
 
 
-
-void pad(char *s, int length)
-{
-	int l;
-
-	l = strlen(s); /* its length */
-
-	while (l < length) {
-		s[l] = ' '; /* insert a space */
-		l++;
-	}
-	s[l] = '\0'; /* strings need to be terminated in a null */
-
-}

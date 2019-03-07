@@ -1,6 +1,6 @@
 <program> --> <instruction_list>
 
-<instructionList> --> <instruction>;
+<instructionList> --> <instruction>
 					| <instruction>;<instructionList>
 
 <instruction> --> <declaration>
@@ -32,7 +32,16 @@
 
 <fscanSize> --> In.FileSize(<string>,<number>)
 			
-<function> --> <type_identifier> <function_name>(<params>).Do(<instructionList>)
+
+
+<declaration> --> <type_identifier> <declareExpr>
+				| <type_identifier> <functionDec>
+					
+<functionDec> --> <function_name>(<params>).Do(<instructionList>)
+<declareExpr> --> <var>
+				| <var> << <exp>
+				| <declareExpr>,<declareExpr>
+
 
 <return> --> Exit(<var>)
 			| Exit()
@@ -59,12 +68,6 @@
 <print> --> On.Console(<string>)
 		
 
-<declaration> --> <type_identifier> <declareExpr>
-
-<declareExpr> --> <var>
-				| <attribution>
-				| <declareExpr>,<declareExpr>
-
 <attribution> --> <var> << <exp>
 				
 
@@ -79,13 +82,13 @@
 <if_struct> --> If(<bool>).Then(<instructionList>)
 			| If(<bool>).Then(<instructionList>).Else(<instructionList>)
 
-<exp> --> <exp> + <term>
-		| <exp> - <term>
+<exp> --> <term> + <term>
+		| <term> - <term>
 		| <term>
 
-<term> --> <term> * <factor>
-		| <term> / <factor>
-		| <term> % <factor>
+<term> --> <factor> * <factor>
+		| <factor> / <factor>
+		| <factor> % <factor>
 		| <factor>
 
 <factor> --> (<exp>)

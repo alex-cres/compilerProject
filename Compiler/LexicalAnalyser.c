@@ -325,6 +325,11 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		nextLexeme[3] = '\0';
 		break;
 	}
+	char nameToken[60];
+	strcpy(nameToken, tokenDescription(nextToken));
+	pad(nameToken, 30);
+	printf("Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
+	printf("%s\n", nextLexeme);
 
 	return nextToken;
 }
@@ -500,4 +505,19 @@ char* tokenDescription(int tokenType) {
 	
 	default: return"TOKEN_NOT_IDENTIFIED"; break;
 	}
+}
+
+
+void pad(char *s, int length)
+{
+	int l;
+
+	l = strlen(s); /* its length */
+
+	while (l < length) {
+		s[l] = ' '; /* insert a space */
+		l++;
+	}
+	s[l] = '\0'; /* strings need to be terminated in a null */
+
 }

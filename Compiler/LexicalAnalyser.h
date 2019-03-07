@@ -145,6 +145,8 @@ typedef struct nextChar {
 	int tp_code;
 } NextChar;
 
+int lineNumber;
+
 NextChar getChar(FILE* file);
 
 NextChar getNonBlankChar(FILE* file, NextChar nextChar);
@@ -158,3 +160,5 @@ int lookup(char ch, char* lexeme, int * lexemeLength);
 int isLETTER(int type);
 
 char * tokenDescription(int tokenType);
+
+void pad(char *s, int length);
