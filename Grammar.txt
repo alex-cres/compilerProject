@@ -162,7 +162,8 @@
 					| <idn_bool>[<number>]
 
 <var> --> <letter><word>
-		|<letter>
+		| <letter>
+		| <var>[<number>]
 
 <ascii_word> --> <ascii>
 			| <ascii><ascii_word>
