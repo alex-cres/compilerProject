@@ -1,5 +1,5 @@
 For(N i << 2).Step(+2).If(i<=10).Do(
-	On.Console(i.toString());
+	On.Console(toString(i));
 	N area << i*i;
-	On.Console(area.toString());
+	On.Console(toString(area));
 );

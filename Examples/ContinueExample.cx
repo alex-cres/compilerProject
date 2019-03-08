@@ -7,4 +7,4 @@ Loop(5).Do(
 	
 );
 
-On.Console(a.toString());
+On.Console(toString(a));

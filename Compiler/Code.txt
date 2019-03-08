@@ -1,1 +1,1 @@
-( soma + 47 ) / total
+r<<( soma + 47 ) / total;

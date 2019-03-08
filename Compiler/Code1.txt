@@ -1,1 +1,1 @@
-( soma + 87.2.333 ) / total
+r<<( soma + 87.2.333 ) / total;

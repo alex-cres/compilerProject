@@ -1,2 +1,2 @@
-int a;
-float b;
+N a;
+D b;

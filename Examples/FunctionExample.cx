@@ -16,4 +16,4 @@ y<<In.Console().toDecimal();
 
 D area <<F.CalcArea(x,y);
 On.Console("\nThe Area: ");
-On.Console(area.toString());
+On.Console(toString(area));

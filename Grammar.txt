@@ -3,125 +3,137 @@
 <instructionList> --> <instruction>
 					| <instruction>;<instructionList>
 
-<instruction> --> <declaration>
-				| <attribution>
-				| <if_struct>
-				| <looper>
-				| <comment>
-				| <for>
-				| <scan>
-				| <print>
-				| <function>
-				| <call_function>
-				| <return>
-				| <continue>
-				| <break>
-				| <fprint>
-				| <fscan>
-				| <fscanEnder>
-				| <fscanSize>
+<instruction> -- > <declaration>
+		| <attribution>
+		| <if_struct>
+		| <looper> //missing  //todo next
+		| <comment>
+		| <for> //missing 
+		| <scan> //missing
+		| <print> //missing
+		| <function> 
+		| <call_function>
+		| <return> //missing  //todo next
+		| <continue> //missing  //todo next
+		| <break> //missing  //todo next
+		| <fprint> //missing 
+		| <fscan> //missing
+		| <fscanEnder> //missing
+		| <fscanSize> //missing
+		| EOF 
 			
-<fprint> --> On.File(<string>,<string>,<mode>)
+<fprint> --> On.File(<string>,<string>,<mode>)  //missing
+ 
+<mode> --> "W" | "A" | "w" | "a"  //missing
 
-<mode> --> "W" | "A" | "w" | "a"
-
-<fscan> --> In.File(<string>,<number>)
+<fscan> --> In.File(<string>,<number>)  //missing
 
 
-<fscanEnder> --> In.FileEnder(<string>)
+<fscanEnder> --> In.FileEnder(<string>) //missing
 
-<fscanSize> --> In.FileSize(<string>,<number>)
+<fscanSize> --> In.FileSize(<string>,<number>) //missing
 			
 
 
-<declaration> --> <type_identifier> <declareExpr>
-				| <type_identifier> <functionDec>
+<declaration> --> <type_identifier> <declareExpr> //done
+				| <type_identifier> <functionDec>  //done
 					
-<functionDec> --> <function_name>(<params>).Do(<instructionList>)
-<declareExpr> --> <var>
-				| <var> << <exp>
-				| <declareExpr>,<declareExpr>
+<functionDec> -- > <function_name>(<params>).Do(<instructionList>) //done
+<functionDec> -- > <function_name>().Do(<instructionList>)  //done
+
+<declareExpr> --> <var>  //done
+				| <var> << <exp>  //done
+				| <declareExpr>,<declareExpr>  //done
 
 
-<return> --> Exit(<var>)
-			| Exit()
+<return> --> Exit(<var>) //missing
+			| Exit() //missing
 
-<break> --> Break()
-			|BreakIf(<bool>)
+<break> --> Break() //missing
+			|BreakIf(<bool>) //missing
 
-<continue> --> Continue()
-			|ContinueIf(<bool>)
+<continue> --> Continue() //missing
+			|ContinueIf(<bool>) //missing
 
-<function_name> --> <letterBig><word>
+<function_name> --> <letterBig><word> //done
 
-<call_function> --> F.<function_name>(<params_call>)
+<call_function> --> F.<function_name>(<params_call>) //done
+				| F.<function_name>() //done
 
-<params> --> <type_identifier> <var>
-			| <type_identifier> <var>, <params> 
+	<params> --> <type_identifier> <var> //done
+			| <type_identifier> <var>, <params>  //done
 
-<params_call> -->  <exp>
-			| <exp>, <params_call> 
+<params_call> -->  <exp> //done
+			| <exp>, <params_call>  //done
 			
-<scan> --> In.Console()
+<scan> --> In.Console() //missing
 		
 
-<print> --> On.Console(<string>)
+<print> --> On.Console(<string>) //missing
 		
 
-<attribution> --> <var> << <exp>
+<attribution> --> <var> << <exp>   //done
 				
 
-<looper> --> Loop(<number>).Do(<instructionList>)
-
-<comment> --> Comment(<ascii_word>)
-			| Todo(<ascii_word>)
-			| Fix(<ascii_word>)
-
-<for> --> For(<idn_number> <var> = <signed_number>).Step(<signed_number>).If(<bool>).Do(<instructionList>)
-
-<if_struct> --> If(<bool>).Then(<instructionList>)
-			| If(<bool>).Then(<instructionList>).Else(<instructionList>)
-
-<exp> --> <term> + <term>
-		| <term> - <term>
-		| <term>
-
-<term> --> <factor> * <factor>
-		| <factor> / <factor>
-		| <factor> % <factor>
-		| <factor>
-
-<factor> --> (<exp>)
-			| <var>
-			| <number_type>
-			| <decimal>
-			| <string>
-			| <char>
-			| <call_function>
+<looper> --> Loop(<number>).Do(<instructionList>) //missing
 		
 
-<bool> --> <exp> < <exp>
-		| <exp> > <exp>
-		| <exp> >= <exp>
-		| <exp> <= <exp>
-		| <exp> = <exp>
-		| <exp> != <exp>
-		| !(<bool>)
-		| (<bool>)
-		| <bool> & <bool>
-		| <bool> | <bool>
-		| <bool> X <bool>
-		| True
-		| False
-		| <Bcasting>
+<comment> --> Comment(<ascii_word>)  //done
+			| Todo(<ascii_word>)  //done
+			| Fix(<ascii_word>)  //done
 
-<char> --> '<ascii>'
-		| <Ccasting>
+<for> --> For(<idn_number> <var> = <signed_number>).Step(<signed_number>).If(<bool>).Do(<instructionList>)  //missing
 
-<string> --> "<ascii_word>"
-			| <Scasting>
-			| <scan>
-			| <fscan>
+<if_struct> --> If(<bool>).Then(<instructionList>)  //done
+			  | If(<bool>).Then(<instructionList>).Else(<instructionList>) //done
+
+<exp> --> <term> + <term> //done
+		| <term> - <term> //done
+		| <term> //done
+
+<term> --> <factor> * <factor> //done
+		| <factor> / <factor> //done
+		| <factor> % <factor> //done
+		| <factor> //done
+
+<factor> -- > (<exp>) //done
+			| <var> //done
+			| +<number> //done
+			| -<number> //done
+			| +<decimal> //done
+			| -<decimal> //done
+			| <number> //done
+			| <decimal> //done
+			| <string> //done
+			| <char> //done
+			| <boolstruct> //done
+			| <call_function> //done
+		
+
+<boolstruct> -->  !(<boolstruct>) //done
+		| (<boolstruct>) //done
+		| <boolexp> //done
+		| <boolstruct> & <boolstruct> //done
+		| <boolstruct> | <boolstruct> //done
+		| <boolstruct> X <boolstruct> //done
+		| True //done
+		| False //done
+		| <Bcasting> //missing
+
+<boolexp> --> <exp> < <exp> //done
+		| <exp> > <exp> //done
+		| <exp> >= <exp> //done
+		| <exp> <= <exp> //done
+		| <exp> = <exp> //done
+		| <exp> != <exp> //done
+
+<char> --> '<ascii>' //done
+		| <Ccasting> //missing
+
+<string> --> "<ascii_word>"  //done
+			| <Scasting> //missing
+			| <scan> //missing
+			| <fscan> //missing
 			
 		
 <type_identifier> --> <idn_decimal>
@@ -131,42 +143,42 @@
 					| <idn_bool>
 					| <idn_void>
 
-<casting> --> <Scasting>
-			| <Dcasting>
-			| <Ncasting>
-			| <Ccasting>
-			| <Bcasting>
+<casting> --> <Scasting> //missing
+			| <Dcasting> //missing
+			| <Ncasting> //missing
+			| <Ccasting> //missing
+			| <Bcasting> //missing
 
-<Scasting> --> <var>.toString()
-			| <scan>.toString()
+<Scasting> --> toString(<var>)  //missing
+			| <scan>.toString()  //missing
+			 
+<Dcasting> --> toDecimal(<var>)  //missing
+			| <scan>.toDecimal()  //missing
 			
-<Dcasting> --> <var>.toDecimal()
-			| <scan>.toDecimal()
+<Ncasting> --> toNumber(<var>)  //missing
+			| <scan>.toNumber()  //missing
 			
-<Ncasting> --> <var>.toNumber()
-			| <scan>.toNumber()
+<Ccasting> --> toChar(<var>)  //missing
+			| <scan>.toChar()  //missing
 			
-<Ccasting> --> <var>.toChar()
-			| <scan>.toChar()
-			
-<Bcasting> --> <var>.toBool()
-			| <scan>.toBool()
+<Bcasting> --> toBool(<var>)  //missing
+			| <scan>.toBool()  //missing
 
 <idn_decimal> --> D
 <idn_number> --> N
 <idn_char> --> C
-<idn_string> --> S[<number>]
+<idn_string> --> S[<number>]  //missing
 <idn_bool> --> B
 <idn_void> --> V
-<idn_array> --> <idn_decimal>[<number>]
-					| <idn_number>[<number>]
-					| <idn_char>[<number>]
-					| <idn_string>
-					| <idn_bool>[<number>]
+<idn_array> --> <idn_decimal>[<number>]  //missing
+					| <idn_number>[<number>]  //missing
+					| <idn_char>[<number>]  //missing
+					| <idn_string>  //missing
+					| <idn_bool>[<number>]  //missing
 
 <var> --> <letter><word>
 		| <letter>
-		| <var>[<number>]
+		| <var>[<number>]  //missing
 
 <ascii_word> --> <ascii>
 			| <ascii><ascii_word>
@@ -182,9 +194,9 @@
 			| .<number>
 			| +.<number>
 			| -.<number>
-			| <Dcasting>
+			| <Dcasting>  //missing
 
-<number_type> --> <Ncasting>
+<number_type> --> <Ncasting>  //missing
 				| <signed_number>
 
 <signed_number> --> +<number>
