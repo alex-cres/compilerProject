@@ -305,15 +305,17 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			if (nextChar->ch == '=') {
 				nextToken = OP_BIGGER_EQUAL;
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				*nextChar = getChar(file);
 			}
-			*nextChar = getChar(file);
+			
 		}
 		else if (nextToken == OP_NOT) {
 			if (nextChar->ch == '=') {
 				nextToken = OP_NOT_EQUAL;
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				*nextChar = getChar(file);
 			}
-			*nextChar = getChar(file);
+			
 		}
 		
 		break;

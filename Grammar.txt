@@ -6,32 +6,40 @@
 <instruction> -- > <declaration>
 		| <attribution>
 		| <if_struct>
-		| <looper> //missing  //todo next
+		| <looper> 
 		| <comment>
-		| <for> //missing 
-		| <scan> //missing
-		| <print> //missing
-		| <function> 
+		| <for> 
 		| <call_function>
-		| <return> //missing  //todo next
-		| <continue> //missing  //todo next
-		| <break> //missing  //todo next
-		| <fprint> //missing 
-		| <fscan> //missing
-		| <fscanEnder> //missing
-		| <fscanSize> //missing
+		| <exit> 
+		| <continue>
+		| <continueif>
+		| <break> 
+		| <breakif>
+		| <in>
+		| <on>
 		| EOF 
+
+<in> --> <fscan> //missing
+			| <scan> //missing
+			| <fscanEnder> //missing
+			| <fscanSize> //missing
+
+<fscan> --> In.File(<exp>,<number>)  //missing
+
+<fscanEnder> --> In.FileEnder(<exp>) //missing
+
+<fscanSize> --> In.FileSize(<exp>,<number>) //missing
+
+<scan> --> In.Console() //missing
+
+<on> --> <fprint> //missing
+			|<print> //missing
+
 			
-<fprint> --> On.File(<string>,<string>,<mode>)  //missing
+<fprint> --> On.File(<exp>,<exp>,<mode>,<exp>)  //missing
  
 <mode> --> "W" | "A" | "w" | "a"  //missing
 
-<fscan> --> In.File(<string>,<number>)  //missing
-
-
-<fscanEnder> --> In.FileEnder(<string>) //missing
-
-<fscanSize> --> In.FileSize(<string>,<number>) //missing
 			
 
 
@@ -46,30 +54,27 @@
 				| <declareExpr>,<declareExpr>  //done
 
 
-<return> --> Exit(<var>) //missing
+<exit> --> Exit(<var>) //missing
 			| Exit() //missing
 
 <break> --> Break() //missing
-			|BreakIf(<bool>) //missing
+<breakif> --> BreakIf(<boolstruct>) //missing
 
 <continue> --> Continue() //missing
-			|ContinueIf(<bool>) //missing
+<continueif> -->ContinueIf(<boolstruct>) //missing
 
 <function_name> --> <letterBig><word> //done
 
 <call_function> --> F.<function_name>(<params_call>) //done
 				| F.<function_name>() //done
 
-	<params> --> <type_identifier> <var> //done
+<params> --> <type_identifier> <var> //done
 			| <type_identifier> <var>, <params>  //done
 
 <params_call> -->  <exp> //done
-			| <exp>, <params_call>  //done
-			
-<scan> --> In.Console() //missing
-		
+			| <exp>, <params_call>  //done		
 
-<print> --> On.Console(<string>) //missing
+<print> --> On.Console(<exp>) //missing
 		
 
 <attribution> --> <var> << <exp>   //done
@@ -82,7 +87,7 @@
 			| Todo(<ascii_word>)  //done
 			| Fix(<ascii_word>)  //done
 
-<for> --> For(<idn_number> <var> = <signed_number>).Step(<signed_number>).If(<bool>).Do(<instructionList>)  //missing
+<for> --> For(<idn_number> <attribution>).Step(<signed_number>).If(<bool>).Do(<instructionList>)  //missing
 
 <if_struct> --> If(<bool>).Then(<instructionList>)  //done
 			  | If(<bool>).Then(<instructionList>).Else(<instructionList>) //done
@@ -118,7 +123,6 @@
 		| <boolstruct> X <boolstruct> //done
 		| True //done
 		| False //done
-		| <Bcasting> //missing
 
 <boolexp> --> <exp> < <exp> //done
 		| <exp> > <exp> //done
@@ -126,14 +130,13 @@
 		| <exp> <= <exp> //done
 		| <exp> = <exp> //done
 		| <exp> != <exp> //done
+		| <exp>
 
 <char> --> '<ascii>' //done
-		| <Ccasting> //missing
+		| 
 
 <string> --> "<ascii_word>"  //done
-			| <Scasting> //missing
-			| <scan> //missing
-			| <fscan> //missing
+		
 			
 		
 <type_identifier> --> <idn_decimal>
@@ -149,20 +152,20 @@
 			| <Ccasting> //missing
 			| <Bcasting> //missing
 
-<Scasting> --> toString(<var>)  //missing
-			| <scan>.toString()  //missing
+<Scasting> --> toString(<exp>)  //missing
+			| <in>.toString()  //missing
 			 
-<Dcasting> --> toDecimal(<var>)  //missing
-			| <scan>.toDecimal()  //missing
+<Dcasting> --> toDecimal(<exp>)  //missing
+			| <in>.toDecimal()  //missing
 			
-<Ncasting> --> toNumber(<var>)  //missing
-			| <scan>.toNumber()  //missing
+<Ncasting> --> toNumber(<exp>)  //missing
+			| <in>.toNumber()  //missing
 			
-<Ccasting> --> toChar(<var>)  //missing
-			| <scan>.toChar()  //missing
+<Ccasting> --> toChar(<exp>)  //missing
+			| <in>.toChar()  //missing
 			
-<Bcasting> --> toBool(<var>)  //missing
-			| <scan>.toBool()  //missing
+<Bcasting> --> toBool(<exp>)  //missing
+			| <in>.toBool()  //missing
 
 <idn_decimal> --> D
 <idn_number> --> N
