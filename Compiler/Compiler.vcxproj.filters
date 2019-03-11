@@ -90,5 +90,8 @@
     <None Include="..\Examples\StringAndWriteInConsoleExample.cx">
       <Filter>Source Files\ExamplesCX</Filter>
     </None>
+    <None Include="..\Examples\ArrayUsageExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
   </ItemGroup>
 </Project>

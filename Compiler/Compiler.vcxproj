@@ -141,6 +141,7 @@
     <Text Include="Code4.txt" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Examples\ArrayUsageExample.cx" />
     <None Include="..\Examples\AttributionAndWriteExample.cx" />
     <None Include="..\Examples\BreakExample.cx" />
     <None Include="..\Examples\BreakIfExample.cx" />
