@@ -9,11 +9,11 @@ D x<<.0, y<<.0;
 If(x!=0.2).Then(x<<5.9;);
 
 On.Console("\nGive me the x: ");
-x<<In.Console().toDecimal();
+x<<In.Console().ToDecimal();
 
 On.Console("\nGive me the y: ");
-y<<In.Console().toDecimal();
+y<<In.Console().ToDecimal();
 
 D area <<F.CalcArea(x,y);
 On.Console("\nThe Area: ");
-On.Console(toString(area));
+On.Console(ToString(area));

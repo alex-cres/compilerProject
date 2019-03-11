@@ -18,6 +18,7 @@ int main()
 	int nextToken;
 	char nextLexeme[MAX_LEXEME_SIZE];
 	char fileName[500];
+	//..\Examples\ArrayUsageExample.cx
 	//..\Examples\FunctionExample.cx
 	//..\Examples\AttributionAndWriteExample.cx
 	//..\Examples\BreakExample.cx

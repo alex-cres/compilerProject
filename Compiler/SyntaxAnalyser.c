@@ -510,11 +510,11 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 		| <fscanEnder> 
 		| <fscanSize> 
 
-<fscan> --> In.File(<exp>,<number>) 
+<fscan> --> In.File(<exp>,<exp>) 
 
 <fscanEnder> --> In.FileEnder(<exp>) //missing
 
-<fscanSize> --> In.FileSize(<exp>,<number>) 
+<fscanSize> --> In.FileSize(<exp>,<exp>) 
 
 <scan> --> In.Console() 
 <Scasting> --> <in>.toString()  
@@ -574,16 +574,9 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 					nextToken = exp(file, nextToken, nextChar, nextLexeme);
 					if (nextToken == COMMA) {
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
-						if (nextToken == LITERAL_NUMBER) {
+						nextToken = exp(file, nextToken, nextChar, nextLexeme);
+						if (nextToken == CLOSE_PARENTESIS) {
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
-
-							if (nextToken == CLOSE_PARENTESIS) {
-								nextToken = lex(file, nextChar, nextLexeme);//gets next term
-							}
-							else
-							{
-								syntaxError(nextLexeme);
-							}
 						}
 						else
 						{

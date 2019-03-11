@@ -6,4 +6,4 @@ Loop(5).Do(
 	a<<a+1;
 );
 
-On.Console(toString(a));
+On.Console(ToString(a));

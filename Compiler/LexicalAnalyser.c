@@ -208,7 +208,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_FILE_LEXEME)) {
-		nextToken = OP_XOR;
+		nextToken = RESERVED_FILE;
 		break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_FILE_ENDER_LEXEME)) {
