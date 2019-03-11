@@ -1,0 +1,2 @@
+S[5] a<<"aula";
+On.Console(toString(a[0]));

@@ -1,5 +1,3 @@
-
-
 #include <stdio.h>
 #include <string.h>
 #include "SyntaxAnalyser.h"
@@ -649,7 +647,7 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 	/*
 <on> --> <fprint> 
 			|<print> 
-<fprint> --> On.File(<exp>,<exp>,<mode>,<exp>)  
+<fprint> --> On.File(<exp>,<exp>,<mode>,<exp>)  //filename, numberofline(ifin append adds to the end of the line), mode, stringtowrite
 <print> --> On.Console(<exp>) 
 <mode> --> "W" | "A" | "w" | "a"  
 	*/
@@ -850,9 +848,6 @@ int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 		nextToken = declareExp(file, nextToken, nextChar, nextLexeme);
 		break;
 	}
-	
-
-
 	printf("Exiting <ATTRIBUTION>\n");
 	return nextToken;
 }
@@ -1091,6 +1086,7 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
 	/*
 	<factor> -- > (<exp>)
 			| <var>
+			| <var>[<number>]
 			| +<number>
 			| -<number>
 			| +<decimal>
@@ -1105,7 +1101,14 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
 			| <casting>
 	*/
 	printf("Entering <FACTOR>\n");
-	if (nextToken == IDENTIFIER || nextToken == LITERAL_CHAR || nextToken == LITERAL_STRING 
+	if (nextToken == IDENTIFIER){
+		nextToken = lex(file, nextChar, nextLexeme);//gets next term
+		if (nextToken==OPEN_BRACKETS) {
+			nextToken=reservedArray(file, nextToken, nextChar, nextLexeme);//analyze term
+		}
+	
+	}
+	else if( nextToken == LITERAL_CHAR || nextToken == LITERAL_STRING 
 		|| nextToken == LITERAL_NUMBER || nextToken == LITERAL_DECIMAL) {
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 	}
@@ -1212,9 +1215,9 @@ void syntaxError(char* nextLexeme) {
 	
 
 
-			int name_of_non_terminal(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
-				printf("Entering <name_of_non_terminal>\n");
-				printf("Exiting <name_of_non_terminal>\n");
-				return nextToken;
-			}
+int name_of_non_terminal(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
+	printf("Entering <name_of_non_terminal>\n");
+	printf("Exiting <name_of_non_terminal>\n");
+	return nextToken;
+}
 */
