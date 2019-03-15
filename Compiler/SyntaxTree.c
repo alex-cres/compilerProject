@@ -43,20 +43,48 @@ Node * addChildNode(Node * fatherNode, char * info, int type)
 	return fatherNode->kids[i];
 }
 
-void printTree(Node * tree, int tabDepth,int lastChild)
+
+void printTree(Node * tree, int tabDepth,int lastChild,int *arrayDepthTab)
 {
 	int i = 0;
 	for (i = 0; i < tabDepth-1; i++)
 	{
-		printf("|   ");
+		int last = arrayDepthTab[i+1];
+		if (!last) {
+			printf("|");
+		}
+		else {
+			printf(" ");
+		}
+		printf(" ");
 	}
 	if(tabDepth!=0 && !lastChild)
-		printf("%c%c%c%c",195,196,196,196);
+		printf("%c%c",195,196);
 	if (tabDepth != 0 && lastChild)
-		printf("%c%c%c%c", 192, 196, 196, 196);
+		printf("%c%c", 192, 196);
 	printf("%s\n", tree->info);
+	
+	arrayDepthTab[tabDepth] = lastChild;
+	
 	for (i = 0; (i < MAX_CHILDREN && tree->kids[i] != NULL); i++)
 	{
-		printTree(tree->kids[i], tabDepth + 1,tree->kids[i+1]==NULL);
+		printTree(tree->kids[i], tabDepth + 1,(tree->kids[i+1]==NULL), arrayDepthTab);
 	}
+}
+
+
+int getTreeMaxDepth(Node * tree,int initialDepth)
+{
+	int max = 0,i=0;
+	if (tree->kids[0]==NULL) {
+		return initialDepth;
+	}
+	for (i = 0; (i < MAX_CHILDREN && tree->kids[i] != NULL); i++)
+	{
+		int childmax = getTreeMaxDepth(tree->kids[i], initialDepth+1);
+		if (max<childmax) {
+			max = childmax;
+		}
+	}
+	return max;
 }
