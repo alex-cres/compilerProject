@@ -17,14 +17,19 @@ int instructionList(FILE* file, int nextToken, NextChar* nextChar, char* nextLex
 					| <instruction>;<instructionList>
 */
 		nextToken = instruction(file, nextToken, nextChar, nextLexeme, instructionListNode);
-		while (nextToken == POINT_COMMA) {
+		if (nextToken == POINT_COMMA) {
 			addChildNode(instructionListNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);
 			if (nextToken == EOF) {
+				addChildNode(instructionListNode, nextLexeme, nextToken);
 				printf("Exiting <INSTRUCTIONLIST>\n");
 				return nextToken;
 			}
 			nextToken=instructionList(file, nextToken, nextChar, nextLexeme, instructionListNode);
+		}else if (nextToken == EOF) {
+			addChildNode(instructionListNode, nextLexeme, nextToken);
+			printf("Exiting <INSTRUCTIONLIST>\n");
+			return nextToken;
 		}
 	
 	printf("Exiting <INSTRUCTIONLIST>\n");
@@ -67,6 +72,7 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 		nextToken = reservedLooper(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_COMMENT://Ignore Comments
+		addChildNode(instructionNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		break;
 	case RESERVED_FOR:

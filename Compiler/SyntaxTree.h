@@ -9,8 +9,8 @@ typedef struct node
 	struct node* kids[MAX_CHILDREN];
 } Node;
 
-Node* createNode(char* info, int type);
+Node* generateNode(char* info, int type);
 
 Node* addChildNode(Node* fatherNode, char* info, int type);
 
-void printTree(Node * tree, int tabDepth);
+void printTree(Node * tree, int tabDepth,int lastChild);

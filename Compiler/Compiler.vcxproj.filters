@@ -30,6 +30,9 @@
     <ClCompile Include="SyntaxAnalyser.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SyntaxTree.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ErrorHandling.h">
@@ -95,9 +98,6 @@
     </None>
     <None Include="..\Examples\ArrayUsageExample.cx">
       <Filter>Source Files\ExamplesCX</Filter>
-    </None>
-    <None Include="SyntaxTree.c">
-      <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
 </Project>

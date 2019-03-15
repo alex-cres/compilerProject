@@ -30,4 +30,5 @@ int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree);
 int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree);
 void syntaxError(char* nextLexeme);
+int reservedArray(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree);
 

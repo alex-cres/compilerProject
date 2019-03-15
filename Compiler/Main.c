@@ -15,7 +15,7 @@ void pad(char *s, int length);
 int main()
 {
 	
-	Node * cst = createNode("program",-1);
+	Node * cst = generateNode("PROGRAM",-1);
 	FILE * filePointer = NULL;
 	NextChar nextChar;
 	int nextToken;
@@ -48,7 +48,7 @@ int main()
 			
 		} while (nextToken != EOF);
 		normalColor();
-		printTree(cst, 0);
+		printTree(cst, 0,False);
 	}
 	else {
 		errorColor();

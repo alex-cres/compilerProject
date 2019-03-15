@@ -7,7 +7,7 @@
 
 
 
-Node * createNode(char * info, int type)
+Node * generateNode(char * info, int type)
 {
 	int i;
 	Node * p = (Node*)malloc(sizeof(Node));
@@ -30,7 +30,7 @@ Node * addChildNode(Node * fatherNode, char * info, int type)
 		i++;
 	}
 	if (i < MAX_CHILDREN) {
-		fatherNode->kids[i] = createNode(info, type);;
+		fatherNode->kids[i] = generateNode(info, type);;
 	}
 	else {
 		errorColor();
@@ -43,16 +43,20 @@ Node * addChildNode(Node * fatherNode, char * info, int type)
 	return fatherNode->kids[i];
 }
 
-void printTree(Node * tree, int tabDepth)
+void printTree(Node * tree, int tabDepth,int lastChild)
 {
 	int i = 0;
-	for (i = 0; i < tabDepth; i++)
+	for (i = 0; i < tabDepth-1; i++)
 	{
-		printf("\t");
+		printf("|   ");
 	}
+	if(tabDepth!=0 && !lastChild)
+		printf("%c%c%c%c",195,196,196,196);
+	if (tabDepth != 0 && lastChild)
+		printf("%c%c%c%c", 192, 196, 196, 196);
 	printf("%s\n", tree->info);
 	for (i = 0; (i < MAX_CHILDREN && tree->kids[i] != NULL); i++)
 	{
-		printTree(tree->kids[i], tabDepth + 1);
+		printTree(tree->kids[i], tabDepth + 1,tree->kids[i+1]==NULL);
 	}
 }
