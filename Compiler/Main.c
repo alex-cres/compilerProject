@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ErrorHandling.h"
+#include "SyntaxTree.h"
 #include "LexicalAnalyser.h"
 #include "SyntaxAnalyser.h"
+
 
 #define _countof(array) (sizeof(array) / sizeof(array[0]))
 typedef int bool;
@@ -13,6 +15,8 @@ void pad(char *s, int length);
 
 int main()
 {
+	
+	Node * cst = createNode("program",-1);
 	FILE * filePointer = NULL;
 	NextChar nextChar;
 	int nextToken;
@@ -40,11 +44,12 @@ int main()
 			
 			//identifying the lexemes
 			nextToken = lex(filePointer, &nextChar, nextLexeme);
-			nextToken = instructionList(filePointer,nextToken, &nextChar, nextLexeme);
+			nextToken = instructionList(filePointer,nextToken, &nextChar, nextLexeme,cst);
 			
 			
 		} while (nextToken != EOF);
 		normalColor();
+		printTree(cst, 0);
 	}
 	else {
 		errorColor();
@@ -55,6 +60,12 @@ int main()
 
 
 	return 0;
+
+	
+
+
+
+
 }
 
 

@@ -132,6 +132,7 @@
     <ClInclude Include="ErrorHandling.h" />
     <ClInclude Include="LexicalAnalyser.h" />
     <ClInclude Include="SyntaxAnalyser.h" />
+    <ClInclude Include="SyntaxTree.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Code.txt" />
@@ -152,6 +153,7 @@
     <None Include="..\Examples\SimpleExample.cx" />
     <None Include="..\Examples\SimpleLooperExample.cx" />
     <None Include="..\Examples\StringAndWriteInConsoleExample.cx" />
+    <None Include="SyntaxTree.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

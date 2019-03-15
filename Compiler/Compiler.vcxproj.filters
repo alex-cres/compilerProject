@@ -41,6 +41,9 @@
     <ClInclude Include="SyntaxAnalyser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SyntaxTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Code2.txt">
@@ -92,6 +95,9 @@
     </None>
     <None Include="..\Examples\ArrayUsageExample.cx">
       <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="SyntaxTree.c">
+      <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
 </Project>

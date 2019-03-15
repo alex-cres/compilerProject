@@ -1,6 +1,4 @@
-<program> --> <instruction_list>
-
-<instructionList> --> <instruction>
+<instructionList> --> <instruction>;EOF
 					| <instruction>;<instructionList>
 
 <instruction> -- > <declaration>

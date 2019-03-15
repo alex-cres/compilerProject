@@ -6,27 +6,31 @@
 
 
 
-int instructionList(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int instructionList(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <INSTRUCTIONLIST>\n");
+	Node* instructionListNode = addChildNode(tree, "INSTRUCTIONLIST", -1);
+
 /*
 <instructionList> --> <instruction>
 					| <instruction>;<instructionList>
 */
-		nextToken = instruction(file, nextToken, nextChar, nextLexeme);
+		nextToken = instruction(file, nextToken, nextChar, nextLexeme, instructionListNode);
 		while (nextToken == POINT_COMMA) {
+			addChildNode(instructionListNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);
 			if (nextToken == EOF) {
 				printf("Exiting <INSTRUCTIONLIST>\n");
 				return nextToken;
 			}
-			nextToken=instructionList(file, nextToken, nextChar, nextLexeme);
+			nextToken=instructionList(file, nextToken, nextChar, nextLexeme, instructionListNode);
 		}
 	
 	printf("Exiting <INSTRUCTIONLIST>\n");
 	return nextToken;
 }
-int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <INSTRUCTION>\n");
+	Node* instructionNode = addChildNode(tree, "INSTRUCTION", -1);
 /*
 <instruction> -- > <declaration>
 		| <attribution>
@@ -48,56 +52,56 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 	switch (nextToken)
 	{
 	case IDN_BOOL: case IDN_NUMBER:	case IDN_DECIMAL: case IDN_CHAR: case IDN_VOID:	case IDN_STRING:
-		nextToken = declaration(file, nextToken, nextChar, nextLexeme);
+		nextToken = declaration(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case IDENTIFIER: //attribution
-		nextToken = attribution(file, nextToken, nextChar, nextLexeme);
+		nextToken = attribution(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_IF:
-		nextToken=reservedIf(file,nextToken,nextChar,nextLexeme);
+		nextToken=reservedIf(file,nextToken,nextChar,nextLexeme, instructionNode);
 		break;
 
 	case RESERVED_LOOP:
-		nextToken = reservedLooper(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedLooper(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_COMMENT://Ignore Comments
-		nextToken = lex(file, nextChar, nextLexeme);//gets next term
+		nextToken = lex(file, nextChar, nextLexeme, instructionNode);//gets next term
 		break;
 	case RESERVED_FOR:
-		nextToken = reservedFor(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedFor(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_CALL_FUNCTION:
-		nextToken = reservedCallFunction(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedCallFunction(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_EXIT_FUNCTION:
-		nextToken = reservedExit(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedExit(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_CONTINUE:
-		nextToken = reservedContinue(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedContinue(file, nextToken, nextChar, nextLexeme,instructionNode);
 		break;
 	case RESERVED_CONTINUEIF:
-		nextToken = reservedContinueIf(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedContinueIf(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_BREAK:
-		nextToken = reservedBreak(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedBreak(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_BREAKIF:
-		nextToken = reservedBreakIf(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedBreakIf(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_IN:
-		nextToken = reservedIn(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedIn(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_ON:
-		nextToken = reservedOn(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedOn(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case EOF: break;
 	}
 	printf("Exiting <INSTRUCTION>\n");
 	return nextToken;
 }
-int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <IF>\n");
-
+	Node* ifNode = addChildNode(tree, "IF", -1);
 	/*
 
 <if_struct> --> If(<bool>).Then(<instructionList>)
@@ -105,219 +109,337 @@ int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) 
 
 	*/
 	if (nextToken==RESERVED_IF) {
+		addChildNode(ifNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(ifNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme);
+			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,ifNode);
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(ifNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == POINT) {
+					addChildNode(ifNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == RESERVED_THEN) {
+						addChildNode(ifNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
+							addChildNode(ifNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
-							nextToken = instructionList(file, nextToken, nextChar, nextLexeme);
+							nextToken = instructionList(file, nextToken, nextChar, nextLexeme, ifNode);
 							if (nextToken == CLOSE_PARENTESIS) {
+								addChildNode(ifNode, nextLexeme, nextToken);
 								nextToken = lex(file, nextChar, nextLexeme);//gets next term
 								if (nextToken == POINT) {
+									addChildNode(ifNode, nextLexeme, nextToken);
 									nextToken = lex(file, nextChar, nextLexeme);//gets next term
 									if (nextToken == RESERVED_ELSE) {
+										addChildNode(ifNode, nextLexeme, nextToken);
 										nextToken = lex(file, nextChar, nextLexeme);//gets next term
 										if (nextToken == OPEN_PARENTESIS) {
+											addChildNode(ifNode, nextLexeme, nextToken);
 											nextToken = lex(file, nextChar, nextLexeme);//gets next term
-											nextToken = instructionList(file, nextToken, nextChar, nextLexeme);
+											nextToken = instructionList(file, nextToken, nextChar, nextLexeme, ifNode);
 											if (nextToken == CLOSE_PARENTESIS) {
+												addChildNode(ifNode, nextLexeme, nextToken);
 												nextToken = lex(file, nextChar, nextLexeme);//gets next term
 											}
 											else {
-												syntaxError(nextLexeme);
+												errorColor();
+												printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+												normalColor();
+												exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 											}
 										}
 										else {
-											syntaxError(nextLexeme);
+											errorColor();
+											printf("ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s", lineNumber, nextLexeme);
+											normalColor();
+											exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 										}
 									}
 									else {
-										syntaxError(nextLexeme);
+										errorColor();
+										printf("ERROR: At Line %i : SYNTAX ERROR ELSE NOT FOUND, %s", lineNumber, nextLexeme);
+										normalColor();
+										exit(ERROR_SYNTAX_ERROR_ELSE_NOT_FOUND);
 									}
 								}
 							}
 						}
 						else {
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR THEN NOT OPENED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_THEN_NOT_OPENED);
 						}
 					}
 					else {
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR THEN NOT FOUND, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_THEN_NOT_FOUND);
 					}
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 				}
 			}
 			else {
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
 	printf("Exiting <IF>\n");
 	return nextToken;
 }
-int reservedLooper(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedLooper(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 	<looper> --> Loop(<exp>).Do(<instructionList>) 
 
 	*/
 	printf("Entering <LOOPER>\n");
+	Node* looperNode = addChildNode(tree, "LOOPER", -1);
 
 	if (nextToken == RESERVED_LOOP){
+		addChildNode(looperNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(looperNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = exp(file, nextToken, nextChar, nextLexeme);
+			nextToken = exp(file, nextToken, nextChar, nextLexeme,looperNode);
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(looperNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == POINT) {
+					addChildNode(looperNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == RESERVED_DO) {
+						addChildNode(looperNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
+							addChildNode(looperNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
-							nextToken = instructionList(file, nextToken, nextChar, nextLexeme);
+							nextToken = instructionList(file, nextToken, nextChar, nextLexeme,looperNode);
 							if (nextToken == CLOSE_PARENTESIS) {
+								addChildNode(looperNode, nextLexeme, nextToken);
 								nextToken = lex(file, nextChar, nextLexeme);//gets next term
 							}
 							else
 							{
-								syntaxError(nextLexeme);
+								errorColor();
+								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+								normalColor();
+								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 							}
 						}
 						else
 						{
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 						}
 					}
 					else
 					{
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
 					}
 				}
 				else
 				{
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 				}
 			}
 			else
 			{
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
-	else
-	{
-		syntaxError(nextLexeme);
-	}
-
+	
 	printf("Exiting <LOOPER>\n");
 	return nextToken;
 	
 }
-int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 <for> --> For(<idn_number> <attribution>).Step(<exp>).If(<boolstruct>).Do(<instructionList>)  //missing
 
 	*/
 	printf("Entering <FOR>\n");
+	Node* forNode = addChildNode(tree, "FOR", -1);
+
 	if (nextToken == RESERVED_FOR)
 	{
+		addChildNode(forNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(forNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == IDN_DECIMAL || nextToken == IDN_NUMBER) {
+				addChildNode(forNode, nextLexeme, nextToken);
+
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
-				nextToken = attribution(file, nextToken, nextChar, nextLexeme);
+				nextToken = attribution(file, nextToken, nextChar, nextLexeme,forNode);
 				if (nextToken == CLOSE_PARENTESIS) {
+					addChildNode(forNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					if (nextToken == OPEN_PARENTESIS) {
+					if (nextToken == POINT) {
+						addChildNode(forNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
-						if (nextToken == RESERVED_STEP) {
+					if (nextToken == RESERVED_STEP) {
+						addChildNode(forNode, nextLexeme, nextToken);
+						nextToken = lex(file, nextChar, nextLexeme);//gets next term
+						if (nextToken == OPEN_PARENTESIS) {
+							addChildNode(forNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
-							nextToken = exp(file, nextToken, nextChar, nextLexeme);
+							nextToken = exp(file, nextToken, nextChar, nextLexeme,forNode);
 							if (nextToken == CLOSE_PARENTESIS) {
+								addChildNode(forNode, nextLexeme, nextToken);
 								nextToken = lex(file, nextChar, nextLexeme);//gets next term
 								if (nextToken == POINT) {
+									addChildNode(forNode, nextLexeme, nextToken);
 									nextToken = lex(file, nextChar, nextLexeme);//gets next term
 									if (nextToken == RESERVED_IF) {
+										addChildNode(forNode, nextLexeme, nextToken);
 										nextToken = lex(file, nextChar, nextLexeme);//gets next term
 										if (nextToken == OPEN_PARENTESIS) {
+											addChildNode(forNode, nextLexeme, nextToken);
 											nextToken = lex(file, nextChar, nextLexeme);//gets next term
-											nextToken = boolstruct(file, nextToken, nextChar, nextLexeme);
+											nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,forNode);
 											if (nextToken == CLOSE_PARENTESIS) {
+												addChildNode(forNode, nextLexeme, nextToken);
 												nextToken = lex(file, nextChar, nextLexeme);//gets next term
 												if (nextToken == POINT) {
+													addChildNode(forNode, nextLexeme, nextToken);
 													nextToken = lex(file, nextChar, nextLexeme);//gets next term
 													if (nextToken == RESERVED_DO) {
+														addChildNode(forNode, nextLexeme, nextToken);
 														nextToken = lex(file, nextChar, nextLexeme);//gets next term
 														if (nextToken == OPEN_PARENTESIS) {
+															addChildNode(forNode, nextLexeme, nextToken);
 															nextToken = lex(file, nextChar, nextLexeme);//gets next term
-															nextToken = instructionList(file, nextToken, nextChar, nextLexeme);
+															nextToken = instructionList(file, nextToken, nextChar, nextLexeme,forNode);
 															if (nextToken == CLOSE_PARENTESIS) {
+																addChildNode(forNode, nextLexeme, nextToken);
 																nextToken = lex(file, nextChar, nextLexeme);//gets next term
 															}
 															else {
-																syntaxError(nextLexeme);
+																errorColor();
+																printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+																normalColor();
+																exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 															}
 														}
 														else {
-															syntaxError(nextLexeme);
+															errorColor();
+															printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+															normalColor();
+															exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 														}
 													}
 												}
 												else {
-													syntaxError(nextLexeme);
+													errorColor();
+													printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
+													normalColor();
+													exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
 												}
 											}
 											else {
-												syntaxError(nextLexeme);
+												errorColor();
+												printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+												normalColor();
+												exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 											}
 										}
 										else {
-											syntaxError(nextLexeme);
+											errorColor();
+											printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+											normalColor();
+											exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 										}
 									}
 									else {
-										syntaxError(nextLexeme);
+										errorColor();
+										printf("ERROR: At Line %i : SYNTAX ERROR IF NOT FOUND, %s", lineNumber, nextLexeme);
+										normalColor();
+										exit(ERROR_SYNTAX_ERROR_IF_NOT_FOUND);
 									}
 								}
 								else {
-									syntaxError(nextLexeme);
+									errorColor();
+									printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT CLOSED, %s", lineNumber, nextLexeme);
+									normalColor();
+									exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 								}
 							}
 							else {
-								syntaxError(nextLexeme);
+								errorColor();
+								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+								normalColor();
+								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 							}
 						}
 						else {
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 						}
 					}
 					else {
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR STEP NOT FOUND, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_STEP_NOT_FOUND);
+					}
+					}
+					else {
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 					}
 				}
 				else {
-					syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 				}
 			}
 			else {
@@ -332,175 +454,219 @@ int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 	printf("Exiting <FOR>\n");
 	return nextToken;
 }
-int reservedExit(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedExit(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 	<exit> --> Exit(<exp>)
 			| Exit() 
 	*/
+	
 	printf("Entering <EXIT>\n");
+	Node* exitNode = addChildNode(tree, "EXIT", -1);
+
+	
+
 	if (nextToken==RESERVED_EXIT_FUNCTION)
 	{
+		addChildNode(exitNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(exitNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(exitNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}
 			else
 			{
-				nextToken = exp(file, nextToken, nextChar, nextLexeme);
+				nextToken = exp(file, nextToken, nextChar, nextLexeme,exitNode);
 
 				if (nextToken == CLOSE_PARENTESIS) {
+					addChildNode(exitNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 				}
 			}
 			
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	} 
-	else
-	{
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <EXIT>\n");
 	return nextToken;
 }
-int reservedContinue(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedContinue(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 	<continue> --> Continue() 
 	*/
 	printf("Entering <CONTINUE>\n");
+	Node* continueNode = addChildNode(tree, "CONTINUE", -1);
 
 
 	if (nextToken == RESERVED_CONTINUE)
 	{
+		addChildNode(continueNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(continueNode, nextLexeme, nextToken);
+
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(continueNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}
 			else
 			{
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
-	else
-	{
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <CONTINUE>\n");
 	return nextToken;
 }
-int reservedContinueIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedContinueIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 	<continueif> -->ContinueIf(<boolstruct>)
 	*/
 	printf("Entering <CONTINUEIF>\n");
+	Node* continueIfNode = addChildNode(tree, "CONTINUEIF", -1);
 
 	if (nextToken == RESERVED_CONTINUEIF)
 	{
+		addChildNode(continueIfNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(continueIfNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme);
+			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,continueIfNode);
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(continueIfNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}
 			else
 			{
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
-	else
-	{
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <CONTINUEIF>\n");
 	return nextToken;
 }
-int reservedBreakIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedBreakIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 	<breakif> --> BreakIf(<boolstruct>) 
 	*/
 	printf("Entering <BREAKIF>\n");
+	Node* breakIfNode = addChildNode(tree, "BREAKIF", -1);
+
 	if (nextToken == RESERVED_BREAKIF)
 	{
+		addChildNode(breakIfNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(breakIfNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme);
+			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,breakIfNode);
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(breakIfNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}
 			else
 			{
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
-	else
-	{
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <BREAKIF>\n");
 	return nextToken;
 }
-int reservedBreak(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedBreak(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	/*
 <break> --> Break()
 	*/
 	printf("Entering <BREAK>\n");
+	Node* breakNode = addChildNode(tree, "BREAK", -1);
+
 	if (nextToken == RESERVED_BREAK)
 	{
+		addChildNode(breakNode, nextLexeme, nextToken);
+
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(breakNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(breakNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}
 			else
 			{
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
-	else
-	{
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <BREAK>\n");
 	return nextToken;
 }
-int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	printf("Entering <IN>\n");
 
@@ -527,114 +693,165 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 
 <in> --> <in>.toBool()  
 	*/
+
+	Node* inNode = addChildNode(tree, "IN", -1);
+
 	if (nextToken == RESERVED_IN) {
+		addChildNode(inNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == POINT) {
+			addChildNode(inNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			switch (nextToken) {
 			case RESERVED_CONSOLE:
+				addChildNode(inNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == OPEN_PARENTESIS) {
+					addChildNode(inNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == CLOSE_PARENTESIS) {
+						addChildNode(inNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					}
 					else
 					{
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 					}
 				}
 				else
 				{
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 				}
 				break;
 			case RESERVED_FILE_ENDER:
+				addChildNode(inNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == OPEN_PARENTESIS) {
+					addChildNode(inNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					nextToken = exp(file, nextToken, nextChar, nextLexeme);
+					nextToken = exp(file, nextToken, nextChar, nextLexeme,inNode);
 					if (nextToken == CLOSE_PARENTESIS) {
+						addChildNode(inNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					}
 					else
 					{
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 					}
 				}
 				else
 				{
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 				}
 				break;
 			case RESERVED_FILE:case RESERVED_FILE_SIZE:
+				addChildNode(inNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == OPEN_PARENTESIS) {
+					addChildNode(inNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					nextToken = exp(file, nextToken, nextChar, nextLexeme);
+					nextToken = exp(file, nextToken, nextChar, nextLexeme,inNode);
 					if (nextToken == COMMA) {
+						addChildNode(inNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
-						nextToken = exp(file, nextToken, nextChar, nextLexeme);
+						nextToken = exp(file, nextToken, nextChar, nextLexeme,inNode);
 						if (nextToken == CLOSE_PARENTESIS) {
+							addChildNode(inNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						}
 						else
 						{
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 						}
 					}
 					else
 					{
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR COMMA NOT FOUND, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_COMMA_NOT_FOUND);
 					}
 				}
 				else
 				{
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 				}
 				break;
 			default: syntaxError(nextLexeme); break;
 			}
 			if (nextToken==POINT) { // casting
 				printf("Entering <CASTIN>\n");
-
+				Node* castInNode = addChildNode(inNode, "CASTIN", -1);
+				addChildNode(castInNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if(nextToken == RESERVED_CAST_CHAR || nextToken == RESERVED_CAST_DECIMAL
 					|| nextToken == RESERVED_CAST_NUMBER || nextToken == RESERVED_CAST_STRING){
+					addChildNode(castInNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == OPEN_PARENTESIS ) {
+						addChildNode(castInNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						if (nextToken == CLOSE_PARENTESIS) {
+							addChildNode(castInNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
 							printf("Exiting <CASTIN>\n");
-
 						}
 						else
 						{
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 						}
 					}
 					else
 					{
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 					}
 				}
 				else
 				{
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR CAST NOT FOUND, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_CAST_NOT_FOUND);
 				}
 			}
 		}
 		else
 		{
-			syntaxError(nextLexeme);
+		errorColor();
+		printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+		normalColor();
+		exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 		}
 	}
 
 	printf("Exiting <IN>\n");
 	return nextToken;
 }
-int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	printf("Entering <ON>\n");
 	/*
@@ -644,45 +861,68 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 <print> --> On.Console(<exp>) 
 <mode> --> "W" | "A" | "w" | "a"  
 	*/
+	Node* onNode = addChildNode(tree, "ON", -1);
+	
 
 	if (nextToken==RESERVED_ON) {
+		addChildNode(onNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken==POINT) {
+			addChildNode(onNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			switch(nextToken){
 			case RESERVED_CONSOLE: 
+				addChildNode(onNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == OPEN_PARENTESIS) {
+					addChildNode(onNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					nextToken = exp(file, nextToken, nextChar, nextLexeme);
+					nextToken = exp(file, nextToken, nextChar, nextLexeme,onNode);
 					
 					if (nextToken==CLOSE_PARENTESIS) {
+						
+						addChildNode(onNode, nextLexeme, nextToken); 
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					}
 					else {
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 					}
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 				}
 					
 				
 				break;
 			case RESERVED_FILE: 
+				addChildNode(onNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == OPEN_PARENTESIS) {
+					addChildNode(onNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					nextToken = exp(file, nextToken, nextChar, nextLexeme);
+					nextToken = exp(file, nextToken, nextChar, nextLexeme,onNode);
 					if (nextToken == CLOSE_PARENTESIS) {
+						addChildNode(onNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					}
 					else {
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 					}
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 				}
 				break;
 			default: syntaxError(nextLexeme); break;
@@ -690,30 +930,40 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 		}
 		else
 		{
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 		}
 	}
 	printf("Exiting <ON>\n");
 	return nextToken;
 }
-int params(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int params(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	printf("Entering <PARAMS>\n");
 	/*
 	<params> --> <type_identifier> <var>
 			| <type_identifier> <var>, <params> 
 			*/
+	Node* paramsNode = addChildNode(tree, "PARAMS", -1);
 		if (nextToken == IDN_BOOL || nextToken == IDN_NUMBER || nextToken == IDN_DECIMAL || nextToken == IDN_CHAR || nextToken == IDN_STRING) {
+			addChildNode(paramsNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken==IDENTIFIER) {
+				addChildNode(paramsNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == COMMA) {
+					addChildNode(paramsNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term	
-					nextToken = params(file, nextToken, nextChar, nextLexeme);
+					nextToken = params(file, nextToken, nextChar, nextLexeme,paramsNode);
 				}
 			}
 			else {
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR IDENTIFIER NOT FOUND, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_IDENTIFIER_NOT_FOUND);
 			}
 		}
 		else if (nextToken == IDN_VOID) {
@@ -723,13 +973,16 @@ int params(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 			exit(ERROR_SYNTAX_ERROR_VOID_PARAM);
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR:At Line %i : SYNTAX ERROR PARAM BAD FORMAT, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARAM_BAD_FORMAT);
 		}
 
 		printf("Exiting <PARAMS>\n");
 	return nextToken;
 }
-int boolstruct(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int boolstruct(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <BOOLSTRUCT>\n");
 	/*
 	<boolstruct> -->  !(<boolstruct>)
@@ -741,36 +994,42 @@ int boolstruct(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) 
 		| True
 		| False
 	*/
+	Node* boolstructNode = addChildNode(tree, "BOOLSTRUCT", -1);
 	switch (nextToken) {
-	case OP_NOT:	
+	case OP_NOT:
+		addChildNode(boolstructNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 	case OPEN_PARENTESIS:
-			if (nextToken == OPEN_PARENTESIS) {
-				nextToken = lex(file, nextChar, nextLexeme);//gets next term
-				nextToken = boolstruct(file, nextToken, nextChar, nextLexeme);
-				if (nextToken == CLOSE_PARENTESIS) {
-					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					printf("Exiting <BOOLSTRUCT>\n");
-					return nextToken;
-				}
-				else {
-					syntaxError(nextLexeme);
-				}
-			}
-			else {
-				syntaxError(nextLexeme);
-			}
-			break;
+		addChildNode(boolstructNode, nextLexeme, nextToken);
+		nextToken = lex(file, nextChar, nextLexeme);//gets next term
+		nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,boolstructNode);
+		if (nextToken == CLOSE_PARENTESIS) {
+			addChildNode(boolstructNode, nextLexeme, nextToken);
+			nextToken = lex(file, nextChar, nextLexeme);//gets next term
+			printf("Exiting <BOOLSTRUCT>\n");
+			return nextToken;
+		}
+		else {
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+		}
+			
+			
+	break;
 	case RESERVED_BOOL_TRUE: case RESERVED_BOOL_FALSE:
+		addChildNode(boolstructNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			printf("Exiting <BOOLSTRUCT>\n");
 			return nextToken;
 		break;
 	default:
-		nextToken = boolexp(file, nextToken, nextChar, nextLexeme);
+		nextToken = boolexp(file, nextToken, nextChar, nextLexeme,boolstructNode);
 		if (nextToken == OP_AND || nextToken == OP_OR || nextToken == OP_XOR) {
+			addChildNode(boolstructNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = boolexp(file, nextToken, nextChar, nextLexeme);
+			nextToken = boolexp(file, nextToken, nextChar, nextLexeme,boolstructNode);
 		}
 		printf("Exiting <BOOLSTRUCT>\n");
 		return nextToken;
@@ -779,7 +1038,7 @@ int boolstruct(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) 
 	printf("Exiting <BOOLSTRUCT>\n");
 	return nextToken;
 }
-int boolexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int boolexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <BOOLEXP>\n");
 	/*
 	<boolexp> --> <exp> < <exp>
@@ -793,19 +1052,20 @@ int boolexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
 		
 		
 	*/
-	
-			nextToken = exp(file, nextToken, nextChar, nextLexeme);
+	Node* boolexpNode = addChildNode(tree, "BOOLEXP", -1);
+			nextToken = exp(file, nextToken, nextChar, nextLexeme,boolexpNode);
 			if (nextToken == OP_EQUAL || nextToken == OP_MINOR_EQUAL || nextToken == OP_MINOR || nextToken == OP_BIGGER || nextToken == OP_BIGGER_EQUAL || nextToken == OP_NOT_EQUAL)
 			{
+				addChildNode(boolexpNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
-				nextToken = exp(file, nextToken, nextChar, nextLexeme);
+				nextToken = exp(file, nextToken, nextChar, nextLexeme,boolexpNode);
 			}
 		
 	
 	printf("Exiting <BOOLEXP>\n");
 	return nextToken;
 }
-int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <ATTRIBUTION>\n");
 
 	/*
@@ -816,35 +1076,39 @@ int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 				| <type_identifier><array_def> <functionDec>
 
 	*/
+	Node* attributionNode = addChildNode(tree, "ATTRIBUTION", -1);
+	addChildNode(attributionNode, nextLexeme, nextToken);
 	nextToken = lex(file, nextChar, nextLexeme);//gets next term
 	switch (nextToken) {
 	case OPEN_BRACKETS:
-		nextToken = reservedArray(file, nextToken, nextChar, nextLexeme);
-		
+		nextToken = reservedArray(file, nextToken, nextChar, nextLexeme,attributionNode);
 		if (nextToken== IDENTIFIER_FUNCTION) {
-			nextToken = functionDec(file, nextToken, nextChar, nextLexeme);
+			nextToken = functionDec(file, nextToken, nextChar, nextLexeme,attributionNode);
 			break;
 		}
 		else if (nextToken == IDENTIFIER) {
-			nextToken = declareExp(file, nextToken, nextChar, nextLexeme);
+			nextToken = declareExp(file, nextToken, nextChar, nextLexeme,attributionNode);
 			break;
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR BAD DECLARATION, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_BAD_DECLARATION);
 		}
 		
 	case IDENTIFIER_FUNCTION:
-		nextToken = functionDec(file, nextToken, nextChar, nextLexeme);
+		nextToken = functionDec(file, nextToken, nextChar, nextLexeme,attributionNode);
 		break;
 
 	case IDENTIFIER:
-		nextToken = declareExp(file, nextToken, nextChar, nextLexeme);
+		nextToken = declareExp(file, nextToken, nextChar, nextLexeme,attributionNode);
 		break;
 	}
 	printf("Exiting <ATTRIBUTION>\n");
 	return nextToken;
 }
-int functionDec(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int functionDec(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <FUNCTIONDEC>\n");
 
 	/*
@@ -852,75 +1116,120 @@ int functionDec(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 	<functionDec> -- > <function_name>().Do(<instructionList>)
 
 	*/
+	Node* functionDecNode = addChildNode(tree, "FUNCTIONDEC", -1);
+
 	if (nextToken==IDENTIFIER_FUNCTION) {
+		addChildNode(functionDecNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(functionDecNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(functionDecNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == POINT) {
+					addChildNode(functionDecNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == RESERVED_DO) {
+						addChildNode(functionDecNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
+							addChildNode(functionDecNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
-							nextToken = instructionList(file, nextToken, nextChar, nextLexeme);
+							nextToken = instructionList(file, nextToken, nextChar, nextLexeme,functionDecNode);
 							if (nextToken == CLOSE_PARENTESIS) {
+								addChildNode(functionDecNode, nextLexeme, nextToken);
 								nextToken = lex(file, nextChar, nextLexeme);//gets next term
 							}
 							else {
-								syntaxError(nextLexeme);
+								errorColor();
+								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+								normalColor();
+								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 							}
 						}
 						else {
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 						}
 					}
 					else {
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUNF, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
 					}
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 				}
 			}
 			else {
-				nextToken = params(file, nextToken, nextChar, nextLexeme);
+				addChildNode(functionDecNode, nextLexeme, nextToken);
+				nextToken = params(file, nextToken, nextChar, nextLexeme,functionDecNode);
 				if (nextToken == CLOSE_PARENTESIS) {
+					addChildNode(functionDecNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == POINT) {
+						addChildNode(functionDecNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						if (nextToken == RESERVED_DO) {
+							addChildNode(functionDecNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
 							if (nextToken == OPEN_PARENTESIS) {
+								addChildNode(functionDecNode, nextLexeme, nextToken);
 								nextToken = lex(file, nextChar, nextLexeme);//gets next term
-								nextToken = instructionList(file, nextToken, nextChar, nextLexeme);
+								nextToken = instructionList(file, nextToken, nextChar, nextLexeme,functionDecNode);
 								if (nextToken == CLOSE_PARENTESIS) {
+									addChildNode(functionDecNode, nextLexeme, nextToken);
 									nextToken = lex(file, nextChar, nextLexeme);//gets next term
 								}
 								else {
-									syntaxError(nextLexeme);
+									errorColor();
+									printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+									normalColor();
+									exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 								}
 							}
 							else {
-								syntaxError(nextLexeme);
+								errorColor();
+								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+								normalColor();
+								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 							}
 						}
 						else {
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
 						}
 					}
 					else {
-						syntaxError(nextLexeme);
+						errorColor();
+						printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
+						normalColor();
+						exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
 					}
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 				}
 			}
 		}
 		else {
-		syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 	}
 		
 	}
@@ -929,7 +1238,7 @@ int functionDec(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
 	printf("Exiting <FUNCTIONDEC>\n");
 	return nextToken;
 }
-int declareExp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int declareExp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <DECLAREEXP>\n");
 
 	/*
@@ -938,128 +1247,160 @@ int declareExp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) 
 						| <var> << <exp>
 						| <declareExpr>,<declareExpr>
 	*/
+	Node* declareExpNode = addChildNode(tree, "DECLAREEXP", -1);
 	
 		if (nextToken == IDENTIFIER) {
+			addChildNode(declareExpNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == OP_ATTRIBUTION) {
+				addChildNode(declareExpNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
-				nextToken = exp(file, nextToken, nextChar, nextLexeme);//analyze term
+				nextToken = exp(file, nextToken, nextChar, nextLexeme,declareExpNode);//analyze term
 				if (nextToken==COMMA) {
+					addChildNode(declareExpNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
-					nextToken=declareExp(file, nextToken, nextChar, nextLexeme);//analyze term
+					nextToken=declareExp(file, nextToken, nextChar, nextLexeme,declareExpNode);//analyze term
 				}
 			}
 		}
-		else {
-			syntaxError(nextLexeme);
-		}
+		
 	
 	printf("Exiting <DECLAREEXP>\n");
 	return nextToken;
 }
-int attribution(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int attribution(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <ATTRIBUTION>\n");
 
 	/*
 		<attribution> --> <var> << <exp>
 	*/
+	Node*	attributionNode = addChildNode(tree, "ATTRIBUTION", -1);
+	
 	if (nextToken == IDENTIFIER) {
+		addChildNode(attributionNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken==OP_ATTRIBUTION) {
+			addChildNode(attributionNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = exp(file, nextToken, nextChar, nextLexeme);//analyze term
+			nextToken = exp(file, nextToken, nextChar, nextLexeme,attributionNode);//analyze term
 			
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR IN ATTRIBUTION, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_ATTRIBUTION);
 		}
 	}
-	else {
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <ATTRIBUTION>\n");
 	return nextToken;
 }
-int reservedCallFunction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int reservedCallFunction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <CALLFUNCTION>\n");
 	/*
 <call_function> --> F.<function_name>(<params_call>)
 				| F.<function_name>()
 	*/
+	Node*	callFunctionNode = addChildNode(tree, "CALLFUNCTION", -1);
+
 	if (nextToken == RESERVED_CALL_FUNCTION) {
+		addChildNode(callFunctionNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == POINT) {
+			addChildNode(callFunctionNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			if (nextToken == IDENTIFIER_FUNCTION) {
+				addChildNode(callFunctionNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 				if (nextToken == OPEN_PARENTESIS) {
+					addChildNode(callFunctionNode, nextLexeme, nextToken);
 					nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					if (nextToken == CLOSE_PARENTESIS) {
+						addChildNode(callFunctionNode, nextLexeme, nextToken);
 						nextToken = lex(file, nextChar, nextLexeme);//gets next term
 					}
 					else {
-						nextToken = params_call(file, nextToken, nextChar, nextLexeme);
+						nextToken = params_call(file, nextToken, nextChar, nextLexeme,callFunctionNode);
 						if (nextToken == CLOSE_PARENTESIS) {
+							addChildNode(callFunctionNode, nextLexeme, nextToken);
 							nextToken = lex(file, nextChar, nextLexeme);//gets next term
 						}
 						else {
-							syntaxError(nextLexeme);
+							errorColor();
+							printf("ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+							normalColor();
+							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 						}
 					}
 					
 				}
 				else {
-					syntaxError(nextLexeme);
+					errorColor();
+					printf("ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+					normalColor();
+					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 				}
 			}
 			else {
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION NOT FUNCTION, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_FUNCTION_NOT_FUNCTION);
 			}
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_CALL_FUNCTION);
 		}
 	}
-	else {
-		syntaxError(nextLexeme);
-	}
+	
 
 	printf("Exiting <CALLFUNCTION>\n");
 	return nextToken;
 }
-int params_call(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int params_call(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	printf("Entering <PARAMSCALL>\n");
 	/*
 <params_call> -->  <exp>
 			| <exp>, <params_call>
 	*/
-	nextToken = exp(file, nextToken, nextChar, nextLexeme);
+	Node*	paramsCallNode = addChildNode(tree, "PARAMSCALL", -1);
+	
+	nextToken = exp(file, nextToken, nextChar, nextLexeme,paramsCallNode);
 	if (nextToken==COMMA) {
+		addChildNode(paramsCallNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);
-		nextToken = params_call(file, nextToken, nextChar, nextLexeme);
+		nextToken = params_call(file, nextToken, nextChar, nextLexeme,paramsCallNode);
 	}
 	
 	printf("Exiting <PARAMSCALL>\n");
 	return nextToken;;
 }
-int exp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+
+int exp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <EXP>\n");
+	Node* expNode = addChildNode(tree, "EXP", -1);
 /*
 	<exp> --> <term> + <term>
 			| <term> - <term>
 			| <term>
 */
-	nextToken = term(file,nextToken,nextChar,nextLexeme);//analyze term
+	nextToken = term(file,nextToken,nextChar,nextLexeme,expNode);//analyze term
 	while(nextToken == OP_ADD || nextToken == OP_MINUS){//permits multiple + and - in the program
+		addChildNode(expNode, nextLexeme, nextToken); 
 		nextToken=lex(file, nextChar, nextLexeme);//gets next term
-		nextToken = term(file, nextToken, nextChar, nextLexeme);//analyze term
+		nextToken = term(file, nextToken, nextChar, nextLexeme,expNode);//analyze term
 	}
 	printf("Exiting <EXP>\n");
 	return nextToken;
 
 }
-int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
+	
 /*
 	<term> -- > <factor> * <factor>
 			| <factor> / <factor>
@@ -1067,15 +1408,18 @@ int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
 			| <factor>
 */
 	printf("Entering <TERM>\n");
-	nextToken = factor(file, nextToken, nextChar, nextLexeme);//analyze term
+	Node* termNode = addChildNode(tree, "TERM", -1);
+	nextToken = factor(file, nextToken, nextChar, nextLexeme,termNode);//analyze term
 	while (nextToken == OP_MUL || nextToken == OP_MOD || nextToken == OP_DIV) {//permits multiple * , %, / in the program
+		addChildNode(termNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
-		nextToken = factor(file, nextToken, nextChar, nextLexeme);//analyze term
+		nextToken = factor(file, nextToken, nextChar, nextLexeme,termNode);//analyze term
 	}
 	printf("Exiting <TERM>\n");
 	return nextToken;
 }
-int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
+
+int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree){
 	/*
 	<factor> -- > (<exp>)
 			| <var>
@@ -1094,24 +1438,36 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
 			| <casting>
 	*/
 	printf("Entering <FACTOR>\n");
+	Node* factorNode = addChildNode(tree, "FACTOR", -1);
+
 	if (nextToken == IDENTIFIER){
+		addChildNode(factorNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken==OPEN_BRACKETS) {
-			nextToken=reservedArray(file, nextToken, nextChar, nextLexeme);//analyze term
+			nextToken=reservedArray(file, nextToken, nextChar, nextLexeme,factorNode);//analyze term
 		}
 	
 	}
 	else if( nextToken == LITERAL_CHAR || nextToken == LITERAL_STRING 
 		|| nextToken == LITERAL_NUMBER || nextToken == LITERAL_DECIMAL) {
+		addChildNode(factorNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 	}
 	else if (nextToken == OP_ADD || nextToken == OP_MINUS ) {
+		printf("Entering <SIGNEDNUMBER>\n");
+		Node* signedNumberNode = addChildNode(factorNode, "SIGNEDNUMBER", -1);
+		addChildNode(signedNumberNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken==LITERAL_DECIMAL || nextToken == LITERAL_NUMBER) {
+			addChildNode(signedNumberNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
+			printf("Exiting <SIGNEDNUMBER>\n");
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_BAD_NUMBER_FORMAT);
 		}
 	}
 	else if (
@@ -1120,30 +1476,35 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme){
 		nextToken == RESERVED_CAST_BOOL ||
 		nextToken == RESERVED_CAST_STRING ||
 		nextToken == RESERVED_CAST_DECIMAL) {
-		nextToken = reservedCastingVar(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedCastingVar(file, nextToken, nextChar, nextLexeme,factorNode);
 	}else if (nextToken==RESERVED_CALL_FUNCTION) {
-		nextToken = reservedCallFunction(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedCallFunction(file, nextToken, nextChar, nextLexeme,factorNode);
 	}
 	else if (nextToken == RESERVED_IN) {
-		nextToken = reservedIn(file, nextToken, nextChar, nextLexeme);
+		nextToken = reservedIn(file, nextToken, nextChar, nextLexeme,factorNode);
 	}
 	else if (nextToken == OPEN_PARENTESIS) {
+		addChildNode(factorNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken=exp(file, nextToken, nextChar, nextLexeme);
+			nextToken=exp(file, nextToken, nextChar, nextLexeme,factorNode);
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(factorNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}else{
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 		}
 		else {
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme);
+			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,factorNode);
 		}
 	
 	printf("Exiting <FACTOR>\n");
 	return nextToken;
 }
-int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme)
+int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree)
 {
 	printf("Entering <CASTINGVAR>\n");
 	/*
@@ -1153,44 +1514,61 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 <casting> --> toChar(<exp>) 
 <casting> --> toBool(<exp>) 	
 	*/
+	Node* castingVarNode = addChildNode(tree, "CASTINGVAR", -1);
+	
+
 	if (
 		nextToken == RESERVED_CAST_NUMBER || nextToken == RESERVED_CAST_CHAR ||
 		nextToken == RESERVED_CAST_BOOL || nextToken == RESERVED_CAST_STRING ||
 		nextToken == RESERVED_CAST_DECIMAL) {
+		addChildNode(castingVarNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
+			addChildNode(castingVarNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
-			nextToken = exp(file, nextToken, nextChar, nextLexeme);
+			nextToken = exp(file, nextToken, nextChar, nextLexeme,castingVarNode);
 			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(castingVarNode, nextLexeme, nextToken);
 				nextToken = lex(file, nextChar, nextLexeme);//gets next term
 			}
 			else {
-				syntaxError(nextLexeme);
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
 	}
-	else {
-		syntaxError(nextLexeme);
-	}
+	
 	printf("Exiting <CASTINGVAR>\n");
 	return nextToken;
 }
-int reservedArray(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme) {
+int reservedArray(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree) {
 	printf("Entering <ARRAYDEF>\n");
 	/*
 <array_def> --> [<exp>]  
 	*/
+	Node* arrayDefNode = addChildNode(tree, "ARRAYDEF", -1);
+	
 	if (nextToken==OPEN_BRACKETS) {
+		addChildNode(arrayDefNode, nextLexeme, nextToken);
 		nextToken = lex(file, nextChar, nextLexeme);//gets next term
-		nextToken = exp(file, nextToken, nextChar, nextLexeme);
+		nextToken = exp(file, nextToken, nextChar, nextLexeme,arrayDefNode);
 		if (nextToken==CLOSE_BRACKETS) {
+			addChildNode(arrayDefNode, nextLexeme, nextToken);
 			nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		}
 		else {
-			syntaxError(nextLexeme);
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR ARRAY NOT CLOSED, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_ARRAY_NOT_CLOSED);
 		}
 	}
 	printf("Exiting <ARRAYDEF>\n");
