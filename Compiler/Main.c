@@ -6,7 +6,6 @@
 #include "SyntaxAnalyser.h"
 
 
-#define _countof(array) (sizeof(array) / sizeof(array[0]))
 typedef int bool;
 #define True 1
 #define False 0

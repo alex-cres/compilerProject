@@ -2,6 +2,8 @@
 #include <string.h>
 #include "SyntaxAnalyser.h"
 #include "LexicalAnalyser.h"
+#include "SyntaxTree.h"
+
 
 
 
@@ -65,7 +67,7 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 		nextToken = reservedLooper(file, nextToken, nextChar, nextLexeme, instructionNode);
 		break;
 	case RESERVED_COMMENT://Ignore Comments
-		nextToken = lex(file, nextChar, nextLexeme, instructionNode);//gets next term
+		nextToken = lex(file, nextChar, nextLexeme);//gets next term
 		break;
 	case RESERVED_FOR:
 		nextToken = reservedFor(file, nextToken, nextChar, nextLexeme, instructionNode);
