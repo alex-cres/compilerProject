@@ -148,11 +148,11 @@ NextChar getChar(FILE* file);
 
 NextChar getNonBlankChar(FILE* file, NextChar nextChar);
 
-int lex(FILE* file, NextChar* nextChar, char* nextLexeme);
+int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile);
 
-int addChar(char* lexeme, int lexemeLength, char nextChar);
+int addChar(char* lexeme, int lexemeLength, char nextChar, FILE* logFile);
 
-int lookup(char ch, char* lexeme, int * lexemeLength);
+int lookup(char ch, char* lexeme, int * lexemeLength, FILE* logFile);
 
 int isLETTER(int type);
 

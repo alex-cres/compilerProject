@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "ErrorHandling.h"
@@ -21,7 +21,7 @@ Node * generateNode(char * info, int type)
 	return p;
 }
 
-Node * addChildNode(Node * fatherNode, char * info, int type)
+Node* addChildNode(Node* fatherNode, char* info, int type, FILE* logFile)
 {
 	int i = 0;
 
@@ -30,11 +30,12 @@ Node * addChildNode(Node * fatherNode, char * info, int type)
 		i++;
 	}
 	if (i < MAX_CHILDREN) {
-		fatherNode->kids[i] = generateNode(info, type);;
+		fatherNode->kids[i] = generateNode(info, type);
 	}
 	else {
 		errorColor();
 		printf("ERROR: MAX CHILDREN REACHED");
+		fprintf(logFile,"ERROR: MAX CHILDREN REACHED");
 		normalColor();
 		exit(ERROR_MAX_CHILDREN_REACHED);
 
@@ -44,31 +45,47 @@ Node * addChildNode(Node * fatherNode, char * info, int type)
 }
 
 
-void printTree(Node * tree, int tabDepth,int lastChild,int *arrayDepthTab)
+void printTree(Node * tree, int tabDepth,int lastChild,int* arrayDepthTab, FILE * logFile)
 {
 	int i = 0;
 	for (i = 0; i < tabDepth-1; i++)
 	{
 		int last = arrayDepthTab[i+1];
 		if (!last) {
-			printf("|");
+			printf("%c",179);
+			fprintf(logFile,"|");
 		}
 		else {
 			printf(" ");
+			fprintf(logFile," ");
 		}
 		printf(" ");
+		fprintf(logFile," ");
 	}
-	if(tabDepth!=0 && !lastChild)
-		printf("%c%c",195,196);
-	if (tabDepth != 0 && lastChild)
-		printf("%c%c", 192, 196);
+	if (tabDepth != 0 && !lastChild) {
+	//	printf("%c%c", 195, 196);
+	//	fprintf(logFile,"%c%c", 195, 196);
+	//	printf("%c%c%c", 195, 196,196);
+    //	fprintf(logFile,"%c%c%c", 195, 196,196);
+		printf("%c", 195);
+		fprintf(logFile,"|-");
+	}
+	if (tabDepth != 0 && lastChild) {
+	//	printf("%c%c", 192, 196);
+	//	fprintf(logFile,"%c%c", 192, 196);
+	//	printf("%c%c%c", 192, 196, 196);
+	//	fprintf(logFile,"%c%c%c", 192, 196, 196);
+		printf("%c", 192);
+		fprintf(logFile,"|_");
+	}
 	printf("%s\n", tree->info);
+	fprintf(logFile,"%s\n", tree->info);
 	
 	arrayDepthTab[tabDepth] = lastChild;
 	
 	for (i = 0; (i < MAX_CHILDREN && tree->kids[i] != NULL); i++)
 	{
-		printTree(tree->kids[i], tabDepth + 1,(tree->kids[i+1]==NULL), arrayDepthTab);
+		printTree(tree->kids[i], tabDepth + 1,(tree->kids[i+1]==NULL), arrayDepthTab, logFile);
 	}
 }
 

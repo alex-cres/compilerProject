@@ -12,8 +12,8 @@ typedef struct node
 
 Node* generateNode(char* info, int type);
 
-Node* addChildNode(Node* fatherNode, char* info, int type);
+Node* addChildNode(Node* fatherNode, char* info, int type, FILE* logFile);
 
-void printTree(Node * tree, int tabDepth,int lastChild);
+void printTree(Node * tree, int tabDepth,int lastChild, int* arrayDepthTab, FILE * logFile);
 
 int getTreeMaxDepth(Node * tree);

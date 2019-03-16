@@ -44,7 +44,7 @@ NextChar getNonBlankChar(FILE * file, NextChar nextChar)
 	return nextChar;
 }
 //identify and build the lexemes 
-int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
+int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 {
 	int sizeOfLexeme = -1;//according to the add char function, it first adds to the length, so the first char needs to be on the 0
 	int nextToken=0;
@@ -53,19 +53,19 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 
 	case DOUBLE_QUOTE: //STRINGS
 		do {
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
 		} while (nextChar->tp_code != DOUBLE_QUOTE);
-		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		*nextChar = getChar(file);
 		nextToken = LITERAL_STRING;
 		break;
 	case QUOTE:
 		do {
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
 		} while (nextChar->tp_code != QUOTE);
-		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		*nextChar = getChar(file);
 		nextToken = LITERAL_CHAR;
 		break;
@@ -78,7 +78,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			nextToken = IDENTIFIER;
 		}
 		do {
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
 
 		} while (isLETTER(nextChar->tp_code)  || nextChar->tp_code == DIGIT);
@@ -144,16 +144,17 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			break;
 		}
 		else if ((0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT3_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT2_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT1_LEXEME))) {
-			if (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme) != OPEN_PARENTESIS) {
+			if (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme, logFile) != OPEN_PARENTESIS) {
 				errorColor();
 				printf("ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumber, nextLexeme);
+fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_COMMENT_NOT_FORMATED_CORRECTLY);
 			
 			}
 			*nextChar = getChar(file);
 			
-			while (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme) != CLOSE_PARENTESIS) {
+			while (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme, logFile) != CLOSE_PARENTESIS) {
 				*nextChar = getChar(file);
 			}
 			
@@ -243,23 +244,25 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 	case DIGIT:
 
 		do {
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
 		} while (nextChar->tp_code == DIGIT);
 		if (isLETTER(nextChar->tp_code)) {//error handling
 			errorColor();
 			printf("ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
+fprintf(logFile,"ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
 			normalColor();
 			exit(ERROR_NUMBER_WITH_LETTERS_IN_IT);
 		}
 		if (nextChar->tp_code == POINT) {//decimal handling
 			do {
-				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
 				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
+fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
 				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
 			}
@@ -270,17 +273,18 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 
 		break;
 	case POINT:
-		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		nextToken = POINT;
 		*nextChar = getChar(file);
 		if (nextChar->tp_code==DIGIT) {
 			do {
-				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
 				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
+fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
 			}
@@ -289,7 +293,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		}
 		break;
 	case UNKNOWN:
-		nextToken = lookup(nextChar->ch, nextLexeme, &sizeOfLexeme);
+		nextToken = lookup(nextChar->ch, nextLexeme, &sizeOfLexeme, logFile);
 		*nextChar = getChar(file);
 		if (nextToken == OP_MINOR) {
 			if (nextChar->ch == '=') {
@@ -298,13 +302,13 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 			if (nextChar->ch == '<') {
 				nextToken = OP_ATTRIBUTION;
 			}
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
 		}
 		else if (nextToken == OP_BIGGER) {
 			if (nextChar->ch == '=') {
 				nextToken = OP_BIGGER_EQUAL;
-				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
 			}
 			
@@ -312,7 +316,7 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 		else if (nextToken == OP_NOT) {
 			if (nextChar->ch == '=') {
 				nextToken = OP_NOT_EQUAL;
-				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch);
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
 			}
 			
@@ -331,12 +335,14 @@ int lex(FILE * file, NextChar * nextChar, char * nextLexeme)
 	strcpy(nameToken, tokenDescription(nextToken));
 	pad(nameToken, 30);
 	printf("Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
+fprintf(logFile,"Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
 	printf("%s\n", nextLexeme);
+fprintf(logFile,"%s\n", nextLexeme);
 
 	return nextToken;
 }
 
-int addChar(char * lexeme, int lexemeLength, char nextChar)
+int addChar(char* lexeme, int lexemeLength, char nextChar, FILE* logFile)
 {
 	if (lexemeLength < MAX_LEXEME_SIZE) {
 		lexemeLength++;
@@ -346,86 +352,87 @@ int addChar(char * lexeme, int lexemeLength, char nextChar)
 	else {
 		errorColor();
 		printf("ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber,MAX_LEXEME_SIZE,lexeme);
+fprintf(logFile,"ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber,MAX_LEXEME_SIZE,lexeme);
 		normalColor();
 		exit(ERROR_MAX_LEXEME_SIZE_EXCEDED);
 	}
 	return lexemeLength;
 }
 
-int lookup(char ch, char * lexeme, int * lexemeLength)
+int lookup(char ch, char* lexeme, int * lexemeLength, FILE* logFile)
 {
 	int nextToken=UNKNOWN;
 	switch (ch) {
 	case '(':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OPEN_PARENTESIS;
 		break;
 	case ')':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = CLOSE_PARENTESIS;
 		break;
 	case '[':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OPEN_BRACKETS;
 		break;
 	case ']':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = CLOSE_BRACKETS;
 		break;
 	case '+':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_ADD;
 		break;
 	case '-':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_MINUS;
 		break;
 	case '/':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_DIV;
 		break;
 	case '*':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_MUL;
 		break;
 	case '%':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_MOD;
 		break;
 	case ';':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = POINT_COMMA;
 		break;
 	case ',':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = COMMA;
 		break;
 	case '<':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_MINOR;
 		break;
 	case '>':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_BIGGER;
 		break;
 	case '=':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_EQUAL;
 		break;
 	case '&':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_AND;
 		break;
 	case '|':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_OR;
 		break;
 	case '!':
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_NOT;
 		break;
 	default:
-		*lexemeLength = addChar(lexeme, *lexemeLength, ch);
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = EOF;
 		break;
 	}
