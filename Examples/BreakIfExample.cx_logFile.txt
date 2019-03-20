@@ -1,0 +1,235 @@
+
+READING FROM : ..\Examples\BreakIfExample.cx
+WRITING TO : ..\Examples\BreakIfExample.cx_logFile.txt
+
+Token:	083 --> RESERVED_COMMENT              	Lex:	Comment(This is not Executed)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	075 --> RESERVED_LOOP                 	Lex:	Loop
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <LOOPER>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	004 --> POINT                         	Lex:	.
+Token:	076 --> RESERVED_DO                   	Lex:	Do
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	083 --> RESERVED_COMMENT              	Lex:	Comment(This is not Executed)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	086 --> RESERVED_BREAKIF              	Lex:	BreakIf
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <BREAKIF>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BOOLSTRUCT>
+Entering <BOOLEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	037 --> OP_BIGGER                     	Lex:	>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <BOOLEXP>
+Exiting <BOOLSTRUCT>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <BREAKIF>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Exiting <INSTRUCTION>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <LOOPER>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 15
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_Comment(This is not Executed)
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_DECLARATION
+    |   |-N
+    |   |_DECLAREEXP
+    |     |-a
+    |     |-<<
+    |     |_EXP
+    |       |_TERM
+    |         |_FACTOR
+    |           |_0
+    |-;
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_LOOPER
+      |   |-Loop
+      |   |-(
+      |   |-EXP
+      |   | |_TERM
+      |   |   |_FACTOR
+      |   |     |_5
+      |   |-)
+      |   |-.
+      |   |-Do
+      |   |-(
+      |   |-INSTRUCTIONLIST
+      |   | |-INSTRUCTION
+      |   | | |_Comment(This is not Executed)
+      |   | |-;
+      |   | |_INSTRUCTIONLIST
+      |   |   |-INSTRUCTION
+      |   |   | |_BREAKIF
+      |   |   |   |-BreakIf
+      |   |   |   |-(
+      |   |   |   |-BOOLSTRUCT
+      |   |   |   | |_BOOLEXP
+      |   |   |   |   |-EXP
+      |   |   |   |   | |_TERM
+      |   |   |   |   |   |_FACTOR
+      |   |   |   |   |     |_a
+      |   |   |   |   |->
+      |   |   |   |   |_EXP
+      |   |   |   |     |_TERM
+      |   |   |   |       |_FACTOR
+      |   |   |   |         |_2
+      |   |   |   |_)
+      |   |   |-;
+      |   |   |_INSTRUCTIONLIST
+      |   |     |-INSTRUCTION
+      |   |     | |_ATTRIBUTION
+      |   |     |   |-a
+      |   |     |   |-<<
+      |   |     |   |_EXP
+      |   |     |     |-TERM
+      |   |     |     | |_FACTOR
+      |   |     |     |   |_a
+      |   |     |     |-+
+      |   |     |     |_TERM
+      |   |     |       |_FACTOR
+      |   |     |         |_1
+      |   |     |-;
+      |   |     |_INSTRUCTIONLIST
+      |   |       |_INSTRUCTION
+      |   |_)
+      |-;
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_ON
+        |   |-On
+        |   |-.
+        |   |-Console
+        |   |-(
+        |   |-EXP
+        |   | |_TERM
+        |   |   |_FACTOR
+        |   |     |_CASTINGVAR
+        |   |       |-ToString
+        |   |       |-(
+        |   |       |-EXP
+        |   |       | |_TERM
+        |   |       |   |_FACTOR
+        |   |       |     |_a
+        |   |       |_)
+        |   |_)
+        |-;
+        |_EOF

@@ -1,0 +1,260 @@
+
+READING FROM : ..\Examples\ForLoopExample.cx
+WRITING TO : ..\Examples\ForLoopExample.cx_logFile.txt
+
+Token:	081 --> RESERVED_FOR                  	Lex:	For
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <FOR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <ATTRIBUTION>
+Token:	004 --> POINT                         	Lex:	.
+Token:	082 --> RESERVED_STEP                 	Lex:	Step
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	032 --> OP_ADD                        	Lex:	+
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <SIGNEDNUMBER>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <SIGNEDNUMBER>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	004 --> POINT                         	Lex:	.
+Token:	072 --> RESERVED_IF                   	Lex:	If
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <BOOLSTRUCT>
+Entering <BOOLEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	039 --> OP_MINOR_EQUAL                	Lex:	<=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	018 --> LITERAL_NUMBER                	Lex:	10
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <BOOLEXP>
+Exiting <BOOLSTRUCT>
+Token:	004 --> POINT                         	Lex:	.
+Token:	076 --> RESERVED_DO                   	Lex:	Do
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	area
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	area
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Exiting <INSTRUCTION>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FOR>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 16
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_FOR
+  |   |-For
+  |   |-(
+  |   |-N
+  |   |-ATTRIBUTION
+  |   | |-i
+  |   | |-<<
+  |   | |_EXP
+  |   |   |_TERM
+  |   |     |_FACTOR
+  |   |       |_2
+  |   |-)
+  |   |-.
+  |   |-Step
+  |   |-(
+  |   |-EXP
+  |   | |_TERM
+  |   |   |_FACTOR
+  |   |     |_SIGNEDNUMBER
+  |   |       |-+
+  |   |       |_2
+  |   |-)
+  |   |-.
+  |   |-If
+  |   |-(
+  |   |-BOOLSTRUCT
+  |   | |_BOOLEXP
+  |   |   |-EXP
+  |   |   | |_TERM
+  |   |   |   |_FACTOR
+  |   |   |     |_i
+  |   |   |-<=
+  |   |   |_EXP
+  |   |     |_TERM
+  |   |       |_FACTOR
+  |   |         |_10
+  |   |-)
+  |   |-.
+  |   |-Do
+  |   |-(
+  |   |-INSTRUCTIONLIST
+  |   | |-INSTRUCTION
+  |   | | |_ON
+  |   | |   |-On
+  |   | |   |-.
+  |   | |   |-Console
+  |   | |   |-(
+  |   | |   |-EXP
+  |   | |   | |_TERM
+  |   | |   |   |_FACTOR
+  |   | |   |     |_CASTINGVAR
+  |   | |   |       |-ToString
+  |   | |   |       |-(
+  |   | |   |       |-EXP
+  |   | |   |       | |_TERM
+  |   | |   |       |   |_FACTOR
+  |   | |   |       |     |_i
+  |   | |   |       |_)
+  |   | |   |_)
+  |   | |-;
+  |   | |_INSTRUCTIONLIST
+  |   |   |-INSTRUCTION
+  |   |   | |_DECLARATION
+  |   |   |   |-N
+  |   |   |   |_DECLAREEXP
+  |   |   |     |-area
+  |   |   |     |-<<
+  |   |   |     |_EXP
+  |   |   |       |_TERM
+  |   |   |         |-FACTOR
+  |   |   |         | |_i
+  |   |   |         |-*
+  |   |   |         |_FACTOR
+  |   |   |           |_i
+  |   |   |-;
+  |   |   |_INSTRUCTIONLIST
+  |   |     |-INSTRUCTION
+  |   |     | |_ON
+  |   |     |   |-On
+  |   |     |   |-.
+  |   |     |   |-Console
+  |   |     |   |-(
+  |   |     |   |-EXP
+  |   |     |   | |_TERM
+  |   |     |   |   |_FACTOR
+  |   |     |   |     |_CASTINGVAR
+  |   |     |   |       |-ToString
+  |   |     |   |       |-(
+  |   |     |   |       |-EXP
+  |   |     |   |       | |_TERM
+  |   |     |   |       |   |_FACTOR
+  |   |     |   |       |     |_area
+  |   |     |   |       |_)
+  |   |     |   |_)
+  |   |     |-;
+  |   |     |_INSTRUCTIONLIST
+  |   |       |_INSTRUCTION
+  |   |_)
+  |-;
+  |_EOF

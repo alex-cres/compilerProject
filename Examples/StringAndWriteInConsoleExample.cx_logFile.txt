@@ -1,0 +1,90 @@
+
+READING FROM : ..\Examples\StringAndWriteInConsoleExample.cx
+WRITING TO : ..\Examples\StringAndWriteInConsoleExample.cx_logFile.txt
+
+Token:	017 --> IDN_STRING                    	Lex:	S
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <ARRAYDEF>
+Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	027 --> CLOSE_BRACKETS                	Lex:	]
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Exiting <ARRAYDEF>
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	020 --> LITERAL_STRING                	Lex:	"aula"
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 8
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_DECLARATION
+  |   |-S
+  |   |-ARRAYDEF
+  |   | |-[
+  |   | |-EXP
+  |   | | |_TERM
+  |   | |   |_FACTOR
+  |   | |     |_5
+  |   | |_]
+  |   |_DECLAREEXP
+  |     |-a
+  |     |-<<
+  |     |_EXP
+  |       |_TERM
+  |         |_FACTOR
+  |           |_"aula"
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_ON
+    |   |-On
+    |   |-.
+    |   |-Console
+    |   |-(
+    |   |-EXP
+    |   | |_TERM
+    |   |   |_FACTOR
+    |   |     |_a
+    |   |_)
+    |-;
+    |_EOF

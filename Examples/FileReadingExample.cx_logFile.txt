@@ -1,0 +1,396 @@
+
+READING FROM : ..\Examples\FileReadingExample.cx
+WRITING TO : ..\Examples\FileReadingExample.cx_logFile.txt
+
+Token:	083 --> RESERVED_COMMENT              	Lex:	Comment(Read the File and write in the file)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	017 --> IDN_STRING                    	Lex:	S
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <ARRAYDEF>
+Token:	018 --> LITERAL_NUMBER                	Lex:	100
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	027 --> CLOSE_BRACKETS                	Lex:	]
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	011 --> IDENTIFIER                    	Lex:	fileName
+Exiting <ARRAYDEF>
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	020 --> LITERAL_STRING                	Lex:	""
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	075 --> RESERVED_LOOP                 	Lex:	Loop
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <LOOPER>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <IN>
+Token:	004 --> POINT                         	Lex:	.
+Token:	096 --> RESERVED_FILE_ENDER           	Lex:	FileEnder
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	fileName
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <IN>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	004 --> POINT                         	Lex:	.
+Token:	076 --> RESERVED_DO                   	Lex:	Do
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	083 --> RESERVED_COMMENT              	Lex:	Comment(Loop to end of file)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	017 --> IDN_STRING                    	Lex:	S
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <ARRAYDEF>
+Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <IN>
+Token:	004 --> POINT                         	Lex:	.
+Token:	097 --> RESERVED_FILE_SIZE            	Lex:	FileSize
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	fileName
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	008 --> COMMA                         	Lex:	,
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	027 --> CLOSE_BRACKETS                	Lex:	]
+Exiting <IN>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Exiting <ARRAYDEF>
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <IN>
+Token:	004 --> POINT                         	Lex:	.
+Token:	095 --> RESERVED_FILE                 	Lex:	File
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	fileName
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	008 --> COMMA                         	Lex:	,
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <IN>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	083 --> RESERVED_COMMENT              	Lex:	Comment(Reads a line in the file while adjusting the size of the string)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <LOOPER>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"End of File Reached"
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 19
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_Comment(Read the File and write in the file)
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_DECLARATION
+    |   |-N
+    |   |_DECLAREEXP
+    |     |-i
+    |     |-<<
+    |     |_EXP
+    |       |_TERM
+    |         |_FACTOR
+    |           |_0
+    |-;
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_DECLARATION
+      |   |-S
+      |   |-ARRAYDEF
+      |   | |-[
+      |   | |-EXP
+      |   | | |_TERM
+      |   | |   |_FACTOR
+      |   | |     |_100
+      |   | |_]
+      |   |_DECLAREEXP
+      |     |-fileName
+      |     |-<<
+      |     |_EXP
+      |       |_TERM
+      |         |_FACTOR
+      |           |_""
+      |-;
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_LOOPER
+        |   |-Loop
+        |   |-(
+        |   |-EXP
+        |   | |_TERM
+        |   |   |_FACTOR
+        |   |     |_IN
+        |   |       |-In
+        |   |       |-.
+        |   |       |-FileEnder
+        |   |       |-(
+        |   |       |-EXP
+        |   |       | |_TERM
+        |   |       |   |_FACTOR
+        |   |       |     |_fileName
+        |   |       |_)
+        |   |-)
+        |   |-.
+        |   |-Do
+        |   |-(
+        |   |-INSTRUCTIONLIST
+        |   | |-INSTRUCTION
+        |   | | |_Comment(Loop to end of file)
+        |   | |-;
+        |   | |_INSTRUCTIONLIST
+        |   |   |-INSTRUCTION
+        |   |   | |_DECLARATION
+        |   |   |   |-S
+        |   |   |   |-ARRAYDEF
+        |   |   |   | |-[
+        |   |   |   | |-EXP
+        |   |   |   | | |_TERM
+        |   |   |   | |   |_FACTOR
+        |   |   |   | |     |_IN
+        |   |   |   | |       |-In
+        |   |   |   | |       |-.
+        |   |   |   | |       |-FileSize
+        |   |   |   | |       |-(
+        |   |   |   | |       |-EXP
+        |   |   |   | |       | |_TERM
+        |   |   |   | |       |   |_FACTOR
+        |   |   |   | |       |     |_fileName
+        |   |   |   | |       |-,
+        |   |   |   | |       |-EXP
+        |   |   |   | |       | |_TERM
+        |   |   |   | |       |   |_FACTOR
+        |   |   |   | |       |     |_i
+        |   |   |   | |       |_)
+        |   |   |   | |_]
+        |   |   |   |_DECLAREEXP
+        |   |   |     |-x
+        |   |   |     |-<<
+        |   |   |     |_EXP
+        |   |   |       |_TERM
+        |   |   |         |_FACTOR
+        |   |   |           |_IN
+        |   |   |             |-In
+        |   |   |             |-.
+        |   |   |             |-File
+        |   |   |             |-(
+        |   |   |             |-EXP
+        |   |   |             | |_TERM
+        |   |   |             |   |_FACTOR
+        |   |   |             |     |_fileName
+        |   |   |             |-,
+        |   |   |             |-EXP
+        |   |   |             | |_TERM
+        |   |   |             |   |_FACTOR
+        |   |   |             |     |_i
+        |   |   |             |_)
+        |   |   |-;
+        |   |   |_INSTRUCTIONLIST
+        |   |     |-INSTRUCTION
+        |   |     | |_Comment(Reads a line in the file while adjusting the size of the string)
+        |   |     |-;
+        |   |     |_INSTRUCTIONLIST
+        |   |       |-INSTRUCTION
+        |   |       | |_ATTRIBUTION
+        |   |       |   |-i
+        |   |       |   |-<<
+        |   |       |   |_EXP
+        |   |       |     |-TERM
+        |   |       |     | |_FACTOR
+        |   |       |     |   |_i
+        |   |       |     |-+
+        |   |       |     |_TERM
+        |   |       |       |_FACTOR
+        |   |       |         |_1
+        |   |       |-;
+        |   |       |_INSTRUCTIONLIST
+        |   |         |-INSTRUCTION
+        |   |         | |_ON
+        |   |         |   |-On
+        |   |         |   |-.
+        |   |         |   |-Console
+        |   |         |   |-(
+        |   |         |   |-EXP
+        |   |         |   | |_TERM
+        |   |         |   |   |_FACTOR
+        |   |         |   |     |_x
+        |   |         |   |_)
+        |   |         |_;
+        |   |_)
+        |-;
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_ON
+          |   |-On
+          |   |-.
+          |   |-Console
+          |   |-(
+          |   |-EXP
+          |   | |_TERM
+          |   |   |_FACTOR
+          |   |     |_"End of File Reached"
+          |   |_)
+          |-;
+          |_EOF

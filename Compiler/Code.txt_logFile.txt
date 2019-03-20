@@ -1,0 +1,28 @@
+
+READING FROM : Code.txt
+WRITING TO : Code.txt_logFile.txt
+
+Token:	011 --> IDENTIFIER                    	Lex:	r
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	soma
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	47
+Entering <TERM>
+Entering <FACTOR>
+Token:	-01 --> EOF                           	Lex:	?
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+ERROR: At Line 1 : SYNTAX ERROR PARENTISIS NOT CLOSED, ?

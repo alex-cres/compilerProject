@@ -1,0 +1,62 @@
+
+READING FROM : Code3.txt
+WRITING TO : Code3.txt_logFile.txt
+
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	8
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	42.75
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	b
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	0.8
+Entering <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	c
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Exiting <INSTRUCTION>
+Exiting <INSTRUCTIONLIST>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Exiting <INSTRUCTION>
+Exiting <INSTRUCTIONLIST>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	031 --> OP_MINUS                      	Lex:	-
+ERROR: At Line 3 : SYNTAX ERROR IN ATTRIBUTION, -

@@ -1,0 +1,21 @@
+
+READING FROM : Code1.txt
+WRITING TO : Code1.txt_logFile.txt
+
+Token:	011 --> IDENTIFIER                    	Lex:	r
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	soma
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+ERROR:At Line 1 : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, 87.2

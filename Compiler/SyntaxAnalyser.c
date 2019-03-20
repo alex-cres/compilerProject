@@ -24,9 +24,14 @@ fprintf(logFile,"Entering <INSTRUCTIONLIST>\n");
 			if (nextToken == EOF) {
 				addChildNode(instructionListNode, nextLexeme, nextToken, logFile);
 				printf("Exiting <INSTRUCTIONLIST>\n");
-fprintf(logFile,"Exiting <INSTRUCTIONLIST>\n");
+				fprintf(logFile,"Exiting <INSTRUCTIONLIST>\n");
+				return nextToken;
+			}else if (nextToken == CLOSE_PARENTESIS) {
+				printf("Exiting <INSTRUCTIONLIST>\n");
+				fprintf(logFile, "Exiting <INSTRUCTIONLIST>\n");
 				return nextToken;
 			}
+
 			nextToken=instructionList(file, nextToken, nextChar, nextLexeme, instructionListNode, logFile);
 		}else if (nextToken == EOF) {
 			addChildNode(instructionListNode, nextLexeme, nextToken, logFile);

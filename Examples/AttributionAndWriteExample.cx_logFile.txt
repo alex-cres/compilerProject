@@ -1,0 +1,146 @@
+
+READING FROM : ..\Examples\AttributionAndWriteExample.cx
+WRITING TO : ..\Examples\AttributionAndWriteExample.cx_logFile.txt
+
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 13
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_DECLARATION
+  |   |-N
+  |   |_DECLAREEXP
+  |     |-a
+  |     |-<<
+  |     |_EXP
+  |       |_TERM
+  |         |_FACTOR
+  |           |_0
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_ATTRIBUTION
+    |   |-a
+    |   |-<<
+    |   |_EXP
+    |     |_TERM
+    |       |-FACTOR
+    |       | |-(
+    |       | |-EXP
+    |       | | |-TERM
+    |       | | | |_FACTOR
+    |       | | |   |_2
+    |       | | |-+
+    |       | | |_TERM
+    |       | |   |_FACTOR
+    |       | |     |_4
+    |       | |_)
+    |       |-*
+    |       |_FACTOR
+    |         |_2
+    |-;
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_ON
+      |   |-On
+      |   |-.
+      |   |-Console
+      |   |-(
+      |   |-EXP
+      |   | |_TERM
+      |   |   |_FACTOR
+      |   |     |_CASTINGVAR
+      |   |       |-ToString
+      |   |       |-(
+      |   |       |-EXP
+      |   |       | |_TERM
+      |   |       |   |_FACTOR
+      |   |       |     |_a
+      |   |       |_)
+      |   |_)
+      |-;
+      |_EOF
