@@ -250,7 +250,7 @@ fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumbe
 		if (isLETTER(nextChar->tp_code)) {//error handling
 			errorColor();
 			printf("ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
-fprintf(logFile,"ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
+			fprintf(logFile,"ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
 			normalColor();
 			exit(ERROR_NUMBER_WITH_LETTERS_IN_IT);
 		}
@@ -262,7 +262,7 @@ fprintf(logFile,"ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, n
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
 				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
-fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
+				fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
 				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
 			}
@@ -270,7 +270,6 @@ fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_
 			break;
 		}
 		nextToken = LITERAL_NUMBER;
-
 		break;
 	case POINT:
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);

@@ -33,10 +33,18 @@ fprintf(logFile,"Entering <INSTRUCTIONLIST>\n");
 			}
 
 			nextToken=instructionList(file, nextToken, nextChar, nextLexeme, instructionListNode, logFile);
-		}else if (nextToken == EOF) {
+		}
+		else if (nextToken != POINT_COMMA) {
+			errorColor();
+			printf("ERROR: At Line %i : SYNTAX ERROR MISSING POINT COMMA, %s", lineNumber, nextLexeme);
+			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR MISSING POINT COMMA, %s", lineNumber, nextLexeme);
+			normalColor();
+			exit(ERROR_SYNTAX_ERROR_MISSING_POINT_COMMA);
+		}
+		else if (nextToken == EOF) {
 			addChildNode(instructionListNode, nextLexeme, nextToken, logFile);
 			printf("Exiting <INSTRUCTIONLIST>\n");
-fprintf(logFile,"Exiting <INSTRUCTIONLIST>\n");
+			fprintf(logFile,"Exiting <INSTRUCTIONLIST>\n");
 			return nextToken;
 		}
 	
@@ -1515,7 +1523,6 @@ fprintf(logFile,"Entering <PARAMSCALL>\n");
 fprintf(logFile,"Exiting <PARAMSCALL>\n");
 	return nextToken;;
 }
-
 int exp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
 	printf("Entering <EXP>\n");
 fprintf(logFile,"Entering <EXP>\n");
@@ -1557,7 +1564,6 @@ fprintf(logFile,"Entering <TERM>\n");
 fprintf(logFile,"Exiting <TERM>\n");
 	return nextToken;
 }
-
 int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile){
 	/*
 	<factor> -- > (<exp>)
