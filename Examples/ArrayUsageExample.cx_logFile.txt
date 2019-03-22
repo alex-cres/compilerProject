@@ -75,19 +75,19 @@ Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 16
+MAX_DEPTH_TREE FOUND : 17
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
   | |_DECLARATION
   |   |-S
-  |   |-ARRAYDEF
-  |   | |-[
-  |   | |-EXP
-  |   | | |_TERM
-  |   | |   |_FACTOR
-  |   | |     |_5
-  |   | |_]
+  |   | |_ARRAYDEF
+  |   |   |-[
+  |   |   |-EXP
+  |   |   | |_TERM
+  |   |   |   |_FACTOR
+  |   |   |     |_5
+  |   |   |_]
   |   |_DECLAREEXP
   |     |-a
   |     |-<<
@@ -112,14 +112,14 @@ PROGRAM
     |   |       |-EXP
     |   |       | |_TERM
     |   |       |   |_FACTOR
-    |   |       |     |-a
-    |   |       |     |_ARRAYDEF
-    |   |       |       |-[
-    |   |       |       |-EXP
-    |   |       |       | |_TERM
-    |   |       |       |   |_FACTOR
-    |   |       |       |     |_0
-    |   |       |       |_]
+    |   |       |     |_a
+    |   |       |       |_ARRAYDEF
+    |   |       |         |-[
+    |   |       |         |-EXP
+    |   |       |         | |_TERM
+    |   |       |         |   |_FACTOR
+    |   |       |         |     |_0
+    |   |       |         |_]
     |   |       |_)
     |   |_)
     |-;
@@ -129,7 +129,6 @@ Entering INSTRUCTIONLIST
 Entering INSTRUCTION
 Entering DECLARATION
 Entering S
-Exiting S
 Entering ARRAYDEF
 Entering [
 Entering EXP
@@ -142,6 +141,7 @@ Exiting 5
 Exiting 5
 Entering ]
 Exiting 5
+Exiting S
 Entering DECLAREEXP
 Entering a
 Exiting a
@@ -179,7 +179,6 @@ Entering EXP
 Entering TERM
 Entering FACTOR
 Entering a
-Exiting a
 Entering ARRAYDEF
 Entering [
 Entering EXP
@@ -192,35 +191,32 @@ Exiting 0
 Exiting 0
 Entering ]
 Exiting 0
-Exiting FACTOR
-Exiting FACTOR
-Exiting FACTOR
+Exiting a
+Exiting a
+Exiting a
+Exiting a
 Entering )
 Exiting ToString
 Exiting ToString
 Exiting ToString
 Exiting ToString
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering EOF
-Exiting ON
+Exiting On
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
-
-MAX_DEPTH_TREE FOUND : 439770052
 INSTRUCTIONLIST
 |-DECLARATION
 | |-S
-| |-5
+| | |_5
 | |_<<
 |   |-a
 |   |_"aula"
-|_ON
-  |-On
+|_On
   |-Console
   |_ToString
-    |_FACTOR
-      |-a
+    |_a
       |_0

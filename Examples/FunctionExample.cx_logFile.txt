@@ -343,7 +343,7 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 21
+MAX_DEPTH_TREE FOUND : 22
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -351,15 +351,14 @@ PROGRAM
   |   |-D
   |   |_FUNCTIONDEC
   |     |-CalcArea
-  |     |-(
-  |     |-D
-  |     |-PARAMS
-  |     | |-D
-  |     | |-x
-  |     | |-,
   |     | |_PARAMS
   |     |   |-D
-  |     |   |_y
+  |     |   |-x
+  |     |   |-,
+  |     |   |_PARAMS
+  |     |     |-D
+  |     |     |_y
+  |     |-(
   |     |-)
   |     |-.
   |     |-Do
@@ -534,12 +533,12 @@ PROGRAM
                 |             | | |_TERM
                 |             | |   |_FACTOR
                 |             | |     |_x
-                |             | |-,
-                |             | |_PARAMSCALL
-                |             |   |_EXP
-                |             |     |_TERM
-                |             |       |_FACTOR
-                |             |         |_y
+                |             | |_,
+                |             |   |_PARAMSCALL
+                |             |     |_EXP
+                |             |       |_TERM
+                |             |         |_FACTOR
+                |             |           |_y
                 |             |_)
                 |-;
                 |_INSTRUCTIONLIST
@@ -584,10 +583,6 @@ Entering D
 Exiting D
 Entering FUNCTIONDEC
 Entering CalcArea
-Exiting CalcArea
-Entering (
-Entering D
-Exiting D
 Entering PARAMS
 Entering D
 Exiting D
@@ -601,6 +596,8 @@ Entering y
 Exiting y
 Exiting PARAMS
 Exiting PARAMS
+Exiting CalcArea
+Entering (
 Entering )
 Entering .
 Entering Do
@@ -775,8 +772,8 @@ Exiting "\nGive me the x: "
 Exiting "\nGive me the x: "
 Exiting "\nGive me the x: "
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -803,10 +800,10 @@ Exiting ToDecimal
 Entering (
 Entering )
 Exiting ToDecimal
-Exiting IN
-Exiting IN
-Exiting IN
-Exiting IN
+Exiting In
+Exiting In
+Exiting In
+Exiting In
 Exiting <<
 Exiting <<
 Entering ;
@@ -828,8 +825,8 @@ Exiting "\nGive me the y: "
 Exiting "\nGive me the y: "
 Exiting "\nGive me the y: "
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -856,10 +853,10 @@ Exiting ToDecimal
 Entering (
 Entering )
 Exiting ToDecimal
-Exiting IN
-Exiting IN
-Exiting IN
-Exiting IN
+Exiting In
+Exiting In
+Exiting In
+Exiting In
 Exiting <<
 Exiting <<
 Entering ;
@@ -903,7 +900,7 @@ Exiting y
 Exiting y
 Exiting y
 Exiting y
-Exiting PARAMSCALL
+Exiting x
 Entering )
 Exiting F
 Exiting F
@@ -931,8 +928,8 @@ Exiting "\nThe Area: "
 Exiting "\nThe Area: "
 Exiting "\nThe Area: "
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -964,11 +961,11 @@ Exiting ToString
 Exiting ToString
 Exiting ToString
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering EOF
-Exiting ON
+Exiting On
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -979,20 +976,17 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
-
-MAX_DEPTH_TREE FOUND : 439770060
 INSTRUCTIONLIST
 |-DECLARATION
 | |-D
 | |_FUNCTIONDEC
 |   |-CalcArea
-|   |-D
-|   |-PARAMS
-|   | |-D
-|   | |-x
 |   | |_PARAMS
 |   |   |-D
-|   |   |_y
+|   |   |-x
+|   |   |_PARAMS
+|   |     |-D
+|   |     |_y
 |   |-Do
 |   |_INSTRUCTIONLIST
 |     |-DECLARATION
@@ -1023,27 +1017,23 @@ INSTRUCTIONLIST
     |   |-x
     |   |_5.9
     |_INSTRUCTIONLIST
-      |-ON
-      | |-On
+      |-On
       | |-Console
       | |_"\nGive me the x: "
       |_INSTRUCTIONLIST
         |-<<
         | |-x
-        | |_IN
-        |   |-In
+        | |_In
         |   |-Console
         |   |_ToDecimal
         |_INSTRUCTIONLIST
-          |-ON
-          | |-On
+          |-On
           | |-Console
           | |_"\nGive me the y: "
           |_INSTRUCTIONLIST
             |-<<
             | |-y
-            | |_IN
-            |   |-In
+            | |_In
             |   |-Console
             |   |_ToDecimal
             |_INSTRUCTIONLIST
@@ -1053,16 +1043,12 @@ INSTRUCTIONLIST
               |   |-area
               |   |_F
               |     |-CalcArea
-              |     |_PARAMSCALL
-              |       |-x
-              |       |_y
+              |     |_x
               |_INSTRUCTIONLIST
-                |-ON
-                | |-On
+                |-On
                 | |-Console
                 | |_"\nThe Area: "
-                |_ON
-                  |-On
+                |_On
                   |-Console
                   |_ToString
                     |_area

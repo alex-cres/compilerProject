@@ -1058,7 +1058,7 @@ fprintf(logFile,"Entering <PARAMS>\n");
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 				if (nextToken == COMMA) {
 					addChildNode(paramsNode, nextLexeme, nextToken, logFile);
-					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term	
+					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					nextToken = params(file, nextToken, nextChar, nextLexeme,paramsNode, logFile);
 				}
 			}
@@ -1193,11 +1193,11 @@ fprintf(logFile,"Entering <DECLARATION>\n");
 
 	*/
 	Node* attributionNode = addChildNode(tree, "DECLARATION", -1, logFile);
-	addChildNode(attributionNode, nextLexeme, nextToken, logFile);
+	Node * typeNode=addChildNode(attributionNode, nextLexeme, nextToken, logFile);
 	nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 	switch (nextToken) {
 	case OPEN_BRACKETS:
-		nextToken = reservedArray(file, nextToken, nextChar, nextLexeme,attributionNode, logFile);
+		nextToken = reservedArray(file, nextToken, nextChar, nextLexeme, typeNode, logFile);
 		if (nextToken== IDENTIFIER_FUNCTION) {
 			nextToken = functionDec(file, nextToken, nextChar, nextLexeme,attributionNode, logFile);
 			break;
@@ -1238,7 +1238,7 @@ fprintf(logFile,"Entering <FUNCTIONDEC>\n");
 	Node* functionDecNode = addChildNode(tree, "FUNCTIONDEC", -1, logFile);
 
 	if (nextToken==IDENTIFIER_FUNCTION) {
-		addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+		Node* nameNode=addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
 			addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
@@ -1293,8 +1293,7 @@ fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumb
 				}
 			}
 			else {
-				addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
-				nextToken = params(file, nextToken, nextChar, nextLexeme,functionDecNode, logFile);
+				nextToken = params(file, nextToken, nextChar, nextLexeme, nameNode, logFile);
 				if (nextToken == CLOSE_PARENTESIS) {
 					addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -1514,9 +1513,10 @@ fprintf(logFile,"Entering <PARAMSCALL>\n");
 	
 	nextToken = exp(file, nextToken, nextChar, nextLexeme,paramsCallNode, logFile);
 	if (nextToken==COMMA) {
-		addChildNode(paramsCallNode, nextLexeme, nextToken, logFile);
+		Node * callingNode=addChildNode(paramsCallNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);
-		nextToken = params_call(file, nextToken, nextChar, nextLexeme,paramsCallNode, logFile);
+
+		nextToken = params_call(file, nextToken, nextChar, nextLexeme, callingNode, logFile);
 	}
 	
 	printf("Exiting <PARAMSCALL>\n");
@@ -1587,10 +1587,10 @@ fprintf(logFile,"Entering <FACTOR>\n");
 	Node* factorNode = addChildNode(tree, "FACTOR", -1, logFile);
 
 	if (nextToken == IDENTIFIER){
-		addChildNode(factorNode, nextLexeme, nextToken, logFile);
+		Node* identNode = addChildNode(factorNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 		if (nextToken==OPEN_BRACKETS) {
-			nextToken=reservedArray(file, nextToken, nextChar, nextLexeme,factorNode, logFile);//analyze term
+			nextToken=reservedArray(file, nextToken, nextChar, nextLexeme, identNode, logFile);//analyze term
 		}
 	
 	}

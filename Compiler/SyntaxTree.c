@@ -200,7 +200,7 @@ Node * CSTtoAST(Node * current, FILE* logFile)
 		current->type == RESERVED_COMMENT
 		) return NULL;
 	reorderTree(current);
-	//raise one child only
+	//raise one child only with non special syntax
 	if (current->type==-1) {
 		int i = 0;
 		int foundKids = 0;

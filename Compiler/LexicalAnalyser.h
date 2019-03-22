@@ -80,6 +80,7 @@
 #define RESERVED_FILE 95
 #define RESERVED_FILE_ENDER 96
 #define RESERVED_FILE_SIZE 97
+
 //reserved strings
 
 #define IDN_NUMBER_LEXEME "N"
