@@ -10,7 +10,7 @@ Loop(In.FileEnder(fileName)).Do( Comment(Loop to end of file);
 
 	i << i+1;
 
-	On.Console(x)
+	On.Console(x);
 
 );
 

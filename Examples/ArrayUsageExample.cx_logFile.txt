@@ -124,50 +124,103 @@ PROGRAM
     |   |_)
     |-;
     |_EOF
-PROGRAM
-|_INSTRUCTIONLIST
-  |-INSTRUCTION
-  | |_DECLARATION
-  |   |-S
-  |   |-ARRAYDEF
-  |   | |-[
-  |   | |-EXP
-  |   | | |_TERM
-  |   | |   |_FACTOR
-  |   | |     |_5
-  |   | |_]
-  |   |_<<
-  |     |-a
-  |     |_EXP
-  |       |_TERM
-  |         |_FACTOR
-  |           |_"aula"
-  |-;
-  |_INSTRUCTIONLIST
-    |-INSTRUCTION
-    | |_ON
-    |   |-On
-    |   |-.
-    |   |-Console
-    |   |-(
-    |   |-EXP
-    |   | |_TERM
-    |   |   |_FACTOR
-    |   |     |_CASTINGVAR
-    |   |       |-ToString
-    |   |       |-(
-    |   |       |-EXP
-    |   |       | |_TERM
-    |   |       |   |_FACTOR
-    |   |       |     |-a
-    |   |       |     |_ARRAYDEF
-    |   |       |       |-[
-    |   |       |       |-EXP
-    |   |       |       | |_TERM
-    |   |       |       |   |_FACTOR
-    |   |       |       |     |_0
-    |   |       |       |_]
-    |   |       |_)
-    |   |_)
-    |-;
-    |_EOF
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering S
+Exiting S
+Entering ARRAYDEF
+Entering [
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting 5
+Entering ]
+Exiting 5
+Entering DECLAREEXP
+Entering a
+Exiting a
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "aula"
+Exiting "aula"
+Exiting "aula"
+Exiting "aula"
+Exiting "aula"
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToString
+Exiting ToString
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Entering ARRAYDEF
+Entering [
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting 0
+Entering ]
+Exiting 0
+Exiting FACTOR
+Exiting FACTOR
+Exiting FACTOR
+Entering )
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Entering )
+Exiting ON
+Exiting ON
+Entering ;
+Entering EOF
+Exiting ON
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+
+MAX_DEPTH_TREE FOUND : 439770052
+INSTRUCTIONLIST
+|-DECLARATION
+| |-S
+| |-5
+| |_<<
+|   |-a
+|   |_"aula"
+|_ON
+  |-On
+  |-Console
+  |_ToString
+    |_FACTOR
+      |-a
+      |_0

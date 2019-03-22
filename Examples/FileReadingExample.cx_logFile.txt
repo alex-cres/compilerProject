@@ -200,7 +200,510 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
-ERROR: At Line 15 : SYNTAX ERROR MISSING POINT COMMA, )
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <LOOPER>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"End of File Reached"
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 19
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_Comment(Read the File and write in the file)
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_DECLARATION
+    |   |-N
+    |   |_DECLAREEXP
+    |     |-i
+    |     |-<<
+    |     |_EXP
+    |       |_TERM
+    |         |_FACTOR
+    |           |_0
+    |-;
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_DECLARATION
+      |   |-S
+      |   |-ARRAYDEF
+      |   | |-[
+      |   | |-EXP
+      |   | | |_TERM
+      |   | |   |_FACTOR
+      |   | |     |_100
+      |   | |_]
+      |   |_DECLAREEXP
+      |     |-fileName
+      |     |-<<
+      |     |_EXP
+      |       |_TERM
+      |         |_FACTOR
+      |           |_""
+      |-;
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_LOOPER
+        |   |-Loop
+        |   |-(
+        |   |-EXP
+        |   | |_TERM
+        |   |   |_FACTOR
+        |   |     |_IN
+        |   |       |-In
+        |   |       |-.
+        |   |       |-FileEnder
+        |   |       |-(
+        |   |       |-EXP
+        |   |       | |_TERM
+        |   |       |   |_FACTOR
+        |   |       |     |_fileName
+        |   |       |_)
+        |   |-)
+        |   |-.
+        |   |-Do
+        |   |-(
+        |   |-INSTRUCTIONLIST
+        |   | |-INSTRUCTION
+        |   | | |_Comment(Loop to end of file)
+        |   | |-;
+        |   | |_INSTRUCTIONLIST
+        |   |   |-INSTRUCTION
+        |   |   | |_DECLARATION
+        |   |   |   |-S
+        |   |   |   |-ARRAYDEF
+        |   |   |   | |-[
+        |   |   |   | |-EXP
+        |   |   |   | | |_TERM
+        |   |   |   | |   |_FACTOR
+        |   |   |   | |     |_IN
+        |   |   |   | |       |-In
+        |   |   |   | |       |-.
+        |   |   |   | |       |-FileSize
+        |   |   |   | |       |-(
+        |   |   |   | |       |-EXP
+        |   |   |   | |       | |_TERM
+        |   |   |   | |       |   |_FACTOR
+        |   |   |   | |       |     |_fileName
+        |   |   |   | |       |-,
+        |   |   |   | |       |-EXP
+        |   |   |   | |       | |_TERM
+        |   |   |   | |       |   |_FACTOR
+        |   |   |   | |       |     |_i
+        |   |   |   | |       |_)
+        |   |   |   | |_]
+        |   |   |   |_DECLAREEXP
+        |   |   |     |-x
+        |   |   |     |-<<
+        |   |   |     |_EXP
+        |   |   |       |_TERM
+        |   |   |         |_FACTOR
+        |   |   |           |_IN
+        |   |   |             |-In
+        |   |   |             |-.
+        |   |   |             |-File
+        |   |   |             |-(
+        |   |   |             |-EXP
+        |   |   |             | |_TERM
+        |   |   |             |   |_FACTOR
+        |   |   |             |     |_fileName
+        |   |   |             |-,
+        |   |   |             |-EXP
+        |   |   |             | |_TERM
+        |   |   |             |   |_FACTOR
+        |   |   |             |     |_i
+        |   |   |             |_)
+        |   |   |-;
+        |   |   |_INSTRUCTIONLIST
+        |   |     |-INSTRUCTION
+        |   |     | |_Comment(Reads a line in the file while adjusting the size of the string)
+        |   |     |-;
+        |   |     |_INSTRUCTIONLIST
+        |   |       |-INSTRUCTION
+        |   |       | |_ATTRIBUTION
+        |   |       |   |-i
+        |   |       |   |-<<
+        |   |       |   |_EXP
+        |   |       |     |-TERM
+        |   |       |     | |_FACTOR
+        |   |       |     |   |_i
+        |   |       |     |-+
+        |   |       |     |_TERM
+        |   |       |       |_FACTOR
+        |   |       |         |_1
+        |   |       |-;
+        |   |       |_INSTRUCTIONLIST
+        |   |         |-INSTRUCTION
+        |   |         | |_ON
+        |   |         |   |-On
+        |   |         |   |-.
+        |   |         |   |-Console
+        |   |         |   |-(
+        |   |         |   |-EXP
+        |   |         |   | |_TERM
+        |   |         |   |   |_FACTOR
+        |   |         |   |     |_x
+        |   |         |   |_)
+        |   |         |_;
+        |   |_)
+        |-;
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_ON
+          |   |-On
+          |   |-.
+          |   |-Console
+          |   |-(
+          |   |-EXP
+          |   | |_TERM
+          |   |   |_FACTOR
+          |   |     |_"End of File Reached"
+          |   |_)
+          |-;
+          |_EOF
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Comment(Read the File and write in the file)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering i
+Exiting i
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering S
+Exiting S
+Entering ARRAYDEF
+Entering [
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 100
+Exiting 100
+Exiting 100
+Exiting 100
+Exiting 100
+Entering ]
+Exiting 100
+Entering DECLAREEXP
+Entering fileName
+Exiting fileName
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering ""
+Exiting ""
+Exiting ""
+Exiting ""
+Exiting ""
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering LOOPER
+Entering Loop
+Exiting Loop
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering FileEnder
+Exiting FileEnder
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering fileName
+Exiting fileName
+Exiting fileName
+Exiting fileName
+Exiting fileName
+Entering )
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Entering )
+Entering .
+Entering Do
+Exiting Do
+Entering (
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Comment(Loop to end of file)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering S
+Exiting S
+Entering ARRAYDEF
+Entering [
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering FileSize
+Exiting FileSize
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering fileName
+Exiting fileName
+Exiting fileName
+Exiting fileName
+Exiting fileName
+Entering ,
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Exiting i
+Exiting i
+Entering )
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Entering ]
+Exiting In
+Entering DECLAREEXP
+Entering x
+Exiting x
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering File
+Exiting File
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering fileName
+Exiting fileName
+Exiting fileName
+Exiting fileName
+Exiting fileName
+Entering ,
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Exiting i
+Exiting i
+Entering )
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Comment(Reads a line in the file while adjusting the size of the string)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering i
+Exiting i
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Exiting i
+Entering +
+Exiting +
+Entering TERM
+Entering FACTOR
+Entering 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting +
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Exiting x
+Exiting x
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Entering )
+Exiting Loop
+Exiting Loop
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "End of File Reached"
+Exiting "End of File Reached"
+Exiting "End of File Reached"
+Exiting "End of File Reached"
+Exiting "End of File Reached"
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering EOF
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_<<
+|   |-i
+|   |_0
+|_INSTRUCTIONLIST
+  |-DECLARATION
+  | |-S
+  | |-100
+  | |_<<
+  |   |-fileName
+  |   |_""
+  |_INSTRUCTIONLIST
+    |-Loop
+    | |-In
+    | | |-FileEnder
+    | | |_fileName
+    | |-Do
+    | |_INSTRUCTIONLIST
+    |   |-DECLARATION
+    |   | |-S
+    |   | |-In
+    |   | | |-FileSize
+    |   | | |-fileName
+    |   | | |_i
+    |   | |_<<
+    |   |   |-x
+    |   |   |_In
+    |   |     |-File
+    |   |     |-fileName
+    |   |     |_i
+    |   |_INSTRUCTIONLIST
+    |     |-<<
+    |     | |-i
+    |     | |_+
+    |     |   |-i
+    |     |   |_1
+    |     |_On
+    |       |-Console
+    |       |_x
+    |_On
+      |-Console
+      |_"End of File Reached"

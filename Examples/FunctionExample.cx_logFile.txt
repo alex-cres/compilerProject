@@ -576,157 +576,493 @@ PROGRAM
                     |   |_)
                     |-;
                     |_EOF
-PROGRAM
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering FUNCTIONDEC
+Entering CalcArea
+Exiting CalcArea
+Entering (
+Entering D
+Exiting D
+Entering PARAMS
+Entering D
+Exiting D
+Entering x
+Exiting x
+Entering ,
+Entering PARAMS
+Entering D
+Exiting D
+Entering y
+Exiting y
+Exiting PARAMS
+Exiting PARAMS
+Entering )
+Entering .
+Entering Do
+Exiting Do
+Entering (
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Comment(Calculate the Area)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering area
+Exiting area
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Entering *
+Exiting *
+Entering FACTOR
+Entering y
+Exiting y
+Exiting y
+Exiting *
+Exiting *
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering EXIT
+Entering Exit
+Exiting Exit
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering area
+Exiting area
+Exiting area
+Exiting area
+Exiting area
+Entering )
+Exiting Exit
+Exiting Exit
+Entering ;
+Exiting Exit
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Entering )
+Exiting FUNCTIONDEC
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering x
+Exiting x
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering .0
+Exiting .0
+Exiting .0
+Exiting .0
+Exiting .0
+Entering ,
+Entering DECLAREEXP
+Entering y
+Exiting y
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering .0
+Exiting .0
+Exiting .0
+Exiting .0
+Exiting .0
+Exiting <<
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering IF
+Entering If
+Exiting If
+Entering (
+Entering BOOLSTRUCT
+Entering BOOLEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Exiting x
+Exiting x
+Entering !=
+Exiting !=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 0.2
+Exiting 0.2
+Exiting 0.2
+Exiting 0.2
+Exiting 0.2
+Exiting !=
+Exiting !=
+Entering )
+Entering .
+Entering Then
+Exiting Then
+Entering (
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering x
+Exiting x
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5.9
+Exiting 5.9
+Exiting 5.9
+Exiting 5.9
+Exiting 5.9
+Exiting <<
+Exiting <<
+Entering ;
+Exiting <<
+Entering )
+Exiting If
+Exiting If
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\nGive me the x: "
+Exiting "\nGive me the x: "
+Exiting "\nGive me the x: "
+Exiting "\nGive me the x: "
+Exiting "\nGive me the x: "
+Entering )
+Exiting ON
+Exiting ON
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering x
+Exiting x
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering )
+Entering CASTIN
+Entering .
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering )
+Exiting ToDecimal
+Exiting IN
+Exiting IN
+Exiting IN
+Exiting IN
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\nGive me the y: "
+Exiting "\nGive me the y: "
+Exiting "\nGive me the y: "
+Exiting "\nGive me the y: "
+Exiting "\nGive me the y: "
+Entering )
+Exiting ON
+Exiting ON
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering y
+Exiting y
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering )
+Entering CASTIN
+Entering .
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering )
+Exiting ToDecimal
+Exiting IN
+Exiting IN
+Exiting IN
+Exiting IN
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering area
+Exiting area
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CALLFUNCTION
+Entering F
+Exiting F
+Entering .
+Entering CalcArea
+Exiting CalcArea
+Entering (
+Entering PARAMSCALL
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Exiting x
+Exiting x
+Entering ,
+Entering PARAMSCALL
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering y
+Exiting y
+Exiting y
+Exiting y
+Exiting y
+Exiting y
+Exiting PARAMSCALL
+Entering )
+Exiting F
+Exiting F
+Exiting F
+Exiting F
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\nThe Area: "
+Exiting "\nThe Area: "
+Exiting "\nThe Area: "
+Exiting "\nThe Area: "
+Exiting "\nThe Area: "
+Entering )
+Exiting ON
+Exiting ON
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToString
+Exiting ToString
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering area
+Exiting area
+Exiting area
+Exiting area
+Exiting area
+Entering )
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Entering )
+Exiting ON
+Exiting ON
+Entering ;
+Entering EOF
+Exiting ON
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+
+MAX_DEPTH_TREE FOUND : 439770060
+INSTRUCTIONLIST
+|-DECLARATION
+| |-D
+| |_FUNCTIONDEC
+|   |-CalcArea
+|   |-D
+|   |-PARAMS
+|   | |-D
+|   | |-x
+|   | |_PARAMS
+|   |   |-D
+|   |   |_y
+|   |-Do
+|   |_INSTRUCTIONLIST
+|     |-DECLARATION
+|     | |-D
+|     | |_<<
+|     |   |-area
+|     |   |_*
+|     |     |-x
+|     |     |_y
+|     |_Exit
+|       |_area
 |_INSTRUCTIONLIST
-  |-INSTRUCTION
-  | |_DECLARATION
-  |   |-D
-  |   |_FUNCTIONDEC
-  |     |-CalcArea
-  |     |-D
-  |     |-PARAMS
-  |     | |-D
-  |     | |-x
-  |     | |_PARAMS
-  |     |   |-D
-  |     |   |_y
-  |     |-Do
-  |     |_INSTRUCTIONLIST
-  |       |-INSTRUCTION
-  |       | |_Comment(Calculate the Area)
-  |       |_INSTRUCTIONLIST
-  |         |-INSTRUCTION
-  |         | |_DECLARATION
-  |         |   |-D
-  |         |   |_<<
-  |         |     |-area
-  |         |     |_EXP
-  |         |       |_*
-  |         |         |-FACTOR
-  |         |         | |_x
-  |         |         |_FACTOR
-  |         |           |_y
-  |         |_INSTRUCTIONLIST
-  |           |_INSTRUCTION
-  |             |_Exit
-  |               |_EXP
-  |                 |_TERM
-  |                   |_FACTOR
-  |                     |_area
+  |-DECLARATION
+  | |-D
+  | |_<<
+  |   |-x
+  |   |-.0
+  |   |_<<
+  |     |-y
+  |     |_.0
   |_INSTRUCTIONLIST
-    |-INSTRUCTION
-    | |_DECLARATION
-    |   |-D
-    |   |_<<
-    |     |-x
-    |     |-EXP
-    |     | |_TERM
-    |     |   |_FACTOR
-    |     |     |_.0
-    |     |_<<
-    |       |-y
-    |       |_EXP
-    |         |_TERM
-    |           |_FACTOR
-    |             |_.0
+    |-If
+    | |-!=
+    | | |-x
+    | | |_0.2
+    | |-Then
+    | |_<<
+    |   |-x
+    |   |_5.9
     |_INSTRUCTIONLIST
-      |-INSTRUCTION
-      | |_If
-      |   |-BOOLSTRUCT
-      |   | |_!=
-      |   |   |-EXP
-      |   |   | |_TERM
-      |   |   |   |_FACTOR
-      |   |   |     |_x
-      |   |   |_EXP
-      |   |     |_TERM
-      |   |       |_FACTOR
-      |   |         |_0.2
-      |   |_Then
+      |-ON
+      | |-On
+      | |-Console
+      | |_"\nGive me the x: "
       |_INSTRUCTIONLIST
-        |-INSTRUCTION
-        | |_ON
-        |   |-On
+        |-<<
+        | |-x
+        | |_IN
+        |   |-In
         |   |-Console
-        |   |_EXP
-        |     |_TERM
-        |       |_FACTOR
-        |         |_"\nGive me the x: "
+        |   |_ToDecimal
         |_INSTRUCTIONLIST
-          |-INSTRUCTION
-          | |_<<
-          |   |-x
-          |   |_EXP
-          |     |_TERM
-          |       |_FACTOR
-          |         |_IN
-          |           |-In
-          |           |-Console
-          |           |_CASTIN
-          |             |_ToDecimal
+          |-ON
+          | |-On
+          | |-Console
+          | |_"\nGive me the y: "
           |_INSTRUCTIONLIST
-            |-INSTRUCTION
-            | |_ON
-            |   |-On
+            |-<<
+            | |-y
+            | |_IN
+            |   |-In
             |   |-Console
-            |   |_EXP
-            |     |_TERM
-            |       |_FACTOR
-            |         |_"\nGive me the y: "
+            |   |_ToDecimal
             |_INSTRUCTIONLIST
-              |-INSTRUCTION
+              |-DECLARATION
+              | |-D
               | |_<<
-              |   |-y
-              |   |_EXP
-              |     |_TERM
-              |       |_FACTOR
-              |         |_IN
-              |           |-In
-              |           |-Console
-              |           |_CASTIN
-              |             |_ToDecimal
+              |   |-area
+              |   |_F
+              |     |-CalcArea
+              |     |_PARAMSCALL
+              |       |-x
+              |       |_y
               |_INSTRUCTIONLIST
-                |-INSTRUCTION
-                | |_DECLARATION
-                |   |-D
-                |   |_<<
-                |     |-area
-                |     |_EXP
-                |       |_TERM
-                |         |_FACTOR
-                |           |_F
-                |             |-CalcArea
-                |             |_PARAMSCALL
-                |               |-EXP
-                |               | |_TERM
-                |               |   |_FACTOR
-                |               |     |_x
-                |               |_PARAMSCALL
-                |                 |_EXP
-                |                   |_TERM
-                |                     |_FACTOR
-                |                       |_y
-                |_INSTRUCTIONLIST
-                  |-INSTRUCTION
-                  | |_ON
-                  |   |-On
-                  |   |-Console
-                  |   |_EXP
-                  |     |_TERM
-                  |       |_FACTOR
-                  |         |_"\nThe Area: "
-                  |_INSTRUCTIONLIST
-                    |-INSTRUCTION
-                    | |_ON
-                    |   |-On
-                    |   |-Console
-                    |   |_EXP
-                    |     |_TERM
-                    |       |_FACTOR
-                    |         |_CASTINGVAR
-                    |           |-ToString
-                    |           |_EXP
-                    |             |_TERM
-                    |               |_FACTOR
-                    |                 |_area
-                    |_EOF
+                |-ON
+                | |-On
+                | |-Console
+                | |_"\nThe Area: "
+                |_ON
+                  |-On
+                  |-Console
+                  |_ToString
+                    |_area

@@ -58,14 +58,15 @@ int main()
 			
 		} while (nextToken != EOF);
 		normalColor();
-		int MAX_DEPTH_TREE = getTreeMaxDepth(cst,0);
+		int MAX_DEPTH_TREE = getTreeMaxDepth(cst);
 		int* arrayDepthTab = (int*)malloc(MAX_DEPTH_TREE*sizeof(int));
 		arrayDepthTab[0] = True;
 		printf("\nMAX_DEPTH_TREE FOUND : %d\n", MAX_DEPTH_TREE);
 		fprintf(logFile,"\nMAX_DEPTH_TREE FOUND : %d\n", MAX_DEPTH_TREE);
+		
 		printTree(cst, 0,True, arrayDepthTab, logFile);
-		cst=CSTtoAST(cst);
-
+		
+		cst = CSTtoAST(cst, logFile);
 		printTree(cst, 0, True, arrayDepthTab, logFile);
 
 

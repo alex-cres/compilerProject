@@ -107,7 +107,7 @@ int getTreeMaxDepth(Node * tree,int initialDepth)
 	return max;
 }
 
-Node * CSTtoAST(Node * current)
+Node * CSTtoAST(Node * current, FILE* logFile)
 {	
 	
 	int numberOfKidsFound = 0;
@@ -115,6 +115,7 @@ Node * CSTtoAST(Node * current)
 	if (current==NULL)
 		return NULL;
 	printf("Entering %s\n", current->info);
+	fprintf(logFile, "Entering %s\n", current->info);
 	//Subir nos que so têm um filho
 	//Tirar detalhes sintaticos
 	//Subir operadores 
@@ -123,7 +124,7 @@ Node * CSTtoAST(Node * current)
 	//recursivity for the cst to ast
 	while (numberOfKidsFound < MAX_CHILDREN && current->kids[numberOfKidsFound] != NULL)
 	{
-		current->kids[numberOfKidsFound] = CSTtoAST(current->kids[numberOfKidsFound]);
+		current->kids[numberOfKidsFound] = CSTtoAST(current->kids[numberOfKidsFound], logFile);
 		numberOfKidsFound++;
 	}
 	/*Reorganizar nodes*/
@@ -162,15 +163,14 @@ Node * CSTtoAST(Node * current)
 			current->kids[numberOfKidsFound]->type == RESERVED_IF ||
 			current->kids[numberOfKidsFound]->type == RESERVED_FOR ||
 			current->kids[numberOfKidsFound]->type == RESERVED_LOOP ||
-			0==strcmp(current->kids[numberOfKidsFound]->info , "EOF") ||
-			(0==strcmp(current->info,"CASTINGVAR") &&
-					(current->kids[numberOfKidsFound]->type == RESERVED_CAST_NUMBER ||
-					current->kids[numberOfKidsFound]->type == RESERVED_CAST_CHAR ||
-					current->kids[numberOfKidsFound]->type == RESERVED_CAST_BOOL ||
-					current->kids[numberOfKidsFound]->type == RESERVED_CAST_STRING ||
-					current->kids[numberOfKidsFound]->type == RESERVED_CAST_DECIMAL
-					)
-				)
+			current->kids[numberOfKidsFound]->type == RESERVED_IN ||
+			current->kids[numberOfKidsFound]->type == RESERVED_ON ||
+			0==strcmp(current->kids[numberOfKidsFound]->info , "EOF") ||			
+			current->kids[numberOfKidsFound]->type == RESERVED_CAST_NUMBER ||
+			current->kids[numberOfKidsFound]->type == RESERVED_CAST_CHAR ||
+			current->kids[numberOfKidsFound]->type == RESERVED_CAST_BOOL ||
+			current->kids[numberOfKidsFound]->type == RESERVED_CAST_STRING ||
+			current->kids[numberOfKidsFound]->type == RESERVED_CAST_DECIMAL
 			){
 
 			if (current->kids[numberOfKidsFound]->kids[0]==NULL)
@@ -199,7 +199,6 @@ Node * CSTtoAST(Node * current)
 		current->type == POINT ||
 		current->type == RESERVED_COMMENT
 		) return NULL;
-	
 	reorderTree(current);
 	//raise one child only
 	if (current->type==-1) {
@@ -224,11 +223,14 @@ Node * CSTtoAST(Node * current)
 				}
 				
 			
+		}else if(foundKids==0){
+			return NULL;
 		}
 	}
 	reorderTree(current);
 	
 	printf("Exiting %s\n", current->info);
+	fprintf(logFile, "Exiting %s\n", current->info);
 	return current;
 }
 

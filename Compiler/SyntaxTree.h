@@ -26,5 +26,5 @@ int getTreeMaxDepth(Node * tree);
 //Subir operadores 
 //Subir operadores 
 
-Node * CSTtoAST(Node * current);
+Node * CSTtoAST(Node * current, FILE* logFile);
 void reorderTree(Node * current);

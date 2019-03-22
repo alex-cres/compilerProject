@@ -77,10 +77,6 @@ Exiting <EXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Exiting <INSTRUCTION>
-Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -177,9 +173,7 @@ PROGRAM
       |   |     |     |_TERM
       |   |     |       |_FACTOR
       |   |     |         |_1
-      |   |     |-;
-      |   |     |_INSTRUCTIONLIST
-      |   |       |_INSTRUCTION
+      |   |     |_;
       |   |_)
       |-;
       |_INSTRUCTIONLIST
@@ -203,3 +197,157 @@ PROGRAM
         |   |_)
         |-;
         |_EOF
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Comment(This is not Executed)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering a
+Exiting a
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering LOOPER
+Entering Loop
+Exiting Loop
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting 5
+Entering )
+Entering .
+Entering Do
+Exiting Do
+Entering (
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Comment(This is not Executed)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering CONTINUE
+Entering Continue
+Exiting Continue
+Entering (
+Entering )
+Exiting Continue
+Exiting Continue
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering a
+Exiting a
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Entering +
+Exiting +
+Entering TERM
+Entering FACTOR
+Entering 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting +
+Exiting <<
+Exiting <<
+Entering ;
+Exiting <<
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Entering )
+Exiting Loop
+Exiting Loop
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToString
+Exiting ToString
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Entering )
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Entering )
+Exiting ON
+Exiting ON
+Entering ;
+Entering EOF
+Exiting ON
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_<<
+|   |-a
+|   |_0
+|_INSTRUCTIONLIST
+  |-Loop
+  | |-5
+  | |-Do
+  | |_INSTRUCTIONLIST
+  |   |-Continue
+  |   |_<<
+  |     |-a
+  |     |_+
+  |       |-a
+  |       |_1
+  |_ON
+    |-On
+    |-Console
+    |_ToString
+      |_a

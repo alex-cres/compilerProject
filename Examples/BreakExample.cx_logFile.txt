@@ -77,10 +77,6 @@ Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <BREAK>
 Exiting <INSTRUCTION>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Exiting <INSTRUCTION>
-Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -177,9 +173,7 @@ PROGRAM
       |   |     |   |-Break
       |   |     |   |-(
       |   |     |   |_)
-      |   |     |-;
-      |   |     |_INSTRUCTIONLIST
-      |   |       |_INSTRUCTION
+      |   |     |_;
       |   |_)
       |-;
       |_INSTRUCTIONLIST
@@ -203,3 +197,25 @@ PROGRAM
         |   |_)
         |-;
         |_EOF
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_<<
+|   |-a
+|   |_0
+|_INSTRUCTIONLIST
+  |-Loop
+  | |-5
+  | |-Do
+  | |_INSTRUCTIONLIST
+  |   |-<<
+  |   | |-a
+  |   | |_+
+  |   |   |-a
+  |   |   |_1
+  |   |_Break
+  |_ON
+    |-On
+    |-Console
+    |_ToString
+      |_a
