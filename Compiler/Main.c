@@ -64,6 +64,10 @@ int main()
 		printf("\nMAX_DEPTH_TREE FOUND : %d\n", MAX_DEPTH_TREE);
 		fprintf(logFile,"\nMAX_DEPTH_TREE FOUND : %d\n", MAX_DEPTH_TREE);
 		printTree(cst, 0,True, arrayDepthTab, logFile);
+		cst=CSTtoAST(cst);
+
+		printTree(cst, 0, True, arrayDepthTab, logFile);
+
 
 	}
 	else {

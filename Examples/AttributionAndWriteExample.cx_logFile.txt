@@ -144,3 +144,22 @@ PROGRAM
       |   |_)
       |-;
       |_EOF
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_<<
+|   |-a
+|   |_0
+|_INSTRUCTIONLIST
+  |-<<
+  | |-a
+  | |_*
+  |   |-+
+  |   | |-2
+  |   | |_4
+  |   |_2
+  |_ON
+    |-On
+    |-Console
+    |_ToString
+      |_a

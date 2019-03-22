@@ -328,7 +328,405 @@ Exiting <CASTINGVAR>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Token:	-01 --> EOF                           	Lex:	EOF
+Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
-ERROR:At Line 20 : SYNTAX ERROR NEAR, EOF
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 21
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_DECLARATION
+  |   |-D
+  |   |_FUNCTIONDEC
+  |     |-CalcArea
+  |     |-(
+  |     |-D
+  |     |-PARAMS
+  |     | |-D
+  |     | |-x
+  |     | |-,
+  |     | |_PARAMS
+  |     |   |-D
+  |     |   |_y
+  |     |-)
+  |     |-.
+  |     |-Do
+  |     |-(
+  |     |-INSTRUCTIONLIST
+  |     | |-INSTRUCTION
+  |     | | |_Comment(Calculate the Area)
+  |     | |-;
+  |     | |_INSTRUCTIONLIST
+  |     |   |-INSTRUCTION
+  |     |   | |_DECLARATION
+  |     |   |   |-D
+  |     |   |   |_DECLAREEXP
+  |     |   |     |-area
+  |     |   |     |-<<
+  |     |   |     |_EXP
+  |     |   |       |_TERM
+  |     |   |         |-FACTOR
+  |     |   |         | |_x
+  |     |   |         |-*
+  |     |   |         |_FACTOR
+  |     |   |           |_y
+  |     |   |-;
+  |     |   |_INSTRUCTIONLIST
+  |     |     |-INSTRUCTION
+  |     |     | |_EXIT
+  |     |     |   |-Exit
+  |     |     |   |-(
+  |     |     |   |-EXP
+  |     |     |   | |_TERM
+  |     |     |   |   |_FACTOR
+  |     |     |   |     |_area
+  |     |     |   |_)
+  |     |     |_;
+  |     |_)
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_DECLARATION
+    |   |-D
+    |   |_DECLAREEXP
+    |     |-x
+    |     |-<<
+    |     |-EXP
+    |     | |_TERM
+    |     |   |_FACTOR
+    |     |     |_.0
+    |     |-,
+    |     |_DECLAREEXP
+    |       |-y
+    |       |-<<
+    |       |_EXP
+    |         |_TERM
+    |           |_FACTOR
+    |             |_.0
+    |-;
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_IF
+      |   |-If
+      |   |-(
+      |   |-BOOLSTRUCT
+      |   | |_BOOLEXP
+      |   |   |-EXP
+      |   |   | |_TERM
+      |   |   |   |_FACTOR
+      |   |   |     |_x
+      |   |   |-!=
+      |   |   |_EXP
+      |   |     |_TERM
+      |   |       |_FACTOR
+      |   |         |_0.2
+      |   |-)
+      |   |-.
+      |   |-Then
+      |   |-(
+      |   |-INSTRUCTIONLIST
+      |   | |-INSTRUCTION
+      |   | | |_ATTRIBUTION
+      |   | |   |-x
+      |   | |   |-<<
+      |   | |   |_EXP
+      |   | |     |_TERM
+      |   | |       |_FACTOR
+      |   | |         |_5.9
+      |   | |_;
+      |   |_)
+      |-;
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_ON
+        |   |-On
+        |   |-.
+        |   |-Console
+        |   |-(
+        |   |-EXP
+        |   | |_TERM
+        |   |   |_FACTOR
+        |   |     |_"\nGive me the x: "
+        |   |_)
+        |-;
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_ATTRIBUTION
+          |   |-x
+          |   |-<<
+          |   |_EXP
+          |     |_TERM
+          |       |_FACTOR
+          |         |_IN
+          |           |-In
+          |           |-.
+          |           |-Console
+          |           |-(
+          |           |-)
+          |           |_CASTIN
+          |             |-.
+          |             |-ToDecimal
+          |             |-(
+          |             |_)
+          |-;
+          |_INSTRUCTIONLIST
+            |-INSTRUCTION
+            | |_ON
+            |   |-On
+            |   |-.
+            |   |-Console
+            |   |-(
+            |   |-EXP
+            |   | |_TERM
+            |   |   |_FACTOR
+            |   |     |_"\nGive me the y: "
+            |   |_)
+            |-;
+            |_INSTRUCTIONLIST
+              |-INSTRUCTION
+              | |_ATTRIBUTION
+              |   |-y
+              |   |-<<
+              |   |_EXP
+              |     |_TERM
+              |       |_FACTOR
+              |         |_IN
+              |           |-In
+              |           |-.
+              |           |-Console
+              |           |-(
+              |           |-)
+              |           |_CASTIN
+              |             |-.
+              |             |-ToDecimal
+              |             |-(
+              |             |_)
+              |-;
+              |_INSTRUCTIONLIST
+                |-INSTRUCTION
+                | |_DECLARATION
+                |   |-D
+                |   |_DECLAREEXP
+                |     |-area
+                |     |-<<
+                |     |_EXP
+                |       |_TERM
+                |         |_FACTOR
+                |           |_CALLFUNCTION
+                |             |-F
+                |             |-.
+                |             |-CalcArea
+                |             |-(
+                |             |-PARAMSCALL
+                |             | |-EXP
+                |             | | |_TERM
+                |             | |   |_FACTOR
+                |             | |     |_x
+                |             | |-,
+                |             | |_PARAMSCALL
+                |             |   |_EXP
+                |             |     |_TERM
+                |             |       |_FACTOR
+                |             |         |_y
+                |             |_)
+                |-;
+                |_INSTRUCTIONLIST
+                  |-INSTRUCTION
+                  | |_ON
+                  |   |-On
+                  |   |-.
+                  |   |-Console
+                  |   |-(
+                  |   |-EXP
+                  |   | |_TERM
+                  |   |   |_FACTOR
+                  |   |     |_"\nThe Area: "
+                  |   |_)
+                  |-;
+                  |_INSTRUCTIONLIST
+                    |-INSTRUCTION
+                    | |_ON
+                    |   |-On
+                    |   |-.
+                    |   |-Console
+                    |   |-(
+                    |   |-EXP
+                    |   | |_TERM
+                    |   |   |_FACTOR
+                    |   |     |_CASTINGVAR
+                    |   |       |-ToString
+                    |   |       |-(
+                    |   |       |-EXP
+                    |   |       | |_TERM
+                    |   |       |   |_FACTOR
+                    |   |       |     |_area
+                    |   |       |_)
+                    |   |_)
+                    |-;
+                    |_EOF
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_DECLARATION
+  |   |-D
+  |   |_FUNCTIONDEC
+  |     |-CalcArea
+  |     |-D
+  |     |-PARAMS
+  |     | |-D
+  |     | |-x
+  |     | |_PARAMS
+  |     |   |-D
+  |     |   |_y
+  |     |-Do
+  |     |_INSTRUCTIONLIST
+  |       |-INSTRUCTION
+  |       | |_Comment(Calculate the Area)
+  |       |_INSTRUCTIONLIST
+  |         |-INSTRUCTION
+  |         | |_DECLARATION
+  |         |   |-D
+  |         |   |_<<
+  |         |     |-area
+  |         |     |_EXP
+  |         |       |_*
+  |         |         |-FACTOR
+  |         |         | |_x
+  |         |         |_FACTOR
+  |         |           |_y
+  |         |_INSTRUCTIONLIST
+  |           |_INSTRUCTION
+  |             |_Exit
+  |               |_EXP
+  |                 |_TERM
+  |                   |_FACTOR
+  |                     |_area
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_DECLARATION
+    |   |-D
+    |   |_<<
+    |     |-x
+    |     |-EXP
+    |     | |_TERM
+    |     |   |_FACTOR
+    |     |     |_.0
+    |     |_<<
+    |       |-y
+    |       |_EXP
+    |         |_TERM
+    |           |_FACTOR
+    |             |_.0
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_If
+      |   |-BOOLSTRUCT
+      |   | |_!=
+      |   |   |-EXP
+      |   |   | |_TERM
+      |   |   |   |_FACTOR
+      |   |   |     |_x
+      |   |   |_EXP
+      |   |     |_TERM
+      |   |       |_FACTOR
+      |   |         |_0.2
+      |   |_Then
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_ON
+        |   |-On
+        |   |-Console
+        |   |_EXP
+        |     |_TERM
+        |       |_FACTOR
+        |         |_"\nGive me the x: "
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_<<
+          |   |-x
+          |   |_EXP
+          |     |_TERM
+          |       |_FACTOR
+          |         |_IN
+          |           |-In
+          |           |-Console
+          |           |_CASTIN
+          |             |_ToDecimal
+          |_INSTRUCTIONLIST
+            |-INSTRUCTION
+            | |_ON
+            |   |-On
+            |   |-Console
+            |   |_EXP
+            |     |_TERM
+            |       |_FACTOR
+            |         |_"\nGive me the y: "
+            |_INSTRUCTIONLIST
+              |-INSTRUCTION
+              | |_<<
+              |   |-y
+              |   |_EXP
+              |     |_TERM
+              |       |_FACTOR
+              |         |_IN
+              |           |-In
+              |           |-Console
+              |           |_CASTIN
+              |             |_ToDecimal
+              |_INSTRUCTIONLIST
+                |-INSTRUCTION
+                | |_DECLARATION
+                |   |-D
+                |   |_<<
+                |     |-area
+                |     |_EXP
+                |       |_TERM
+                |         |_FACTOR
+                |           |_F
+                |             |-CalcArea
+                |             |_PARAMSCALL
+                |               |-EXP
+                |               | |_TERM
+                |               |   |_FACTOR
+                |               |     |_x
+                |               |_PARAMSCALL
+                |                 |_EXP
+                |                   |_TERM
+                |                     |_FACTOR
+                |                       |_y
+                |_INSTRUCTIONLIST
+                  |-INSTRUCTION
+                  | |_ON
+                  |   |-On
+                  |   |-Console
+                  |   |_EXP
+                  |     |_TERM
+                  |       |_FACTOR
+                  |         |_"\nThe Area: "
+                  |_INSTRUCTIONLIST
+                    |-INSTRUCTION
+                    | |_ON
+                    |   |-On
+                    |   |-Console
+                    |   |_EXP
+                    |     |_TERM
+                    |       |_FACTOR
+                    |         |_CASTINGVAR
+                    |           |-ToString
+                    |           |_EXP
+                    |             |_TERM
+                    |               |_FACTOR
+                    |                 |_area
+                    |_EOF

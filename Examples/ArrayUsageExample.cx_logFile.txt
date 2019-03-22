@@ -124,3 +124,50 @@ PROGRAM
     |   |_)
     |-;
     |_EOF
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_DECLARATION
+  |   |-S
+  |   |-ARRAYDEF
+  |   | |-[
+  |   | |-EXP
+  |   | | |_TERM
+  |   | |   |_FACTOR
+  |   | |     |_5
+  |   | |_]
+  |   |_<<
+  |     |-a
+  |     |_EXP
+  |       |_TERM
+  |         |_FACTOR
+  |           |_"aula"
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_ON
+    |   |-On
+    |   |-.
+    |   |-Console
+    |   |-(
+    |   |-EXP
+    |   | |_TERM
+    |   |   |_FACTOR
+    |   |     |_CASTINGVAR
+    |   |       |-ToString
+    |   |       |-(
+    |   |       |-EXP
+    |   |       | |_TERM
+    |   |       |   |_FACTOR
+    |   |       |     |-a
+    |   |       |     |_ARRAYDEF
+    |   |       |       |-[
+    |   |       |       |-EXP
+    |   |       |       | |_TERM
+    |   |       |       |   |_FACTOR
+    |   |       |       |     |_0
+    |   |       |       |_]
+    |   |       |_)
+    |   |_)
+    |-;
+    |_EOF

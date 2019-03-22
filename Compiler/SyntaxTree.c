@@ -3,6 +3,7 @@
 #include <string.h>
 #include "ErrorHandling.h"
 #include "SyntaxTree.h"
+#include "LexicalAnalyser.h"
 
 
 
@@ -104,4 +105,148 @@ int getTreeMaxDepth(Node * tree,int initialDepth)
 		}
 	}
 	return max;
+}
+
+Node * CSTtoAST(Node * current)
+{	
+	
+	int numberOfKidsFound = 0;
+	int j = 0;
+	if (current==NULL)
+		return NULL;
+	printf("Entering %s\n", current->info);
+	//Subir nos que so têm um filho
+	//Tirar detalhes sintaticos
+	//Subir operadores 
+	//Subir operadores
+
+	//recursivity for the cst to ast
+	while (numberOfKidsFound < MAX_CHILDREN && current->kids[numberOfKidsFound] != NULL)
+	{
+		current->kids[numberOfKidsFound] = CSTtoAST(current->kids[numberOfKidsFound]);
+		numberOfKidsFound++;
+	}
+	/*Reorganizar nodes*/
+
+	while (j<numberOfKidsFound-1)
+	{
+		if (current->kids[j] == NULL) {
+			current->kids[j] = current->kids[j+1];
+			current->kids[j+1] = NULL;
+		}
+		j++;
+	}
+	reorderTree(current);
+	//Raise ops 
+	numberOfKidsFound = 0;
+	while (numberOfKidsFound < MAX_CHILDREN && current->kids[numberOfKidsFound] != NULL)
+	{
+		if (current->kids[numberOfKidsFound]->type== OP_ATTRIBUTION ||
+			current->kids[numberOfKidsFound]->type == OP_ADD ||
+			current->kids[numberOfKidsFound]->type == OP_MINUS ||
+			current->kids[numberOfKidsFound]->type == OP_MUL ||
+			current->kids[numberOfKidsFound]->type == OP_DIV ||
+			current->kids[numberOfKidsFound]->type == OP_MOD ||
+			current->kids[numberOfKidsFound]->type == OP_NOT ||
+			current->kids[numberOfKidsFound]->type == OP_XOR ||
+			current->kids[numberOfKidsFound]->type == OP_MINOR ||
+			current->kids[numberOfKidsFound]->type == OP_BIGGER ||
+			current->kids[numberOfKidsFound]->type == OP_BIGGER_EQUAL ||
+			current->kids[numberOfKidsFound]->type == OP_MINOR_EQUAL ||
+			current->kids[numberOfKidsFound]->type == OP_NOT_EQUAL ||
+			current->kids[numberOfKidsFound]->type == OP_EQUAL ||
+			current->kids[numberOfKidsFound]->type == OP_AND ||
+			current->kids[numberOfKidsFound]->type == OP_OR ||
+			current->kids[numberOfKidsFound]->type == RESERVED_EXIT_FUNCTION ||
+			current->kids[numberOfKidsFound]->type == RESERVED_CALL_FUNCTION ||
+			current->kids[numberOfKidsFound]->type == RESERVED_IF ||
+			current->kids[numberOfKidsFound]->type == RESERVED_FOR ||
+			current->kids[numberOfKidsFound]->type == RESERVED_LOOP ||
+			0==strcmp(current->kids[numberOfKidsFound]->info , "EOF") ||
+			(0==strcmp(current->info,"CASTINGVAR") &&
+					(current->kids[numberOfKidsFound]->type == RESERVED_CAST_NUMBER ||
+					current->kids[numberOfKidsFound]->type == RESERVED_CAST_CHAR ||
+					current->kids[numberOfKidsFound]->type == RESERVED_CAST_BOOL ||
+					current->kids[numberOfKidsFound]->type == RESERVED_CAST_STRING ||
+					current->kids[numberOfKidsFound]->type == RESERVED_CAST_DECIMAL
+					)
+				)
+			){
+
+			if (current->kids[numberOfKidsFound]->kids[0]==NULL)
+			{
+				current->info = (char*)malloc(sizeof(char)*(1 + strlen(current->kids[numberOfKidsFound]->info)));
+				strcpy(current->info, current->kids[numberOfKidsFound]->info);
+				current->type = current->kids[numberOfKidsFound]->type;
+				free(current->kids[numberOfKidsFound]);
+				current->kids[numberOfKidsFound] = NULL;
+			}
+
+		
+		}
+		numberOfKidsFound++;
+	}
+	
+	reorderTree(current);
+
+	//remove non needed symbols like brackets etc
+	if (current->type == OPEN_PARENTESIS ||
+		current->type == CLOSE_PARENTESIS ||
+		current->type == OPEN_BRACKETS ||
+		current->type == CLOSE_BRACKETS ||
+		current->type == POINT_COMMA ||
+		current->type == COMMA ||
+		current->type == POINT ||
+		current->type == RESERVED_COMMENT
+		) return NULL;
+	
+	reorderTree(current);
+	//raise one child only
+	if (current->type==-1) {
+		int i = 0;
+		int foundKids = 0;
+		int foundWhere = 0;
+		for (i=0;i<MAX_CHILDREN;i++)
+		{
+			if (current->kids[i] != NULL) {
+				foundKids++; foundWhere = i;
+			}
+		}
+		if (foundKids == 1) {
+			
+				current->info = (char*)malloc(sizeof(char)*(1 + strlen(current->kids[foundWhere]->info)));
+				strcpy(current->info, current->kids[foundWhere]->info);
+				current->type = current->kids[foundWhere]->type;
+				Node * c = current->kids[foundWhere];
+				int re = 0;
+				for (re = 0; re < MAX_CHILDREN;re++) {
+					current->kids[re] = c->kids[re];
+				}
+				
+			
+		}
+	}
+	reorderTree(current);
+	
+	printf("Exiting %s\n", current->info);
+	return current;
+}
+
+void reorderTree(Node * current){
+
+	/*Reorganizar nodes*/
+	int j = 0;
+	int i = 0;
+	while (i < MAX_CHILDREN - 1)
+	{
+		while (j < MAX_CHILDREN - 1)
+		{
+			if (current->kids[j] == NULL) {
+				current->kids[j] = current->kids[j + 1];
+				current->kids[j + 1] = NULL;
+			}
+			j++;
+		}
+		i++;
+	}
 }
