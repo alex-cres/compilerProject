@@ -198,7 +198,10 @@ Node * CSTtoAST(Node * current, FILE* logFile)
 		current->type == COMMA ||
 		current->type == POINT ||
 		current->type == RESERVED_COMMENT
-		) return NULL;
+		) {
+		free(current);
+		return NULL;
+	}
 	reorderTree(current);
 	//raise one child only with non special syntax
 	if (current->type==-1) {

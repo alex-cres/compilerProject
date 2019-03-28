@@ -361,39 +361,39 @@ PROGRAM
   |     |-(
   |     |-)
   |     |-.
-  |     |-Do
-  |     |-(
-  |     |-INSTRUCTIONLIST
-  |     | |-INSTRUCTION
-  |     | | |_Comment(Calculate the Area)
-  |     | |-;
-  |     | |_INSTRUCTIONLIST
-  |     |   |-INSTRUCTION
-  |     |   | |_DECLARATION
-  |     |   |   |-D
-  |     |   |   |_DECLAREEXP
-  |     |   |     |-area
-  |     |   |     |-<<
-  |     |   |     |_EXP
-  |     |   |       |_TERM
-  |     |   |         |-FACTOR
-  |     |   |         | |_x
-  |     |   |         |-*
-  |     |   |         |_FACTOR
-  |     |   |           |_y
-  |     |   |-;
-  |     |   |_INSTRUCTIONLIST
-  |     |     |-INSTRUCTION
-  |     |     | |_EXIT
-  |     |     |   |-Exit
-  |     |     |   |-(
-  |     |     |   |-EXP
-  |     |     |   | |_TERM
-  |     |     |   |   |_FACTOR
-  |     |     |   |     |_area
-  |     |     |   |_)
-  |     |     |_;
-  |     |_)
+  |     |_Do
+  |       |-(
+  |       |-INSTRUCTIONLIST
+  |       | |-INSTRUCTION
+  |       | | |_Comment(Calculate the Area)
+  |       | |-;
+  |       | |_INSTRUCTIONLIST
+  |       |   |-INSTRUCTION
+  |       |   | |_DECLARATION
+  |       |   |   |-D
+  |       |   |   |_DECLAREEXP
+  |       |   |     |-area
+  |       |   |     |-<<
+  |       |   |     |_EXP
+  |       |   |       |_TERM
+  |       |   |         |-FACTOR
+  |       |   |         | |_x
+  |       |   |         |-*
+  |       |   |         |_FACTOR
+  |       |   |           |_y
+  |       |   |-;
+  |       |   |_INSTRUCTIONLIST
+  |       |     |-INSTRUCTION
+  |       |     | |_EXIT
+  |       |     |   |-Exit
+  |       |     |   |-(
+  |       |     |   |-EXP
+  |       |     |   | |_TERM
+  |       |     |   |   |_FACTOR
+  |       |     |   |     |_area
+  |       |     |   |_)
+  |       |     |_;
+  |       |_)
   |-;
   |_INSTRUCTIONLIST
     |-INSTRUCTION
@@ -433,19 +433,19 @@ PROGRAM
       |   |         |_0.2
       |   |-)
       |   |-.
-      |   |-Then
-      |   |-(
-      |   |-INSTRUCTIONLIST
-      |   | |-INSTRUCTION
-      |   | | |_ATTRIBUTION
-      |   | |   |-x
-      |   | |   |-<<
-      |   | |   |_EXP
-      |   | |     |_TERM
-      |   | |       |_FACTOR
-      |   | |         |_5.9
-      |   | |_;
-      |   |_)
+      |   |_Then
+      |     |-(
+      |     |-INSTRUCTIONLIST
+      |     | |-INSTRUCTION
+      |     | | |_ATTRIBUTION
+      |     | |   |-x
+      |     | |   |-<<
+      |     | |   |_EXP
+      |     | |     |_TERM
+      |     | |       |_FACTOR
+      |     | |         |_5.9
+      |     | |_;
+      |     |_)
       |-;
       |_INSTRUCTIONLIST
         |-INSTRUCTION
@@ -601,7 +601,6 @@ Entering (
 Entering )
 Entering .
 Entering Do
-Exiting Do
 Entering (
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -657,6 +656,7 @@ Exiting Exit
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Entering )
+Exiting Do
 Exiting FUNCTIONDEC
 Exiting DECLARATION
 Exiting DECLARATION
@@ -729,7 +729,6 @@ Exiting !=
 Entering )
 Entering .
 Entering Then
-Exiting Then
 Entering (
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -751,6 +750,7 @@ Exiting <<
 Entering ;
 Exiting <<
 Entering )
+Exiting Then
 Exiting If
 Exiting If
 Entering ;
@@ -987,17 +987,17 @@ INSTRUCTIONLIST
 |   |   |_PARAMS
 |   |     |-D
 |   |     |_y
-|   |-Do
-|   |_INSTRUCTIONLIST
-|     |-DECLARATION
-|     | |-D
-|     | |_<<
-|     |   |-area
-|     |   |_*
-|     |     |-x
-|     |     |_y
-|     |_Exit
-|       |_area
+|   |_Do
+|     |_INSTRUCTIONLIST
+|       |-DECLARATION
+|       | |-D
+|       | |_<<
+|       |   |-area
+|       |   |_*
+|       |     |-x
+|       |     |_y
+|       |_Exit
+|         |_area
 |_INSTRUCTIONLIST
   |-DECLARATION
   | |-D
@@ -1012,10 +1012,10 @@ INSTRUCTIONLIST
     | |-!=
     | | |-x
     | | |_0.2
-    | |-Then
-    | |_<<
-    |   |-x
-    |   |_5.9
+    | |_Then
+    |   |_<<
+    |     |-x
+    |     |_5.9
     |_INSTRUCTIONLIST
       |-On
       | |-Console

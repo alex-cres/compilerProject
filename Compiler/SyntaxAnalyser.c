@@ -150,33 +150,35 @@ fprintf(logFile,"Entering <IF>\n");
 					addChildNode(ifNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					if (nextToken == RESERVED_THEN) {
-						addChildNode(ifNode, nextLexeme, nextToken, logFile);
+
+						Node * thenNode=addChildNode(ifNode, nextLexeme, nextToken, logFile);
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
-							addChildNode(ifNode, nextLexeme, nextToken, logFile);
+							addChildNode(thenNode, nextLexeme, nextToken, logFile);
 							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-							nextToken = instructionList(file, nextToken, nextChar, nextLexeme, ifNode, logFile);
+							nextToken = instructionList(file, nextToken, nextChar, nextLexeme, thenNode, logFile);
 							if (nextToken == CLOSE_PARENTESIS) {
-								addChildNode(ifNode, nextLexeme, nextToken, logFile);
+								addChildNode(thenNode, nextLexeme, nextToken, logFile);
 								nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 								if (nextToken == POINT) {
 									addChildNode(ifNode, nextLexeme, nextToken, logFile);
 									nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 									if (nextToken == RESERVED_ELSE) {
-										addChildNode(ifNode, nextLexeme, nextToken, logFile);
+										Node * elseNode = addChildNode(ifNode, nextLexeme, nextToken, logFile);
+										
 										nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 										if (nextToken == OPEN_PARENTESIS) {
-											addChildNode(ifNode, nextLexeme, nextToken, logFile);
+											addChildNode(elseNode, nextLexeme, nextToken, logFile);
 											nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-											nextToken = instructionList(file, nextToken, nextChar, nextLexeme, ifNode, logFile);
+											nextToken = instructionList(file, nextToken, nextChar, nextLexeme, elseNode, logFile);
 											if (nextToken == CLOSE_PARENTESIS) {
-												addChildNode(ifNode, nextLexeme, nextToken, logFile);
+												addChildNode(elseNode, nextLexeme, nextToken, logFile);
 												nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 											}
 											else {
 												errorColor();
 												printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+												fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
 												normalColor();
 												exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 											}
@@ -184,7 +186,7 @@ fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", li
 										else {
 											errorColor();
 											printf("ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s", lineNumber, nextLexeme);
-fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s", lineNumber, nextLexeme);
+											fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s", lineNumber, nextLexeme);
 											normalColor();
 											exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 										}
@@ -267,14 +269,14 @@ fprintf(logFile,"Entering <LOOPER>\n");
 					addChildNode(looperNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					if (nextToken == RESERVED_DO) {
-						addChildNode(looperNode, nextLexeme, nextToken, logFile);
+						Node * doNode=addChildNode(looperNode, nextLexeme, nextToken, logFile);
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
-							addChildNode(looperNode, nextLexeme, nextToken, logFile);
+							addChildNode(doNode, nextLexeme, nextToken, logFile);
 							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-							nextToken = instructionList(file, nextToken, nextChar, nextLexeme,looperNode, logFile);
+							nextToken = instructionList(file, nextToken, nextChar, nextLexeme, doNode, logFile);
 							if (nextToken == CLOSE_PARENTESIS) {
-								addChildNode(looperNode, nextLexeme, nextToken, logFile);
+								addChildNode(doNode, nextLexeme, nextToken, logFile);
 								nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 							}
 							else
@@ -393,14 +395,14 @@ fprintf(logFile,"Entering <FOR>\n");
 													addChildNode(forNode, nextLexeme, nextToken, logFile);
 													nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 													if (nextToken == RESERVED_DO) {
-														addChildNode(forNode, nextLexeme, nextToken, logFile);
+														Node * doNode =addChildNode(forNode, nextLexeme, nextToken, logFile);
 														nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 														if (nextToken == OPEN_PARENTESIS) {
-															addChildNode(forNode, nextLexeme, nextToken, logFile);
+															addChildNode(doNode, nextLexeme, nextToken, logFile);
 															nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-															nextToken = instructionList(file, nextToken, nextChar, nextLexeme,forNode, logFile);
+															nextToken = instructionList(file, nextToken, nextChar, nextLexeme, doNode, logFile);
 															if (nextToken == CLOSE_PARENTESIS) {
-																addChildNode(forNode, nextLexeme, nextToken, logFile);
+																addChildNode(doNode, nextLexeme, nextToken, logFile);
 																nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 															}
 															else {
@@ -1250,14 +1252,14 @@ fprintf(logFile,"Entering <FUNCTIONDEC>\n");
 					addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					if (nextToken == RESERVED_DO) {
-						addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+						Node * doNode= addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
-							addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+							addChildNode(doNode, nextLexeme, nextToken, logFile);
 							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-							nextToken = instructionList(file, nextToken, nextChar, nextLexeme,functionDecNode, logFile);
+							nextToken = instructionList(file, nextToken, nextChar, nextLexeme, doNode, logFile);
 							if (nextToken == CLOSE_PARENTESIS) {
-								addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+								addChildNode(doNode, nextLexeme, nextToken, logFile);
 								nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 							}
 							else {
@@ -1301,14 +1303,14 @@ fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumb
 						addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 						if (nextToken == RESERVED_DO) {
-							addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+							Node * doNode = addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
 							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 							if (nextToken == OPEN_PARENTESIS) {
-								addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+								addChildNode(doNode, nextLexeme, nextToken, logFile);
 								nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-								nextToken = instructionList(file, nextToken, nextChar, nextLexeme,functionDecNode, logFile);
+								nextToken = instructionList(file, nextToken, nextChar, nextLexeme, doNode, logFile);
 								if (nextToken == CLOSE_PARENTESIS) {
-									addChildNode(functionDecNode, nextLexeme, nextToken, logFile);
+									addChildNode(doNode, nextLexeme, nextToken, logFile);
 									nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 								}
 								else {
