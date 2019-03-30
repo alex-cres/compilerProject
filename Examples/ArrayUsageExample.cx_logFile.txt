@@ -1238,6 +1238,214 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
+
+MAX_DEPTH_TREE FOUND : 0
+INSTRUCTIONLIST
+|-DECLARATION
+| |-S
+| | |_5
+| |_<<
+|   |-a
+|   |_"aula"
+|_INSTRUCTIONLIST
+  |-DECLARATION
+  | |-N
+  | | |_5
+  | |_<<
+  |   |-a
+  |   |_ARRAYEXP
+  |     |-1
+  |     |-2
+  |     |-3
+  |     |-4
+  |     |_5
+  |_INSTRUCTIONLIST
+    |-DECLARATION
+    | |-N
+    | | |_ARRAYEXP
+    | |   |-5
+    | |   |_6
+    | |_<<
+    |   |-a
+    |   |_ARRAYEXP
+    |     |-ARRAYEXP
+    |     | |-1
+    |     | |-2
+    |     | |-3
+    |     | |-4
+    |     | |-5
+    |     | |_6
+    |     |-ARRAYEXP
+    |     | |-1
+    |     | |-2
+    |     | |-3
+    |     | |-4
+    |     | |-5
+    |     | |_6
+    |     |-ARRAYEXP
+    |     | |-1
+    |     | |-2
+    |     | |-3
+    |     | |-4
+    |     | |-5
+    |     | |_6
+    |     |-ARRAYEXP
+    |     | |-1
+    |     | |-2
+    |     | |-3
+    |     | |-4
+    |     | |-5
+    |     | |_6
+    |     |_ARRAYEXP
+    |       |-1
+    |       |-2
+    |       |-3
+    |       |-4
+    |       |-5
+    |       |_6
+    |_On
+      |-Console
+      |_ToString
+        |_a
+          |_0
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of S
+Optimization of 5
+End Optimization of 5
+End Optimization of S
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of "aula"
+End Optimization of "aula"
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization of 5
+End Optimization of 5
+End Optimization of N
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of ARRAYEXP
+Optimization of 1
+End Optimization of 1
+Optimization of 2
+End Optimization of 2
+Optimization of 3
+End Optimization of 3
+Optimization of 4
+End Optimization of 4
+Optimization of 5
+End Optimization of 5
+End Optimization of ARRAYEXP
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization of ARRAYEXP
+Optimization of 5
+End Optimization of 5
+Optimization of 6
+End Optimization of 6
+End Optimization of ARRAYEXP
+End Optimization of N
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of ARRAYEXP
+Optimization of ARRAYEXP
+Optimization of 1
+End Optimization of 1
+Optimization of 2
+End Optimization of 2
+Optimization of 3
+End Optimization of 3
+Optimization of 4
+End Optimization of 4
+Optimization of 5
+End Optimization of 5
+Optimization of 6
+End Optimization of 6
+End Optimization of ARRAYEXP
+Optimization of ARRAYEXP
+Optimization of 1
+End Optimization of 1
+Optimization of 2
+End Optimization of 2
+Optimization of 3
+End Optimization of 3
+Optimization of 4
+End Optimization of 4
+Optimization of 5
+End Optimization of 5
+Optimization of 6
+End Optimization of 6
+End Optimization of ARRAYEXP
+Optimization of ARRAYEXP
+Optimization of 1
+End Optimization of 1
+Optimization of 2
+End Optimization of 2
+Optimization of 3
+End Optimization of 3
+Optimization of 4
+End Optimization of 4
+Optimization of 5
+End Optimization of 5
+Optimization of 6
+End Optimization of 6
+End Optimization of ARRAYEXP
+Optimization of ARRAYEXP
+Optimization of 1
+End Optimization of 1
+Optimization of 2
+End Optimization of 2
+Optimization of 3
+End Optimization of 3
+Optimization of 4
+End Optimization of 4
+Optimization of 5
+End Optimization of 5
+Optimization of 6
+End Optimization of 6
+End Optimization of ARRAYEXP
+Optimization of ARRAYEXP
+Optimization of 1
+End Optimization of 1
+Optimization of 2
+End Optimization of 2
+Optimization of 3
+End Optimization of 3
+Optimization of 4
+End Optimization of 4
+Optimization of 5
+End Optimization of 5
+Optimization of 6
+End Optimization of 6
+End Optimization of ARRAYEXP
+End Optimization of ARRAYEXP
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of ToString
+Optimization of a
+Optimization of 0
+End Optimization of 0
+End Optimization of a
+End Optimization of ToString
+End Optimization of On
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+
+MAX_DEPTH_TREE FOUND : 0
 INSTRUCTIONLIST
 |-DECLARATION
 | |-S

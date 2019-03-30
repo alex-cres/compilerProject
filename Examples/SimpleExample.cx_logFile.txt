@@ -3,13 +3,6 @@ READING FROM : ..\Examples\SimpleExample.cx
 WRITING TO : ..\Examples\SimpleExample.cx_logFile.txt
 
 Token:	-01 --> EOF                           	Lex:	EOF
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Exiting <INSTRUCTION>
-Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 2
-PROGRAM
-|_INSTRUCTIONLIST
-  |-INSTRUCTION
-  |_EOF
+
+Error: File Empty

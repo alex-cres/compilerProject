@@ -41,9 +41,11 @@ Entering <FACTOR>
 Token:	034 --> OP_MUL                        	Lex:	*
 Exiting <FACTOR>
 Token:	011 --> IDENTIFIER                    	Lex:	y
+Entering <TERM>
 Entering <FACTOR>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
+Exiting <TERM>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <DECLAREEXP>
@@ -379,8 +381,9 @@ PROGRAM
   |       |   |         |-FACTOR
   |       |   |         | |_x
   |       |   |         |-*
-  |       |   |         |_FACTOR
-  |       |   |           |_y
+  |       |   |         |_TERM
+  |       |   |           |_FACTOR
+  |       |   |             |_y
   |       |   |-;
   |       |   |_INSTRUCTIONLIST
   |       |     |-INSTRUCTION
@@ -624,8 +627,10 @@ Exiting x
 Exiting x
 Entering *
 Exiting *
+Entering TERM
 Entering FACTOR
 Entering y
+Exiting y
 Exiting y
 Exiting y
 Exiting *
@@ -1052,37 +1057,231 @@ INSTRUCTIONLIST
                   |-Console
                   |_ToString
                     |_area
-Entering INSTRUCTIONLIST
-Entering DECLARATION
-Entering D
-Exiting D
-Entering FUNCTIONDEC
-Entering CalcArea
-Entering PARAMS
-Entering D
-Exiting D
-Entering x
-Exiting x
-Entering PARAMS
-Entering D
-Exiting D
-Entering y
-Exiting y
-Exiting PARAMS
-Exiting PARAMS
-Exiting CalcArea
-Entering Do
-Entering INSTRUCTIONLIST
-Entering DECLARATION
-Entering D
-Exiting D
-Entering <<
-Entering area
-Exiting area
-Entering *
-Entering x
-Exiting x
-Entering y
-Exiting y
-Exiting *
-Exit
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of FUNCTIONDEC
+Optimization of CalcArea
+Optimization of PARAMS
+Optimization of D
+End Optimization of D
+Optimization of x
+End Optimization of x
+Optimization of PARAMS
+Optimization of D
+End Optimization of D
+Optimization of y
+End Optimization of y
+End Optimization of PARAMS
+End Optimization of PARAMS
+End Optimization of CalcArea
+Optimization of Do
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of <<
+Optimization of area
+End Optimization of area
+Optimization of *
+Optimization of x
+End Optimization of x
+Optimization of y
+End Optimization of y
+End Optimization of *
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of Exit
+Optimization of area
+End Optimization of area
+End Optimization of Exit
+End Optimization of INSTRUCTIONLIST
+End Optimization of Do
+End Optimization of FUNCTIONDEC
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of <<
+Optimization of x
+End Optimization of x
+Optimization of .0
+End Optimization of .0
+Optimization of <<
+Optimization of y
+End Optimization of y
+Optimization of .0
+End Optimization of .0
+End Optimization of <<
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of If
+Optimization of !=
+Optimization of x
+End Optimization of x
+Optimization of 0.2
+End Optimization of 0.2
+End Optimization of !=
+Optimization of Then
+Optimization of <<
+Optimization of x
+End Optimization of x
+Optimization of 5.9
+End Optimization of 5.9
+End Optimization of <<
+End Optimization of Then
+End Optimization of If
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of "\nGive me the x: "
+End Optimization of "\nGive me the x: "
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of x
+End Optimization of x
+Optimization of In
+Optimization of Console
+End Optimization of Console
+Optimization of ToDecimal
+End Optimization of ToDecimal
+End Optimization of In
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of "\nGive me the y: "
+End Optimization of "\nGive me the y: "
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of y
+End Optimization of y
+Optimization of In
+Optimization of Console
+End Optimization of Console
+Optimization of ToDecimal
+End Optimization of ToDecimal
+End Optimization of In
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of <<
+Optimization of area
+End Optimization of area
+Optimization of F
+Optimization of CalcArea
+End Optimization of CalcArea
+Optimization of x
+End Optimization of x
+End Optimization of F
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of "\nThe Area: "
+End Optimization of "\nThe Area: "
+End Optimization of On
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of ToString
+Optimization of area
+End Optimization of area
+End Optimization of ToString
+End Optimization of On
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-D
+| |_FUNCTIONDEC
+|   |-CalcArea
+|   | |_PARAMS
+|   |   |-D
+|   |   |-x
+|   |   |_PARAMS
+|   |     |-D
+|   |     |_y
+|   |_Do
+|     |_INSTRUCTIONLIST
+|       |-DECLARATION
+|       | |-D
+|       | |_<<
+|       |   |-area
+|       |   |_*
+|       |     |-x
+|       |     |_y
+|       |_Exit
+|         |_area
+|_INSTRUCTIONLIST
+  |-DECLARATION
+  | |-D
+  | |_<<
+  |   |-x
+  |   |-.0
+  |   |_<<
+  |     |-y
+  |     |_.0
+  |_INSTRUCTIONLIST
+    |-If
+    | |-!=
+    | | |-x
+    | | |_0.2
+    | |_Then
+    |   |_<<
+    |     |-x
+    |     |_5.9
+    |_INSTRUCTIONLIST
+      |-On
+      | |-Console
+      | |_"\nGive me the x: "
+      |_INSTRUCTIONLIST
+        |-<<
+        | |-x
+        | |_In
+        |   |-Console
+        |   |_ToDecimal
+        |_INSTRUCTIONLIST
+          |-On
+          | |-Console
+          | |_"\nGive me the y: "
+          |_INSTRUCTIONLIST
+            |-<<
+            | |-y
+            | |_In
+            |   |-Console
+            |   |_ToDecimal
+            |_INSTRUCTIONLIST
+              |-DECLARATION
+              | |-D
+              | |_<<
+              |   |-area
+              |   |_F
+              |     |-CalcArea
+              |     |_x
+              |_INSTRUCTIONLIST
+                |-On
+                | |-Console
+                | |_"\nThe Area: "
+                |_On
+                  |-Console
+                  |_ToString
+                    |_area

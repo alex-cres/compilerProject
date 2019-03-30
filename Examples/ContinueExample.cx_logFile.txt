@@ -68,11 +68,13 @@ Token:	032 --> OP_ADD                        	Lex:	+
 Exiting <FACTOR>
 Exiting <TERM>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
 Exiting <TERM>
+Exiting <EXP>
 Exiting <EXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
@@ -118,7 +120,7 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 14
+MAX_DEPTH_TREE FOUND : 16
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -147,34 +149,35 @@ PROGRAM
       |   |     |_5
       |   |-)
       |   |-.
-      |   |-Do
-      |   |-(
-      |   |-INSTRUCTIONLIST
-      |   | |-INSTRUCTION
-      |   | | |_Comment(This is not Executed)
-      |   | |-;
-      |   | |_INSTRUCTIONLIST
-      |   |   |-INSTRUCTION
-      |   |   | |_CONTINUE
-      |   |   |   |-Continue
-      |   |   |   |-(
-      |   |   |   |_)
-      |   |   |-;
-      |   |   |_INSTRUCTIONLIST
-      |   |     |-INSTRUCTION
-      |   |     | |_ATTRIBUTION
-      |   |     |   |-a
-      |   |     |   |-<<
-      |   |     |   |_EXP
-      |   |     |     |-TERM
-      |   |     |     | |_FACTOR
-      |   |     |     |   |_a
-      |   |     |     |-+
-      |   |     |     |_TERM
-      |   |     |       |_FACTOR
-      |   |     |         |_1
-      |   |     |_;
-      |   |_)
+      |   |_Do
+      |     |-(
+      |     |-INSTRUCTIONLIST
+      |     | |-INSTRUCTION
+      |     | | |_Comment(This is not Executed)
+      |     | |-;
+      |     | |_INSTRUCTIONLIST
+      |     |   |-INSTRUCTION
+      |     |   | |_CONTINUE
+      |     |   |   |-Continue
+      |     |   |   |-(
+      |     |   |   |_)
+      |     |   |-;
+      |     |   |_INSTRUCTIONLIST
+      |     |     |-INSTRUCTION
+      |     |     | |_ATTRIBUTION
+      |     |     |   |-a
+      |     |     |   |-<<
+      |     |     |   |_EXP
+      |     |     |     |-TERM
+      |     |     |     | |_FACTOR
+      |     |     |     |   |_a
+      |     |     |     |-+
+      |     |     |     |_EXP
+      |     |     |       |_TERM
+      |     |     |         |_FACTOR
+      |     |     |           |_1
+      |     |     |_;
+      |     |_)
       |-;
       |_INSTRUCTIONLIST
         |-INSTRUCTION
@@ -241,7 +244,6 @@ Exiting 5
 Entering )
 Entering .
 Entering Do
-Exiting Do
 Entering (
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -273,9 +275,11 @@ Exiting a
 Exiting a
 Entering +
 Exiting +
+Entering EXP
 Entering TERM
 Entering FACTOR
 Entering 1
+Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
@@ -287,6 +291,7 @@ Exiting <<
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Entering )
+Exiting Do
 Exiting Loop
 Exiting Loop
 Entering ;
@@ -320,11 +325,11 @@ Exiting ToString
 Exiting ToString
 Exiting ToString
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering EOF
-Exiting ON
+Exiting On
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -338,16 +343,78 @@ INSTRUCTIONLIST
 |_INSTRUCTIONLIST
   |-Loop
   | |-5
-  | |-Do
-  | |_INSTRUCTIONLIST
-  |   |-Continue
-  |   |_<<
-  |     |-a
-  |     |_+
+  | |_Do
+  |   |_INSTRUCTIONLIST
+  |     |-Continue
+  |     |_<<
   |       |-a
-  |       |_1
-  |_ON
-    |-On
+  |       |_+
+  |         |-a
+  |         |_1
+  |_On
+    |-Console
+    |_ToString
+      |_a
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+End Optimization of N
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of 0
+End Optimization of 0
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of Loop
+Optimization of 5
+End Optimization of 5
+Optimization of Do
+Optimization of INSTRUCTIONLIST
+Optimization of Continue
+End Optimization of Continue
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of +
+Optimization of a
+End Optimization of a
+Optimization of 1
+End Optimization of 1
+End Optimization of +
+End Optimization of <<
+End Optimization of INSTRUCTIONLIST
+End Optimization of Do
+End Optimization of Loop
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of ToString
+Optimization of a
+End Optimization of a
+End Optimization of ToString
+End Optimization of On
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_<<
+|   |-a
+|   |_0
+|_INSTRUCTIONLIST
+  |-Loop
+  | |-5
+  | |_Do
+  |   |_INSTRUCTIONLIST
+  |     |-Continue
+  |     |_<<
+  |       |-a
+  |       |_+
+  |         |-a
+  |         |_1
+  |_On
     |-Console
     |_ToString
       |_a
