@@ -36,19 +36,47 @@ Entering <FACTOR>
 Token:	032 --> OP_ADD                        	Lex:	+
 Exiting <FACTOR>
 Exiting <TERM>
-Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	031 --> OP_MINUS                      	Lex:	-
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	031 --> OP_MINUS                      	Lex:	-
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <EXP>
+Exiting <EXP>
+Exiting <EXP>
+Exiting <EXP>
 Token:	034 --> OP_MUL                        	Lex:	*
 Exiting <FACTOR>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <TERM>
 Entering <FACTOR>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
+Exiting <TERM>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <ATTRIBUTION>
@@ -87,7 +115,7 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 13
+MAX_DEPTH_TREE FOUND : 15
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -115,13 +143,30 @@ PROGRAM
     |       | | | |_FACTOR
     |       | | |   |_2
     |       | | |-+
-    |       | | |_TERM
-    |       | |   |_FACTOR
-    |       | |     |_4
+    |       | | |_EXP
+    |       | |   |-TERM
+    |       | |   | |_FACTOR
+    |       | |   |   |_2
+    |       | |   |--
+    |       | |   |_EXP
+    |       | |     |-TERM
+    |       | |     | |_FACTOR
+    |       | |     |   |_2
+    |       | |     |-+
+    |       | |     |_EXP
+    |       | |       |-TERM
+    |       | |       | |_FACTOR
+    |       | |       |   |_2
+    |       | |       |--
+    |       | |       |_EXP
+    |       | |         |_TERM
+    |       | |           |_FACTOR
+    |       | |             |_2
     |       | |_)
     |       |-*
-    |       |_FACTOR
-    |         |_2
+    |       |_TERM
+    |         |_FACTOR
+    |           |_2
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
@@ -187,19 +232,53 @@ Exiting 2
 Exiting 2
 Entering +
 Exiting +
+Entering EXP
 Entering TERM
 Entering FACTOR
-Entering 4
-Exiting 4
-Exiting 4
-Exiting 4
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Entering -
+Exiting -
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Entering +
+Exiting +
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Entering -
+Exiting -
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting -
+Exiting +
+Exiting -
 Exiting +
 Entering )
 Exiting +
 Entering *
 Exiting *
+Entering TERM
 Entering FACTOR
 Entering 2
+Exiting 2
 Exiting 2
 Exiting 2
 Exiting *
@@ -237,16 +316,14 @@ Exiting ToString
 Exiting ToString
 Exiting ToString
 Entering )
-Exiting ON
-Exiting ON
+Exiting On
+Exiting On
 Entering ;
 Entering EOF
-Exiting ON
+Exiting On
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
-
-MAX_DEPTH_TREE FOUND : 439770053
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -259,10 +336,77 @@ INSTRUCTIONLIST
   | |_*
   |   |-+
   |   | |-2
-  |   | |_4
+  |   | |_-
+  |   |   |-2
+  |   |   |_+
+  |   |     |-2
+  |   |     |_-
+  |   |       |-2
+  |   |       |_2
   |   |_2
-  |_ON
-    |-On
+  |_On
+    |-Console
+    |_ToString
+      |_a
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+End Optimization of N
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of 0
+End Optimization of 0
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of *
+Optimization of +
+Optimization of 2
+End Optimization of 2
+Optimization of -
+Optimization of 2
+End Optimization of 2
+Optimization of +
+Optimization of 2
+End Optimization of 2
+Optimization of -
+Optimization of 2
+End Optimization of 2
+Optimization of 2
+End Optimization of 2
+End Optimization of -4
+End Optimization of -2
+End Optimization of 0
+End Optimization of 2
+Optimization of 2
+End Optimization of 2
+End Optimization of 4
+End Optimization of <<
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of ToString
+Optimization of a
+End Optimization of a
+End Optimization of ToString
+End Optimization of On
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_<<
+|   |-a
+|   |_0
+|_INSTRUCTIONLIST
+  |-<<
+  | |-a
+  | |_4
+  |_On
     |-Console
     |_ToString
       |_a

@@ -1052,3 +1052,37 @@ INSTRUCTIONLIST
                   |-Console
                   |_ToString
                     |_area
+Entering INSTRUCTIONLIST
+Entering DECLARATION
+Entering D
+Exiting D
+Entering FUNCTIONDEC
+Entering CalcArea
+Entering PARAMS
+Entering D
+Exiting D
+Entering x
+Exiting x
+Entering PARAMS
+Entering D
+Exiting D
+Entering y
+Exiting y
+Exiting PARAMS
+Exiting PARAMS
+Exiting CalcArea
+Entering Do
+Entering INSTRUCTIONLIST
+Entering DECLARATION
+Entering D
+Exiting D
+Entering <<
+Entering area
+Exiting area
+Entering *
+Entering x
+Exiting x
+Entering y
+Exiting y
+Exiting *
+Exit

@@ -49,23 +49,80 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Code2.txt">
-      <Filter>Source Files</Filter>
+    <Text Include="..\Examples\ArrayUsageExample.cv_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\ArrayUsageExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\ArrayUsageExample.cx~_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\AttributionAndWriteExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\BreakExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\BreakIfExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\ContinueExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\FileReadingExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\ForLoopExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\FunctionExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\SimpleExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\SimpleLooperExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="..\Examples\StringAndWriteInConsoleExample.cx_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
     </Text>
     <Text Include="Code.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
     </Text>
     <Text Include="Code1.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code1.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code2.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code2.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
     </Text>
     <Text Include="Code3.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code3.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
     </Text>
     <Text Include="Code4.txt">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code4.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Examples\ArrayUsageExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
     <None Include="..\Examples\AttributionAndWriteExample.cx">
       <Filter>Source Files\ExamplesCX</Filter>
     </None>
@@ -94,9 +151,6 @@
       <Filter>Source Files\ExamplesCX</Filter>
     </None>
     <None Include="..\Examples\StringAndWriteInConsoleExample.cx">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </None>
-    <None Include="..\Examples\ArrayUsageExample.cx">
       <Filter>Source Files\ExamplesCX</Filter>
     </None>
   </ItemGroup>

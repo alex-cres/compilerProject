@@ -8,6 +8,47 @@
 
 
 
+int reservedArrayexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
+{
+	printf("Entering <ARRAYEXP>\n");
+	fprintf(logFile, "Entering <ARRAYEXP>\n");
+	Node* reservedArrayexpNode = addChildNode(tree, "ARRAYEXP", -1, logFile);
+	addChildNode(reservedArrayexpNode, nextLexeme, nextToken, logFile);
+	
+	do 
+	{
+		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+		if (nextToken == CLOSE_BRACKETS) {
+			addChildNode(reservedArrayexpNode, nextLexeme, nextToken, logFile);
+			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+			printf("Exiting <ARRAYEXP>\n");
+			fprintf(logFile, "Exiting <ARRAYEXP>\n");
+			return nextToken;
+		}
+		nextToken = exp(file, nextToken, nextChar, nextLexeme, reservedArrayexpNode, logFile);
+	} while (nextToken == COMMA);
+	if (nextToken == CLOSE_BRACKETS) {
+		addChildNode(reservedArrayexpNode, nextLexeme, nextToken, logFile);
+		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+		printf("Exiting <ARRAYEXP>\n");
+		fprintf(logFile, "Exiting <ARRAYEXP>\n");
+		return nextToken;
+	}
+	else {
+		errorColor();
+		printf("ERROR: At Line %i : SYNTAX ERROR MISSING CLOSING BRACKETS, %s", lineNumber, nextLexeme);
+		fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR MISSING  CLOSING BRACKETS, %s", lineNumber, nextLexeme);
+		normalColor();
+		exit(ERROR_SYNTAX_ERROR_MISSING_CLOSING_BRACKETS);
+	}
+
+
+
+	printf("Exiting <ARRAYEXP>\n");
+	fprintf(logFile, "Exiting <ARRAYEXP>\n");
+	return nextToken;
+}
+
 int instructionList(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
 	printf("Entering <INSTRUCTIONLIST>\n");
 fprintf(logFile,"Entering <INSTRUCTIONLIST>\n");
@@ -1199,7 +1240,7 @@ fprintf(logFile,"Entering <DECLARATION>\n");
 	nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 	switch (nextToken) {
 	case OPEN_BRACKETS:
-		nextToken = reservedArray(file, nextToken, nextChar, nextLexeme, typeNode, logFile);
+		nextToken = reservedArrayexp(file, nextToken, nextChar, nextLexeme, typeNode, logFile);
 		if (nextToken== IDENTIFIER_FUNCTION) {
 			nextToken = functionDec(file, nextToken, nextChar, nextLexeme,attributionNode, logFile);
 			break;
@@ -1535,10 +1576,10 @@ fprintf(logFile,"Entering <EXP>\n");
 			| <term>
 */
 	nextToken = term(file,nextToken,nextChar,nextLexeme,expNode, logFile);//analyze term
-	while(nextToken == OP_ADD || nextToken == OP_MINUS){//permits multiple + and - in the program
+	if(nextToken == OP_ADD || nextToken == OP_MINUS){//permits multiple + and - in the program
 		addChildNode(expNode, nextLexeme, nextToken, logFile); 
 		nextToken=lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = term(file, nextToken, nextChar, nextLexeme,expNode, logFile);//analyze term
+		nextToken = exp(file, nextToken, nextChar, nextLexeme,expNode, logFile);//analyze term
 	}
 	printf("Exiting <EXP>\n");
 fprintf(logFile,"Exiting <EXP>\n");
@@ -1557,10 +1598,10 @@ int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 fprintf(logFile,"Entering <TERM>\n");
 	Node* termNode = addChildNode(tree, "TERM", -1, logFile);
 	nextToken = factor(file, nextToken, nextChar, nextLexeme,termNode, logFile);//analyze term
-	while (nextToken == OP_MUL || nextToken == OP_MOD || nextToken == OP_DIV) {//permits multiple * , %, / in the program
+	if (nextToken == OP_MUL || nextToken == OP_MOD || nextToken == OP_DIV) {//permits multiple * , %, / in the program
 		addChildNode(termNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = factor(file, nextToken, nextChar, nextLexeme,termNode, logFile);//analyze term
+		nextToken = term(file, nextToken, nextChar, nextLexeme,termNode, logFile);//analyze term
 	}
 	printf("Exiting <TERM>\n");
 fprintf(logFile,"Exiting <TERM>\n");
@@ -1583,27 +1624,28 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 			| <boolstruct>
 			| <call_function>
 			| <casting>
+			| <arrayexp> 
 	*/
 	printf("Entering <FACTOR>\n");
 fprintf(logFile,"Entering <FACTOR>\n");
 	Node* factorNode = addChildNode(tree, "FACTOR", -1, logFile);
-
-	if (nextToken == IDENTIFIER){
+	if (nextToken == OPEN_BRACKETS) {
+		nextToken = reservedArrayexp(file, nextToken, nextChar, nextLexeme, factorNode, logFile);//analyze term
+	}else if (nextToken == IDENTIFIER){
 		Node* identNode = addChildNode(factorNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 		if (nextToken==OPEN_BRACKETS) {
-			nextToken=reservedArray(file, nextToken, nextChar, nextLexeme, identNode, logFile);//analyze term
+			nextToken= reservedArrayexp(file, nextToken, nextChar, nextLexeme, identNode, logFile);//analyze term
 		}
 	
-	}
-	else if( nextToken == LITERAL_CHAR || nextToken == LITERAL_STRING 
+	}else if( nextToken == LITERAL_CHAR || nextToken == LITERAL_STRING 
 		|| nextToken == LITERAL_NUMBER || nextToken == LITERAL_DECIMAL) {
 		addChildNode(factorNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 	}
 	else if (nextToken == OP_ADD || nextToken == OP_MINUS ) {
 		printf("Entering <SIGNEDNUMBER>\n");
-fprintf(logFile,"Entering <SIGNEDNUMBER>\n");
+		fprintf(logFile,"Entering <SIGNEDNUMBER>\n");
 		Node* signedNumberNode = addChildNode(factorNode, "SIGNEDNUMBER", -1, logFile);
 		addChildNode(signedNumberNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -1611,12 +1653,12 @@ fprintf(logFile,"Entering <SIGNEDNUMBER>\n");
 			addChildNode(signedNumberNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 			printf("Exiting <SIGNEDNUMBER>\n");
-fprintf(logFile,"Exiting <SIGNEDNUMBER>\n");
+			fprintf(logFile,"Exiting <SIGNEDNUMBER>\n");
 		}
 		else {
 			errorColor();
 			printf("ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNumber, nextLexeme);
-fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNumber, nextLexeme);
+	fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNumber, nextLexeme);
 			normalColor();
 			exit(ERROR_SYNTAX_ERROR_BAD_NUMBER_FORMAT);
 		}
@@ -1628,7 +1670,8 @@ fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNu
 		nextToken == RESERVED_CAST_STRING ||
 		nextToken == RESERVED_CAST_DECIMAL) {
 		nextToken = reservedCastingVar(file, nextToken, nextChar, nextLexeme,factorNode, logFile);
-	}else if (nextToken==RESERVED_CALL_FUNCTION) {
+	}
+	else if (nextToken==RESERVED_CALL_FUNCTION) {
 		nextToken = reservedCallFunction(file, nextToken, nextChar, nextLexeme,factorNode, logFile);
 	}
 	else if (nextToken == RESERVED_IN) {
@@ -1644,14 +1687,14 @@ fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNu
 			}else{
 				errorColor();
 				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 			}
-		}
-		else {
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,factorNode, logFile);
-		}
+	}
+	else {
+		nextToken = boolstruct(file, nextToken, nextChar, nextLexeme,factorNode, logFile);
+	}
 	
 	printf("Exiting <FACTOR>\n");
 fprintf(logFile,"Exiting <FACTOR>\n");
@@ -1704,34 +1747,6 @@ fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", li
 	
 	printf("Exiting <CASTINGVAR>\n");
 fprintf(logFile,"Exiting <CASTINGVAR>\n");
-	return nextToken;
-}
-int reservedArray(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
-	printf("Entering <ARRAYDEF>\n");
-fprintf(logFile,"Entering <ARRAYDEF>\n");
-	/*
-<array_def> --> [<exp>]  
-	*/
-	Node* arrayDefNode = addChildNode(tree, "ARRAYDEF", -1, logFile);
-	
-	if (nextToken==OPEN_BRACKETS) {
-		addChildNode(arrayDefNode, nextLexeme, nextToken, logFile);
-		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = exp(file, nextToken, nextChar, nextLexeme,arrayDefNode, logFile);
-		if (nextToken==CLOSE_BRACKETS) {
-			addChildNode(arrayDefNode, nextLexeme, nextToken, logFile);
-			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		}
-		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR ARRAY NOT CLOSED, %s", lineNumber, nextLexeme);
-fprintf(logFile,"ERROR: At Line %i : SYNTAX ERROR ARRAY NOT CLOSED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_ARRAY_NOT_CLOSED);
-		}
-	}
-	printf("Exiting <ARRAYDEF>\n");
-fprintf(logFile,"Exiting <ARRAYDEF>\n");
 	return nextToken;
 }
 

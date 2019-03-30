@@ -1,11 +1,15 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 #include "ErrorHandling.h"
 #include "SyntaxTree.h"
 #include "LexicalAnalyser.h"
 
 
+typedef int bool;
+#define True 1
+#define False 0
 
 
 Node * generateNode(char * info, int type)
@@ -231,7 +235,6 @@ Node * CSTtoAST(Node * current, FILE* logFile)
 		}
 	}
 	reorderTree(current);
-	
 	printf("Exiting %s\n", current->info);
 	fprintf(logFile, "Exiting %s\n", current->info);
 	return current;
@@ -254,4 +257,124 @@ void reorderTree(Node * current){
 		}
 		i++;
 	}
+}
+
+
+Node * Optimization(Node * current, FILE* logFile)
+{
+
+	int numberOfKidsFound = 0;
+	int j = 0;
+	if (current == NULL)
+		return NULL;
+	printf("Optimization of  %s\n", current->info);
+	fprintf(logFile, "Optimization of %s\n", current->info);
+	//Subir nos que so têm um filho
+	//Tirar detalhes sintaticos
+	//Subir operadores 
+	//Subir operadores
+
+	//recursivity for the cst to ast
+	while (numberOfKidsFound < MAX_CHILDREN && current->kids[numberOfKidsFound] != NULL)
+	{
+		current->kids[numberOfKidsFound] = Optimization(current->kids[numberOfKidsFound], logFile);
+		numberOfKidsFound++;
+	}
+	/*Reorganizar nodes*/
+	reorderTree(current);
+	
+	printf("Optimization start %s\n", current->info);
+	//literal operations optimization
+	if (current->type == OP_ADD || current->type == OP_MINUS || current->type == OP_DIV
+		|| current->type == OP_MUL || current->type == OP_MOD)
+	{
+		float Total = 0;
+		switch (current->type) {
+		case OP_MUL:
+		case OP_DIV:
+			Total = 1;
+			break;
+		case OP_ADD:
+		case OP_MINUS:
+		case OP_MOD:
+			Total = 0;
+			break;
+		}
+		bool foundkidsInteger = True;
+		int i = 0;
+		int foundKids = 0;
+		int foundWhere = 0;
+		for (i = 0;i < MAX_CHILDREN;i++)
+		{
+			if (current->kids[i] != NULL) {
+
+				if (current->kids[i]->type != LITERAL_NUMBER && current->kids[i]->type != LITERAL_DECIMAL) {
+					foundkidsInteger = False;
+					break;
+				}
+				else {
+					switch (current->type) {
+					case OP_MUL:
+						Total = Total * atof(current->kids[i]->info);
+						break;
+					case OP_DIV:
+						if (i != 0) {
+							Total = Total/ atof(current->kids[i]->info);
+						}
+						else {
+							Total = atof(current->kids[i]->info);
+						}
+						break;
+					case OP_ADD:
+						Total = Total + atof(current->kids[i]->info);
+						break;
+					case OP_MINUS:
+						Total = Total - atof(current->kids[i]->info);
+						break;
+					case OP_MOD:
+						if (i!=0) {
+							Total = fmod(Total, atof(current->kids[i]->info));
+						}
+						else {
+							Total = atof(current->kids[i]->info);
+						}
+						break;
+					}
+					
+				}
+				foundKids++; foundWhere = i;
+			}
+		}
+		if (foundkidsInteger) {
+			char str[12];
+			char formate[3]="%f";
+			current->type = LITERAL_DECIMAL;
+			sprintf(str, formate, Total);
+			if (round(Total)== (int)Total) {
+				strcpy(formate, "%d");
+				current->type = LITERAL_NUMBER;
+				sprintf(str, formate, (int)Total);
+			}
+			
+			current->info = (char*)malloc(sizeof(char)*(1 + strlen(str)));
+			strcpy(current->info, str);
+			
+			for (i = 0;i < MAX_CHILDREN;i++)
+			{
+
+				free(current->kids[i]);
+				current->kids[i] = NULL;
+			}
+		}
+		printf("Optimization result %s\n", current->info);
+
+
+	}
+	reorderTree(current);
+	reorderTree(current);
+	reorderTree(current);
+	reorderTree(current);
+	printf("End Optimization of %s\n", current->info);
+	fprintf(logFile, "End Optimization of %s\n", current->info);
+	return current;
 }

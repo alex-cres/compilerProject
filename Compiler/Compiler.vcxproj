@@ -136,11 +136,29 @@
     <ClInclude Include="SyntaxTree.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\Examples\ArrayUsageExample.cv_logFile.txt" />
+    <Text Include="..\Examples\ArrayUsageExample.cx_logFile.txt" />
+    <Text Include="..\Examples\ArrayUsageExample.cx~_logFile.txt" />
+    <Text Include="..\Examples\AttributionAndWriteExample.cx_logFile.txt" />
+    <Text Include="..\Examples\BreakExample.cx_logFile.txt" />
+    <Text Include="..\Examples\BreakIfExample.cx_logFile.txt" />
+    <Text Include="..\Examples\ContinueExample.cx_logFile.txt" />
+    <Text Include="..\Examples\FileReadingExample.cx_logFile.txt" />
+    <Text Include="..\Examples\ForLoopExample.cx_logFile.txt" />
+    <Text Include="..\Examples\FunctionExample.cx_logFile.txt" />
+    <Text Include="..\Examples\SimpleExample.cx_logFile.txt" />
+    <Text Include="..\Examples\SimpleLooperExample.cx_logFile.txt" />
+    <Text Include="..\Examples\StringAndWriteInConsoleExample.cx_logFile.txt" />
     <Text Include="Code.txt" />
+    <Text Include="Code.txt_logFile.txt" />
     <Text Include="Code1.txt" />
+    <Text Include="Code1.txt_logFile.txt" />
     <Text Include="Code2.txt" />
+    <Text Include="Code2.txt_logFile.txt" />
     <Text Include="Code3.txt" />
+    <Text Include="Code3.txt_logFile.txt" />
     <Text Include="Code4.txt" />
+    <Text Include="Code4.txt_logFile.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Examples\ArrayUsageExample.cx" />

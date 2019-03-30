@@ -69,6 +69,8 @@ int main()
 		cst = CSTtoAST(cst, logFile);
 		printTree(cst, 0, True, arrayDepthTab, logFile);
 
+		cst = Optimization(cst, logFile);
+		printTree(cst, 0, True, arrayDepthTab, logFile);
 
 	}
 	else {
