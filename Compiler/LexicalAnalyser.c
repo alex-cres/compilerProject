@@ -38,7 +38,7 @@ NextChar getChar(FILE * file)
 NextChar getNonBlankChar(FILE * file, NextChar nextChar)
 {
 	while (isspace(nextChar.ch)) {
-		
+
 		nextChar = getChar(file);
 	}
 	return nextChar;
@@ -47,7 +47,7 @@ NextChar getNonBlankChar(FILE * file, NextChar nextChar)
 int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 {
 	int sizeOfLexeme = -1;//according to the add char function, it first adds to the length, so the first char needs to be on the 0
-	int nextToken=0;
+	int nextToken = 0;
 	*nextChar = getNonBlankChar(file, *nextChar);
 	switch (nextChar->tp_code) {
 
@@ -71,18 +71,18 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		break;
 	case LETTER_SMALL:
 	case LETTER_BIG:
-		if(nextChar->tp_code==LETTER_BIG){
+		if (nextChar->tp_code == LETTER_BIG) {
 			nextToken = IDENTIFIER_FUNCTION;
 		}
-		else if(nextChar->tp_code == LETTER_SMALL) {
+		else if (nextChar->tp_code == LETTER_SMALL) {
 			nextToken = IDENTIFIER;
 		}
 		do {
 			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
 
-		} while (isLETTER(nextChar->tp_code)  || nextChar->tp_code == DIGIT);
-		if (0==strcmp(nextLexeme, LITERAL_BOOL_TRUE_LEXEME)) {
+		} while (isLETTER(nextChar->tp_code) || nextChar->tp_code == DIGIT);
+		if (0 == strcmp(nextLexeme, LITERAL_BOOL_TRUE_LEXEME)) {
 			nextToken = RESERVED_BOOL_TRUE;
 			break;
 		}
@@ -128,7 +128,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CONSOLE_LEXEME)) {
 			nextToken = RESERVED_CONSOLE
-;
+				;
 			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_FOR_LEXEME)) {
@@ -143,23 +143,23 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 			nextToken = RESERVED_CALL_FUNCTION;
 			break;
 		}
-		else if ((0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT3_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT2_LEXEME))||(0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT1_LEXEME))) {
+		else if ((0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT3_LEXEME)) || (0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT2_LEXEME)) || (0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT1_LEXEME))) {
 			if (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme, logFile) != OPEN_PARENTESIS) {
 				errorColor();
-				printf("ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumber, nextLexeme);
-fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumber, nextLexeme);
+				printf("ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s", lineNumber, nextLexeme);
+				fprintf(logFile, "ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s", lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_COMMENT_NOT_FORMATED_CORRECTLY);
-			
+
 			}
 			*nextChar = getChar(file);
-			
+
 			while (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme, logFile) != CLOSE_PARENTESIS) {
 				*nextChar = getChar(file);
 			}
-			
+
 			*nextChar = getChar(file);
-			nextToken=RESERVED_COMMENT;
+			nextToken = RESERVED_COMMENT;
 
 			break;
 		}
@@ -209,36 +209,36 @@ fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumbe
 			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_FILE_LEXEME)) {
-		nextToken = RESERVED_FILE;
-		break;
+			nextToken = RESERVED_FILE;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_FILE_ENDER_LEXEME)) {
-		nextToken = RESERVED_FILE_ENDER;
-		break;
+			nextToken = RESERVED_FILE_ENDER;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_FILE_SIZE_LEXEME)) {
-		nextToken = RESERVED_FILE_SIZE;
-		break;
+			nextToken = RESERVED_FILE_SIZE;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CAST_NUMBER_LEXEME)) {
-		nextToken = RESERVED_CAST_NUMBER;
-		break;
+			nextToken = RESERVED_CAST_NUMBER;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CAST_CHAR_LEXEME)) {
-		nextToken = RESERVED_CAST_CHAR;
-		break;
+			nextToken = RESERVED_CAST_CHAR;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CAST_BOOL_LEXEME)) {
-		nextToken = RESERVED_CAST_BOOL;
-		break;
+			nextToken = RESERVED_CAST_BOOL;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CAST_STRING_LEXEME)) {
-		nextToken = RESERVED_CAST_STRING;
-		break;
+			nextToken = RESERVED_CAST_STRING;
+			break;
 		}
 		else if (0 == strcmp(nextLexeme, RESERVED_CAST_DECIMAL_LEXEME)) {
-		nextToken = RESERVED_CAST_DECIMAL;
-		break;
+			nextToken = RESERVED_CAST_DECIMAL;
+			break;
 		}
 		break;
 	case DIGIT:
@@ -249,8 +249,8 @@ fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumbe
 		} while (nextChar->tp_code == DIGIT);
 		if (isLETTER(nextChar->tp_code)) {//error handling
 			errorColor();
-			printf("ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
-			fprintf(logFile,"ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",lineNumber, nextLexeme);
+			printf("ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s", lineNumber, nextLexeme);
+			fprintf(logFile, "ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s", lineNumber, nextLexeme);
 			normalColor();
 			exit(ERROR_NUMBER_WITH_LETTERS_IN_IT);
 		}
@@ -261,8 +261,8 @@ fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumbe
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
-				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
-				fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber,nextLexeme);
+				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
+				fprintf(logFile, "ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
 			}
@@ -275,7 +275,7 @@ fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumbe
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		nextToken = POINT;
 		*nextChar = getChar(file);
-		if (nextChar->tp_code==DIGIT) {
+		if (nextChar->tp_code == DIGIT) {
 			do {
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
@@ -283,7 +283,7 @@ fprintf(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",lineNumbe
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
 				errorColor();
 				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
-fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
+				fprintf(logFile, "ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
 				normalColor();
 				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
 			}
@@ -297,12 +297,15 @@ fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_
 		if (nextToken == OP_MINOR) {
 			if (nextChar->ch == '=') {
 				nextToken = OP_MINOR_EQUAL;
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
+				*nextChar = getChar(file);
 			}
 			if (nextChar->ch == '<') {
 				nextToken = OP_ATTRIBUTION;
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
+				*nextChar = getChar(file);
 			}
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
-			*nextChar = getChar(file);
+			
 		}
 		else if (nextToken == OP_BIGGER) {
 			if (nextChar->ch == '=') {
@@ -310,7 +313,7 @@ fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
 			}
-			
+
 		}
 		else if (nextToken == OP_NOT) {
 			if (nextChar->ch == '=') {
@@ -318,9 +321,9 @@ fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				*nextChar = getChar(file);
 			}
-			
+
 		}
-		
+
 		break;
 	case EOF:
 		nextToken = EOF;
@@ -334,9 +337,9 @@ fprintf(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_
 	strcpy(nameToken, tokenDescription(nextToken));
 	pad(nameToken, 30);
 	printf("Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
-fprintf(logFile,"Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
+	fprintf(logFile, "Token:\t%03d --> %s\tLex:\t", nextToken, nameToken);
 	printf("%s\n", nextLexeme);
-fprintf(logFile,"%s\n", nextLexeme);
+	fprintf(logFile, "%s\n", nextLexeme);
 
 	return nextToken;
 }
@@ -350,8 +353,8 @@ int addChar(char* lexeme, int lexemeLength, char nextChar, FILE* logFile)
 	}
 	else {
 		errorColor();
-		printf("ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber,MAX_LEXEME_SIZE,lexeme);
-fprintf(logFile,"ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber,MAX_LEXEME_SIZE,lexeme);
+		printf("ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber, MAX_LEXEME_SIZE, lexeme);
+		fprintf(logFile, "ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", lineNumber, MAX_LEXEME_SIZE, lexeme);
 		normalColor();
 		exit(ERROR_MAX_LEXEME_SIZE_EXCEDED);
 	}
@@ -360,7 +363,7 @@ fprintf(logFile,"ERROR: At Line %i : MAX_LEXEME_SIZE_EXCEDED (%d) : %s \n", line
 
 int lookup(char ch, char* lexeme, int * lexemeLength, FILE* logFile)
 {
-	int nextToken=UNKNOWN;
+	int nextToken = UNKNOWN;
 	switch (ch) {
 	case '(':
 		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
@@ -510,7 +513,6 @@ char* tokenDescription(int tokenType) {
 	case RESERVED_FILE: return"RESERVED_FILE"; break;
 	case RESERVED_FILE_ENDER: return"RESERVED_FILE_ENDER"; break;
 	case RESERVED_FILE_SIZE: return"RESERVED_FILE_SIZE"; break;
-	
 	default: return"TOKEN_NOT_IDENTIFIED"; break;
 	}
 }

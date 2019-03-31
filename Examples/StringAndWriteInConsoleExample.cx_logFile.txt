@@ -7,7 +7,7 @@ Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
 Entering <DECLARATION>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
-Entering <ARRAYDEF>
+Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
 Entering <EXP>
 Entering <TERM>
@@ -17,7 +17,7 @@ Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
 Token:	011 --> IDENTIFIER                    	Lex:	a
-Exiting <ARRAYDEF>
+Exiting <ARRAYEXP>
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	020 --> LITERAL_STRING                	Lex:	"aula"
@@ -53,19 +53,19 @@ Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 8
+MAX_DEPTH_TREE FOUND : 9
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
   | |_DECLARATION
   |   |-S
-  |   |-ARRAYDEF
-  |   | |-[
-  |   | |-EXP
-  |   | | |_TERM
-  |   | |   |_FACTOR
-  |   | |     |_5
-  |   | |_]
+  |   | |_ARRAYEXP
+  |   |   |-[
+  |   |   |-EXP
+  |   |   | |_TERM
+  |   |   |   |_FACTOR
+  |   |   |     |_5
+  |   |   |_]
   |   |_DECLAREEXP
   |     |-a
   |     |-<<
@@ -88,3 +88,103 @@ PROGRAM
     |   |_)
     |-;
     |_EOF
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering S
+Entering ARRAYEXP
+Entering [
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting 5
+Entering ]
+Exiting 5
+Exiting S
+Entering DECLAREEXP
+Entering a
+Exiting a
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "aula"
+Exiting "aula"
+Exiting "aula"
+Exiting "aula"
+Exiting "aula"
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering EOF
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-S
+| | |_5
+| |_<<
+|   |-a
+|   |_"aula"
+|_On
+  |-Console
+  |_a
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of S
+Optimization of 5
+End Optimization of 5
+End Optimization of S
+Optimization of <<
+Optimization of a
+End Optimization of a
+Optimization of "aula"
+End Optimization of "aula"
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of a
+End Optimization of a
+End Optimization of On
+End Optimization of INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-S
+| | |_5
+| |_<<
+|   |-a
+|   |_"aula"
+|_On
+  |-Console
+  |_a

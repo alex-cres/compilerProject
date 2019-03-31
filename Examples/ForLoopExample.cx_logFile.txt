@@ -103,9 +103,11 @@ Entering <FACTOR>
 Token:	034 --> OP_MUL                        	Lex:	*
 Exiting <FACTOR>
 Token:	011 --> IDENTIFIER                    	Lex:	i
+Entering <TERM>
 Entering <FACTOR>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
+Exiting <TERM>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <DECLAREEXP>
@@ -141,10 +143,6 @@ Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Exiting <INSTRUCTION>
-Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -154,7 +152,7 @@ Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 16
+MAX_DEPTH_TREE FOUND : 17
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -196,65 +194,307 @@ PROGRAM
   |   |         |_10
   |   |-)
   |   |-.
-  |   |-Do
-  |   |-(
-  |   |-INSTRUCTIONLIST
-  |   | |-INSTRUCTION
-  |   | | |_ON
-  |   | |   |-On
-  |   | |   |-.
-  |   | |   |-Console
-  |   | |   |-(
-  |   | |   |-EXP
-  |   | |   | |_TERM
-  |   | |   |   |_FACTOR
-  |   | |   |     |_CASTINGVAR
-  |   | |   |       |-ToString
-  |   | |   |       |-(
-  |   | |   |       |-EXP
-  |   | |   |       | |_TERM
-  |   | |   |       |   |_FACTOR
-  |   | |   |       |     |_i
-  |   | |   |       |_)
-  |   | |   |_)
-  |   | |-;
-  |   | |_INSTRUCTIONLIST
-  |   |   |-INSTRUCTION
-  |   |   | |_DECLARATION
-  |   |   |   |-N
-  |   |   |   |_DECLAREEXP
-  |   |   |     |-area
-  |   |   |     |-<<
-  |   |   |     |_EXP
-  |   |   |       |_TERM
-  |   |   |         |-FACTOR
-  |   |   |         | |_i
-  |   |   |         |-*
-  |   |   |         |_FACTOR
-  |   |   |           |_i
-  |   |   |-;
-  |   |   |_INSTRUCTIONLIST
-  |   |     |-INSTRUCTION
-  |   |     | |_ON
-  |   |     |   |-On
-  |   |     |   |-.
-  |   |     |   |-Console
-  |   |     |   |-(
-  |   |     |   |-EXP
-  |   |     |   | |_TERM
-  |   |     |   |   |_FACTOR
-  |   |     |   |     |_CASTINGVAR
-  |   |     |   |       |-ToString
-  |   |     |   |       |-(
-  |   |     |   |       |-EXP
-  |   |     |   |       | |_TERM
-  |   |     |   |       |   |_FACTOR
-  |   |     |   |       |     |_area
-  |   |     |   |       |_)
-  |   |     |   |_)
-  |   |     |-;
-  |   |     |_INSTRUCTIONLIST
-  |   |       |_INSTRUCTION
-  |   |_)
+  |   |_Do
+  |     |-(
+  |     |-INSTRUCTIONLIST
+  |     | |-INSTRUCTION
+  |     | | |_ON
+  |     | |   |-On
+  |     | |   |-.
+  |     | |   |-Console
+  |     | |   |-(
+  |     | |   |-EXP
+  |     | |   | |_TERM
+  |     | |   |   |_FACTOR
+  |     | |   |     |_CASTINGVAR
+  |     | |   |       |-ToString
+  |     | |   |       |-(
+  |     | |   |       |-EXP
+  |     | |   |       | |_TERM
+  |     | |   |       |   |_FACTOR
+  |     | |   |       |     |_i
+  |     | |   |       |_)
+  |     | |   |_)
+  |     | |-;
+  |     | |_INSTRUCTIONLIST
+  |     |   |-INSTRUCTION
+  |     |   | |_DECLARATION
+  |     |   |   |-N
+  |     |   |   |_DECLAREEXP
+  |     |   |     |-area
+  |     |   |     |-<<
+  |     |   |     |_EXP
+  |     |   |       |_TERM
+  |     |   |         |-FACTOR
+  |     |   |         | |_i
+  |     |   |         |-*
+  |     |   |         |_TERM
+  |     |   |           |_FACTOR
+  |     |   |             |_i
+  |     |   |-;
+  |     |   |_INSTRUCTIONLIST
+  |     |     |-INSTRUCTION
+  |     |     | |_ON
+  |     |     |   |-On
+  |     |     |   |-.
+  |     |     |   |-Console
+  |     |     |   |-(
+  |     |     |   |-EXP
+  |     |     |   | |_TERM
+  |     |     |   |   |_FACTOR
+  |     |     |   |     |_CASTINGVAR
+  |     |     |   |       |-ToString
+  |     |     |   |       |-(
+  |     |     |   |       |-EXP
+  |     |     |   |       | |_TERM
+  |     |     |   |       |   |_FACTOR
+  |     |     |   |       |     |_area
+  |     |     |   |       |_)
+  |     |     |   |_)
+  |     |     |_;
+  |     |_)
   |-;
   |_EOF
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering FOR
+Entering For
+Exiting For
+Entering (
+Entering N
+Exiting N
+Entering ATTRIBUTION
+Entering i
+Exiting i
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting <<
+Entering )
+Entering .
+Entering Step
+Exiting Step
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering SIGNEDNUMBER
+Entering +
+Exiting +
+Entering 2
+Exiting 2
+Exiting +
+Exiting +
+Exiting +
+Exiting +
+Entering )
+Entering .
+Entering If
+Exiting If
+Entering (
+Entering BOOLSTRUCT
+Entering BOOLEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Exiting i
+Exiting i
+Entering <=
+Exiting <=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 10
+Exiting 10
+Exiting 10
+Exiting 10
+Exiting 10
+Exiting <=
+Exiting <=
+Entering )
+Entering .
+Entering Do
+Entering (
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToString
+Exiting ToString
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Exiting i
+Exiting i
+Entering )
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering area
+Exiting area
+Entering <<
+Exiting <<
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering i
+Exiting i
+Exiting i
+Exiting i
+Exiting *
+Exiting *
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToString
+Exiting ToString
+Entering (
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering area
+Exiting area
+Exiting area
+Exiting area
+Exiting area
+Entering )
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Exiting ToString
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Entering )
+Exiting Do
+Exiting For
+Exiting For
+Entering ;
+Entering EOF
+Exiting For
+Exiting For
+For
+|-N
+|-<<
+| |-i
+| |_2
+|-Step
+|-+
+| |_2
+|-If
+|_<=
+  |-i
+  |_10
+Optimization of For
+Optimization of N
+End Optimization of N
+Optimization of <<
+Optimization of i
+End Optimization of i
+Optimization of 2
+End Optimization of 2
+End Optimization of <<
+Optimization of Step
+End Optimization of Step
+Optimization of +
+Optimization of 2
+End Optimization of 2
+End Optimization of 2
+Optimization of If
+End Optimization of If
+Optimization of <=
+Optimization of i
+End Optimization of i
+Optimization of 10
+End Optimization of 10
+End Optimization of <=
+End Optimization of For
+For
+|-N
+|-<<
+| |-i
+| |_2
+|-Step
+|-2
+|-If
+|-<=
+| |-i
+| |_10
+|_Do
+  |_INSTRUCTIONLIST
+    |-On
+    | |-Console
+    | |_ToString
+    |   |_i
+    |_INSTRUCTIONLIST
+      |-DECLARATION
+      | |-N
+      | |_<<
+      |   |-area
+      |   |_*
+      |     |-i
+      |     |_i
+      |_On
+        |-Console
+        |_ToString
+          |_area

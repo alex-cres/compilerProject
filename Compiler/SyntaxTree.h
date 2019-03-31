@@ -19,12 +19,6 @@ void printTree(Node * tree, int tabDepth,int lastChild, int* arrayDepthTab, FILE
 int getTreeMaxDepth(Node * tree);
 
 
-
-
-//Subir nos que so têm um filho
-//Tirar detalhes sintaticos
-//Subir operadores 
-//Subir operadores 
-
 Node * CSTtoAST(Node * current, FILE* logFile);
+Node * Optimization(Node * current, FILE* logFile);
 void reorderTree(Node * current);

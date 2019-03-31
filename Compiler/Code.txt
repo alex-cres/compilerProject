@@ -1,1 +1,2 @@
-r<<( soma + 47 ?) / total;
+B[2] r<< [2>a X a!=ac X 21<1,a<3];
+N x<< 2+a;

@@ -35,17 +35,23 @@ Token:	011 --> IDENTIFIER                    	Lex:	area
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Token:	034 --> OP_MUL                        	Lex:	*
 Exiting <FACTOR>
 Token:	011 --> IDENTIFIER                    	Lex:	y
+Entering <TERM>
 Entering <FACTOR>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
 Exiting <TERM>
+Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
@@ -55,6 +61,8 @@ Entering <INSTRUCTION>
 Entering <EXIT>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	area
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -62,6 +70,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <EXIT>
 Exiting <INSTRUCTION>
@@ -81,6 +91,8 @@ Token:	011 --> IDENTIFIER                    	Lex:	x
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	019 --> LITERAL_DECIMAL               	Lex:	.0
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -88,10 +100,14 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	011 --> IDENTIFIER                    	Lex:	y
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	019 --> LITERAL_DECIMAL               	Lex:	.0
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -99,6 +115,8 @@ Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
@@ -109,8 +127,8 @@ Entering <INSTRUCTION>
 Entering <IF>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	x
-Entering <BOOLSTRUCT>
-Entering <BOOLEXP>
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -126,8 +144,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Exiting <BOOLEXP>
-Exiting <BOOLSTRUCT>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	004 --> POINT                         	Lex:	.
 Token:	073 --> RESERVED_THEN                 	Lex:	Then
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
@@ -137,6 +155,8 @@ Entering <INSTRUCTION>
 Entering <ATTRIBUTION>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	019 --> LITERAL_DECIMAL               	Lex:	5.9
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -144,6 +164,8 @@ Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
@@ -159,6 +181,8 @@ Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	020 --> LITERAL_STRING                	Lex:	"\nGive me the x: "
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -166,6 +190,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
@@ -175,6 +201,8 @@ Entering <INSTRUCTION>
 Entering <ATTRIBUTION>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -194,6 +222,8 @@ Exiting <IN>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
 Token:	078 --> RESERVED_ON                   	Lex:	On
@@ -204,6 +234,8 @@ Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	020 --> LITERAL_STRING                	Lex:	"\nGive me the y: "
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -211,6 +243,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
@@ -220,6 +254,8 @@ Entering <INSTRUCTION>
 Entering <ATTRIBUTION>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -239,6 +275,8 @@ Exiting <IN>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
 Token:	013 --> IDN_DECIMAL                   	Lex:	D
@@ -249,6 +287,8 @@ Token:	011 --> IDENTIFIER                    	Lex:	area
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	080 --> RESERVED_CALL_FUNCTION        	Lex:	F
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -258,6 +298,8 @@ Token:	010 --> IDENTIFIER_FUNCTION           	Lex:	CalcArea
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	x
 Entering <PARAMSCALL>
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -265,8 +307,12 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	011 --> IDENTIFIER                    	Lex:	y
 Entering <PARAMSCALL>
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -274,6 +320,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <PARAMSCALL>
 Exiting <PARAMSCALL>
 Token:	005 --> POINT_COMMA                   	Lex:	;
@@ -281,6 +329,8 @@ Exiting <CALLFUNCTION>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
@@ -292,6 +342,8 @@ Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	020 --> LITERAL_STRING                	Lex:	"\nThe Area: "
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -299,6 +351,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
@@ -310,12 +364,16 @@ Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <CASTINGVAR>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	area
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -323,11 +381,15 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <CASTINGVAR>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
@@ -343,7 +405,7 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 22
+MAX_DEPTH_TREE FOUND : 26
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -374,23 +436,28 @@ PROGRAM
   |       |   |   |_DECLAREEXP
   |       |   |     |-area
   |       |   |     |-<<
-  |       |   |     |_EXP
-  |       |   |       |_TERM
-  |       |   |         |-FACTOR
-  |       |   |         | |_x
-  |       |   |         |-*
-  |       |   |         |_FACTOR
-  |       |   |           |_y
+  |       |   |     |_BEXP
+  |       |   |       |_CEXP
+  |       |   |         |_EXP
+  |       |   |           |_TERM
+  |       |   |             |-FACTOR
+  |       |   |             | |_x
+  |       |   |             |-*
+  |       |   |             |_TERM
+  |       |   |               |_FACTOR
+  |       |   |                 |_y
   |       |   |-;
   |       |   |_INSTRUCTIONLIST
   |       |     |-INSTRUCTION
   |       |     | |_EXIT
   |       |     |   |-Exit
   |       |     |   |-(
-  |       |     |   |-EXP
-  |       |     |   | |_TERM
-  |       |     |   |   |_FACTOR
-  |       |     |   |     |_area
+  |       |     |   |-BEXP
+  |       |     |   | |_CEXP
+  |       |     |   |   |_EXP
+  |       |     |   |     |_TERM
+  |       |     |   |       |_FACTOR
+  |       |     |   |         |_area
   |       |     |   |_)
   |       |     |_;
   |       |_)
@@ -402,26 +469,30 @@ PROGRAM
     |   |_DECLAREEXP
     |     |-x
     |     |-<<
-    |     |-EXP
-    |     | |_TERM
-    |     |   |_FACTOR
-    |     |     |_.0
+    |     |-BEXP
+    |     | |_CEXP
+    |     |   |_EXP
+    |     |     |_TERM
+    |     |       |_FACTOR
+    |     |         |_.0
     |     |-,
     |     |_DECLAREEXP
     |       |-y
     |       |-<<
-    |       |_EXP
-    |         |_TERM
-    |           |_FACTOR
-    |             |_.0
+    |       |_BEXP
+    |         |_CEXP
+    |           |_EXP
+    |             |_TERM
+    |               |_FACTOR
+    |                 |_.0
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
       | |_IF
       |   |-If
       |   |-(
-      |   |-BOOLSTRUCT
-      |   | |_BOOLEXP
+      |   |-BEXP
+      |   | |_CEXP
       |   |   |-EXP
       |   |   | |_TERM
       |   |   |   |_FACTOR
@@ -440,10 +511,12 @@ PROGRAM
       |     | | |_ATTRIBUTION
       |     | |   |-x
       |     | |   |-<<
-      |     | |   |_EXP
-      |     | |     |_TERM
-      |     | |       |_FACTOR
-      |     | |         |_5.9
+      |     | |   |_BEXP
+      |     | |     |_CEXP
+      |     | |       |_EXP
+      |     | |         |_TERM
+      |     | |           |_FACTOR
+      |     | |             |_5.9
       |     | |_;
       |     |_)
       |-;
@@ -454,10 +527,12 @@ PROGRAM
         |   |-.
         |   |-Console
         |   |-(
-        |   |-EXP
-        |   | |_TERM
-        |   |   |_FACTOR
-        |   |     |_"\nGive me the x: "
+        |   |-BEXP
+        |   | |_CEXP
+        |   |   |_EXP
+        |   |     |_TERM
+        |   |       |_FACTOR
+        |   |         |_"\nGive me the x: "
         |   |_)
         |-;
         |_INSTRUCTIONLIST
@@ -465,20 +540,22 @@ PROGRAM
           | |_ATTRIBUTION
           |   |-x
           |   |-<<
-          |   |_EXP
-          |     |_TERM
-          |       |_FACTOR
-          |         |_IN
-          |           |-In
-          |           |-.
-          |           |-Console
-          |           |-(
-          |           |-)
-          |           |_CASTIN
-          |             |-.
-          |             |-ToDecimal
-          |             |-(
-          |             |_)
+          |   |_BEXP
+          |     |_CEXP
+          |       |_EXP
+          |         |_TERM
+          |           |_FACTOR
+          |             |_IN
+          |               |-In
+          |               |-.
+          |               |-Console
+          |               |-(
+          |               |-)
+          |               |_CASTIN
+          |                 |-.
+          |                 |-ToDecimal
+          |                 |-(
+          |                 |_)
           |-;
           |_INSTRUCTIONLIST
             |-INSTRUCTION
@@ -487,10 +564,12 @@ PROGRAM
             |   |-.
             |   |-Console
             |   |-(
-            |   |-EXP
-            |   | |_TERM
-            |   |   |_FACTOR
-            |   |     |_"\nGive me the y: "
+            |   |-BEXP
+            |   | |_CEXP
+            |   |   |_EXP
+            |   |     |_TERM
+            |   |       |_FACTOR
+            |   |         |_"\nGive me the y: "
             |   |_)
             |-;
             |_INSTRUCTIONLIST
@@ -498,20 +577,22 @@ PROGRAM
               | |_ATTRIBUTION
               |   |-y
               |   |-<<
-              |   |_EXP
-              |     |_TERM
-              |       |_FACTOR
-              |         |_IN
-              |           |-In
-              |           |-.
-              |           |-Console
-              |           |-(
-              |           |-)
-              |           |_CASTIN
-              |             |-.
-              |             |-ToDecimal
-              |             |-(
-              |             |_)
+              |   |_BEXP
+              |     |_CEXP
+              |       |_EXP
+              |         |_TERM
+              |           |_FACTOR
+              |             |_IN
+              |               |-In
+              |               |-.
+              |               |-Console
+              |               |-(
+              |               |-)
+              |               |_CASTIN
+              |                 |-.
+              |                 |-ToDecimal
+              |                 |-(
+              |                 |_)
               |-;
               |_INSTRUCTIONLIST
                 |-INSTRUCTION
@@ -520,26 +601,32 @@ PROGRAM
                 |   |_DECLAREEXP
                 |     |-area
                 |     |-<<
-                |     |_EXP
-                |       |_TERM
-                |         |_FACTOR
-                |           |_CALLFUNCTION
-                |             |-F
-                |             |-.
-                |             |-CalcArea
-                |             |-(
-                |             |-PARAMSCALL
-                |             | |-EXP
-                |             | | |_TERM
-                |             | |   |_FACTOR
-                |             | |     |_x
-                |             | |_,
-                |             |   |_PARAMSCALL
-                |             |     |_EXP
-                |             |       |_TERM
-                |             |         |_FACTOR
-                |             |           |_y
-                |             |_)
+                |     |_BEXP
+                |       |_CEXP
+                |         |_EXP
+                |           |_TERM
+                |             |_FACTOR
+                |               |_CALLFUNCTION
+                |                 |-F
+                |                 |-.
+                |                 |-CalcArea
+                |                 |-(
+                |                 |-PARAMSCALL
+                |                 | |-BEXP
+                |                 | | |_CEXP
+                |                 | |   |_EXP
+                |                 | |     |_TERM
+                |                 | |       |_FACTOR
+                |                 | |         |_x
+                |                 | |_,
+                |                 |   |_PARAMSCALL
+                |                 |     |_BEXP
+                |                 |       |_CEXP
+                |                 |         |_EXP
+                |                 |           |_TERM
+                |                 |             |_FACTOR
+                |                 |               |_y
+                |                 |_)
                 |-;
                 |_INSTRUCTIONLIST
                   |-INSTRUCTION
@@ -548,10 +635,12 @@ PROGRAM
                   |   |-.
                   |   |-Console
                   |   |-(
-                  |   |-EXP
-                  |   | |_TERM
-                  |   |   |_FACTOR
-                  |   |     |_"\nThe Area: "
+                  |   |-BEXP
+                  |   | |_CEXP
+                  |   |   |_EXP
+                  |   |     |_TERM
+                  |   |       |_FACTOR
+                  |   |         |_"\nThe Area: "
                   |   |_)
                   |-;
                   |_INSTRUCTIONLIST
@@ -561,17 +650,21 @@ PROGRAM
                     |   |-.
                     |   |-Console
                     |   |-(
-                    |   |-EXP
-                    |   | |_TERM
-                    |   |   |_FACTOR
-                    |   |     |_CASTINGVAR
-                    |   |       |-ToString
-                    |   |       |-(
-                    |   |       |-EXP
-                    |   |       | |_TERM
-                    |   |       |   |_FACTOR
-                    |   |       |     |_area
-                    |   |       |_)
+                    |   |-BEXP
+                    |   | |_CEXP
+                    |   |   |_EXP
+                    |   |     |_TERM
+                    |   |       |_FACTOR
+                    |   |         |_CASTINGVAR
+                    |   |           |-ToString
+                    |   |           |-(
+                    |   |           |-BEXP
+                    |   |           | |_CEXP
+                    |   |           |   |_EXP
+                    |   |           |     |_TERM
+                    |   |           |       |_FACTOR
+                    |   |           |         |_area
+                    |   |           |_)
                     |   |_)
                     |-;
                     |_EOF
@@ -616,6 +709,8 @@ Entering area
 Exiting area
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -624,10 +719,14 @@ Exiting x
 Exiting x
 Entering *
 Exiting *
+Entering TERM
 Entering FACTOR
 Entering y
 Exiting y
 Exiting y
+Exiting y
+Exiting *
+Exiting *
 Exiting *
 Exiting *
 Exiting <<
@@ -640,10 +739,14 @@ Entering EXIT
 Entering Exit
 Exiting Exit
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering area
+Exiting area
+Exiting area
 Exiting area
 Exiting area
 Exiting area
@@ -671,10 +774,14 @@ Entering x
 Exiting x
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering .0
+Exiting .0
+Exiting .0
 Exiting .0
 Exiting .0
 Exiting .0
@@ -685,10 +792,14 @@ Entering y
 Exiting y
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering .0
+Exiting .0
+Exiting .0
 Exiting .0
 Exiting .0
 Exiting .0
@@ -704,8 +815,8 @@ Entering IF
 Entering If
 Exiting If
 Entering (
-Entering BOOLSTRUCT
-Entering BOOLEXP
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -737,10 +848,14 @@ Entering x
 Exiting x
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering 5.9
+Exiting 5.9
+Exiting 5.9
 Exiting 5.9
 Exiting 5.9
 Exiting 5.9
@@ -763,10 +878,14 @@ Entering .
 Entering Console
 Exiting Console
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering "\nGive me the x: "
+Exiting "\nGive me the x: "
+Exiting "\nGive me the x: "
 Exiting "\nGive me the x: "
 Exiting "\nGive me the x: "
 Exiting "\nGive me the x: "
@@ -782,6 +901,8 @@ Entering x
 Exiting x
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -800,6 +921,8 @@ Exiting ToDecimal
 Entering (
 Entering )
 Exiting ToDecimal
+Exiting In
+Exiting In
 Exiting In
 Exiting In
 Exiting In
@@ -816,10 +939,14 @@ Entering .
 Entering Console
 Exiting Console
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering "\nGive me the y: "
+Exiting "\nGive me the y: "
+Exiting "\nGive me the y: "
 Exiting "\nGive me the y: "
 Exiting "\nGive me the y: "
 Exiting "\nGive me the y: "
@@ -835,6 +962,8 @@ Entering y
 Exiting y
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -853,6 +982,8 @@ Exiting ToDecimal
 Entering (
 Entering )
 Exiting ToDecimal
+Exiting In
+Exiting In
 Exiting In
 Exiting In
 Exiting In
@@ -870,6 +1001,8 @@ Entering area
 Exiting area
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -881,6 +1014,8 @@ Entering CalcArea
 Exiting CalcArea
 Entering (
 Entering PARAMSCALL
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -889,8 +1024,12 @@ Exiting x
 Exiting x
 Exiting x
 Exiting x
+Exiting x
+Exiting x
 Entering ,
 Entering PARAMSCALL
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -900,8 +1039,12 @@ Exiting y
 Exiting y
 Exiting y
 Exiting y
+Exiting y
+Exiting y
 Exiting x
 Entering )
+Exiting F
+Exiting F
 Exiting F
 Exiting F
 Exiting F
@@ -919,10 +1062,14 @@ Entering .
 Entering Console
 Exiting Console
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering "\nThe Area: "
+Exiting "\nThe Area: "
+Exiting "\nThe Area: "
 Exiting "\nThe Area: "
 Exiting "\nThe Area: "
 Exiting "\nThe Area: "
@@ -940,6 +1087,8 @@ Entering .
 Entering Console
 Exiting Console
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -947,6 +1096,8 @@ Entering CASTINGVAR
 Entering ToString
 Exiting ToString
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -955,7 +1106,11 @@ Exiting area
 Exiting area
 Exiting area
 Exiting area
+Exiting area
+Exiting area
 Entering )
+Exiting ToString
+Exiting ToString
 Exiting ToString
 Exiting ToString
 Exiting ToString
@@ -976,6 +1131,234 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-D
+| |_FUNCTIONDEC
+|   |-CalcArea
+|   | |_PARAMS
+|   |   |-D
+|   |   |-x
+|   |   |_PARAMS
+|   |     |-D
+|   |     |_y
+|   |_Do
+|     |_INSTRUCTIONLIST
+|       |-DECLARATION
+|       | |-D
+|       | |_<<
+|       |   |-area
+|       |   |_*
+|       |     |-x
+|       |     |_y
+|       |_Exit
+|         |_area
+|_INSTRUCTIONLIST
+  |-DECLARATION
+  | |-D
+  | |_<<
+  |   |-x
+  |   |-.0
+  |   |_<<
+  |     |-y
+  |     |_.0
+  |_INSTRUCTIONLIST
+    |-If
+    | |-!=
+    | | |-x
+    | | |_0.2
+    | |_Then
+    |   |_<<
+    |     |-x
+    |     |_5.9
+    |_INSTRUCTIONLIST
+      |-On
+      | |-Console
+      | |_"\nGive me the x: "
+      |_INSTRUCTIONLIST
+        |-<<
+        | |-x
+        | |_In
+        |   |-Console
+        |   |_ToDecimal
+        |_INSTRUCTIONLIST
+          |-On
+          | |-Console
+          | |_"\nGive me the y: "
+          |_INSTRUCTIONLIST
+            |-<<
+            | |-y
+            | |_In
+            |   |-Console
+            |   |_ToDecimal
+            |_INSTRUCTIONLIST
+              |-DECLARATION
+              | |-D
+              | |_<<
+              |   |-area
+              |   |_F
+              |     |-CalcArea
+              |     |_x
+              |_INSTRUCTIONLIST
+                |-On
+                | |-Console
+                | |_"\nThe Area: "
+                |_On
+                  |-Console
+                  |_ToString
+                    |_area
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of FUNCTIONDEC
+Optimization of CalcArea
+Optimization of PARAMS
+Optimization of D
+End Optimization of D
+Optimization of x
+End Optimization of x
+Optimization of PARAMS
+Optimization of D
+End Optimization of D
+Optimization of y
+End Optimization of y
+End Optimization of PARAMS
+End Optimization of PARAMS
+End Optimization of CalcArea
+Optimization of Do
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of <<
+Optimization of area
+End Optimization of area
+Optimization of *
+Optimization of x
+End Optimization of x
+Optimization of y
+End Optimization of y
+End Optimization of *
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of Exit
+Optimization of area
+End Optimization of area
+End Optimization of Exit
+End Optimization of INSTRUCTIONLIST
+End Optimization of Do
+End Optimization of FUNCTIONDEC
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of <<
+Optimization of x
+End Optimization of x
+Optimization of .0
+End Optimization of .0
+Optimization of <<
+Optimization of y
+End Optimization of y
+Optimization of .0
+End Optimization of .0
+End Optimization of <<
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of If
+Optimization of !=
+Optimization of x
+End Optimization of x
+Optimization of 0.2
+End Optimization of 0.2
+End Optimization of !=
+Optimization of Then
+Optimization of <<
+Optimization of x
+End Optimization of x
+Optimization of 5.9
+End Optimization of 5.9
+End Optimization of <<
+End Optimization of Then
+End Optimization of If
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of "\nGive me the x: "
+End Optimization of "\nGive me the x: "
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of x
+End Optimization of x
+Optimization of In
+Optimization of Console
+End Optimization of Console
+Optimization of ToDecimal
+End Optimization of ToDecimal
+End Optimization of In
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of "\nGive me the y: "
+End Optimization of "\nGive me the y: "
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of y
+End Optimization of y
+Optimization of In
+Optimization of Console
+End Optimization of Console
+Optimization of ToDecimal
+End Optimization of ToDecimal
+End Optimization of In
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+End Optimization of D
+Optimization of <<
+Optimization of area
+End Optimization of area
+Optimization of F
+Optimization of CalcArea
+End Optimization of CalcArea
+Optimization of x
+End Optimization of x
+End Optimization of F
+End Optimization of <<
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of "\nThe Area: "
+End Optimization of "\nThe Area: "
+End Optimization of On
+Optimization of On
+Optimization of Console
+End Optimization of Console
+Optimization of ToString
+Optimization of area
+End Optimization of area
+End Optimization of ToString
+End Optimization of On
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-D
