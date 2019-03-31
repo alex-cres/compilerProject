@@ -5,6 +5,7 @@
 #include "SyntaxTree.h"
 #include "LexicalAnalyser.h"
 #include "SyntaxAnalyser.h"
+#include "SymbolTable.h"
 
 
 typedef int bool;
@@ -17,6 +18,7 @@ int main()
 {
 
 	Node * cst = generateNode("PROGRAM", -1);
+	
 	FILE * filePointer = NULL;
 	FILE * logFile = NULL;
 	NextChar nextChar;
@@ -79,7 +81,8 @@ int main()
 
 		cst = Optimization(cst, logFile);
 		printTree(cst, 0, True, arrayDepthTab, logFile);
-
+		SymbolToken * table = generateSymbolTable(cst, NULL, NULL,logFile);
+		printSymbolTable(table,logFile);
 	}
 	else {
 		errorColor();

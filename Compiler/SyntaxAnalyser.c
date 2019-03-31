@@ -25,7 +25,7 @@ int reservedArrayexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLe
 			fprintf(logFile, "Exiting <ARRAYEXP>\n");
 			return nextToken;
 		}
-		nextToken = exp(file, nextToken, nextChar, nextLexeme, reservedArrayexpNode, logFile);
+		nextToken = bexp(file, nextToken, nextChar, nextLexeme, reservedArrayexpNode, logFile);
 	} while (nextToken == COMMA);
 	if (nextToken == CLOSE_BRACKETS) {
 		addChildNode(reservedArrayexpNode, nextLexeme, nextToken, logFile);
@@ -184,7 +184,7 @@ int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 		if (nextToken == OPEN_PARENTESIS) {
 			addChildNode(ifNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme, ifNode, logFile);
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, ifNode, logFile);
 			if (nextToken == CLOSE_PARENTESIS) {
 				addChildNode(ifNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -384,7 +384,7 @@ int reservedLooper(FILE* file, int nextToken, NextChar* nextChar, char* nextLexe
 int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
 {
 	/*
-<for> --> For(<idn_number> <attribution>).Step(<exp>).If(<boolstruct>).Do(<instructionList>)  //missing
+<for> --> For(<idn_number> <attribution>).Step(<exp>).If(<bexp>).Do(<instructionList>)  //missing
 
 	*/
 	printf("Entering <FOR>\n");
@@ -429,7 +429,7 @@ int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 											if (nextToken == OPEN_PARENTESIS) {
 												addChildNode(forNode, nextLexeme, nextToken, logFile);
 												nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-												nextToken = boolstruct(file, nextToken, nextChar, nextLexeme, forNode, logFile);
+												nextToken = bexp(file, nextToken, nextChar, nextLexeme, forNode, logFile);
 												if (nextToken == CLOSE_PARENTESIS) {
 													addChildNode(forNode, nextLexeme, nextToken, logFile);
 													nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -561,7 +561,7 @@ int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 int reservedExit(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
 {
 	/*
-	<exit> --> Exit(<exp>)
+	<exit> --> Exit(<bexp>)
 			| Exit()
 	*/
 
@@ -584,7 +584,7 @@ int reservedExit(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme
 			}
 			else
 			{
-				nextToken = exp(file, nextToken, nextChar, nextLexeme, exitNode, logFile);
+				nextToken = bexp(file, nextToken, nextChar, nextLexeme, exitNode, logFile);
 
 				if (nextToken == CLOSE_PARENTESIS) {
 					addChildNode(exitNode, nextLexeme, nextToken, logFile);
@@ -661,7 +661,7 @@ int reservedContinue(FILE* file, int nextToken, NextChar* nextChar, char* nextLe
 int reservedContinueIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
 {
 	/*
-	<continueif> -->ContinueIf(<boolstruct>)
+	<continueif> -->ContinueIf(<bexp>)
 	*/
 	printf("Entering <CONTINUEIF>\n");
 	fprintf(logFile, "Entering <CONTINUEIF>\n");
@@ -674,7 +674,7 @@ int reservedContinueIf(FILE* file, int nextToken, NextChar* nextChar, char* next
 		if (nextToken == OPEN_PARENTESIS) {
 			addChildNode(continueIfNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme, continueIfNode, logFile);
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, continueIfNode, logFile);
 			if (nextToken == CLOSE_PARENTESIS) {
 				addChildNode(continueIfNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -705,7 +705,7 @@ int reservedContinueIf(FILE* file, int nextToken, NextChar* nextChar, char* next
 int reservedBreakIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
 {
 	/*
-	<breakif> --> BreakIf(<boolstruct>)
+	<breakif> --> BreakIf(<bexp>)
 	*/
 	printf("Entering <BREAKIF>\n");
 	fprintf(logFile, "Entering <BREAKIF>\n");
@@ -718,7 +718,7 @@ int reservedBreakIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLex
 		if (nextToken == OPEN_PARENTESIS) {
 			addChildNode(breakIfNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = boolstruct(file, nextToken, nextChar, nextLexeme, breakIfNode, logFile);
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, breakIfNode, logFile);
 			if (nextToken == CLOSE_PARENTESIS) {
 				addChildNode(breakIfNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -803,7 +803,7 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 
 <fscan> --> In.File(<exp>,<exp>)
 
-<fscanEnder> --> In.FileEnder(<exp>) //missing
+<fscanEnder> --> In.FileEnder(<exp>) 
 
 <fscanSize> --> In.FileSize(<exp>,<exp>)
 
@@ -997,8 +997,8 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 	/*
 <on> --> <fprint>
 			|<print>
-<fprint> --> On.File(<exp>,<exp>,<mode>,<exp>)  //filename, numberofline(ifin append adds to the end of the line), mode, stringtowrite
-<print> --> On.Console(<exp>)
+<fprint> --> On.File(<exp>,<exp>,<mode>,<bexp>)  //filename, numberofline(ifin append adds to the end of the line), mode, stringtowrite
+<print> --> On.Console(<bexp>)
 <mode> --> "W" | "A" | "w" | "a"
 	*/
 	Node* onNode = addChildNode(tree, "ON", -1, logFile);
@@ -1017,7 +1017,7 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 				if (nextToken == OPEN_PARENTESIS) {
 					addChildNode(onNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-					nextToken = exp(file, nextToken, nextChar, nextLexeme, onNode, logFile);
+					nextToken = bexp(file, nextToken, nextChar, nextLexeme, onNode, logFile);
 
 					if (nextToken == CLOSE_PARENTESIS) {
 
@@ -1133,33 +1133,33 @@ int params(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 	fprintf(logFile, "Exiting <PARAMS>\n");
 	return nextToken;
 }
-int boolstruct(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
-	printf("Entering <BOOLSTRUCT>\n");
-	fprintf(logFile, "Entering <BOOLSTRUCT>\n");
+int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {//booleative exp
+	printf("Entering <BEXP>\n");
+	fprintf(logFile, "Entering <BEXP>\n");
 	/*
-	<boolstruct> -->  !(<boolstruct>)
-		| (<boolstruct>)
-		| <boolexp>
-		| <boolexp> & <boolexp>
-		| <boolexp> | <boolexp>
-		| <boolexp> X <boolexp>
+	<bexp> -->  !(<bexp>)
+		| (<bexp>)
+		| <cexp>
+		| <cexp> & <bexp>
+		| <cexp> | <bexp>
+		| <cexp> X <bexp>
 		| True
 		| False
 	*/
-	Node* boolstructNode = addChildNode(tree, "BOOLSTRUCT", -1, logFile);
+	Node* bexpNode = addChildNode(tree, "BEXP", -1, logFile);
 	switch (nextToken) {
 	case OP_NOT:
-		addChildNode(boolstructNode, nextLexeme, nextToken, logFile);
+		addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 	case OPEN_PARENTESIS:
-		addChildNode(boolstructNode, nextLexeme, nextToken, logFile);
+		addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = boolstruct(file, nextToken, nextChar, nextLexeme, boolstructNode, logFile);
+		nextToken = bexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
 		if (nextToken == CLOSE_PARENTESIS) {
-			addChildNode(boolstructNode, nextLexeme, nextToken, logFile);
+			addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			printf("Exiting <BOOLSTRUCT>\n");
-			fprintf(logFile, "Exiting <BOOLSTRUCT>\n");
+			printf("Exiting <BEXP>\n");
+			fprintf(logFile, "Exiting <BEXP>\n");
 			return nextToken;
 		}
 		else {
@@ -1173,33 +1173,33 @@ int boolstruct(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 
 		break;
 	case RESERVED_BOOL_TRUE: case RESERVED_BOOL_FALSE:
-		addChildNode(boolstructNode, nextLexeme, nextToken, logFile);
+		addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		printf("Exiting <BOOLSTRUCT>\n");
-		fprintf(logFile, "Exiting <BOOLSTRUCT>\n");
+		printf("Exiting <BEXP>\n");
+		fprintf(logFile, "Exiting <BEXP>\n");
 		return nextToken;
 		break;
 	default:
-		nextToken = boolexp(file, nextToken, nextChar, nextLexeme, boolstructNode, logFile);
+		nextToken = cexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
 		if (nextToken == OP_AND || nextToken == OP_OR || nextToken == OP_XOR) {
-			addChildNode(boolstructNode, nextLexeme, nextToken, logFile);
+			addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = boolexp(file, nextToken, nextChar, nextLexeme, boolstructNode, logFile);
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
 		}
-		printf("Exiting <BOOLSTRUCT>\n");
-		fprintf(logFile, "Exiting <BOOLSTRUCT>\n");
+		printf("Exiting <BEXP>\n");
+		fprintf(logFile, "Exiting <BEXP>\n");
 		return nextToken;
 		break;
 	}
-	printf("Exiting <BOOLSTRUCT>\n");
-	fprintf(logFile, "Exiting <BOOLSTRUCT>\n");
+	printf("Exiting <BEXP>\n");
+	fprintf(logFile, "Exiting <BEXP>\n");
 	return nextToken;
 }
-int boolexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
-	printf("Entering <BOOLEXP>\n");
-	fprintf(logFile, "Entering <BOOLEXP>\n");
+int cexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {//comparative exp
+	printf("Entering <CEXP>\n");
+	fprintf(logFile, "Entering <CEXP>\n");
 	/*
-	<boolexp> --> <exp> < <exp>
+	<cexp> --> <exp> < <exp>
 		| <exp> > <exp>
 		| <exp> >= <exp>
 		| <exp> <= <exp>
@@ -1210,18 +1210,18 @@ int boolexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Nod
 
 
 	*/
-	Node* boolexpNode = addChildNode(tree, "BOOLEXP", -1, logFile);
-	nextToken = exp(file, nextToken, nextChar, nextLexeme, boolexpNode, logFile);
+	Node* cexpNode = addChildNode(tree, "CEXP", -1, logFile);
+	nextToken = exp(file, nextToken, nextChar, nextLexeme, cexpNode, logFile);
 	if (nextToken == OP_EQUAL || nextToken == OP_MINOR_EQUAL || nextToken == OP_MINOR || nextToken == OP_BIGGER || nextToken == OP_BIGGER_EQUAL || nextToken == OP_NOT_EQUAL)
 	{
-		addChildNode(boolexpNode, nextLexeme, nextToken, logFile);
+		addChildNode(cexpNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = exp(file, nextToken, nextChar, nextLexeme, boolexpNode, logFile);
+		nextToken = exp(file, nextToken, nextChar, nextLexeme, cexpNode, logFile);
 	}
 
 
-	printf("Exiting <BOOLEXP>\n");
-	fprintf(logFile, "Exiting <BOOLEXP>\n");
+	printf("Exiting <CEXP>\n");
+	fprintf(logFile, "Exiting <CEXP>\n");
 	return nextToken;
 }
 int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
@@ -1418,7 +1418,7 @@ int declareExp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 	/*
 
 		<declareExpr> --> <var>
-						| <var> << <exp>
+						| <var> << <bexp>
 						| <declareExpr>,<declareExpr>
 	*/
 	Node* declareExpNode = addChildNode(tree, "DECLAREEXP", -1, logFile);
@@ -1429,7 +1429,7 @@ int declareExp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 		if (nextToken == OP_ATTRIBUTION) {
 			addChildNode(declareExpNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = exp(file, nextToken, nextChar, nextLexeme, declareExpNode, logFile);//analyze term
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, declareExpNode, logFile);//analyze term
 			if (nextToken == COMMA) {
 				addChildNode(declareExpNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -1448,7 +1448,7 @@ int attribution(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 	fprintf(logFile, "Entering <ATTRIBUTION>\n");
 
 	/*
-		<attribution> --> <var> << <exp>
+		<attribution> --> <var> << <bexp>
 	*/
 	Node*	attributionNode = addChildNode(tree, "ATTRIBUTION", -1, logFile);
 
@@ -1458,7 +1458,7 @@ int attribution(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 		if (nextToken == OP_ATTRIBUTION) {
 			addChildNode(attributionNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = exp(file, nextToken, nextChar, nextLexeme, attributionNode, logFile);//analyze term
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, attributionNode, logFile);//analyze term
 
 		}
 		else {
@@ -1550,12 +1550,12 @@ int params_call(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 	printf("Entering <PARAMSCALL>\n");
 	fprintf(logFile, "Entering <PARAMSCALL>\n");
 	/*
-<params_call> -->  <exp>
-			| <exp>, <params_call>
+<params_call> -->  <bexp>
+			| <bexp>, <params_call>
 	*/
 	Node*	paramsCallNode = addChildNode(tree, "PARAMSCALL", -1, logFile);
 
-	nextToken = exp(file, nextToken, nextChar, nextLexeme, paramsCallNode, logFile);
+	nextToken = bexp(file, nextToken, nextChar, nextLexeme, paramsCallNode, logFile);
 	if (nextToken == COMMA) {
 		Node * callingNode = addChildNode(paramsCallNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);
@@ -1610,7 +1610,7 @@ int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 }
 int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
 	/*
-	<factor> -- > (<exp>)
+	<factor> -- > (<bexp>)
 			| <var>
 			| <var>[<number>]
 			| +<number>
@@ -1622,7 +1622,6 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 			| <string>
 			| <char>
 			| <in>
-			| <boolstruct>
 			| <call_function>
 			| <casting>
 			| <arrayexp>
@@ -1683,7 +1682,7 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 	else if (nextToken == OPEN_PARENTESIS) {
 		addChildNode(factorNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = exp(file, nextToken, nextChar, nextLexeme, factorNode, logFile);
+		nextToken = bexp(file, nextToken, nextChar, nextLexeme, factorNode, logFile);
 		if (nextToken == CLOSE_PARENTESIS) {
 			addChildNode(factorNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -1696,9 +1695,7 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
 		}
 	}
-	else {
-		nextToken = boolstruct(file, nextToken, nextChar, nextLexeme, factorNode, logFile);
-	}
+	
 
 	printf("Exiting <FACTOR>\n");
 	fprintf(logFile, "Exiting <FACTOR>\n");
@@ -1709,11 +1706,11 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 	printf("Entering <CASTINGVAR>\n");
 	fprintf(logFile, "Entering <CASTINGVAR>\n");
 	/*
-<casting> --> toString(<exp>)
-<casting> --> toDecimal(<exp>)
-<casting> --> toNumber(<exp>)
-<casting> --> toChar(<exp>)
-<casting> --> toBool(<exp>)
+<casting> --> toString(<bexp>)
+<casting> --> toDecimal(<bexp>)
+<casting> --> toNumber(<bexp>)
+<casting> --> toChar(<bexp>)
+<casting> --> toBool(<bexp>)
 	*/
 	Node* castingVarNode = addChildNode(tree, "CASTINGVAR", -1, logFile);
 
@@ -1727,7 +1724,7 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 		if (nextToken == OPEN_PARENTESIS) {
 			addChildNode(castingVarNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = exp(file, nextToken, nextChar, nextLexeme, castingVarNode, logFile);
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, castingVarNode, logFile);
 			if (nextToken == CLOSE_PARENTESIS) {
 				addChildNode(castingVarNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term

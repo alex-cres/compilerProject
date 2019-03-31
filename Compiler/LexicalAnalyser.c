@@ -297,12 +297,15 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		if (nextToken == OP_MINOR) {
 			if (nextChar->ch == '=') {
 				nextToken = OP_MINOR_EQUAL;
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
+				*nextChar = getChar(file);
 			}
 			if (nextChar->ch == '<') {
 				nextToken = OP_ATTRIBUTION;
+				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
+				*nextChar = getChar(file);
 			}
-			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
-			*nextChar = getChar(file);
+			
 		}
 		else if (nextToken == OP_BIGGER) {
 			if (nextChar->ch == '=') {
