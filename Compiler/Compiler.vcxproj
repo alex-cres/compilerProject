@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CodeGenerator.c" />
     <ClCompile Include="ErrorHandling.c" />
     <ClCompile Include="Main.c" />
     <ClCompile Include="LexicalAnalyser.c" />
@@ -130,6 +131,7 @@
     <ClCompile Include="SyntaxTree.c" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CodeGenerator.h" />
     <ClInclude Include="ErrorHandling.h" />
     <ClInclude Include="LexicalAnalyser.h" />
     <ClInclude Include="SyntaxAnalyser.h" />
