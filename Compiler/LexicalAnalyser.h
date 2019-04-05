@@ -10,6 +10,7 @@
 #define DOUBLE_QUOTE 6
 #define QUOTE 7
 #define COMMA 8
+
 #define	UNKNOWN	999
 
 #define IDENTIFIER_FUNCTION 10
@@ -81,6 +82,7 @@
 #define RESERVED_FILE_ENDER 96
 #define RESERVED_FILE_SIZE 97
 
+#define DECLARE 98
 
 
 //reserved strings

@@ -6,6 +6,7 @@
 #include "LexicalAnalyser.h"
 #include "SyntaxAnalyser.h"
 #include "SymbolTable.h"
+#include "CodeGenerator.h"
 
 
 typedef int bool;
@@ -81,8 +82,9 @@ int main()
 
 		cst = Optimization(cst, logFile);
 		printTree(cst, 0, True, arrayDepthTab, logFile);
-		SymbolToken * table = generateSymbolTable(cst, NULL, NULL,logFile);
-		printSymbolTable(table,logFile);
+		//SymbolToken * table = generateSymbolTable(cst, NULL, NULL,logFile);
+		//printSymbolTable(table,logFile);
+		GenerateMachineCode(cst,logFile,fileName);
 	}
 	else {
 		errorColor();

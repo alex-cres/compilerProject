@@ -6,21 +6,12 @@ Token:	017 --> IDN_STRING                    	Lex:	S
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
 Entering <DECLARATION>
-Token:	026 --> OPEN_BRACKETS                 	Lex:	[
-Entering <ARRAYEXP>
-Token:	018 --> LITERAL_NUMBER                	Lex:	5
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	027 --> CLOSE_BRACKETS                	Lex:	]
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
 Token:	011 --> IDENTIFIER                    	Lex:	a
-Exiting <ARRAYEXP>
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	020 --> LITERAL_STRING                	Lex:	"aula"
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -28,6 +19,8 @@ Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
@@ -38,6 +31,8 @@ Entering <DECLARATION>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -45,16 +40,22 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	011 --> IDENTIFIER                    	Lex:	a
 Exiting <ARRAYEXP>
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -62,7 +63,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -70,7 +75,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	3
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -78,7 +87,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -86,7 +99,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -94,11 +111,15 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
@@ -109,6 +130,8 @@ Entering <DECLARATION>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -116,7 +139,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	6
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -124,21 +151,29 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	011 --> IDENTIFIER                    	Lex:	a
 Exiting <ARRAYEXP>
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -146,7 +181,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -154,7 +193,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	3
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -162,7 +205,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -170,7 +217,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -178,7 +229,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	6
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -186,17 +241,25 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	008 --> COMMA                         	Lex:	,
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -204,7 +267,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -212,7 +279,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	3
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -220,7 +291,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -228,7 +303,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -236,7 +315,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	6
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -244,17 +327,25 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	008 --> COMMA                         	Lex:	,
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -262,7 +353,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -270,7 +365,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	3
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -278,7 +377,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -286,7 +389,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -294,7 +401,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	6
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -302,17 +413,25 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	008 --> COMMA                         	Lex:	,
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -320,7 +439,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -328,7 +451,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	3
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -336,7 +463,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -344,7 +475,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -352,7 +487,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	6
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -360,17 +499,25 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	008 --> COMMA                         	Lex:	,
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -378,7 +525,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -386,7 +537,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	3
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -394,7 +549,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -402,7 +561,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -410,7 +573,11 @@ Token:	008 --> COMMA                         	Lex:	,
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	6
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -418,16 +585,22 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
@@ -439,18 +612,24 @@ Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Entering <CASTINGVAR>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Token:	026 --> OPEN_BRACKETS                 	Lex:	[
 Entering <ARRAYEXP>
 Token:	018 --> LITERAL_NUMBER                	Lex:	0
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -458,16 +637,22 @@ Token:	027 --> CLOSE_BRACKETS                	Lex:	]
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <ARRAYEXP>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <CASTINGVAR>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
@@ -477,26 +662,21 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 19
+MAX_DEPTH_TREE FOUND : 25
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
   | |_DECLARATION
   |   |-S
-  |   | |_ARRAYEXP
-  |   |   |-[
-  |   |   |-EXP
-  |   |   | |_TERM
-  |   |   |   |_FACTOR
-  |   |   |     |_5
-  |   |   |_]
   |   |_DECLAREEXP
   |     |-a
   |     |-<<
-  |     |_EXP
-  |       |_TERM
-  |         |_FACTOR
-  |           |_"aula"
+  |     |_BEXP
+  |       |_CEXP
+  |         |_EXP
+  |           |_TERM
+  |             |_FACTOR
+  |               |_"aula"
   |-;
   |_INSTRUCTIONLIST
     |-INSTRUCTION
@@ -504,40 +684,54 @@ PROGRAM
     |   |-N
     |   | |_ARRAYEXP
     |   |   |-[
-    |   |   |-EXP
-    |   |   | |_TERM
-    |   |   |   |_FACTOR
-    |   |   |     |_5
+    |   |   |-BEXP
+    |   |   | |_CEXP
+    |   |   |   |_EXP
+    |   |   |     |_TERM
+    |   |   |       |_FACTOR
+    |   |   |         |_5
     |   |   |_]
     |   |_DECLAREEXP
     |     |-a
     |     |-<<
-    |     |_EXP
-    |       |_TERM
-    |         |_FACTOR
-    |           |_ARRAYEXP
-    |             |-[
-    |             |-EXP
-    |             | |_TERM
-    |             |   |_FACTOR
-    |             |     |_1
-    |             |-EXP
-    |             | |_TERM
-    |             |   |_FACTOR
-    |             |     |_2
-    |             |-EXP
-    |             | |_TERM
-    |             |   |_FACTOR
-    |             |     |_3
-    |             |-EXP
-    |             | |_TERM
-    |             |   |_FACTOR
-    |             |     |_4
-    |             |-EXP
-    |             | |_TERM
-    |             |   |_FACTOR
-    |             |     |_5
-    |             |_]
+    |     |_BEXP
+    |       |_CEXP
+    |         |_EXP
+    |           |_TERM
+    |             |_FACTOR
+    |               |_ARRAYEXP
+    |                 |-[
+    |                 |-BEXP
+    |                 | |_CEXP
+    |                 |   |_EXP
+    |                 |     |_TERM
+    |                 |       |_FACTOR
+    |                 |         |_1
+    |                 |-BEXP
+    |                 | |_CEXP
+    |                 |   |_EXP
+    |                 |     |_TERM
+    |                 |       |_FACTOR
+    |                 |         |_2
+    |                 |-BEXP
+    |                 | |_CEXP
+    |                 |   |_EXP
+    |                 |     |_TERM
+    |                 |       |_FACTOR
+    |                 |         |_3
+    |                 |-BEXP
+    |                 | |_CEXP
+    |                 |   |_EXP
+    |                 |     |_TERM
+    |                 |       |_FACTOR
+    |                 |         |_4
+    |                 |-BEXP
+    |                 | |_CEXP
+    |                 |   |_EXP
+    |                 |     |_TERM
+    |                 |       |_FACTOR
+    |                 |         |_5
+    |                 |_]
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
@@ -545,174 +739,250 @@ PROGRAM
       |   |-N
       |   | |_ARRAYEXP
       |   |   |-[
-      |   |   |-EXP
-      |   |   | |_TERM
-      |   |   |   |_FACTOR
-      |   |   |     |_5
-      |   |   |-EXP
-      |   |   | |_TERM
-      |   |   |   |_FACTOR
-      |   |   |     |_6
+      |   |   |-BEXP
+      |   |   | |_CEXP
+      |   |   |   |_EXP
+      |   |   |     |_TERM
+      |   |   |       |_FACTOR
+      |   |   |         |_5
+      |   |   |-BEXP
+      |   |   | |_CEXP
+      |   |   |   |_EXP
+      |   |   |     |_TERM
+      |   |   |       |_FACTOR
+      |   |   |         |_6
       |   |   |_]
       |   |_DECLAREEXP
       |     |-a
       |     |-<<
-      |     |_EXP
-      |       |_TERM
-      |         |_FACTOR
-      |           |_ARRAYEXP
-      |             |-[
-      |             |-EXP
-      |             | |_TERM
-      |             |   |_FACTOR
-      |             |     |_ARRAYEXP
-      |             |       |-[
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_1
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_2
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_3
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_4
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_5
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_6
-      |             |       |_]
-      |             |-EXP
-      |             | |_TERM
-      |             |   |_FACTOR
-      |             |     |_ARRAYEXP
-      |             |       |-[
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_1
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_2
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_3
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_4
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_5
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_6
-      |             |       |_]
-      |             |-EXP
-      |             | |_TERM
-      |             |   |_FACTOR
-      |             |     |_ARRAYEXP
-      |             |       |-[
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_1
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_2
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_3
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_4
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_5
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_6
-      |             |       |_]
-      |             |-EXP
-      |             | |_TERM
-      |             |   |_FACTOR
-      |             |     |_ARRAYEXP
-      |             |       |-[
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_1
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_2
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_3
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_4
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_5
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_6
-      |             |       |_]
-      |             |-EXP
-      |             | |_TERM
-      |             |   |_FACTOR
-      |             |     |_ARRAYEXP
-      |             |       |-[
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_1
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_2
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_3
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_4
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_5
-      |             |       |-EXP
-      |             |       | |_TERM
-      |             |       |   |_FACTOR
-      |             |       |     |_6
-      |             |       |_]
-      |             |_]
+      |     |_BEXP
+      |       |_CEXP
+      |         |_EXP
+      |           |_TERM
+      |             |_FACTOR
+      |               |_ARRAYEXP
+      |                 |-[
+      |                 |-BEXP
+      |                 | |_CEXP
+      |                 |   |_EXP
+      |                 |     |_TERM
+      |                 |       |_FACTOR
+      |                 |         |_ARRAYEXP
+      |                 |           |-[
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_1
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_2
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_3
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_4
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_5
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_6
+      |                 |           |_]
+      |                 |-BEXP
+      |                 | |_CEXP
+      |                 |   |_EXP
+      |                 |     |_TERM
+      |                 |       |_FACTOR
+      |                 |         |_ARRAYEXP
+      |                 |           |-[
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_1
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_2
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_3
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_4
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_5
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_6
+      |                 |           |_]
+      |                 |-BEXP
+      |                 | |_CEXP
+      |                 |   |_EXP
+      |                 |     |_TERM
+      |                 |       |_FACTOR
+      |                 |         |_ARRAYEXP
+      |                 |           |-[
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_1
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_2
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_3
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_4
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_5
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_6
+      |                 |           |_]
+      |                 |-BEXP
+      |                 | |_CEXP
+      |                 |   |_EXP
+      |                 |     |_TERM
+      |                 |       |_FACTOR
+      |                 |         |_ARRAYEXP
+      |                 |           |-[
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_1
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_2
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_3
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_4
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_5
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_6
+      |                 |           |_]
+      |                 |-BEXP
+      |                 | |_CEXP
+      |                 |   |_EXP
+      |                 |     |_TERM
+      |                 |       |_FACTOR
+      |                 |         |_ARRAYEXP
+      |                 |           |-[
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_1
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_2
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_3
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_4
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_5
+      |                 |           |-BEXP
+      |                 |           | |_CEXP
+      |                 |           |   |_EXP
+      |                 |           |     |_TERM
+      |                 |           |       |_FACTOR
+      |                 |           |         |_6
+      |                 |           |_]
+      |                 |_]
       |-;
       |_INSTRUCTIONLIST
         |-INSTRUCTION
@@ -721,24 +991,30 @@ PROGRAM
         |   |-.
         |   |-Console
         |   |-(
-        |   |-EXP
-        |   | |_TERM
-        |   |   |_FACTOR
-        |   |     |_CASTINGVAR
-        |   |       |-ToString
-        |   |       |-(
-        |   |       |-EXP
-        |   |       | |_TERM
-        |   |       |   |_FACTOR
-        |   |       |     |_a
-        |   |       |       |_ARRAYEXP
-        |   |       |         |-[
-        |   |       |         |-EXP
-        |   |       |         | |_TERM
-        |   |       |         |   |_FACTOR
-        |   |       |         |     |_0
-        |   |       |         |_]
-        |   |       |_)
+        |   |-BEXP
+        |   | |_CEXP
+        |   |   |_EXP
+        |   |     |_TERM
+        |   |       |_FACTOR
+        |   |         |_CASTINGVAR
+        |   |           |-ToString
+        |   |           |-(
+        |   |           |-BEXP
+        |   |           | |_CEXP
+        |   |           |   |_EXP
+        |   |           |     |_TERM
+        |   |           |       |_FACTOR
+        |   |           |         |_a
+        |   |           |           |_ARRAYEXP
+        |   |           |             |-[
+        |   |           |             |-BEXP
+        |   |           |             | |_CEXP
+        |   |           |             |   |_EXP
+        |   |           |             |     |_TERM
+        |   |           |             |       |_FACTOR
+        |   |           |             |         |_0
+        |   |           |             |_]
+        |   |           |_)
         |   |_)
         |-;
         |_EOF
@@ -747,24 +1023,14 @@ Entering INSTRUCTIONLIST
 Entering INSTRUCTION
 Entering DECLARATION
 Entering S
-Entering ARRAYEXP
-Entering [
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering 5
-Exiting 5
-Exiting 5
-Exiting 5
-Exiting 5
-Entering ]
-Exiting 5
 Exiting S
 Entering DECLAREEXP
 Entering a
 Exiting a
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -773,6 +1039,8 @@ Exiting "aula"
 Exiting "aula"
 Exiting "aula"
 Exiting "aula"
+Exiting "aula"
+Exiting "aula"
 Exiting <<
 Exiting DECLARATION
 Exiting DECLARATION
@@ -783,6 +1051,9 @@ Entering DECLARATION
 Entering N
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -791,19 +1062,27 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
-Entering ]
 Exiting 5
+Exiting 5
+Entering ]
+Exiting ]
+Exiting ARRAYEXP
 Exiting N
 Entering DECLAREEXP
 Entering a
 Exiting a
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -812,6 +1091,10 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting 1
+Exiting 1
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -820,6 +1103,10 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
+Exiting 2
+Exiting 2
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -828,6 +1115,10 @@ Exiting 3
 Exiting 3
 Exiting 3
 Exiting 3
+Exiting 3
+Exiting 3
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -836,6 +1127,10 @@ Exiting 4
 Exiting 4
 Exiting 4
 Exiting 4
+Exiting 4
+Exiting 4
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -844,7 +1139,12 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
 Entering ]
+Exiting ]
+Exiting ARRAYEXP
+Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
@@ -859,6 +1159,9 @@ Entering DECLARATION
 Entering N
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -867,6 +1170,10 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -875,7 +1182,10 @@ Exiting 6
 Exiting 6
 Exiting 6
 Exiting 6
+Exiting 6
+Exiting 6
 Entering ]
+Exiting ]
 Exiting ARRAYEXP
 Exiting N
 Entering DECLAREEXP
@@ -883,16 +1193,24 @@ Entering a
 Exiting a
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -901,6 +1219,10 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting 1
+Exiting 1
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -909,6 +1231,10 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
+Exiting 2
+Exiting 2
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -917,6 +1243,10 @@ Exiting 3
 Exiting 3
 Exiting 3
 Exiting 3
+Exiting 3
+Exiting 3
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -925,6 +1255,10 @@ Exiting 4
 Exiting 4
 Exiting 4
 Exiting 4
+Exiting 4
+Exiting 4
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -933,6 +1267,10 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -941,16 +1279,26 @@ Exiting 6
 Exiting 6
 Exiting 6
 Exiting 6
+Exiting 6
+Exiting 6
 Entering ]
+Exiting ]
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
+Exiting ARRAYEXP
+Exiting ARRAYEXP
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -959,6 +1307,10 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting 1
+Exiting 1
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -967,6 +1319,10 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
+Exiting 2
+Exiting 2
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -975,6 +1331,10 @@ Exiting 3
 Exiting 3
 Exiting 3
 Exiting 3
+Exiting 3
+Exiting 3
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -983,6 +1343,10 @@ Exiting 4
 Exiting 4
 Exiting 4
 Exiting 4
+Exiting 4
+Exiting 4
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -991,6 +1355,10 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -999,16 +1367,26 @@ Exiting 6
 Exiting 6
 Exiting 6
 Exiting 6
+Exiting 6
+Exiting 6
 Entering ]
+Exiting ]
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
+Exiting ARRAYEXP
+Exiting ARRAYEXP
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1017,6 +1395,10 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting 1
+Exiting 1
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1025,6 +1407,10 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
+Exiting 2
+Exiting 2
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1033,6 +1419,10 @@ Exiting 3
 Exiting 3
 Exiting 3
 Exiting 3
+Exiting 3
+Exiting 3
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1041,6 +1431,10 @@ Exiting 4
 Exiting 4
 Exiting 4
 Exiting 4
+Exiting 4
+Exiting 4
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1049,6 +1443,10 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1057,16 +1455,26 @@ Exiting 6
 Exiting 6
 Exiting 6
 Exiting 6
+Exiting 6
+Exiting 6
 Entering ]
+Exiting ]
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
+Exiting ARRAYEXP
+Exiting ARRAYEXP
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1075,6 +1483,10 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting 1
+Exiting 1
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1083,6 +1495,10 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
+Exiting 2
+Exiting 2
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1091,6 +1507,10 @@ Exiting 3
 Exiting 3
 Exiting 3
 Exiting 3
+Exiting 3
+Exiting 3
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1099,6 +1519,10 @@ Exiting 4
 Exiting 4
 Exiting 4
 Exiting 4
+Exiting 4
+Exiting 4
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1107,6 +1531,10 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1115,16 +1543,26 @@ Exiting 6
 Exiting 6
 Exiting 6
 Exiting 6
+Exiting 6
+Exiting 6
 Entering ]
+Exiting ]
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
+Exiting ARRAYEXP
+Exiting ARRAYEXP
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1133,6 +1571,10 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting 1
+Exiting 1
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1141,6 +1583,10 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
+Exiting 2
+Exiting 2
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1149,6 +1595,10 @@ Exiting 3
 Exiting 3
 Exiting 3
 Exiting 3
+Exiting 3
+Exiting 3
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1157,6 +1607,10 @@ Exiting 4
 Exiting 4
 Exiting 4
 Exiting 4
+Exiting 4
+Exiting 4
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1165,6 +1619,10 @@ Exiting 5
 Exiting 5
 Exiting 5
 Exiting 5
+Exiting 5
+Exiting 5
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1173,12 +1631,20 @@ Exiting 6
 Exiting 6
 Exiting 6
 Exiting 6
+Exiting 6
+Exiting 6
 Entering ]
+Exiting ]
+Exiting ARRAYEXP
+Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Entering ]
+Exiting ]
+Exiting ARRAYEXP
+Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
 Exiting ARRAYEXP
@@ -1196,6 +1662,8 @@ Entering .
 Entering Console
 Exiting Console
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1203,12 +1671,17 @@ Entering CASTINGVAR
 Entering ToString
 Exiting ToString
 Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering a
 Entering ARRAYEXP
 Entering [
+Exiting [
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1217,13 +1690,20 @@ Exiting 0
 Exiting 0
 Exiting 0
 Exiting 0
-Entering ]
 Exiting 0
+Exiting 0
+Entering ]
+Exiting ]
+Exiting ARRAYEXP
+Exiting a
+Exiting a
 Exiting a
 Exiting a
 Exiting a
 Exiting a
 Entering )
+Exiting ToString
+Exiting ToString
 Exiting ToString
 Exiting ToString
 Exiting ToString
@@ -1238,81 +1718,98 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
-
-MAX_DEPTH_TREE FOUND : 0
 INSTRUCTIONLIST
 |-DECLARATION
 | |-S
-| | |_5
 | |_<<
 |   |-a
 |   |_"aula"
 |_INSTRUCTIONLIST
   |-DECLARATION
   | |-N
-  | | |_5
+  | | |_ARRAYEXP
+  | |   |-[
+  | |   |-5
+  | |   |_]
   | |_<<
   |   |-a
   |   |_ARRAYEXP
+  |     |-[
   |     |-1
   |     |-2
   |     |-3
   |     |-4
-  |     |_5
+  |     |-5
+  |     |_]
   |_INSTRUCTIONLIST
     |-DECLARATION
     | |-N
     | | |_ARRAYEXP
+    | |   |-[
     | |   |-5
-    | |   |_6
+    | |   |-6
+    | |   |_]
     | |_<<
     |   |-a
     |   |_ARRAYEXP
+    |     |-[
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
+    |     | |-6
+    |     | |_]
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
+    |     | |-6
+    |     | |_]
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
+    |     | |-6
+    |     | |_]
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
-    |     |_ARRAYEXP
-    |       |-1
-    |       |-2
-    |       |-3
-    |       |-4
-    |       |-5
-    |       |_6
+    |     | |-6
+    |     | |_]
+    |     |-ARRAYEXP
+    |     | |-[
+    |     | |-1
+    |     | |-2
+    |     | |-3
+    |     | |-4
+    |     | |-5
+    |     | |-6
+    |     | |_]
+    |     |_]
     |_On
       |-Console
       |_ToString
         |_a
-          |_0
+          |_ARRAYEXP
+            |-[
+            |-0
+            |_]
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of S
-Optimization of 5
-End Optimization of 5
 End Optimization of S
 Optimization of <<
 Optimization of a
@@ -1324,13 +1821,21 @@ End Optimization of DECLARATION
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
+Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 5
 End Optimization of 5
+Optimization of ]
+End Optimization of ]
+End Optimization of ARRAYEXP
 End Optimization of N
 Optimization of <<
 Optimization of a
 End Optimization of a
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 1
 End Optimization of 1
 Optimization of 2
@@ -1341,6 +1846,8 @@ Optimization of 4
 End Optimization of 4
 Optimization of 5
 End Optimization of 5
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 End Optimization of <<
 End Optimization of DECLARATION
@@ -1348,17 +1855,25 @@ Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 5
 End Optimization of 5
 Optimization of 6
 End Optimization of 6
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 End Optimization of N
 Optimization of <<
 Optimization of a
 End Optimization of a
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 1
 End Optimization of 1
 Optimization of 2
@@ -1371,8 +1886,12 @@ Optimization of 5
 End Optimization of 5
 Optimization of 6
 End Optimization of 6
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 1
 End Optimization of 1
 Optimization of 2
@@ -1385,8 +1904,12 @@ Optimization of 5
 End Optimization of 5
 Optimization of 6
 End Optimization of 6
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 1
 End Optimization of 1
 Optimization of 2
@@ -1399,8 +1922,12 @@ Optimization of 5
 End Optimization of 5
 Optimization of 6
 End Optimization of 6
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 1
 End Optimization of 1
 Optimization of 2
@@ -1413,8 +1940,12 @@ Optimization of 5
 End Optimization of 5
 Optimization of 6
 End Optimization of 6
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 1
 End Optimization of 1
 Optimization of 2
@@ -1427,7 +1958,11 @@ Optimization of 5
 End Optimization of 5
 Optimization of 6
 End Optimization of 6
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
+Optimization of ]
+End Optimization of ]
 End Optimization of ARRAYEXP
 End Optimization of <<
 End Optimization of DECLARATION
@@ -1436,81 +1971,106 @@ Optimization of Console
 End Optimization of Console
 Optimization of ToString
 Optimization of a
+Optimization of ARRAYEXP
+Optimization of [
+End Optimization of [
 Optimization of 0
 End Optimization of 0
+Optimization of ]
+End Optimization of ]
+End Optimization of ARRAYEXP
 End Optimization of a
 End Optimization of ToString
 End Optimization of On
 End Optimization of INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
-
-MAX_DEPTH_TREE FOUND : 0
 INSTRUCTIONLIST
 |-DECLARATION
 | |-S
-| | |_5
 | |_<<
 |   |-a
 |   |_"aula"
 |_INSTRUCTIONLIST
   |-DECLARATION
   | |-N
-  | | |_5
+  | | |_ARRAYEXP
+  | |   |-[
+  | |   |-5
+  | |   |_]
   | |_<<
   |   |-a
   |   |_ARRAYEXP
+  |     |-[
   |     |-1
   |     |-2
   |     |-3
   |     |-4
-  |     |_5
+  |     |-5
+  |     |_]
   |_INSTRUCTIONLIST
     |-DECLARATION
     | |-N
     | | |_ARRAYEXP
+    | |   |-[
     | |   |-5
-    | |   |_6
+    | |   |-6
+    | |   |_]
     | |_<<
     |   |-a
     |   |_ARRAYEXP
+    |     |-[
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
+    |     | |-6
+    |     | |_]
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
+    |     | |-6
+    |     | |_]
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
+    |     | |-6
+    |     | |_]
     |     |-ARRAYEXP
+    |     | |-[
     |     | |-1
     |     | |-2
     |     | |-3
     |     | |-4
     |     | |-5
-    |     | |_6
-    |     |_ARRAYEXP
-    |       |-1
-    |       |-2
-    |       |-3
-    |       |-4
-    |       |-5
-    |       |_6
+    |     | |-6
+    |     | |_]
+    |     |-ARRAYEXP
+    |     | |-[
+    |     | |-1
+    |     | |-2
+    |     | |-3
+    |     | |-4
+    |     | |-5
+    |     | |-6
+    |     | |_]
+    |     |_]
     |_On
       |-Console
       |_ToString
         |_a
-          |_0
+          |_ARRAYEXP
+            |-[
+            |-0
+            |_]

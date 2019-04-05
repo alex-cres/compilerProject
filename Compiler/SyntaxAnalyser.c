@@ -1236,7 +1236,7 @@ int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 				| <type_identifier><array_def> <functionDec>
 
 	*/
-	Node* attributionNode = addChildNode(tree, "DECLARATION", -1, logFile);
+	Node* attributionNode = addChildNode(tree, "DECLARATION", DECLARE, logFile);
 	Node * typeNode = addChildNode(attributionNode, nextLexeme, nextToken, logFile);
 	nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 	switch (nextToken) {
@@ -1572,8 +1572,8 @@ int exp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* t
 	fprintf(logFile, "Entering <EXP>\n");
 	Node* expNode = addChildNode(tree, "EXP", -1, logFile);
 	/*
-		<exp> --> <term> + <term>
-				| <term> - <term>
+		<exp> --> <term> + <exp>
+				| <term> - <exp>
 				| <term>
 	*/
 	nextToken = term(file, nextToken, nextChar, nextLexeme, expNode, logFile);//analyze term
@@ -1590,9 +1590,9 @@ int exp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* t
 int term(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile) {
 
 	/*
-		<term> -- > <factor> * <factor>
-				| <factor> / <factor>
-				| <factor> % <factor>
+		<term> -- > <factor> * <term>
+				| <factor> / <term>
+				| <factor> % <term>
 				| <factor>
 	*/
 	printf("Entering <TERM>\n");

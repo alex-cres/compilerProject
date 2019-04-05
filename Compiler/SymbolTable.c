@@ -7,12 +7,6 @@
 SymbolToken* generateSymbolTable(Node* tree, SymbolToken* next, SymbolToken* previous, FILE * logfile)
 {
 	SymbolToken * table = generateSymbolToken(TABLE, tree, "TABLE",next,previous);
-
-	
-
-
-
-
 	return table;
 }
 

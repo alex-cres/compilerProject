@@ -196,8 +196,6 @@ Node * CSTtoAST(Node * current, FILE* logFile)
 	//remove non needed symbols like brackets etc
 	if (current->type == OPEN_PARENTESIS ||
 		current->type == CLOSE_PARENTESIS ||
-		current->type == OPEN_BRACKETS ||
-		current->type == CLOSE_BRACKETS ||
 		current->type == POINT_COMMA ||
 		current->type == COMMA ||
 		current->type == POINT ||
