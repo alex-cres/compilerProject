@@ -153,6 +153,7 @@
     <Text Include="..\Examples\SimpleExample.cx_logFile.txt" />
     <Text Include="..\Examples\SimpleLooperExample.cx_logFile.txt" />
     <Text Include="..\Examples\StringAndWriteInConsoleExample.cx_logFile.txt" />
+    <Text Include="code.text_logFile.txt" />
     <Text Include="Code.txt" />
     <Text Include="Code.txt_logFile.txt" />
     <Text Include="Code1.txt" />
@@ -166,7 +167,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Examples\ArrayUsageExample.cx" />
+    <None Include="..\Examples\ArrayUsageExample.cx_code.asm" />
     <None Include="..\Examples\AttributionAndWriteExample.cx" />
+    <None Include="..\Examples\AttributionAndWriteExample.cx_code.asm" />
     <None Include="..\Examples\BreakExample.cx" />
     <None Include="..\Examples\BreakIfExample.cx" />
     <None Include="..\Examples\ContinueExample.cx" />
@@ -176,6 +179,7 @@
     <None Include="..\Examples\SimpleExample.cx" />
     <None Include="..\Examples\SimpleLooperExample.cx" />
     <None Include="..\Examples\StringAndWriteInConsoleExample.cx" />
+    <None Include="Code.txt_code.asm" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

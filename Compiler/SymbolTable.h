@@ -24,6 +24,7 @@ typedef struct symbolToken {
 #define IDENTIFIER_DECIMAL 1440
 #define IDENTIFIER_ARRAY_DECIMAL 1441
 
-SymbolToken* generateSymbolTable(Node* tree, SymbolToken* next, SymbolToken* previous, FILE * logfile);
+SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile);
 SymbolToken* generateSymbolToken(int type_of_symbol,Node * scope, char* name, SymbolToken* next, SymbolToken* previous);
 void printSymbolTable(SymbolToken* table, FILE * logfile);
+int isNumeric(const char * s);

@@ -34,7 +34,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CodeGenerator.c">
-  <Filter>Source Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SymbolTable.c">
       <Filter>Source Files</Filter>
@@ -56,12 +56,44 @@
     <ClInclude Include="CodeGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-
     <ClInclude Include="SymbolTable.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="code.text_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code1.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code1.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code2.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code2.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code3.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code3.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code4.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
+    <Text Include="Code4.txt_logFile.txt">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </Text>
     <Text Include="..\Examples\ArrayUsageExample.cv_logFile.txt">
       <Filter>Source Files\ExamplesCX</Filter>
     </Text>
@@ -101,42 +133,21 @@
     <Text Include="..\Examples\StringAndWriteInConsoleExample.cx_logFile.txt">
       <Filter>Source Files\ExamplesCX</Filter>
     </Text>
-    <Text Include="Code.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code.txt_logFile.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code1.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code1.txt_logFile.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code2.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code2.txt_logFile.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code3.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code3.txt_logFile.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code4.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
-    <Text Include="Code4.txt_logFile.txt">
-      <Filter>Source Files\ExamplesCX</Filter>
-    </Text>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Code.txt_code.asm">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
     <None Include="..\Examples\ArrayUsageExample.cx">
       <Filter>Source Files\ExamplesCX</Filter>
     </None>
+    <None Include="..\Examples\ArrayUsageExample.cx_code.asm">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
     <None Include="..\Examples\AttributionAndWriteExample.cx">
+      <Filter>Source Files\ExamplesCX</Filter>
+    </None>
+    <None Include="..\Examples\AttributionAndWriteExample.cx_code.asm">
       <Filter>Source Files\ExamplesCX</Filter>
     </None>
     <None Include="..\Examples\BreakExample.cx">

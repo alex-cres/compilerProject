@@ -1138,7 +1138,6 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 	fprintf(logFile, "Entering <BEXP>\n");
 	/*
 	<bexp> -->  !(<bexp>)
-		| (<bexp>)
 		| <cexp>
 		| <cexp> & <bexp>
 		| <cexp> | <bexp>
@@ -1151,25 +1150,32 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 	case OP_NOT:
 		addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-	case OPEN_PARENTESIS:
-		addChildNode(bexpNode, nextLexeme, nextToken, logFile);
-		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-		nextToken = bexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
-		if (nextToken == CLOSE_PARENTESIS) {
+		if (nextToken == OPEN_PARENTESIS) {
 			addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			printf("Exiting <BEXP>\n");
-			fprintf(logFile, "Exiting <BEXP>\n");
-			return nextToken;
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
+			if (nextToken == CLOSE_PARENTESIS) {
+				addChildNode(bexpNode, nextLexeme, nextToken, logFile);
+				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+				printf("Exiting <BEXP>\n");
+				fprintf(logFile, "Exiting <BEXP>\n");
+				return nextToken;
+			}
+			else {
+				errorColor();
+				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+				normalColor();
+				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+			}
 		}
 		else {
 			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
+			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
+			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
 			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
 		}
-
 
 		break;
 	case RESERVED_BOOL_TRUE: case RESERVED_BOOL_FALSE:

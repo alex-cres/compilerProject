@@ -1,7 +1,10 @@
 N a;
-N b<<2*2*2*2;
-a<<2+2*2;
+N ae<<2*2*2*2;
+B x<<True;
+a<<(2+2)*2;
 a<<2+(2*2);
 a<<(2+2*2);
 
 On.Console(a);
+N aguana << In.Console().ToNumber();
+On.Console(aguana+ae*a);

@@ -14,13 +14,12 @@ SECTION .data
 	formatinstring: db "%s"
 	formatinbool: db "%d"
 
-	a : dd 0
-	b : dd 0
-	aguana : dd 0
+	x : dd 0
+	resultado : dd 0
+	anagua : dd 0
 
 	t0 : dd 0 
 	t1 : dd 0 
-	t2 : dd 0 
 
 SECTION .text
 	global _main

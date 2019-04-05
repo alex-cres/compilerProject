@@ -55,6 +55,12 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		do {
 			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
+			if (nextChar->tp_code == DOUBLE_QUOTE) {
+				if (nextLexeme[strlen(nextLexeme) - 1] == '\\') {
+					sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
+					*nextChar = getChar(file);
+				}
+			}
 		} while (nextChar->tp_code != DOUBLE_QUOTE);
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		*nextChar = getChar(file);
@@ -64,6 +70,12 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		do {
 			sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 			*nextChar = getChar(file);
+			if (nextChar->tp_code == QUOTE) {
+				if (nextLexeme[strlen(nextLexeme)-1]=='\\') {
+					sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
+					*nextChar = getChar(file);
+				}
+			}
 		} while (nextChar->tp_code != QUOTE);
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		*nextChar = getChar(file);

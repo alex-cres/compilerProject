@@ -1,13 +1,76 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include "SymbolTable.h"
+#include "LexicalAnalyser.h"
+#include "ErrorHandling.h"
 
 
-SymbolToken* generateSymbolTable(Node* tree, SymbolToken* next, SymbolToken* previous, FILE * logfile)
+SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile)
 {
-	SymbolToken * table = generateSymbolToken(TABLE, tree, "TABLE",next,previous);
-	return table;
+	int i = 0;
+	SymbolToken* syntemp = table;
+	SymbolToken* syntempnext = NULL;
+	while (tree->kids[i] != NULL && i < MAX_CHILDREN)
+	{
+		generateSymbolTable(tree->kids[i], table, logfile);
+		i++;
+	}
+	while (syntemp->next!=NULL)
+	{
+		syntemp = syntemp->next;
+	}
+	if (tree->type == DECLARE)
+	{
+		if (tree->kids[1]->type == OP_ATTRIBUTION) {
+			char* contents_chopped = tree->kids[1]->kids[0]->info + 1;
+
+			if ((isNumeric(contents_chopped)&&tree->kids[1]->kids[0]->info[0]=='t')||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatoutnumber") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatoutdecimal") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatoutchar") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatoutstring") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatoutbool") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatinnumber") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatindecimal") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatinchar") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatinstring") ||
+				0 == strcmp(tree->kids[1]->kids[0]->info, "formatinbool"))
+			{
+				errorColor();
+				printf("\n\nError:Reserved Internal Variables Used %s", tree->kids[1]->kids[0]->info);
+				fprintf(logfile, "\n\nError:Reserved Internal Variables Used %s",  tree->kids[1]->kids[0]->info);
+				normalColor();
+				exit(ERROR_RESERVED_VARIABLES_USED);
+			}
+			syntempnext = generateSymbolToken(tree->kids[0]->type, tree, tree->kids[1]->kids[0]->info, NULL, syntemp);
+
+		}
+		else if (tree->kids[1]->type == IDENTIFIER) {
+			char* contents_chopped = tree->kids[1]->info + 1;
+			if ((isNumeric(contents_chopped) && tree->kids[1]->info[0] == 't') ||
+				0 == strcmp(tree->kids[1]->info, "formatoutnumber") ||
+				0 == strcmp(tree->kids[1]->info, "formatoutdecimal") ||
+				0 == strcmp(tree->kids[1]->info, "formatoutchar") ||
+				0 == strcmp(tree->kids[1]->info, "formatoutstring") ||
+				0 == strcmp(tree->kids[1]->info, "formatoutbool") ||
+				0 == strcmp(tree->kids[1]->info, "formatinnumber") ||
+				0 == strcmp(tree->kids[1]->info, "formatindecimal") ||
+				0 == strcmp(tree->kids[1]->info, "formatinchar") ||
+				0 == strcmp(tree->kids[1]->info, "formatinstring") ||
+				0 == strcmp(tree->kids[1]->info, "formatinbool"))
+			{
+				errorColor();
+				printf("\n\nError: At Line %i :Reserved Internal Variables Used %s", lineNumber, tree->kids[1]->info);
+				fprintf(logfile, "\n\nError: At Line %i :Reserved Internal Variables Used %s", lineNumber, tree->kids[1]->info);
+				normalColor();
+				exit(ERROR_RESERVED_VARIABLES_USED);
+			}
+			syntempnext = generateSymbolToken(tree->kids[0]->type, tree, tree->kids[1]->info, NULL, syntemp);
+		}
+	}
+	return syntemp;
 }
 
 SymbolToken* generateSymbolToken(int type_of_symbol, Node * scope, char* name, SymbolToken* next, SymbolToken* previous)
@@ -17,9 +80,12 @@ SymbolToken* generateSymbolToken(int type_of_symbol, Node * scope, char* name, S
 	token->scope = scope;
 	token->next = next;
 	token->previous = previous;
+	
 	token->name = (char*)malloc(sizeof(char*)*(strlen(name) + 1));
 	strcpy(token->name, name);
-	
+	if (previous!=NULL) {
+		previous->next = token;
+	}
 	return token;
 
 }
@@ -36,3 +102,11 @@ void printSymbolTable(SymbolToken* table, FILE * logfile)
 		printSymbolTable(table->next, logfile);
 }
 
+int isNumeric(const char * s)
+{
+	if (s == NULL || *s == '\0' || isspace(*s))
+		return 0;
+	char * p;
+	strtod(s, &p);
+	return *p == '\0';
+}

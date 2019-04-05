@@ -1,7 +1,7 @@
 #pragma once
 #include "LexicalAnalyser.h"
-
 #include "SyntaxTree.h"
+
 typedef struct element{
 	char * code;
 	struct element *next;
