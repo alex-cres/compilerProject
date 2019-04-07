@@ -39,8 +39,8 @@ SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile)
 				0 == strcmp(tree->kids[1]->kids[0]->info, "formatinbool"))
 			{
 				errorColor();
-				printf("\n\nError:Reserved Internal Variables Used %s", tree->kids[1]->kids[0]->info);
-				fprintf(logfile, "\n\nError:Reserved Internal Variables Used %s",  tree->kids[1]->kids[0]->info);
+				printf("\n\nError: Reserved Internal Variables Used %s\n", tree->kids[1]->kids[0]->info);
+				fprintf(logfile, "\n\nError: Reserved Internal Variables Used %s\n",  tree->kids[1]->kids[0]->info);
 				normalColor();
 				exit(ERROR_RESERVED_VARIABLES_USED);
 			}
@@ -62,8 +62,8 @@ SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile)
 				0 == strcmp(tree->kids[1]->info, "formatinbool"))
 			{
 				errorColor();
-				printf("\n\nError: At Line %i :Reserved Internal Variables Used %s", lineNumber, tree->kids[1]->info);
-				fprintf(logfile, "\n\nError: At Line %i :Reserved Internal Variables Used %s", lineNumber, tree->kids[1]->info);
+				printf("\n\nError: Reserved Internal Variables Used %s\n", tree->kids[1]->kids[0]->info);
+				fprintf(logfile, "\n\nError: Reserved Internal Variables Used %s\n", tree->kids[1]->kids[0]->info);
 				normalColor();
 				exit(ERROR_RESERVED_VARIABLES_USED);
 			}

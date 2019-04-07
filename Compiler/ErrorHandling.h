@@ -1,4 +1,5 @@
 #pragma once
+#include<stdio.h>
 #define ERROR_FILE_EMPTY 99
 #define ERROR_FILE_NOT_FOUND 2
 #define ERROR_NUMBER_WITH_LETTERS_IN_IT 3
@@ -41,3 +42,6 @@ void errorColor();
 void normalColor();
 void marineColor();
 void marine2Color();
+
+void printfAndExitWithLine(FILE * logfile, char* printableString, int errorNumber, int lineNumber, char* lexeme);
+void printfAndExit(FILE * logfile, char* printableString, int errorNumber, char* lexeme);

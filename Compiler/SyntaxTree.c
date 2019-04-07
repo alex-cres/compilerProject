@@ -283,6 +283,8 @@ Node * Optimization(Node * current, FILE* logFile)
 	reorderTree(current);
 
 	printf("Optimization start %s\n", current->info);
+	fprintf(logFile,"Optimization start %s\n", current->info);
+
 	//exp/term/factor level base operations optimization
 	if (current->type == OP_ADD || current->type == OP_MINUS || current->type == OP_DIV
 		|| current->type == OP_MUL || current->type == OP_MOD)
@@ -366,7 +368,7 @@ Node * Optimization(Node * current, FILE* logFile)
 			}
 		}
 		printf("Optimization result %s\n", current->info);
-
+		fprintf(logFile, "Optimization result %s\n", current->info);
 
 	}
 	reorderTree(current);
@@ -425,7 +427,7 @@ Node * Optimization(Node * current, FILE* logFile)
 			}
 		}
 		printf("Optimization result %s\n", current->info);
-
+		fprintf(logFile, "Optimization result %s\n", current->info);
 
 	}
 	reorderTree(current);
@@ -499,7 +501,7 @@ Node * Optimization(Node * current, FILE* logFile)
 			}
 		}
 		printf("Optimization result %s\n", current->info);
-
+		fprintf(logFile, "Optimization result %s\n", current->info);
 
 	}
 	reorderTree(current);

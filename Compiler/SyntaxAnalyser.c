@@ -35,11 +35,7 @@ int reservedArrayexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLe
 		return nextToken;
 	}
 	else {
-		errorColor();
-		printf("ERROR: At Line %i : SYNTAX ERROR MISSING CLOSING BRACKETS, %s", lineNumber, nextLexeme);
-		fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR MISSING  CLOSING BRACKETS, %s", lineNumber, nextLexeme);
-		normalColor();
-		exit(ERROR_SYNTAX_ERROR_MISSING_CLOSING_BRACKETS);
+		printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR MISSING CLOSING BRACKETS, %s", ERROR_SYNTAX_ERROR_MISSING_CLOSING_BRACKETS, lineNumber, nextLexeme);
 	}
 
 
@@ -77,11 +73,8 @@ int instructionList(FILE* file, int nextToken, NextChar* nextChar, char* nextLex
 		nextToken = instructionList(file, nextToken, nextChar, nextLexeme, instructionListNode, logFile);
 	}
 	else if (nextToken != POINT_COMMA) {
-		errorColor();
-		printf("ERROR: At Line %i : SYNTAX ERROR MISSING POINT COMMA, %s", lineNumber, nextLexeme);
-		fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR MISSING POINT COMMA, %s", lineNumber, nextLexeme);
-		normalColor();
-		exit(ERROR_SYNTAX_ERROR_MISSING_POINT_COMMA);
+		
+		printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR MISSING POINT COMMA, %s" ,ERROR_SYNTAX_ERROR_MISSING_POINT_COMMA,lineNumber,nextLexeme);
 	}
 	else if (nextToken == EOF) {
 		addChildNode(instructionListNode, nextLexeme, nextToken, logFile);
@@ -218,69 +211,45 @@ int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 												nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 											}
 											else {
-												errorColor();
-												printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-												fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-												normalColor();
-												exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+												
+												printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 											}
 										}
 										else {
-											errorColor();
-											printf("ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s", lineNumber, nextLexeme);
-											fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s", lineNumber, nextLexeme);
-											normalColor();
-											exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+											
+											printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 										}
 									}
 									else {
-										errorColor();
-										printf("ERROR: At Line %i : SYNTAX ERROR ELSE NOT FOUND, %s", lineNumber, nextLexeme);
-										fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR ELSE NOT FOUND, %s", lineNumber, nextLexeme);
-										normalColor();
-										exit(ERROR_SYNTAX_ERROR_ELSE_NOT_FOUND);
+										
+										printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR ELSE NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_ELSE_NOT_FOUND,lineNumber,nextLexeme);
 									}
 								}
 							}
 						}
 						else {
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR THEN NOT OPENED, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR THEN NOT OPENED, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_THEN_NOT_OPENED);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR THEN NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_THEN_NOT_OPENED,lineNumber,nextLexeme);
 						}
 					}
 					else {
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR THEN NOT FOUND, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR THEN NOT FOUND, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_THEN_NOT_FOUND);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR THEN NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_THEN_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 				}
 			}
 			else {
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 	printf("Exiting <IF>\n");
@@ -323,56 +292,38 @@ int reservedLooper(FILE* file, int nextToken, NextChar* nextChar, char* nextLexe
 							}
 							else
 							{
-								errorColor();
-								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-								fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-								normalColor();
-								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+								
+								printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 							}
 						}
 						else
 						{
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 						}
 					}
 					else
 					{
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_DO_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else
 				{
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 				}
 			}
 			else
 			{
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -448,108 +399,69 @@ int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 																	nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 																}
 																else {
-																	errorColor();
-																	printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-																	fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-																	normalColor();
-																	exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+																	
+																	printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 																}
 															}
 															else {
-																errorColor();
-																printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-																fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-																normalColor();
-																exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+																
+																printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 															}
 														}
 													}
 													else {
-														errorColor();
-														printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
-														fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
-														normalColor();
-														exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
+														
+														printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_DO_NOT_FOUND,lineNumber,nextLexeme);
 													}
 												}
 												else {
-													errorColor();
-													printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-													fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-													normalColor();
-													exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+													
+													printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 												}
 											}
 											else {
-												errorColor();
-												printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-												fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-												normalColor();
-												exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+												
+												printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 											}
 										}
 										else {
-											errorColor();
-											printf("ERROR: At Line %i : SYNTAX ERROR IF NOT FOUND, %s", lineNumber, nextLexeme);
-											fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR IF NOT FOUND, %s", lineNumber, nextLexeme);
-											normalColor();
-											exit(ERROR_SYNTAX_ERROR_IF_NOT_FOUND);
+											
+											printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR IF NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_IF_NOT_FOUND,lineNumber,nextLexeme);
 										}
 									}
 									else {
-										errorColor();
-										printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT CLOSED, %s", lineNumber, nextLexeme);
-										fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT CLOSED, %s", lineNumber, nextLexeme);
-										normalColor();
-										exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+										
+										printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 									}
 								}
 								else {
-									errorColor();
-									printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-									fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-									normalColor();
-									exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+									
+									printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 								}
 							}
 							else {
-								errorColor();
-								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-								fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-								normalColor();
-								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+								
+								printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 							}
 						}
 						else {
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR STEP NOT FOUND, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR STEP NOT FOUND, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_STEP_NOT_FOUND);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR STEP NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_STEP_NOT_FOUND,lineNumber,nextLexeme);
 						}
 					}
 					else {
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 				}
 			}
 			else {
-				errorColor();
-				printf("ERROR:At Line %i : SYNTAX ERROR TYPE SET ON FOR LOOP NOT SUPPORTED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR:At Line %i : SYNTAX ERROR TYPE SET ON FOR LOOP NOT SUPPORTED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_FOR_TYPE_NOT_SUPPORTED);
+				
+				printfAndExitWithLine(logFile, "ERROR:At Line %i : SYNTAX ERROR TYPE SET ON FOR LOOP NOT SUPPORTED, %s" ,ERROR_SYNTAX_ERROR_FOR_TYPE_NOT_SUPPORTED,lineNumber,nextLexeme);
 			}
 		}
 	}
@@ -591,21 +503,15 @@ int reservedExit(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 				}
 			}
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -637,20 +543,14 @@ int reservedContinue(FILE* file, int nextToken, NextChar* nextChar, char* nextLe
 			}
 			else
 			{
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -681,20 +581,14 @@ int reservedContinueIf(FILE* file, int nextToken, NextChar* nextChar, char* next
 			}
 			else
 			{
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -725,20 +619,14 @@ int reservedBreakIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLex
 			}
 			else
 			{
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -769,20 +657,14 @@ int reservedBreak(FILE* file, int nextToken, NextChar* nextChar, char* nextLexem
 			}
 			else
 			{
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -840,20 +722,14 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 					}
 					else
 					{
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 					}
 				}
 				else
 				{
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 				}
 				break;
 			case RESERVED_FILE_ENDER:
@@ -869,20 +745,14 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 					}
 					else
 					{
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 					}
 				}
 				else
 				{
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 				}
 				break;
 			case RESERVED_FILE:case RESERVED_FILE_SIZE:
@@ -902,29 +772,20 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 						}
 						else
 						{
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 						}
 					}
 					else
 					{
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR COMMA NOT FOUND, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR COMMA NOT FOUND, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_COMMA_NOT_FOUND);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR COMMA NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_COMMA_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else
 				{
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 				}
 				break;
 			default: syntaxError(nextLexeme, logFile); break;
@@ -950,39 +811,27 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 						}
 						else
 						{
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 						}
 					}
 					else
 					{
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 					}
 				}
 				else
 				{
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR CAST NOT FOUND, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR CAST NOT FOUND, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_CAST_NOT_FOUND);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR CAST NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_CAST_NOT_FOUND,lineNumber,nextLexeme);
 				}
 			}
 		}
 		else
 		{
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 		}
 	}
 
@@ -1025,19 +874,13 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					}
 					else {
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 				}
 
 
@@ -1054,19 +897,13 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					}
 					else {
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 				}
 				break;
 			default: syntaxError(nextLexeme, logFile); break;
@@ -1074,11 +911,8 @@ int reservedOn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 		}
 		else
 		{
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 		}
 	}
 	printf("Exiting <ON>\n");
@@ -1107,26 +941,17 @@ int params(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 			}
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR IDENTIFIER NOT FOUND, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR IDENTIFIER NOT FOUND, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_IDENTIFIER_NOT_FOUND);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR IDENTIFIER NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_IDENTIFIER_NOT_FOUND,lineNumber,nextLexeme);
 		}
 	}
 	else if (nextToken == IDN_VOID) {
-		errorColor();
-		printf("ERROR:At Line %i : SYNTAX ERROR VOID PARAMS ARE FORBIDDEN, %s", lineNumber, nextLexeme);
-		fprintf(logFile, "ERROR:At Line %i : SYNTAX ERROR VOID PARAMS ARE FORBIDDEN, %s", lineNumber, nextLexeme);
-		normalColor();
-		exit(ERROR_SYNTAX_ERROR_VOID_PARAM);
+		
+		printfAndExitWithLine(logFile, "ERROR:At Line %i : SYNTAX ERROR VOID PARAMS ARE FORBIDDEN, %s" ,ERROR_SYNTAX_ERROR_VOID_PARAM,lineNumber,nextLexeme);
 	}
 	else {
-		errorColor();
-		printf("ERROR:At Line %i : SYNTAX ERROR PARAM BAD FORMAT, %s", lineNumber, nextLexeme);
-		fprintf(logFile, "ERROR:At Line %i : SYNTAX ERROR PARAM BAD FORMAT, %s", lineNumber, nextLexeme);
-		normalColor();
-		exit(ERROR_SYNTAX_ERROR_PARAM_BAD_FORMAT);
+		
+		printfAndExitWithLine(logFile, "ERROR:At Line %i : SYNTAX ERROR PARAM BAD FORMAT, %s" ,ERROR_SYNTAX_ERROR_PARAM_BAD_FORMAT,lineNumber,nextLexeme);
 	}
 
 	printf("Exiting <PARAMS>\n");
@@ -1162,19 +987,13 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 				return nextToken;
 			}
 			else {
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 
 		break;
@@ -1257,11 +1076,8 @@ int declaration(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 			break;
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR BAD DECLARATION, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR BAD DECLARATION, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_BAD_DECLARATION);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR BAD DECLARATION, %s" ,ERROR_SYNTAX_ERROR_BAD_DECLARATION,lineNumber,nextLexeme);
 		}
 
 	case IDENTIFIER_FUNCTION:
@@ -1311,35 +1127,23 @@ int functionDec(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 								nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 							}
 							else {
-								errorColor();
-								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-								fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-								normalColor();
-								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+								
+								printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 							}
 						}
 						else {
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 						}
 					}
 					else {
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUNF, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUNF, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUNF, %s" ,ERROR_SYNTAX_ERROR_DO_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 				}
 			}
 			else {
@@ -1362,52 +1166,34 @@ int functionDec(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 									nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 								}
 								else {
-									errorColor();
-									printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-									fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-									normalColor();
-									exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+									
+									printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 								}
 							}
 							else {
-								errorColor();
-								printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-								fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-								normalColor();
-								exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+								
+								printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 							}
 						}
 						else {
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_DO_NOT_FOUND);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_DO_NOT_FOUND,lineNumber,nextLexeme);
 						}
 					}
 					else {
-						errorColor();
-						printf("ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-						fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s", lineNumber, nextLexeme);
-						normalColor();
-						exit(ERROR_SYNTAX_ERROR_POINT_NOT_FOUND);
+						
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 				}
 			}
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 
 	}
@@ -1468,11 +1254,8 @@ int attribution(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR IN ATTRIBUTION, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR IN ATTRIBUTION, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_ATTRIBUTION);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR IN ATTRIBUTION, %s" ,ERROR_SYNTAX_ERROR_ATTRIBUTION,lineNumber,nextLexeme);
 		}
 	}
 
@@ -1512,37 +1295,25 @@ int reservedCallFunction(FILE* file, int nextToken, NextChar* nextChar, char* ne
 							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 						}
 						else {
-							errorColor();
-							printf("ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-							fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-							normalColor();
-							exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+							
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 						}
 					}
 
 				}
 				else {
-					errorColor();
-					printf("ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-					normalColor();
-					exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+					
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 				}
 			}
 			else {
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION NOT FUNCTION, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION NOT FUNCTION, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_FUNCTION_NOT_FUNCTION);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION NOT FUNCTION, %s" ,ERROR_SYNTAX_ERROR_FUNCTION_NOT_FUNCTION,lineNumber,nextLexeme);
 			}
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_CALL_FUNCTION);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR CALL FUNCTION, %s" ,ERROR_SYNTAX_ERROR_CALL_FUNCTION,lineNumber,nextLexeme);
 		}
 	}
 
@@ -1664,11 +1435,8 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 			fprintf(logFile, "Exiting <SIGNEDNUMBER>\n");
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_BAD_NUMBER_FORMAT);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR BAD NUMBER FORMAT, %s" ,ERROR_SYNTAX_ERROR_BAD_NUMBER_FORMAT,lineNumber,nextLexeme);
 		}
 	}
 	else if (
@@ -1694,11 +1462,8 @@ int factor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 		}
 	}
 	
@@ -1736,19 +1501,13 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 			}
 			else {
-				errorColor();
-				printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED);
+				
+				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 		}
 		else {
-			errorColor();
-			printf("ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED);
+			
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
 
@@ -1758,11 +1517,8 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 }
 
 void syntaxError(char* nextLexeme, FILE* logFile) {
-	errorColor();
-	printf("ERROR:At Line %i : SYNTAX ERROR NEAR, %s", lineNumber, nextLexeme);
-	fprintf(logFile, "ERROR:At Line %i : SYNTAX ERROR NEAR, %s", lineNumber, nextLexeme);
-	normalColor();
-	exit(ERROR_SYNTAX_ERROR_NEAR);
+	
+	printfAndExitWithLine(logFile, "ERROR:At Line %i : SYNTAX ERROR NEAR, %s" ,ERROR_SYNTAX_ERROR_NEAR,lineNumber,nextLexeme);
 }
 
 /*

@@ -157,11 +157,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		}
 		else if ((0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT3_LEXEME)) || (0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT2_LEXEME)) || (0 == strcmp(nextLexeme, RESERVED_COMMENT_VARIANT1_LEXEME))) {
 			if (lookup(nextChar->ch, nextLexeme, &sizeOfLexeme, logFile) != OPEN_PARENTESIS) {
-				errorColor();
-				printf("ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_COMMENT_NOT_FORMATED_CORRECTLY);
+				printfAndExitWithLine(logFile,"ERROR:At Line %i : COMMENT NOT FORMATED CORRECTLY %s",ERROR_COMMENT_NOT_FORMATED_CORRECTLY,lineNumber,nextLexeme);
 
 			}
 			*nextChar = getChar(file);
@@ -260,11 +256,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 			*nextChar = getChar(file);
 		} while (nextChar->tp_code == DIGIT);
 		if (isLETTER(nextChar->tp_code)) {//error handling
-			errorColor();
-			printf("ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s", lineNumber, nextLexeme);
-			fprintf(logFile, "ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s", lineNumber, nextLexeme);
-			normalColor();
-			exit(ERROR_NUMBER_WITH_LETTERS_IN_IT);
+			printfAndExitWithLine(logFile,"ERROR:At Line %i : NUMBER_WITH_LETTERS_IN_IT, %s",ERROR_NUMBER_WITH_LETTERS_IN_IT,lineNumber,nextLexeme);
 		}
 		if (nextChar->tp_code == POINT) {//decimal handling
 			do {
@@ -272,11 +264,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 				*nextChar = getChar(file);
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
-				errorColor();
-				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
+				printfAndExitWithLine(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s",ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT,lineNumber,nextLexeme);
 			}
 			nextToken = LITERAL_DECIMAL;
 			break;
@@ -293,11 +281,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 				*nextChar = getChar(file);
 			} while (nextChar->tp_code == DIGIT);
 			if (isLETTER(nextChar->tp_code) || nextChar->tp_code == POINT) {//error handling
-				errorColor();
-				printf("ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
-				fprintf(logFile, "ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s", lineNumber, nextLexeme);
-				normalColor();
-				exit(ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT);
+				printfAndExitWithLine(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s",ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT,lineNumber,nextLexeme);
 			}
 			nextToken = LITERAL_DECIMAL;
 			break;
