@@ -90,6 +90,29 @@ SymbolToken* generateSymbolToken(int type_of_symbol, Node * scope, char* name, S
 
 }
 
+SymbolToken* insertSymbolToken(int type_of_symbol, Node * scope, char* name, SymbolToken*table)
+{
+	SymbolToken* token = (SymbolToken*)malloc(sizeof(SymbolToken));
+	token->type_of_symbol = type_of_symbol;
+	token->scope = scope;
+	token->next = NULL;
+	SymbolToken* syntemp = table;
+	while (syntemp->next != NULL)
+	{
+		syntemp = syntemp->next;
+	}
+	token->previous = syntemp;
+
+
+	token->name = (char*)malloc(sizeof(char*)*(strlen(name) + 1));
+	strcpy(token->name, name);
+	if (syntemp != NULL) {
+		syntemp->next = token;
+	}
+	return token;
+
+}
+
 void printSymbolTable(SymbolToken* table, FILE * logfile)
 {
 	if (table->type_of_symbol==TABLE) {

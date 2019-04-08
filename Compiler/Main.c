@@ -86,7 +86,9 @@ int main()
 		generateSymbolTable(cst,table,logFile);
 		printSymbolTable(table,logFile);
 
-		GenerateMachineCode(cst,logFile,fileName);
+		GenerateMachineCode(cst,logFile,fileName, table);
+
+		printSymbolTable(table, logFile);
 	}
 	else {
 		errorColor();
@@ -101,9 +103,7 @@ int main()
 
 	return 0;
 
-	//printf\((.*)\);
-	//printf($1);\r\nfprintf(logFile,$1);
-
+	
 
 
 

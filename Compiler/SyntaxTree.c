@@ -192,7 +192,15 @@ Node * CSTtoAST(Node * current, FILE* logFile)
 	}
 
 	reorderTree(current);
-
+	if (current->type == LITERAL_CHAR || current->type == LITERAL_STRING) {
+		int i, len = strlen(current->info);
+		for (i = 1; i < len - 1; i++)
+		{
+			current->info[i - 1] = current->info[i];
+		}
+		current->info[i - 1] = '\0';
+	}
+	reorderTree(current);
 	//remove non needed symbols like brackets etc
 	if (current->type == OPEN_PARENTESIS ||
 		current->type == CLOSE_PARENTESIS ||

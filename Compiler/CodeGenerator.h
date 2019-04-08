@@ -1,7 +1,7 @@
 #pragma once
 #include "LexicalAnalyser.h"
 #include "SyntaxTree.h"
-
+#include "SymbolTable.h"
 typedef struct element{
 	char * code;
 	struct element *next;
@@ -10,5 +10,5 @@ typedef struct element{
 }Element;
 Element * CreateList();
 Element * InsertList(Element* list, char* code);
-void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename);
-void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode);
+void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, SymbolToken * table);
+void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode, SymbolToken * table);

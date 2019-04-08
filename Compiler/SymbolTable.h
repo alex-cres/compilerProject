@@ -27,4 +27,5 @@ typedef struct symbolToken {
 SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile);
 SymbolToken* generateSymbolToken(int type_of_symbol,Node * scope, char* name, SymbolToken* next, SymbolToken* previous);
 void printSymbolTable(SymbolToken* table, FILE * logfile);
+SymbolToken* insertSymbolToken(int type_of_symbol, Node * scope, char* name, SymbolToken*table);
 int isNumeric(const char * s);
