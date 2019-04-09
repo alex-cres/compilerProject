@@ -527,3 +527,4 @@ void pad(char *s, int length)
 	s[l] = '\0'; /* strings need to be terminated in a null */
 
 }
+

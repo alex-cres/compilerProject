@@ -5,6 +5,37 @@ B x<<True;
 a<<(2+2)*2;
 a<<2+(2*2);
 a<<(2+2*2);
+D e << 2.855*2;
 
+On.Console("\n Testing String Literal \n");
+On.Console("AFIFNEI");
+On.Console("\n Testing Char Literal \n");
+On.Console('a');
+
+On.Console("\n Testing Decimal Variable \n");
+Fix(Not working);
+On.Console(e);
+On.Console("\n Testing Decimal Literal \n");
+On.Console(2.55);
+
+On.Console("\n Testing Number Variable \n");
 On.Console(a);
-On.Console("\n");
+On.Console("\n Testing Number Literal \n");
+On.Console(2);
+On.Console("\t");
+On.Console(2*a);
+On.Console("\t");
+On.Console(2*a*a);
+On.Console("\t");
+On.Console(2*a*(a+a));
+
+
+
+Fix(Not working);
+On.Console("\n Testing Boolean Variable \n");
+On.Console(x);
+On.Console("\n Testing Boolean Literal \n");
+On.Console(True);
+On.Console("\n Testing Boolean Literal \n");
+On.Console(False);
+

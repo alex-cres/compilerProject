@@ -12,3 +12,4 @@ Element * CreateList();
 Element * InsertList(Element* list, char* code);
 void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, SymbolToken * table);
 void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode, SymbolToken * table);
+void strupper(char * temp);

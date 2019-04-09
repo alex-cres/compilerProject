@@ -119,7 +119,7 @@ void printSymbolTable(SymbolToken* table, FILE * logfile)
 		printf("| Symbol | Scope \t | Name\n");
 		fprintf(logfile, "| Symbol | Scope \t | Name\n");
 	}
-	printf("| %d \t | %s \t | %s\n",table->type_of_symbol, table->scope->info, table->name);
+	printf("| %s \t | %s \t | %s\n", tokenDescription(table->type_of_symbol), table->scope->info, table->name);
 	fprintf(logfile, "| %d \t | %s \t | %s\n", table->type_of_symbol, table->scope->info, table->name);
 	if(table->next !=NULL)
 		printSymbolTable(table->next, logfile);

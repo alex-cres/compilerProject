@@ -223,6 +223,237 @@ Exiting <CEXP>
 Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
+Token:	013 --> IDN_DECIMAL                   	Lex:	D
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	e
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	019 --> LITERAL_DECIMAL               	Lex:	2.855
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing String Literal \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"AFIFNEI"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Char Literal \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'a'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Decimal Variable \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	083 --> RESERVED_COMMENT              	Lex:	Fix(Not working)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	e
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Decimal Literal \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	019 --> LITERAL_DECIMAL               	Lex:	2.55
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Number Variable \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
 Token:	078 --> RESERVED_ON                   	Lex:	On
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -252,7 +483,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n"
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Number Literal \n"
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -267,6 +498,331 @@ Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\t"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\t"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\t"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <TERM>
+Entering <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	083 --> RESERVED_COMMENT              	Lex:	Fix(Not working)
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Boolean Variable \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Boolean Literal \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	070 --> RESERVED_BOOL_TRUE            	Lex:	True
+Entering <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n Testing Boolean Literal \n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	071 --> RESERVED_BOOL_FALSE           	Lex:	False
+Entering <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -277,8 +833,33 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 22
+MAX_DEPTH_TREE FOUND : 43
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -423,18 +1004,21 @@ PROGRAM
               |-;
               |_INSTRUCTIONLIST
                 |-INSTRUCTION
-                | |_ON
-                |   |-On
-                |   |-.
-                |   |-Console
-                |   |-(
-                |   |-BEXP
-                |   | |_CEXP
-                |   |   |_EXP
-                |   |     |_TERM
-                |   |       |_FACTOR
-                |   |         |_a
-                |   |_)
+                | |_DECLARATION
+                |   |-D
+                |   |_DECLAREEXP
+                |     |-e
+                |     |-<<
+                |     |_BEXP
+                |       |_CEXP
+                |         |_EXP
+                |           |_TERM
+                |             |-FACTOR
+                |             | |_2.855
+                |             |-*
+                |             |_TERM
+                |               |_FACTOR
+                |                 |_2
                 |-;
                 |_INSTRUCTIONLIST
                   |-INSTRUCTION
@@ -448,10 +1032,387 @@ PROGRAM
                   |   |   |_EXP
                   |   |     |_TERM
                   |   |       |_FACTOR
-                  |   |         |_"\n"
+                  |   |         |_"\n Testing String Literal \n"
                   |   |_)
                   |-;
-                  |_EOF
+                  |_INSTRUCTIONLIST
+                    |-INSTRUCTION
+                    | |_ON
+                    |   |-On
+                    |   |-.
+                    |   |-Console
+                    |   |-(
+                    |   |-BEXP
+                    |   | |_CEXP
+                    |   |   |_EXP
+                    |   |     |_TERM
+                    |   |       |_FACTOR
+                    |   |         |_"AFIFNEI"
+                    |   |_)
+                    |-;
+                    |_INSTRUCTIONLIST
+                      |-INSTRUCTION
+                      | |_ON
+                      |   |-On
+                      |   |-.
+                      |   |-Console
+                      |   |-(
+                      |   |-BEXP
+                      |   | |_CEXP
+                      |   |   |_EXP
+                      |   |     |_TERM
+                      |   |       |_FACTOR
+                      |   |         |_"\n Testing Char Literal \n"
+                      |   |_)
+                      |-;
+                      |_INSTRUCTIONLIST
+                        |-INSTRUCTION
+                        | |_ON
+                        |   |-On
+                        |   |-.
+                        |   |-Console
+                        |   |-(
+                        |   |-BEXP
+                        |   | |_CEXP
+                        |   |   |_EXP
+                        |   |     |_TERM
+                        |   |       |_FACTOR
+                        |   |         |_'a'
+                        |   |_)
+                        |-;
+                        |_INSTRUCTIONLIST
+                          |-INSTRUCTION
+                          | |_ON
+                          |   |-On
+                          |   |-.
+                          |   |-Console
+                          |   |-(
+                          |   |-BEXP
+                          |   | |_CEXP
+                          |   |   |_EXP
+                          |   |     |_TERM
+                          |   |       |_FACTOR
+                          |   |         |_"\n Testing Decimal Variable \n"
+                          |   |_)
+                          |-;
+                          |_INSTRUCTIONLIST
+                            |-INSTRUCTION
+                            | |_Fix(Not working)
+                            |-;
+                            |_INSTRUCTIONLIST
+                              |-INSTRUCTION
+                              | |_ON
+                              |   |-On
+                              |   |-.
+                              |   |-Console
+                              |   |-(
+                              |   |-BEXP
+                              |   | |_CEXP
+                              |   |   |_EXP
+                              |   |     |_TERM
+                              |   |       |_FACTOR
+                              |   |         |_e
+                              |   |_)
+                              |-;
+                              |_INSTRUCTIONLIST
+                                |-INSTRUCTION
+                                | |_ON
+                                |   |-On
+                                |   |-.
+                                |   |-Console
+                                |   |-(
+                                |   |-BEXP
+                                |   | |_CEXP
+                                |   |   |_EXP
+                                |   |     |_TERM
+                                |   |       |_FACTOR
+                                |   |         |_"\n Testing Decimal Literal \n"
+                                |   |_)
+                                |-;
+                                |_INSTRUCTIONLIST
+                                  |-INSTRUCTION
+                                  | |_ON
+                                  |   |-On
+                                  |   |-.
+                                  |   |-Console
+                                  |   |-(
+                                  |   |-BEXP
+                                  |   | |_CEXP
+                                  |   |   |_EXP
+                                  |   |     |_TERM
+                                  |   |       |_FACTOR
+                                  |   |         |_2.55
+                                  |   |_)
+                                  |-;
+                                  |_INSTRUCTIONLIST
+                                    |-INSTRUCTION
+                                    | |_ON
+                                    |   |-On
+                                    |   |-.
+                                    |   |-Console
+                                    |   |-(
+                                    |   |-BEXP
+                                    |   | |_CEXP
+                                    |   |   |_EXP
+                                    |   |     |_TERM
+                                    |   |       |_FACTOR
+                                    |   |         |_"\n Testing Number Variable \n"
+                                    |   |_)
+                                    |-;
+                                    |_INSTRUCTIONLIST
+                                      |-INSTRUCTION
+                                      | |_ON
+                                      |   |-On
+                                      |   |-.
+                                      |   |-Console
+                                      |   |-(
+                                      |   |-BEXP
+                                      |   | |_CEXP
+                                      |   |   |_EXP
+                                      |   |     |_TERM
+                                      |   |       |_FACTOR
+                                      |   |         |_a
+                                      |   |_)
+                                      |-;
+                                      |_INSTRUCTIONLIST
+                                        |-INSTRUCTION
+                                        | |_ON
+                                        |   |-On
+                                        |   |-.
+                                        |   |-Console
+                                        |   |-(
+                                        |   |-BEXP
+                                        |   | |_CEXP
+                                        |   |   |_EXP
+                                        |   |     |_TERM
+                                        |   |       |_FACTOR
+                                        |   |         |_"\n Testing Number Literal \n"
+                                        |   |_)
+                                        |-;
+                                        |_INSTRUCTIONLIST
+                                          |-INSTRUCTION
+                                          | |_ON
+                                          |   |-On
+                                          |   |-.
+                                          |   |-Console
+                                          |   |-(
+                                          |   |-BEXP
+                                          |   | |_CEXP
+                                          |   |   |_EXP
+                                          |   |     |_TERM
+                                          |   |       |_FACTOR
+                                          |   |         |_2
+                                          |   |_)
+                                          |-;
+                                          |_INSTRUCTIONLIST
+                                            |-INSTRUCTION
+                                            | |_ON
+                                            |   |-On
+                                            |   |-.
+                                            |   |-Console
+                                            |   |-(
+                                            |   |-BEXP
+                                            |   | |_CEXP
+                                            |   |   |_EXP
+                                            |   |     |_TERM
+                                            |   |       |_FACTOR
+                                            |   |         |_"\t"
+                                            |   |_)
+                                            |-;
+                                            |_INSTRUCTIONLIST
+                                              |-INSTRUCTION
+                                              | |_ON
+                                              |   |-On
+                                              |   |-.
+                                              |   |-Console
+                                              |   |-(
+                                              |   |-BEXP
+                                              |   | |_CEXP
+                                              |   |   |_EXP
+                                              |   |     |_TERM
+                                              |   |       |-FACTOR
+                                              |   |       | |_2
+                                              |   |       |-*
+                                              |   |       |_TERM
+                                              |   |         |_FACTOR
+                                              |   |           |_a
+                                              |   |_)
+                                              |-;
+                                              |_INSTRUCTIONLIST
+                                                |-INSTRUCTION
+                                                | |_ON
+                                                |   |-On
+                                                |   |-.
+                                                |   |-Console
+                                                |   |-(
+                                                |   |-BEXP
+                                                |   | |_CEXP
+                                                |   |   |_EXP
+                                                |   |     |_TERM
+                                                |   |       |_FACTOR
+                                                |   |         |_"\t"
+                                                |   |_)
+                                                |-;
+                                                |_INSTRUCTIONLIST
+                                                  |-INSTRUCTION
+                                                  | |_ON
+                                                  |   |-On
+                                                  |   |-.
+                                                  |   |-Console
+                                                  |   |-(
+                                                  |   |-BEXP
+                                                  |   | |_CEXP
+                                                  |   |   |_EXP
+                                                  |   |     |_TERM
+                                                  |   |       |-FACTOR
+                                                  |   |       | |_2
+                                                  |   |       |-*
+                                                  |   |       |_TERM
+                                                  |   |         |-FACTOR
+                                                  |   |         | |_a
+                                                  |   |         |-*
+                                                  |   |         |_TERM
+                                                  |   |           |_FACTOR
+                                                  |   |             |_a
+                                                  |   |_)
+                                                  |-;
+                                                  |_INSTRUCTIONLIST
+                                                    |-INSTRUCTION
+                                                    | |_ON
+                                                    |   |-On
+                                                    |   |-.
+                                                    |   |-Console
+                                                    |   |-(
+                                                    |   |-BEXP
+                                                    |   | |_CEXP
+                                                    |   |   |_EXP
+                                                    |   |     |_TERM
+                                                    |   |       |_FACTOR
+                                                    |   |         |_"\t"
+                                                    |   |_)
+                                                    |-;
+                                                    |_INSTRUCTIONLIST
+                                                      |-INSTRUCTION
+                                                      | |_ON
+                                                      |   |-On
+                                                      |   |-.
+                                                      |   |-Console
+                                                      |   |-(
+                                                      |   |-BEXP
+                                                      |   | |_CEXP
+                                                      |   |   |_EXP
+                                                      |   |     |_TERM
+                                                      |   |       |-FACTOR
+                                                      |   |       | |_2
+                                                      |   |       |-*
+                                                      |   |       |_TERM
+                                                      |   |         |-FACTOR
+                                                      |   |         | |_a
+                                                      |   |         |-*
+                                                      |   |         |_TERM
+                                                      |   |           |_FACTOR
+                                                      |   |             |-(
+                                                      |   |             |-BEXP
+                                                      |   |             | |_CEXP
+                                                      |   |             |   |_EXP
+                                                      |   |             |     |-TERM
+                                                      |   |             |     | |_FACTOR
+                                                      |   |             |     |   |_a
+                                                      |   |             |     |-+
+                                                      |   |             |     |_EXP
+                                                      |   |             |       |_TERM
+                                                      |   |             |         |_FACTOR
+                                                      |   |             |           |_a
+                                                      |   |             |_)
+                                                      |   |_)
+                                                      |-;
+                                                      |_INSTRUCTIONLIST
+                                                        |-INSTRUCTION
+                                                        | |_Fix(Not working)
+                                                        |-;
+                                                        |_INSTRUCTIONLIST
+                                                          |-INSTRUCTION
+                                                          | |_ON
+                                                          |   |-On
+                                                          |   |-.
+                                                          |   |-Console
+                                                          |   |-(
+                                                          |   |-BEXP
+                                                          |   | |_CEXP
+                                                          |   |   |_EXP
+                                                          |   |     |_TERM
+                                                          |   |       |_FACTOR
+                                                          |   |         |_"\n Testing Boolean Variable \n"
+                                                          |   |_)
+                                                          |-;
+                                                          |_INSTRUCTIONLIST
+                                                            |-INSTRUCTION
+                                                            | |_ON
+                                                            |   |-On
+                                                            |   |-.
+                                                            |   |-Console
+                                                            |   |-(
+                                                            |   |-BEXP
+                                                            |   | |_CEXP
+                                                            |   |   |_EXP
+                                                            |   |     |_TERM
+                                                            |   |       |_FACTOR
+                                                            |   |         |_x
+                                                            |   |_)
+                                                            |-;
+                                                            |_INSTRUCTIONLIST
+                                                              |-INSTRUCTION
+                                                              | |_ON
+                                                              |   |-On
+                                                              |   |-.
+                                                              |   |-Console
+                                                              |   |-(
+                                                              |   |-BEXP
+                                                              |   | |_CEXP
+                                                              |   |   |_EXP
+                                                              |   |     |_TERM
+                                                              |   |       |_FACTOR
+                                                              |   |         |_"\n Testing Boolean Literal \n"
+                                                              |   |_)
+                                                              |-;
+                                                              |_INSTRUCTIONLIST
+                                                                |-INSTRUCTION
+                                                                | |_ON
+                                                                |   |-On
+                                                                |   |-.
+                                                                |   |-Console
+                                                                |   |-(
+                                                                |   |-BEXP
+                                                                |   | |_True
+                                                                |   |_)
+                                                                |-;
+                                                                |_INSTRUCTIONLIST
+                                                                  |-INSTRUCTION
+                                                                  | |_ON
+                                                                  |   |-On
+                                                                  |   |-.
+                                                                  |   |-Console
+                                                                  |   |-(
+                                                                  |   |-BEXP
+                                                                  |   | |_CEXP
+                                                                  |   |   |_EXP
+                                                                  |   |     |_TERM
+                                                                  |   |       |_FACTOR
+                                                                  |   |         |_"\n Testing Boolean Literal \n"
+                                                                  |   |_)
+                                                                  |-;
+                                                                  |_INSTRUCTIONLIST
+                                                                    |-INSTRUCTION
+                                                                    | |_ON
+                                                                    |   |-On
+                                                                    |   |-.
+                                                                    |   |-Console
+                                                                    |   |-(
+                                                                    |   |-BEXP
+                                                                    |   | |_False
+                                                                    |   |_)
+                                                                    |-;
+                                                                    |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -717,6 +1678,269 @@ Exiting <<
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering e
+Exiting e
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2.855
+Exiting 2.855
+Exiting 2.855
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing String Literal \n"
+Exiting \n Testing String Literal \n
+Exiting \n Testing String Literal \n
+Exiting \n Testing String Literal \n
+Exiting \n Testing String Literal \n
+Exiting \n Testing String Literal \n
+Exiting \n Testing String Literal \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "AFIFNEI"
+Exiting AFIFNEI
+Exiting AFIFNEI
+Exiting AFIFNEI
+Exiting AFIFNEI
+Exiting AFIFNEI
+Exiting AFIFNEI
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Char Literal \n"
+Exiting \n Testing Char Literal \n
+Exiting \n Testing Char Literal \n
+Exiting \n Testing Char Literal \n
+Exiting \n Testing Char Literal \n
+Exiting \n Testing Char Literal \n
+Exiting \n Testing Char Literal \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 'a'
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Decimal Variable \n"
+Exiting \n Testing Decimal Variable \n
+Exiting \n Testing Decimal Variable \n
+Exiting \n Testing Decimal Variable \n
+Exiting \n Testing Decimal Variable \n
+Exiting \n Testing Decimal Variable \n
+Exiting \n Testing Decimal Variable \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Fix(Not working)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering e
+Exiting e
+Exiting e
+Exiting e
+Exiting e
+Exiting e
+Exiting e
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Decimal Literal \n"
+Exiting \n Testing Decimal Literal \n
+Exiting \n Testing Decimal Literal \n
+Exiting \n Testing Decimal Literal \n
+Exiting \n Testing Decimal Literal \n
+Exiting \n Testing Decimal Literal \n
+Exiting \n Testing Decimal Literal \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2.55
+Exiting 2.55
+Exiting 2.55
+Exiting 2.55
+Exiting 2.55
+Exiting 2.55
+Exiting 2.55
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Number Variable \n"
+Exiting \n Testing Number Variable \n
+Exiting \n Testing Number Variable \n
+Exiting \n Testing Number Variable \n
+Exiting \n Testing Number Variable \n
+Exiting \n Testing Number Variable \n
+Exiting \n Testing Number Variable \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
 Entering ON
 Entering On
 Exiting On
@@ -754,19 +1978,419 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n"
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
+Entering "\n Testing Number Literal \n"
+Exiting \n Testing Number Literal \n
+Exiting \n Testing Number Literal \n
+Exiting \n Testing Number Literal \n
+Exiting \n Testing Number Literal \n
+Exiting \n Testing Number Literal \n
+Exiting \n Testing Number Literal \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\t"
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\t"
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\t"
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Exiting \t
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Entering +
+Exiting +
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Exiting +
+Exiting +
+Exiting +
+Entering )
+Exiting +
+Exiting +
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering Fix(Not working)
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Boolean Variable \n"
+Exiting \n Testing Boolean Variable \n
+Exiting \n Testing Boolean Variable \n
+Exiting \n Testing Boolean Variable \n
+Exiting \n Testing Boolean Variable \n
+Exiting \n Testing Boolean Variable \n
+Exiting \n Testing Boolean Variable \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Exiting x
+Exiting x
+Exiting x
+Exiting x
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Boolean Literal \n"
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering True
+Exiting True
+Exiting True
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n Testing Boolean Literal \n"
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Exiting \n Testing Boolean Literal \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering False
+Exiting False
+Exiting False
 Entering )
 Exiting On
 Exiting On
 Entering ;
 Entering EOF
 Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -829,198 +2453,120 @@ INSTRUCTIONLIST
             |     |-2
             |     |_2
             |_INSTRUCTIONLIST
-              |-On
-              | |-Console
-              | |_a
-              |_On
-                |-Console
-                |_\n
-Optimization of INSTRUCTIONLIST
-Optimization of DECLARATION
-Optimization of N
-Optimization start N
-End Optimization of N
-Optimization of a
-Optimization start a
-End Optimization of a
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of DECLARATION
-Optimization of N
-Optimization start N
-End Optimization of N
-Optimization of <<
-Optimization of aguana
-Optimization start aguana
-End Optimization of aguana
-Optimization of 0
-Optimization start 0
-End Optimization of 0
-Optimization start <<
-End Optimization of <<
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of DECLARATION
-Optimization of N
-Optimization start N
-End Optimization of N
-Optimization of <<
-Optimization of ae
-Optimization start ae
-End Optimization of ae
-Optimization of *
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of *
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of *
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization start *
-Optimization result 4
-End Optimization of 4
-Optimization start *
-Optimization result 8
-End Optimization of 8
-Optimization start *
-Optimization result 16
-End Optimization of 16
-Optimization start <<
-End Optimization of <<
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of DECLARATION
-Optimization of B
-Optimization start B
-End Optimization of B
-Optimization of <<
-Optimization of x
-Optimization start x
-End Optimization of x
-Optimization of True
-Optimization start True
-End Optimization of True
-Optimization start <<
-End Optimization of <<
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of <<
-Optimization of a
-Optimization start a
-End Optimization of a
-Optimization of *
-Optimization of +
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization start +
-Optimization result 4
-End Optimization of 4
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization start *
-Optimization result 8
-End Optimization of 8
-Optimization start <<
-End Optimization of <<
-Optimization of INSTRUCTIONLIST
-Optimization of <<
-Optimization of a
-Optimization start a
-End Optimization of a
-Optimization of +
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of *
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization start *
-Optimization result 4
-End Optimization of 4
-Optimization start +
-Optimization result 6
-End Optimization of 6
-Optimization start <<
-End Optimization of <<
-Optimization of INSTRUCTIONLIST
-Optimization of <<
-Optimization of a
-Optimization start a
-End Optimization of a
-Optimization of +
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of *
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization of 2
-Optimization start 2
-End Optimization of 2
-Optimization start *
-Optimization result 4
-End Optimization of 4
-Optimization start +
-Optimization result 6
-End Optimization of 6
-Optimization start <<
-End Optimization of <<
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of a
-Optimization start a
-End Optimization of a
-Optimization start On
-End Optimization of On
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
+              |-DECLARATION
+              | |-D
+              | |_<<
+              |   |-e
+              |   |_*
+              |     |-2.855
+              |     |_2
+              |_INSTRUCTIONLIST
+                |-On
+                | |-Console
+                | |_\n Testing String Literal \n
+                |_INSTRUCTIONLIST
+                  |-On
+                  | |-Console
+                  | |_AFIFNEI
+                  |_INSTRUCTIONLIST
+                    |-On
+                    | |-Console
+                    | |_\n Testing Char Literal \n
+                    |_INSTRUCTIONLIST
+                      |-On
+                      | |-Console
+                      | |_a
+                      |_INSTRUCTIONLIST
+                        |-On
+                        | |-Console
+                        | |_\n Testing Decimal Variable \n
+                        |_INSTRUCTIONLIST
+                          |-On
+                          | |-Console
+                          | |_e
+                          |_INSTRUCTIONLIST
+                            |-On
+                            | |-Console
+                            | |_\n Testing Decimal Literal \n
+                            |_INSTRUCTIONLIST
+                              |-On
+                              | |-Console
+                              | |_2.55
+                              |_INSTRUCTIONLIST
+                                |-On
+                                | |-Console
+                                | |_\n Testing Number Variable \n
+                                |_INSTRUCTIONLIST
+                                  |-On
+                                  | |-Console
+                                  | |_a
+                                  |_INSTRUCTIONLIST
+                                    |-On
+                                    | |-Console
+                                    | |_\n Testing Number Literal \n
+                                    |_INSTRUCTIONLIST
+                                      |-On
+                                      | |-Console
+                                      | |_2
+                                      |_INSTRUCTIONLIST
+                                        |-On
+                                        | |-Console
+                                        | |_\t
+                                        |_INSTRUCTIONLIST
+                                          |-On
+                                          | |-Console
+                                          | |_*
+                                          |   |-2
+                                          |   |_a
+                                          |_INSTRUCTIONLIST
+                                            |-On
+                                            | |-Console
+                                            | |_\t
+                                            |_INSTRUCTIONLIST
+                                              |-On
+                                              | |-Console
+                                              | |_*
+                                              |   |-2
+                                              |   |_*
+                                              |     |-a
+                                              |     |_a
+                                              |_INSTRUCTIONLIST
+                                                |-On
+                                                | |-Console
+                                                | |_\t
+                                                |_INSTRUCTIONLIST
+                                                  |-On
+                                                  | |-Console
+                                                  | |_*
+                                                  |   |-2
+                                                  |   |_*
+                                                  |     |-a
+                                                  |     |_+
+                                                  |       |-a
+                                                  |       |_a
+                                                  |_INSTRUCTIONLIST
+                                                    |-On
+                                                    | |-Console
+                                                    | |_\n Testing Boolean Variable \n
+                                                    |_INSTRUCTIONLIST
+                                                      |-On
+                                                      | |-Console
+                                                      | |_x
+                                                      |_INSTRUCTIONLIST
+                                                        |-On
+                                                        | |-Console
+                                                        | |_\n Testing Boolean Literal \n
+                                                        |_INSTRUCTIONLIST
+                                                          |-On
+                                                          | |-Console
+                                                          | |_True
+                                                          |_INSTRUCTIONLIST
+                                                            |-On
+                                                            | |-Console
+                                                            | |_\n Testing Boolean Literal \n
+                                                            |_On
+                                                              |-Console
+                                                              |_False
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -1036,7 +2582,13 @@ INSTRUCTIONLIST
     | |-N
     | |_<<
     |   |-ae
-    |   |_16
+    |   |_*
+    |     |-2
+    |     |_*
+    |       |-2
+    |       |_*
+    |         |-2
+    |         |_2
     |_INSTRUCTIONLIST
       |-DECLARATION
       | |-B
@@ -1046,68 +2598,390 @@ INSTRUCTIONLIST
       |_INSTRUCTIONLIST
         |-<<
         | |-a
-        | |_8
+        | |_*
+        |   |-+
+        |   | |-2
+        |   | |_2
+        |   |_2
         |_INSTRUCTIONLIST
           |-<<
           | |-a
-          | |_6
+          | |_+
+          |   |-2
+          |   |_*
+          |     |-2
+          |     |_2
           |_INSTRUCTIONLIST
             |-<<
             | |-a
-            | |_6
+            | |_+
+            |   |-2
+            |   |_*
+            |     |-2
+            |     |_2
             |_INSTRUCTIONLIST
-              |-On
-              | |-Console
-              | |_a
-              |_On
-                |-Console
-                |_\n
+              |-DECLARATION
+              | |-D
+              | |_<<
+              |   |-e
+              |   |_*
+              |     |-2.855
+              |     |_2
+              |_INSTRUCTIONLIST
+                |-On
+                | |-Console
+                | |_\n Testing String Literal \n
+                |_INSTRUCTIONLIST
+                  |-On
+                  | |-Console
+                  | |_AFIFNEI
+                  |_INSTRUCTIONLIST
+                    |-On
+                    | |-Console
+                    | |_\n Testing Char Literal \n
+                    |_INSTRUCTIONLIST
+                      |-On
+                      | |-Console
+                      | |_a
+                      |_INSTRUCTIONLIST
+                        |-On
+                        | |-Console
+                        | |_\n Testing Decimal Variable \n
+                        |_INSTRUCTIONLIST
+                          |-On
+                          | |-Console
+                          | |_e
+                          |_INSTRUCTIONLIST
+                            |-On
+                            | |-Console
+                            | |_\n Testing Decimal Literal \n
+                            |_INSTRUCTIONLIST
+                              |-On
+                              | |-Console
+                              | |_2.55
+                              |_INSTRUCTIONLIST
+                                |-On
+                                | |-Console
+                                | |_\n Testing Number Variable \n
+                                |_INSTRUCTIONLIST
+                                  |-On
+                                  | |-Console
+                                  | |_a
+                                  |_INSTRUCTIONLIST
+                                    |-On
+                                    | |-Console
+                                    | |_\n Testing Number Literal \n
+                                    |_INSTRUCTIONLIST
+                                      |-On
+                                      | |-Console
+                                      | |_2
+                                      |_INSTRUCTIONLIST
+                                        |-On
+                                        | |-Console
+                                        | |_\t
+                                        |_INSTRUCTIONLIST
+                                          |-On
+                                          | |-Console
+                                          | |_*
+                                          |   |-2
+                                          |   |_a
+                                          |_INSTRUCTIONLIST
+                                            |-On
+                                            | |-Console
+                                            | |_\t
+                                            |_INSTRUCTIONLIST
+                                              |-On
+                                              | |-Console
+                                              | |_*
+                                              |   |-2
+                                              |   |_*
+                                              |     |-a
+                                              |     |_a
+                                              |_INSTRUCTIONLIST
+                                                |-On
+                                                | |-Console
+                                                | |_\t
+                                                |_INSTRUCTIONLIST
+                                                  |-On
+                                                  | |-Console
+                                                  | |_*
+                                                  |   |-2
+                                                  |   |_*
+                                                  |     |-a
+                                                  |     |_+
+                                                  |       |-a
+                                                  |       |_a
+                                                  |_INSTRUCTIONLIST
+                                                    |-On
+                                                    | |-Console
+                                                    | |_\n Testing Boolean Variable \n
+                                                    |_INSTRUCTIONLIST
+                                                      |-On
+                                                      | |-Console
+                                                      | |_x
+                                                      |_INSTRUCTIONLIST
+                                                        |-On
+                                                        | |-Console
+                                                        | |_\n Testing Boolean Literal \n
+                                                        |_INSTRUCTIONLIST
+                                                          |-On
+                                                          | |-Console
+                                                          | |_True
+                                                          |_INSTRUCTIONLIST
+                                                            |-On
+                                                            | |-Console
+                                                            | |_\n Testing Boolean Literal \n
+                                                            |_On
+                                                              |-Console
+                                                              |_False
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | a
 | 12 	 | DECLARATION 	 | aguana
 | 12 	 | DECLARATION 	 | ae
 | 15 	 | DECLARATION 	 | x
+| 13 	 | DECLARATION 	 | e
 	a : dd 0
 		mov eax, 0
 		mov dword[aguana], eax
 
 	aguana : dd 0
-		mov eax, 16
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, 2 ; Moving Second Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t1] , eax ;Result 
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[t1] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t2] , eax ;Result 
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[t2] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t3] , eax ;Result 
+
+		mov eax, dword[t3]
 		mov dword[ae], eax
 
 	ae : dd 0
-		mov eax, True
+		mov eax, TRUE
 		mov dword[x], eax
 
 	x : dd 0
-		mov eax, 8
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, 2 ; Moving Second Operand Number
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t4] , eax ;Result 
+
+		mov eax, dword[t4] ; Moving First Operand Number Var
+		mov ebx, 2 ; Moving Second Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t5] , eax ;Result 
+
+		mov eax, dword[t5]
 		mov dword[a], eax
 
-		mov eax, 6
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, 2 ; Moving Second Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t6] , eax ;Result 
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[t6] ; Moving Second Operand Number Var
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t7] , eax ;Result 
+
+		mov eax, dword[t7]
 		mov dword[a], eax
 
-		mov eax, 6
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, 2 ; Moving Second Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t8] , eax ;Result 
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[t8] ; Moving Second Operand Number Var
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t9] , eax ;Result 
+
+		mov eax, dword[t9]
 		mov dword[a], eax
+
+		mov eax, dword[t9] ; Moving First Operand Number Var
+		mov ebx, 2 ; Moving Second Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t10] , eax ;Result 
+
+		mov eax, dword[t10]
+		mov dword[e], eax
+
+	e : dd 0
+		push t11]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t12]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t13]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t14
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t15]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, e
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+		push t16]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, t17
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push format into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+		push t18]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
 
 		push dword[a]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t1]
+		push t19]
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
-Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
+		push dword[t20]
+		push formatoutnumber; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t21]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[a] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t22] , eax ;Result 
+
+		push dword[t22]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t23]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[a] ; Moving First Operand Number Var
+		mov ebx, dword[a] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t24] , eax ;Result 
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[t24] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t25] , eax ;Result 
+
+		push dword[t25]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t26]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[a] ; Moving First Operand Number Var
+		mov ebx, dword[a] ; Moving Second Operand Number Var
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t27] , eax ;Result 
+
+		mov eax, dword[a] ; Moving First Operand Number Var
+		mov ebx, dword[t27] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t28] , eax ;Result 
+
+		mov eax, 2 ; Moving First Operand Number
+		mov ebx, dword[t28] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t29] , eax ;Result 
+
+		push dword[t29]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t30]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push dword[x]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t31]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push TRUE
+		push formatoutbool; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t32]
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push FALSE
+		push formatoutbool; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+Object File Created : nasm -f win32 D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
+Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | a
 | 12 	 | DECLARATION 	 | aguana
 | 12 	 | DECLARATION 	 | ae
 | 15 	 | DECLARATION 	 | x
+| 13 	 | DECLARATION 	 | e
 | 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
 | 17 	 | INSTRUCTIONLIST 	 | formatoutdecimal
 | 17 	 | INSTRUCTIONLIST 	 | formatoutchar
@@ -1118,4 +2992,34 @@ Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\.
 | 17 	 | INSTRUCTIONLIST 	 | formatinchar
 | 17 	 | INSTRUCTIONLIST 	 | formatinstring
 | 17 	 | INSTRUCTIONLIST 	 | formatinbool
-| 17 	 | On 	 | t1
+| 12 	 | * 	 | t1
+| 12 	 | * 	 | t2
+| 12 	 | * 	 | t3
+| 12 	 | + 	 | t4
+| 12 	 | * 	 | t5
+| 12 	 | * 	 | t6
+| 12 	 | + 	 | t7
+| 12 	 | * 	 | t8
+| 12 	 | + 	 | t9
+| 12 	 | * 	 | t10
+| 17 	 | On 	 | t11
+| 17 	 | On 	 | t12
+| 17 	 | On 	 | t13
+| 14 	 | On 	 | t14
+| 17 	 | On 	 | t15
+| 17 	 | On 	 | t16
+| 13 	 | On 	 | t17
+| 17 	 | On 	 | t18
+| 17 	 | On 	 | t19
+| 17 	 | On 	 | t21
+| 12 	 | * 	 | t22
+| 17 	 | On 	 | t23
+| 12 	 | * 	 | t24
+| 12 	 | * 	 | t25
+| 17 	 | On 	 | t26
+| 12 	 | + 	 | t27
+| 12 	 | * 	 | t28
+| 12 	 | * 	 | t29
+| 17 	 | On 	 | t30
+| 17 	 | On 	 | t31
+| 17 	 | On 	 | t32
