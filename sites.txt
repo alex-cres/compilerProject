@@ -1,0 +1,7 @@
+https://www.tutorialspoint.com/assembly_programming/assembly_arithmetic_instructions.htm
+https://www.tutorialspoint.com/assembly_programming/assembly_constants.htm
+http://www.science.smith.edu/dftwiki/index.php/CSC231_Floating-Point_Assembly_Examples
+https://stackoverflow.com/questions/42155155/how-do-i-print-a-float-value-using-printf-in-nasm
+https://stackoverflow.com/questions/3027424/how-to-convert-an-integer-to-a-floating-point-value-in-x86-asm
+http://www.website.masmforum.com/tutorials/fptute/fpuchap5.htm
+http://ps-2.kev009.com/wisclibrary/aix52/usr/share/man/info/en_US/a_doc_lib/aixassem/alangref/fsub.htm
