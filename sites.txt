@@ -5,3 +5,40 @@ https://stackoverflow.com/questions/42155155/how-do-i-print-a-float-value-using-
 https://stackoverflow.com/questions/3027424/how-to-convert-an-integer-to-a-floating-point-value-in-x86-asm
 http://www.website.masmforum.com/tutorials/fptute/fpuchap5.htm
 http://ps-2.kev009.com/wisclibrary/aix52/usr/share/man/info/en_US/a_doc_lib/aixassem/alangref/fsub.htm
+
+
+
+
+
+
+On.Console('\t');
+On.Console(a*2.5);Comment(Dont Work);
+On.Console('\t');
+On.Console(2.5*a);Comment(Dont Work);
+On.Console('\t');
+On.Console(e*e);Comment(Dont Work);
+On.Console('\t');
+On.Console(a*e);Comment(Dont Work);
+On.Console('\t');
+On.Console(e*a);Comment(Dont Work);
+On.Console('\n');
+On.Console("\n Testing Number Variable \n");
+On.Console(a);
+On.Console("\n Testing Number Literal \n");
+On.Console(2);
+On.Console("\t");
+On.Console(2*a);
+On.Console("\t");
+On.Console(2*a*a);
+On.Console("\t");
+On.Console(2*a*(a+a));
+
+
+
+Fix(Not working);
+On.Console("\n Testing Boolean Variable \n");
+On.Console(x);
+On.Console("\n Testing Boolean Literal \n");
+On.Console(True);
+On.Console("\n Testing Boolean Literal \n");
+On.Console(False);

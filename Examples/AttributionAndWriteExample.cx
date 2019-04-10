@@ -1,23 +1,42 @@
 N a;
 N aguana <<0;
 N ae<<2*2*2*2;
-B x<<True;
 a<<(2+2)*2;
 a<<2+(2*2);
 a<<(2+2*2);
-D e << 2.855*2;
+D e << 2.5;
 
 On.Console("\n Testing String Literal \n");
-On.Console("AFIFNEI");
+On.Console("AFIFNEI");Comment(Works);
 On.Console("\n Testing Char Literal \n");
-On.Console('a');
-
+On.Console('a');Comment(Works);
 On.Console("\n Testing Decimal Variable \n");
-Fix(Not working);
-On.Console(e);
+On.Console(e);Comment(Works);
 On.Console("\n Testing Decimal Literal \n");
-On.Console(2.55);
-
+On.Console(2.8);Comment(Works);
+On.Console("\n Testing Decimal and Number Operations \n");
+On.Console(2*e);Comment(Works);
+On.Console('\t');
+On.Console(e*4);Comment(Works);
+On.Console('\t');
+On.Console(e*2.5);Comment(Works);
+On.Console('\t');
+On.Console(6.1*e);Comment(Works);
+On.Console('\t');
+On.Console(a*7.1);Comment(Works);
+On.Console('\t');
+On.Console(8.1*a);Comment(Works);
+On.Console('\t');
+On.Console(a*2.5);Comment(Works);
+On.Console('\t');
+On.Console(2.5*a);Comment(Works);
+On.Console('\t');
+On.Console(e*e);Comment(Works);
+On.Console('\t');
+On.Console(a*e);Comment(Works);
+On.Console('\t');
+On.Console(e*a);Comment(Works);
+On.Console('\n');
 On.Console("\n Testing Number Variable \n");
 On.Console(a);
 On.Console("\n Testing Number Literal \n");
@@ -30,8 +49,8 @@ On.Console("\t");
 On.Console(2*a*(a+a));
 
 
-
 Fix(Not working);
+B x<<True;
 On.Console("\n Testing Boolean Variable \n");
 On.Console(x);
 On.Console("\n Testing Boolean Literal \n");
