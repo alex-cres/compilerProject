@@ -967,6 +967,9 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 		| <cexp> & <bexp>
 		| <cexp> | <bexp>
 		| <cexp> X <bexp>
+		| !(<bexp>) & <bexp>
+		| !(<bexp>) | <bexp>
+		| !(<bexp>) X <bexp>
 		| True
 		| False
 	*/
@@ -982,6 +985,11 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 			if (nextToken == CLOSE_PARENTESIS) {
 				addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+				if (nextToken == OP_AND || nextToken == OP_OR || nextToken == OP_XOR) {
+					addChildNode(bexpNode, nextLexeme, nextToken, logFile);
+					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+					nextToken = bexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
+				}
 				printf("Exiting <BEXP>\n");
 				fprintf(logFile, "Exiting <BEXP>\n");
 				return nextToken;

@@ -8,34 +8,60 @@ http://ps-2.kev009.com/wisclibrary/aix52/usr/share/man/info/en_US/a_doc_lib/aixa
 
 
 
+N a;
+N aguana <<0;
+N ae<<2*2*2*2;
+a<<(2+2)*2;
+a<<2+(2*2);
+a<<(2+2*2);
+D e << 2.5;
 
-
-
-On.Console('\t');
-On.Console(a*2.5);Comment(Dont Work);
-On.Console('\t');
-On.Console(2.5*a);Comment(Dont Work);
-On.Console('\t');
-On.Console(e*e);Comment(Dont Work);
-On.Console('\t');
-On.Console(a*e);Comment(Dont Work);
-On.Console('\t');
-On.Console(e*a);Comment(Dont Work);
-On.Console('\n');
-On.Console("\n Testing Number Variable \n");
+On.Console("\n Testing String Literal \n");
+On.Console("AFIFNEI");
+On.Console("\n Testing Char Literal \n");
+On.Console('a');
+On.Console("\n Testing Number Variable a \n");
 On.Console(a);
+On.Console("\n Testing Decimal Variable e \n");
+On.Console(e);
+On.Console("\n Testing Decimal Literal \n");
+On.Console(2.8);
 On.Console("\n Testing Number Literal \n");
 On.Console(2);
-On.Console("\t");
-On.Console(2*a);
-On.Console("\t");
-On.Console(2*a*a);
-On.Console("\t");
-On.Console(2*a*(a+a));
+On.Console("\n Testing Decimal and Number Operations \n");
+On.Console("\n 2*e: ");On.Console(2*e);
+On.Console("\n 2+e: ");On.Console(2+e);
+On.Console("\n 2-e: ");On.Console(2-e);
+On.Console("\n 2/e: ");On.Console(2/e);
+On.Console("\n e*2: ");On.Console(e*2);
+On.Console("\n e+2: ");On.Console(e+2);
+On.Console("\n e-2: ");On.Console(e-2);
+On.Console("\n e/2: ");On.Console(e/2);
 
+On.Console("\n 2.5*e: ");On.Console(2.5*e);
+On.Console("\n 2.5+e: ");On.Console(2.5+e);
+On.Console("\n 2.5-e: ");On.Console(2.5-e);
+On.Console("\n 2.5/e: ");On.Console(2.5/e);
+On.Console("\n e*2.5: ");On.Console(e*2.5);
+On.Console("\n e+2.5: ");On.Console(e+2.5);
+On.Console("\n e-2.5: ");On.Console(e-2.5);
+On.Console("\n e/2.5: ");On.Console(e/2.5);
+
+On.Console("\n a*7.1: ");On.Console(a*7.1);
+On.Console("\n 8.1*a: ");On.Console(8.1*a);
+On.Console("\n a*2.5: ");On.Console(a*2.5);
+On.Console("\n 2.5*a: ");On.Console(2.5*a);
+
+On.Console("\n e*e: ");On.Console(e*e);
+On.Console("\n a*e: ");On.Console(a*e);
+On.Console("\n e*a: ");On.Console(e*a);
+On.Console("\n 2*a: ");On.Console(2*a);
+On.Console("\n 2*a*a: ");On.Console(2*a*a);
+On.Console("\n 2*a*(a+a): ");On.Console(2*a*(a+a));
 
 
 Fix(Not working);
+B x<<True;
 On.Console("\n Testing Boolean Variable \n");
 On.Console(x);
 On.Console("\n Testing Boolean Literal \n");

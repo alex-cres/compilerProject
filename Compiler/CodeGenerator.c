@@ -3,6 +3,7 @@
 #include <string.h>
 #include <direct.h>
 #include "CodeGenerator.h"
+#include "ErrorHandling.h"
 
 int registerCounter = 1;
 
@@ -49,8 +50,8 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	asmFile = fopen(lofFileName, "w");
 
 
-	char cmd1[1024];
-	char cmd2[1024];
+	char cmd1[2048];
+	char cmd2[2048];
 	datacode = InsertList(datacode, "SECTION .data\n");
 	datacode = InsertList(datacode, "	FALSE equ 0 \n");
 	datacode = InsertList(datacode, "	TRUE equ 1 \n");
@@ -58,7 +59,7 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	datacode = InsertList(datacode, "	formatoutdecimal: db \"%f\", 0\n");
 	datacode = InsertList(datacode, "	formatoutchar: db \"%s\", 0\n");
 	datacode = InsertList(datacode, "	formatoutstring: db \"%s\", 0\n");
-	datacode = InsertList(datacode, "	formatoutbool: db \"%s\", 0\n\n");
+	datacode = InsertList(datacode, "	formatoutbool: db \"%d\", 0\n\n");
 	datacode = InsertList(datacode, "	formatinnumber: db \"%d\", 0\n");
 	datacode = InsertList(datacode, "	formatindecimal: db \"%f\", 0\n");
 	datacode = InsertList(datacode, "	formatinchar: db \"%c\", 0\n");
@@ -80,6 +81,8 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	progcode = InsertList(progcode, "	global _main\n");
 	progcode = InsertList(progcode, "	extern _printf\n");
 	progcode = InsertList(progcode, "	extern _scanf\n");
+	progcode = InsertList(progcode, "	extern _strcat\n");
+	progcode = InsertList(progcode, "	extern _strcpy\n");
 	progcode = InsertList(progcode, "	_main:\n\n");
 
 	GenerateIntermidiateCode(ast, logFile, datacode, progcode, table);
@@ -129,6 +132,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 	int i = 0;
 	int regsub = 0;
 	bool floatingpointed = False;
+	bool concatString = False;
 	char buffer[1024];
 	if (ast == NULL) {
 		return;
@@ -138,7 +142,81 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table);
 		i++;
 	}
-	if (ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV) {// http://www.website.masmforum.com/tutorials/fptute/fpuchap5.htm // integer in float op
+	if ((ast->kids[0]!=NULL && ast->kids[1] !=NULL) && (ast->kids[0]->type == LITERAL_CHAR || ast->kids[0]->type == LITERAL_STRING) &&
+		(ast->kids[1]->type == LITERAL_CHAR || ast->kids[1]->type == LITERAL_STRING) && 
+		(ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV)) {
+		char bufferdec[100];
+		concatString = True;
+		if (ast->type != OP_ADD) {
+			char buffererr[1000];
+			sprintf(buffererr, "ERROR: : SYNTAX ERROR STRINGS IN OPERATION NOT <string> + <string> , %s %s %s %s", ast->kids[0]->info, ast->info, ast->kids[1]->info);
+			printfAndExit(logFile, buffererr, ERROR_STRING_OP_NOT_VALID, "\n");
+		}
+		sprintf(bufferdec, "t%d", registerCounter + 2);
+		insertSymbolToken(IDN_STRING, ast, bufferdec, table);
+		sprintf(buffer, "	t%d : times  256  db ``, 0\n", registerCounter+2);
+		datacode = InsertList(datacode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		strcpy(bufferdec, "");
+		sprintf(bufferdec, "t%d", registerCounter + 1);
+		insertSymbolToken(IDN_STRING, ast, bufferdec, table);
+		sprintf(buffer, "	t%d : times  256  db `%s`, 0\n", registerCounter+1, ast->kids[1]->info);
+		datacode = InsertList(datacode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		strcpy(bufferdec, "");
+		sprintf(bufferdec, "t%d", registerCounter);
+		insertSymbolToken(IDN_STRING, ast, bufferdec, table);
+		sprintf(buffer, "	t%d : times  256  db `%s`, 0\n", registerCounter, ast->kids[0]->info);
+		datacode = InsertList(datacode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		strcpy(bufferdec, "");
+		sprintf(buffer, "		push	t%d ; Concat Begin\n", registerCounter);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		
+		sprintf(buffer, "		push	t%d ; Concat Dest\n", registerCounter+2);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+	
+		sprintf(buffer, "		call _strcat\n");
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "		add esp, 8\n");
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "		push	t%d ; Concat Second\n", registerCounter+1);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "		push	t%d ; Concat Dest\n", registerCounter+2);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "		call _strcat\n");
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "		add esp, 8\n");
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		registerCounter += 3;
+	}
+	else if (ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV) {// http://www.website.masmforum.com/tutorials/fptute/fpuchap5.htm // integer in float op
 		char bufferdec[100];
 		int type_of_var = 0;
 		int type_of_var2 = 0;
@@ -837,7 +915,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 		//Operation
 		strcpy(buffer, "");
-		if (!floatingpointed) {
+		if (!floatingpointed && !concatString) {
 			switch (ast->type)
 			{
 			case OP_ADD:
@@ -862,7 +940,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				break;
 			}
 		}
-		else {
+		else if (floatingpointed) {
 			switch (ast->type)
 			{
 			case OP_ADD:
@@ -886,6 +964,8 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				fprintf(logFile, "		fdiv ; Dividing First and Second Operand Number\n");
 				break;
 			}
+		}
+		else if (concatString) {
 		}
 	
 
@@ -947,14 +1027,17 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			insertSymbolToken(IDN_STRING, ast, bufferdec, table);
 			strcpy(bufferdec, "");
 			strcpy(buffer, "");
-			sprintf(buffer, "	t%d : db `%s`,0 \n", registerCounter, ast->kids[1]->info);
+			sprintf(buffer, "	t%d : times  256  db `%s`,0 \n", registerCounter, ast->kids[1]->info);
+			printf(buffer);
+			fprintf(logFile, buffer);
+
 			datacode = InsertList(datacode, buffer);
 			strcpy(buffer, "");
-			sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter);
+			sprintf(buffer, "		push t%d\n", registerCounter);
 			progcode = InsertList(progcode, buffer);
 
-			printf("		mov eax, dword[t%d]\n", registerCounter);
-			fprintf(logFile, "		mov eax, dword[t%d]\n", registerCounter);
+			printf(buffer);
+			fprintf(logFile, buffer);
 			registerCounter++;
 
 		}
@@ -980,7 +1063,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter - 1);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
-				fprintf(logFile, buffer); 
+				fprintf(logFile, buffer);
 				break;
 			case IDN_DECIMAL:
 				strcpy(buffer, "");
@@ -988,8 +1071,17 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				progcode = InsertList(progcode, buffer);
 
 				printf(buffer);
-				fprintf(logFile,buffer);
+				fprintf(logFile, buffer);
 
+				break;
+
+			case IDN_STRING:
+				strcpy(buffer, "");
+				sprintf(buffer, "		push t%d\n", registerCounter - 1);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+				
 				break;
 			}
 		}
@@ -997,6 +1089,24 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		if (ast->kids[1]->type ==LITERAL_DECIMAL || type_of_var == IDN_DECIMAL) {
 			strcpy(buffer, "");
 			sprintf(buffer, "		fstp dword[%s]\n\n", ast->kids[0]->info);
+			progcode = InsertList(progcode, buffer);
+			
+		}
+		else if(ast->kids[1]->type == LITERAL_STRING || type_of_var == IDN_STRING) {
+			strcpy(buffer, "");
+			sprintf(buffer, "		push %s\n\n", ast->kids[0]->info);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+
+			strcpy(buffer, "");
+			sprintf(buffer, "		call _strcpy\n\n");
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+
+			strcpy(buffer, "");
+			sprintf(buffer, "		add esp, 8; params * 4\n\n");
 			progcode = InsertList(progcode, buffer);
 			
 		}
@@ -1050,16 +1160,16 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 			strcpy(buffer, "");
 			if (ast->kids[1]->type == OP_ATTRIBUTION) {
-				sprintf(buffer, "	%s : db ``, 0\n", ast->kids[1]->kids[0]->info);
+				sprintf(buffer, "	%s : times  256  db ``, 0\n", ast->kids[1]->kids[0]->info);
 				datacode = InsertList(datacode, buffer);
-				printf("	%s : db %s, 0\n", ast->kids[1]->kids[0]->info);
-				fprintf(logFile, "	%s : db ``, 0\n", ast->kids[1]->kids[0]->info);
+				printf(buffer);
+				fprintf(logFile, buffer);
 			}
 			else if (ast->kids[1]->type == IDENTIFIER) {
-				sprintf(buffer, "	%s : db ``, 0\n", ast->kids[1]->info);
+				sprintf(buffer, "	%s : times  256 db ``, 0\n", ast->kids[1]->info);
 				datacode = InsertList(datacode, buffer);
-				printf("	%s : db ``, 0\n", ast->kids[1]->info);
-				fprintf(logFile, "	%s : db ``, 0\n", ast->kids[1]->info);
+				printf(buffer);
+				fprintf(logFile, buffer);
 
 			}
 
@@ -1071,7 +1181,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		if (ast->kids[0]->type == RESERVED_CONSOLE) {
 			int type_of_var = 0;
 				
-			if (ast->kids[1]->type == IDENTIFIER)
+			if (ast->kids[1]->type == IDENTIFIER && ast->kids[1]!=NULL)
 			{
 
 				
@@ -1122,10 +1232,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				case IDN_STRING:
 
 					strcpy(buffer, "");
-					sprintf(buffer, "		push dword[%s]\n", ast->kids[1]->info);
+					sprintf(buffer, "		push %s\n", ast->kids[1]->info);
 					progcode = InsertList(progcode, buffer);
-					printf("		push dword[%s]\n", ast->kids[1]->info);
-					fprintf(logFile, "		push dword[%s]\n", ast->kids[1]->info);
+					printf(buffer);
+					fprintf(logFile, buffer);
 
 					strcpy(buffer, "");
 					sprintf(buffer, "		push formatoutstring; push message into ESP\n");
@@ -1199,7 +1309,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				insertSymbolToken(IDN_STRING, ast, bufferdec, table);
 				strcpy(bufferdec, "");
 				strcpy(buffer, "");
-				sprintf(buffer, "	t%d : db `%s`,0 \n", registerCounter, ast->kids[1]->info);
+				sprintf(buffer, "	t%d : times  256  db `%s`,0 \n", registerCounter, ast->kids[1]->info);
 				datacode = InsertList(datacode, buffer);
 
 				strcpy(buffer, "");
@@ -1212,7 +1322,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				printf("		push t%d\n", registerCounter );
 				fprintf(logFile, "		push t%d\n", registerCounter );
-				printf("	t%d : db `%s`,0 \n", registerCounter, ast->kids[1]->info);
+				printf("	t%d : times  256  db `%s`,0 \n", registerCounter, ast->kids[1]->info);
 				printf("		push formatoutstring; push format into ESP\n");
 				fprintf(logFile, "		push formatoutstring; push format into ESP\n");
 				registerCounter++;
@@ -1224,7 +1334,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				insertSymbolToken(IDN_CHAR, ast, bufferdec, table);
 				strcpy(bufferdec, "");
 				strcpy(buffer, "");
-				sprintf(buffer, "	t%d : db `%s`,0 \n", registerCounter, ast->kids[1]->info);
+				sprintf(buffer, "	t%d : times  256  db `%s`,0 \n", registerCounter, ast->kids[1]->info);
 				datacode = InsertList(datacode, buffer);
 
 				strcpy(buffer, "");
@@ -1237,7 +1347,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				printf("		push t%d\n", registerCounter);
 				fprintf(logFile, "		push t%d\n", registerCounter);
-				printf("	t%d : db `%s`,0 \n", registerCounter, ast->kids[1]->info);
+				printf("	t%d : times  256  db `%s`,0 \n", registerCounter, ast->kids[1]->info);
 				printf("		push formatoutchar; push format into ESP\n");
 				fprintf(logFile, "		push formatoutchar; push format into ESP\n");
 				registerCounter++;
