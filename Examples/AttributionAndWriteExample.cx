@@ -4,5 +4,39 @@ On.Console("\n");
 
 zx<<"qqqq"+"aaaa";
 On.Console(zx);
+On.Console("\n3\n");
+N a<<3;
+N b;
+Loop(3).Do(
+	On.Console(a);
+	a<<a-1;
+);
+On.Console("\na\n");
+a<<3;
+Loop(a).Do(
+	On.Console(a);
+	a<<a-1;
+);
+On.Console("\na+2\n");
+a<<1;
+Loop(a+2).Do(
+	On.Console(a);
+	a<<a-1;
+);
 
 
+On.Console("\nLop In Lop\n\n\n");
+a<<3;
+
+Loop(a).Do(
+	b<<3;
+	Loop(b).Do(
+	On.Console(a);
+	On.Console(',');
+	On.Console(b);
+	On.Console('\t');
+	b<<b-1;
+	);
+	On.Console('\n');
+	a<<a-1;
+);
