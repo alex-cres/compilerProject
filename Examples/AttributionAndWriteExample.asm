@@ -116,6 +116,9 @@ SECTION .text
 
 
 
+		l1_looper_continue:
+
+
 		mov eax , dword[l1]
 		sub eax,1
 		mov dword[l1], eax
@@ -152,6 +155,9 @@ SECTION .text
 		mov eax, dword[t9]
 		mov dword[a], eax
 
+
+
+		l2_looper_continue:
 
 
 		mov eax , dword[l2]
@@ -195,6 +201,9 @@ SECTION .text
 		mov eax, dword[t12]
 		mov dword[a], eax
 
+
+
+		l3_looper_continue:
 
 
 		mov eax , dword[l3]
@@ -260,6 +269,9 @@ SECTION .text
 
 
 
+		l5_looper_continue:
+
+
 		mov eax , dword[l5]
 		sub eax,1
 		mov dword[l5], eax
@@ -268,6 +280,9 @@ SECTION .text
 		jmp l5_looper
 		l5_looper_end:
 		;looper l5 end
+
+		jmp l4_looper_continue
+
 		push t17
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
@@ -281,6 +296,9 @@ SECTION .text
 		mov eax, dword[t18]
 		mov dword[a], eax
 
+
+
+		l4_looper_continue:
 
 
 		mov eax , dword[l4]

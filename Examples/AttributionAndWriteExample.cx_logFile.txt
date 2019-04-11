@@ -690,6 +690,15 @@ Exiting <INSTRUCTIONLIST>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <LOOPER>
 Exiting <INSTRUCTION>
+Token:	087 --> RESERVED_CONTINUE             	Lex:	Continue
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <CONTINUE>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <CONTINUE>
+Exiting <INSTRUCTION>
 Token:	078 --> RESERVED_ON                   	Lex:	On
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -740,6 +749,7 @@ Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -1227,36 +1237,43 @@ PROGRAM
                                     |     |   |-;
                                     |     |   |_INSTRUCTIONLIST
                                     |     |     |-INSTRUCTION
-                                    |     |     | |_ON
-                                    |     |     |   |-On
-                                    |     |     |   |-.
-                                    |     |     |   |-Console
+                                    |     |     | |_CONTINUE
+                                    |     |     |   |-Continue
                                     |     |     |   |-(
-                                    |     |     |   |-BEXP
-                                    |     |     |   | |_CEXP
-                                    |     |     |   |   |_EXP
-                                    |     |     |   |     |_TERM
-                                    |     |     |   |       |_FACTOR
-                                    |     |     |   |         |_'\n'
                                     |     |     |   |_)
                                     |     |     |-;
                                     |     |     |_INSTRUCTIONLIST
                                     |     |       |-INSTRUCTION
-                                    |     |       | |_ATTRIBUTION
-                                    |     |       |   |-a
-                                    |     |       |   |-<<
-                                    |     |       |   |_BEXP
-                                    |     |       |     |_CEXP
-                                    |     |       |       |_EXP
-                                    |     |       |         |-TERM
-                                    |     |       |         | |_FACTOR
-                                    |     |       |         |   |_a
-                                    |     |       |         |--
-                                    |     |       |         |_EXP
-                                    |     |       |           |_TERM
-                                    |     |       |             |_FACTOR
-                                    |     |       |               |_1
-                                    |     |       |_;
+                                    |     |       | |_ON
+                                    |     |       |   |-On
+                                    |     |       |   |-.
+                                    |     |       |   |-Console
+                                    |     |       |   |-(
+                                    |     |       |   |-BEXP
+                                    |     |       |   | |_CEXP
+                                    |     |       |   |   |_EXP
+                                    |     |       |   |     |_TERM
+                                    |     |       |   |       |_FACTOR
+                                    |     |       |   |         |_'\n'
+                                    |     |       |   |_)
+                                    |     |       |-;
+                                    |     |       |_INSTRUCTIONLIST
+                                    |     |         |-INSTRUCTION
+                                    |     |         | |_ATTRIBUTION
+                                    |     |         |   |-a
+                                    |     |         |   |-<<
+                                    |     |         |   |_BEXP
+                                    |     |         |     |_CEXP
+                                    |     |         |       |_EXP
+                                    |     |         |         |-TERM
+                                    |     |         |         | |_FACTOR
+                                    |     |         |         |   |_a
+                                    |     |         |         |--
+                                    |     |         |         |_EXP
+                                    |     |         |           |_TERM
+                                    |     |         |             |_FACTOR
+                                    |     |         |               |_1
+                                    |     |         |_;
                                     |     |_)
                                     |-;
                                     |_EOF
@@ -2056,6 +2073,16 @@ Exiting Loop
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
+Entering CONTINUE
+Entering Continue
+Exiting Continue
+Entering (
+Entering )
+Exiting Continue
+Exiting Continue
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
 Entering ON
 Entering On
 Exiting On
@@ -2112,6 +2139,7 @@ Exiting <<
 Exiting <<
 Entering ;
 Exiting <<
+Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -2276,14 +2304,16 @@ INSTRUCTIONLIST
                                         |               |-b
                                         |               |_1
                                         |_INSTRUCTIONLIST
-                                          |-On
-                                          | |-Console
-                                          | |_\n
-                                          |_<<
-                                            |-a
-                                            |_-
+                                          |-Continue
+                                          |_INSTRUCTIONLIST
+                                            |-On
+                                            | |-Console
+                                            | |_\n
+                                            |_<<
                                               |-a
-                                              |_1
+                                              |_-
+                                                |-a
+                                                |_1
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of S
@@ -2654,6 +2684,10 @@ End Optimization of Do
 Optimization start Loop
 End Optimization of Loop
 Optimization of INSTRUCTIONLIST
+Optimization of Continue
+Optimization start Continue
+End Optimization of Continue
+Optimization of INSTRUCTIONLIST
 Optimization of On
 Optimization of Console
 Optimization start Console
@@ -2679,6 +2713,8 @@ Optimization result -
 End Optimization of -
 Optimization start <<
 End Optimization of <<
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -2859,14 +2895,16 @@ INSTRUCTIONLIST
                                         |               |-b
                                         |               |_1
                                         |_INSTRUCTIONLIST
-                                          |-On
-                                          | |-Console
-                                          | |_\n
-                                          |_<<
-                                            |-a
-                                            |_-
+                                          |-Continue
+                                          |_INSTRUCTIONLIST
+                                            |-On
+                                            | |-Console
+                                            | |_\n
+                                            |_<<
                                               |-a
-                                              |_1
+                                              |_-
+                                                |-a
+                                                |_1
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 17 	 | DECLARATION 	 | zx
@@ -2947,6 +2985,9 @@ INSTRUCTIONLIST
 
 
 
+		l1_looper_continue:
+
+
 		mov eax , dword[l1]
 		sub eax,1
 		mov dword[l1], eax
@@ -2984,6 +3025,9 @@ INSTRUCTIONLIST
 		mov eax, dword[t9]
 		mov dword[a], eax
 
+
+
+		l2_looper_continue:
 
 
 		mov eax , dword[l2]
@@ -3028,6 +3072,9 @@ INSTRUCTIONLIST
 		mov eax, dword[t12]
 		mov dword[a], eax
 
+
+
+		l3_looper_continue:
 
 
 		mov eax , dword[l3]
@@ -3095,6 +3142,9 @@ INSTRUCTIONLIST
 
 
 
+		l5_looper_continue:
+
+
 		mov eax , dword[l5]
 		sub eax,1
 		mov dword[l5], eax
@@ -3103,6 +3153,9 @@ INSTRUCTIONLIST
 		jmp l5_looper
 		l5_looper_end:
 		;looper l5 end
+
+		jmp l4_looper_continue
+
 		push t17
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
@@ -3116,6 +3169,9 @@ INSTRUCTIONLIST
 		mov eax, dword[t18]
 		mov dword[a], eax
 
+
+
+		l4_looper_continue:
 
 
 		mov eax , dword[l4]

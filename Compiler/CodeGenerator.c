@@ -87,7 +87,7 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	progcode = InsertList(progcode, "	extern _strcpy\n");
 	progcode = InsertList(progcode, "	_main:\n\n");
 
-	GenerateIntermidiateCode(ast, logFile, datacode, progcode, table);
+	GenerateIntermidiateCode(ast, logFile, datacode, progcode, table, registerLoopsCounter);
 	progcode = InsertList(progcode, "\n\n	mov eax, 0 \n");
 	progcode = InsertList(progcode, "	ret\n\n");
 	datacode = InsertList(datacode, "\n");
@@ -129,7 +129,7 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	printf("Exe File Created : %s\n", cmd2);
 }
 
-void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode, SymbolToken * table)
+void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode, SymbolToken * table, int breakerLoop)
 {
 	int loopnumber = registerLoopsCounter;
 	int i = 0;
@@ -159,7 +159,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		fprintf(logFile, buffer);
 		
 		if (ast->kids[0]!=NULL && ast->kids[1]!=NULL) {
-			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table);
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber);
 			if (ast->kids[0]->type==IDENTIFIER) {
 				int type_of_var = 0;
 				SymbolToken*searcher = table;
@@ -226,7 +226,12 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printf(buffer);
 			fprintf(logFile, buffer);
 
-			GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table);
+			GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, loopnumber);
+
+			sprintf(buffer, "\n\n		%s_looper_continue:\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
 
 			sprintf(buffer, "\n\n		mov eax , dword[%s]\n", looperID);
 			progcode = InsertList(progcode, buffer);
@@ -267,14 +272,29 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printfAndExit(logFile, "ERROR: SYNTAX ERROR INCOMPLETE LOOP, %s", ERROR_INCOMPLETE_LOOP, ast->info);
 		}
 	}
+	
 	else{
 		while (ast->kids[i] != NULL && i < MAX_CHILDREN)
 		{
-			GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table);
+			GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table,breakerLoop );
 			i++;
 		}
-	
-		if ((ast->kids[0]!=NULL && ast->kids[1] !=NULL) && (ast->kids[0]->type == LITERAL_CHAR || ast->kids[0]->type == LITERAL_STRING) &&
+		if (ast->type==RESERVED_BREAK) {
+			char looperID[200];
+			sprintf(looperID, "l%d", breakerLoop);
+			sprintf(buffer, "\n		jmp %s_looper_end\n\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+		}else if (ast->type == RESERVED_CONTINUE) {
+			char looperID[200];
+			sprintf(looperID, "l%d", breakerLoop);
+			sprintf(buffer, "\n		jmp %s_looper_continue\n\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+		}
+		else if ((ast->kids[0]!=NULL && ast->kids[1] !=NULL) && (ast->kids[0]->type == LITERAL_CHAR || ast->kids[0]->type == LITERAL_STRING) &&
 			(ast->kids[1]->type == LITERAL_CHAR || ast->kids[1]->type == LITERAL_STRING) && 
 			(ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV)) {
 			char bufferdec[100];
