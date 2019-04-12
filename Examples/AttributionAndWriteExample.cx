@@ -1,4 +1,10 @@
-On.Console("\n\n");
-D www<< In.Console().ToDecimal();
-On.Console(www);
-On.Console("Finished");
+D xxx<<ToDecimal(2);
+On.Console(xxx);
+On.Console("\n");
+N a<<222;
+xxx<<ToDecimal(a);
+On.Console(xxx);
+On.Console("\n");
+xxx<<ToDecimal(a*22);
+On.Console(xxx);
+On.Console("\n");

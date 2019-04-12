@@ -2,14 +2,22 @@
 READING FROM : ..\Examples\AttributionAndWriteExample.cx
 WRITING TO : ..\Examples\AttributionAndWriteExample.cx_logFile.txt
 
-Token:	078 --> RESERVED_ON                   	Lex:	On
+Token:	013 --> IDN_DECIMAL                   	Lex:	D
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	xxx
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\n"
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -22,34 +30,7 @@ Exiting <EXP>
 Exiting <CEXP>
 Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	013 --> IDN_DECIMAL                   	Lex:	D
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <DECLARATION>
-Token:	011 --> IDENTIFIER                    	Lex:	www
-Entering <DECLAREEXP>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
-Token:	077 --> RESERVED_IN                   	Lex:	In
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Entering <IN>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Token:	004 --> POINT                         	Lex:	.
-Entering <CASTIN>
-Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <CASTIN>
-Exiting <IN>
+Exiting <CASTINGVAR>
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
@@ -65,7 +46,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	www
+Token:	011 --> IDENTIFIER                    	Lex:	xxx
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -87,7 +68,191 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"Finished"
+Token:	020 --> LITERAL_STRING                	Lex:	"\n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	222
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	xxx
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	xxx
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	xxx
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	018 --> LITERAL_NUMBER                	Lex:	22
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	xxx
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n"
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -107,47 +272,52 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 13
+MAX_DEPTH_TREE FOUND : 23
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
-  | |_ON
-  |   |-On
-  |   |-.
-  |   |-Console
-  |   |-(
-  |   |-BEXP
-  |   | |_CEXP
-  |   |   |_EXP
-  |   |     |_TERM
-  |   |       |_FACTOR
-  |   |         |_"\n\n"
-  |   |_)
+  | |_DECLARATION
+  |   |-D
+  |   |_DECLAREEXP
+  |     |-xxx
+  |     |-<<
+  |     |_BEXP
+  |       |_CEXP
+  |         |_EXP
+  |           |_TERM
+  |             |_FACTOR
+  |               |_CASTINGVAR
+  |                 |-ToDecimal
+  |                 |-(
+  |                 |-BEXP
+  |                 | |_CEXP
+  |                 |   |_EXP
+  |                 |     |_TERM
+  |                 |       |_FACTOR
+  |                 |         |_2
+  |                 |_)
   |-;
   |_INSTRUCTIONLIST
     |-INSTRUCTION
-    | |_DECLARATION
-    |   |-D
-    |   |_DECLAREEXP
-    |     |-www
-    |     |-<<
-    |     |_BEXP
-    |       |_CEXP
-    |         |_EXP
-    |           |_TERM
-    |             |_FACTOR
-    |               |_IN
-    |                 |-In
-    |                 |-.
-    |                 |-Console
-    |                 |-(
-    |                 |-)
-    |                 |_CASTIN
-    |                   |-.
-    |                   |-ToDecimal
-    |                   |-(
-    |                   |_)
+    | |_ON
+    |   |-On
+    |   |-.
+    |   |-Console
+    |   |-(
+    |   |-BEXP
+    |   | |_CEXP
+    |   |   |_EXP
+    |   |     |_TERM
+    |   |       |_FACTOR
+    |   |         |_xxx
+    |   |_)
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
@@ -161,59 +331,139 @@ PROGRAM
       |   |   |_EXP
       |   |     |_TERM
       |   |       |_FACTOR
-      |   |         |_www
+      |   |         |_"\n"
       |   |_)
       |-;
       |_INSTRUCTIONLIST
         |-INSTRUCTION
-        | |_ON
-        |   |-On
-        |   |-.
-        |   |-Console
-        |   |-(
-        |   |-BEXP
-        |   | |_CEXP
-        |   |   |_EXP
-        |   |     |_TERM
-        |   |       |_FACTOR
-        |   |         |_"Finished"
-        |   |_)
+        | |_DECLARATION
+        |   |-N
+        |   |_DECLAREEXP
+        |     |-a
+        |     |-<<
+        |     |_BEXP
+        |       |_CEXP
+        |         |_EXP
+        |           |_TERM
+        |             |_FACTOR
+        |               |_222
         |-;
-        |_EOF
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_ATTRIBUTION
+          |   |-xxx
+          |   |-<<
+          |   |_BEXP
+          |     |_CEXP
+          |       |_EXP
+          |         |_TERM
+          |           |_FACTOR
+          |             |_CASTINGVAR
+          |               |-ToDecimal
+          |               |-(
+          |               |-BEXP
+          |               | |_CEXP
+          |               |   |_EXP
+          |               |     |_TERM
+          |               |       |_FACTOR
+          |               |         |_a
+          |               |_)
+          |-;
+          |_INSTRUCTIONLIST
+            |-INSTRUCTION
+            | |_ON
+            |   |-On
+            |   |-.
+            |   |-Console
+            |   |-(
+            |   |-BEXP
+            |   | |_CEXP
+            |   |   |_EXP
+            |   |     |_TERM
+            |   |       |_FACTOR
+            |   |         |_xxx
+            |   |_)
+            |-;
+            |_INSTRUCTIONLIST
+              |-INSTRUCTION
+              | |_ON
+              |   |-On
+              |   |-.
+              |   |-Console
+              |   |-(
+              |   |-BEXP
+              |   | |_CEXP
+              |   |   |_EXP
+              |   |     |_TERM
+              |   |       |_FACTOR
+              |   |         |_"\n"
+              |   |_)
+              |-;
+              |_INSTRUCTIONLIST
+                |-INSTRUCTION
+                | |_ATTRIBUTION
+                |   |-xxx
+                |   |-<<
+                |   |_BEXP
+                |     |_CEXP
+                |       |_EXP
+                |         |_TERM
+                |           |_FACTOR
+                |             |_CASTINGVAR
+                |               |-ToDecimal
+                |               |-(
+                |               |-BEXP
+                |               | |_CEXP
+                |               |   |_EXP
+                |               |     |_TERM
+                |               |       |-FACTOR
+                |               |       | |_a
+                |               |       |-*
+                |               |       |_TERM
+                |               |         |_FACTOR
+                |               |           |_22
+                |               |_)
+                |-;
+                |_INSTRUCTIONLIST
+                  |-INSTRUCTION
+                  | |_ON
+                  |   |-On
+                  |   |-.
+                  |   |-Console
+                  |   |-(
+                  |   |-BEXP
+                  |   | |_CEXP
+                  |   |   |_EXP
+                  |   |     |_TERM
+                  |   |       |_FACTOR
+                  |   |         |_xxx
+                  |   |_)
+                  |-;
+                  |_INSTRUCTIONLIST
+                    |-INSTRUCTION
+                    | |_ON
+                    |   |-On
+                    |   |-.
+                    |   |-Console
+                    |   |-(
+                    |   |-BEXP
+                    |   | |_CEXP
+                    |   |   |_EXP
+                    |   |     |_TERM
+                    |   |       |_FACTOR
+                    |   |         |_"\n"
+                    |   |_)
+                    |-;
+                    |_EOF
 Entering PROGRAM
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n\n"
-Exiting \n\n
-Exiting \n\n
-Exiting \n\n
-Exiting \n\n
-Exiting \n\n
-Exiting \n\n
-Entering )
-Exiting On
-Exiting On
-Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
 Entering DECLARATION
 Entering D
 Exiting D
 Entering DECLAREEXP
-Entering www
-Exiting www
+Entering xxx
+Exiting xxx
 Entering <<
 Exiting <<
 Entering BEXP
@@ -221,27 +471,29 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering IN
-Entering In
-Exiting In
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering )
-Entering CASTIN
-Entering .
+Entering CASTINGVAR
 Entering ToDecimal
 Exiting ToDecimal
 Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
 Entering )
 Exiting ToDecimal
-Exiting In
-Exiting In
-Exiting In
-Exiting In
-Exiting In
-Exiting In
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
 Exiting <<
 Exiting DECLARATION
 Exiting DECLARATION
@@ -260,13 +512,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering www
-Exiting www
-Exiting www
-Exiting www
-Exiting www
-Exiting www
-Exiting www
+Entering xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
 Entering )
 Exiting On
 Exiting On
@@ -285,13 +537,223 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "Finished"
-Exiting Finished
-Exiting Finished
-Exiting Finished
-Exiting Finished
-Exiting Finished
-Exiting Finished
+Entering "\n"
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering a
+Exiting a
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 222
+Exiting 222
+Exiting 222
+Exiting 222
+Exiting 222
+Exiting 222
+Exiting 222
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering xxx
+Exiting xxx
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Exiting a
+Entering )
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n"
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering xxx
+Exiting xxx
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering a
+Exiting a
+Exiting a
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering 22
+Exiting 22
+Exiting 22
+Exiting 22
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Entering )
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Exiting xxx
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n"
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
 Entering )
 Exiting On
 Exiting On
@@ -302,53 +764,75 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 INSTRUCTIONLIST
-|-On
-| |-Console
-| |_\n\n
+|-DECLARATION
+| |-D
+| |_<<
+|   |-xxx
+|   |_ToDecimal
+|     |_2
 |_INSTRUCTIONLIST
-  |-DECLARATION
-  | |-D
-  | |_<<
-  |   |-www
-  |   |_In
-  |     |-Console
-  |     |_ToDecimal
+  |-On
+  | |-Console
+  | |_xxx
   |_INSTRUCTIONLIST
     |-On
     | |-Console
-    | |_www
-    |_On
-      |-Console
-      |_Finished
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n\n
-Optimization start \n\n
-End Optimization of \n\n
-Optimization start On
-End Optimization of On
+    | |_\n
+    |_INSTRUCTIONLIST
+      |-DECLARATION
+      | |-N
+      | |_<<
+      |   |-a
+      |   |_222
+      |_INSTRUCTIONLIST
+        |-<<
+        | |-xxx
+        | |_ToDecimal
+        |   |_a
+        |_INSTRUCTIONLIST
+          |-On
+          | |-Console
+          | |_xxx
+          |_INSTRUCTIONLIST
+            |-On
+            | |-Console
+            | |_\n
+            |_INSTRUCTIONLIST
+              |-<<
+              | |-xxx
+              | |_ToDecimal
+              |   |_*
+              |     |-a
+              |     |_22
+              |_INSTRUCTIONLIST
+                |-On
+                | |-Console
+                | |_xxx
+                |_On
+                  |-Console
+                  |_\n
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of D
 Optimization start D
 End Optimization of D
 Optimization of <<
-Optimization of www
-Optimization start www
-End Optimization of www
-Optimization of In
-Optimization of Console
-Optimization start Console
-End Optimization of Console
+Optimization of xxx
+Optimization start xxx
+End Optimization of xxx
 Optimization of ToDecimal
+Optimization of 2
+Optimization start 2
+End Optimization of 2
 Optimization start ToDecimal
 End Optimization of ToDecimal
-Optimization start In
-End Optimization of In
 Optimization start <<
 End Optimization of <<
 Optimization start DECLARATION
@@ -358,20 +842,121 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of www
-Optimization start www
-End Optimization of www
+Optimization of xxx
+Optimization start xxx
+End Optimization of xxx
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization start N
+End Optimization of N
+Optimization of <<
+Optimization of a
+Optimization start a
+End Optimization of a
+Optimization of 222
+Optimization start 222
+End Optimization of 222
+Optimization start <<
+End Optimization of <<
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of xxx
+Optimization start xxx
+End Optimization of xxx
+Optimization of ToDecimal
+Optimization of a
+Optimization start a
+End Optimization of a
+Optimization start ToDecimal
+End Optimization of ToDecimal
+Optimization start <<
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of xxx
+Optimization start xxx
+End Optimization of xxx
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of xxx
+Optimization start xxx
+End Optimization of xxx
+Optimization of ToDecimal
+Optimization of *
+Optimization of a
+Optimization start a
+End Optimization of a
+Optimization of 22
+Optimization start 22
+End Optimization of 22
+Optimization start *
+Optimization result *
+End Optimization of *
+Optimization start ToDecimal
+End Optimization of ToDecimal
+Optimization start <<
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of xxx
+Optimization start xxx
+End Optimization of xxx
 Optimization start On
 End Optimization of On
 Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of Finished
-Optimization start Finished
-End Optimization of Finished
+Optimization of \n
+Optimization start \n
+End Optimization of \n
 Optimization start On
 End Optimization of On
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -379,44 +964,68 @@ End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
-|-On
-| |-Console
-| |_\n\n
+|-DECLARATION
+| |-D
+| |_<<
+|   |-xxx
+|   |_ToDecimal
+|     |_2
 |_INSTRUCTIONLIST
-  |-DECLARATION
-  | |-D
-  | |_<<
-  |   |-www
-  |   |_In
-  |     |-Console
-  |     |_ToDecimal
+  |-On
+  | |-Console
+  | |_xxx
   |_INSTRUCTIONLIST
     |-On
     | |-Console
-    | |_www
-    |_On
-      |-Console
-      |_Finished
+    | |_\n
+    |_INSTRUCTIONLIST
+      |-DECLARATION
+      | |-N
+      | |_<<
+      |   |-a
+      |   |_222
+      |_INSTRUCTIONLIST
+        |-<<
+        | |-xxx
+        | |_ToDecimal
+        |   |_a
+        |_INSTRUCTIONLIST
+          |-On
+          | |-Console
+          | |_xxx
+          |_INSTRUCTIONLIST
+            |-On
+            | |-Console
+            | |_\n
+            |_INSTRUCTIONLIST
+              |-<<
+              | |-xxx
+              | |_ToDecimal
+              |   |_*
+              |     |-a
+              |     |_22
+              |_INSTRUCTIONLIST
+                |-On
+                | |-Console
+                | |_xxx
+                |_On
+                  |-Console
+                  |_\n
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
-| 13 	 | DECLARATION 	 | www
-		push t1
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t2 ; Temporary Read
-	t2 : resd 1 
-		push formatindecimal; number reading
-		call _scanf; call defined function
-		add esp, 8; params * 4
+| 13 	 | DECLARATION 	 | xxx
+| 12 	 | DECLARATION 	 | a
+	t1 : dd 2
+	t2 : dd 0.0
+		fild dword[t1]
+		fstp dword[t2]
 
 		fld dword[t2]
-		fstp dword[www]
+		fstp dword[xxx]
 
-	www : dd 0
+	xxx : dd 0
 		sub esp, 8;reserve stack for a double in stack
-		mov ebx, www
+		mov ebx, xxx
 		fld dword[ebx];load float
 		fstp qword[esp];store double(8087 does the conversion internally)
 		push formatoutdecimal; push message into ESP
@@ -428,11 +1037,61 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
+		mov eax, 222
+		mov dword[a], eax
+
+	a : dd 0
+	t4 : dd 0.0
+		fild dword[a]
+		fstp dword[t4]
+
+		fld dword[t4]
+		fstp dword[xxx]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, xxx
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+		push t5
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[a] ; Moving Second Operand Number Var
+		mov ebx, 22 ; Moving First Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t6] , eax ;Result 
+
+	t7 : dd 0.0
+		fild dword[t6]
+		fstp dword[t7]
+
+		fld dword[t7]
+		fstp dword[xxx]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, xxx
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+		push t8
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
 Object File Created : nasm -f win32 D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
 Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
-| 13 	 | DECLARATION 	 | www
+| 13 	 | DECLARATION 	 | xxx
+| 12 	 | DECLARATION 	 | a
 | 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
 | 17 	 | INSTRUCTIONLIST 	 | formatoutdecimal
 | 17 	 | INSTRUCTIONLIST 	 | formatoutchar
@@ -443,6 +1102,11 @@ Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\
 | 17 	 | INSTRUCTIONLIST 	 | formatinchar
 | 17 	 | INSTRUCTIONLIST 	 | formatinstring
 | 17 	 | INSTRUCTIONLIST 	 | formatinbool
-| 17 	 | On 	 | t1
-| 13 	 | In 	 | t2
+| 12 	 | ToDecimal 	 | t1
+| 13 	 | ToDecimal 	 | t2
 | 17 	 | On 	 | t3
+| 13 	 | ToDecimal 	 | t4
+| 17 	 | On 	 | t5
+| 12 	 | * 	 | t6
+| 13 	 | ToDecimal 	 | t7
+| 17 	 | On 	 | t8

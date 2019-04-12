@@ -797,7 +797,7 @@ int reservedIn(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 				addChildNode(castInNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 				if (nextToken == RESERVED_CAST_CHAR || nextToken == RESERVED_CAST_DECIMAL
-					|| nextToken == RESERVED_CAST_NUMBER || nextToken == RESERVED_CAST_STRING) {
+					|| nextToken == RESERVED_CAST_NUMBER || nextToken == RESERVED_CAST_STRING || nextToken== RESERVED_CAST_BOOL) {
 					addChildNode(castInNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					if (nextToken == OPEN_PARENTESIS) {

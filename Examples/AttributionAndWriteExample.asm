@@ -13,13 +13,19 @@ SECTION .data
 	formatinstring: db "%s", 0
 	formatinbool: db "%d", 0
 
-	t1 : times  256  db `\n\n`,0 
-	www : dd 0
-	t3 : times  256  db `Finished`,0 
+	t1 : dd 2
+	t2 : dd 0.0
+	xxx : dd 0
+	t3 : times  256  db `\n`,0 
+	a : dd 0
+	t4 : dd 0.0
+	t5 : times  256  db `\n`,0 
+	t6 : dd 0 
+	t7 : dd 0.0
+	t8 : times  256  db `\n`,0 
 
 
 SECTION .bss
-	t2 : resd 1 
 
 
 SECTION .text
@@ -30,21 +36,14 @@ SECTION .text
 	extern _strcpy
 	_main:
 
-		push t1
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t2 ; Temporary Read
-		push formatindecimal; number reading
-		call _scanf; call defined function
-		add esp, 8; params * 4
+		fild dword[t1]
+		fstp dword[t2]
 
 		fld dword[t2]
-		fstp dword[www]
+		fstp dword[xxx]
 
 		sub esp, 8;reserve stack for a double in stack
-		mov ebx, www
+		mov ebx, xxx
 		fld dword[ebx];load float
 		fstp qword[esp];store double(8087 does the conversion internally)
 		push formatoutdecimal; push message into ESP
@@ -52,6 +51,52 @@ SECTION .text
 		add esp, 12; params * 4
 
 		push t3
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, 222
+		mov dword[a], eax
+
+		fild dword[a]
+		fstp dword[t4]
+
+		fld dword[t4]
+		fstp dword[xxx]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, xxx
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+		push t5
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[a] ; Moving Second Operand Number Var
+		mov ebx, 22 ; Moving First Operand Number
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t6] , eax ;Result 
+
+		fild dword[t6]
+		fstp dword[t7]
+
+		fld dword[t7]
+		fstp dword[xxx]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, xxx
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+		push t8
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
