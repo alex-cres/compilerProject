@@ -39,6 +39,9 @@ SECTION .data
 	t16 : dd 0 
 	t17 : times  256  db `\n`,0 
 	t18 : dd 0 
+	t19 : times  256  db `\n\n`,0 
+	t20 : dd 0.0
+	www : dd In
 
 
 SECTION .text
@@ -280,9 +283,6 @@ SECTION .text
 		jmp l5_looper
 		l5_looper_end:
 		;looper l5 end
-
-		jmp l4_looper_continue
-
 		push t17
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
@@ -309,6 +309,27 @@ SECTION .text
 		jmp l4_looper
 		l4_looper_end:
 		;looper l4 end
+		push t19
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push dword[t20] ; Temporary Read
+		push formatindecimal; number reading
+		call _scanf; call defined function
+		add esp, 8; params * 4
+
+		fld dword[t20]
+		fstp dword[www]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, www
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
 
 
 	mov eax, 0 

@@ -690,15 +690,6 @@ Exiting <INSTRUCTIONLIST>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <LOOPER>
 Exiting <INSTRUCTION>
-Token:	087 --> RESERVED_CONTINUE             	Lex:	Continue
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <CONTINUE>
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <CONTINUE>
-Exiting <INSTRUCTION>
 Token:	078 --> RESERVED_ON                   	Lex:	On
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -753,11 +744,91 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <LOOPER>
 Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	013 --> IDN_DECIMAL                   	Lex:	D
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	www
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <IN>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	004 --> POINT                         	Lex:	.
+Entering <CASTIN>
+Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <CASTIN>
+Exiting <IN>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	www
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -1237,46 +1308,93 @@ PROGRAM
                                     |     |   |-;
                                     |     |   |_INSTRUCTIONLIST
                                     |     |     |-INSTRUCTION
-                                    |     |     | |_CONTINUE
-                                    |     |     |   |-Continue
+                                    |     |     | |_ON
+                                    |     |     |   |-On
+                                    |     |     |   |-.
+                                    |     |     |   |-Console
                                     |     |     |   |-(
+                                    |     |     |   |-BEXP
+                                    |     |     |   | |_CEXP
+                                    |     |     |   |   |_EXP
+                                    |     |     |   |     |_TERM
+                                    |     |     |   |       |_FACTOR
+                                    |     |     |   |         |_'\n'
                                     |     |     |   |_)
                                     |     |     |-;
                                     |     |     |_INSTRUCTIONLIST
                                     |     |       |-INSTRUCTION
-                                    |     |       | |_ON
-                                    |     |       |   |-On
-                                    |     |       |   |-.
-                                    |     |       |   |-Console
-                                    |     |       |   |-(
-                                    |     |       |   |-BEXP
-                                    |     |       |   | |_CEXP
-                                    |     |       |   |   |_EXP
-                                    |     |       |   |     |_TERM
-                                    |     |       |   |       |_FACTOR
-                                    |     |       |   |         |_'\n'
-                                    |     |       |   |_)
-                                    |     |       |-;
-                                    |     |       |_INSTRUCTIONLIST
-                                    |     |         |-INSTRUCTION
-                                    |     |         | |_ATTRIBUTION
-                                    |     |         |   |-a
-                                    |     |         |   |-<<
-                                    |     |         |   |_BEXP
-                                    |     |         |     |_CEXP
-                                    |     |         |       |_EXP
-                                    |     |         |         |-TERM
-                                    |     |         |         | |_FACTOR
-                                    |     |         |         |   |_a
-                                    |     |         |         |--
-                                    |     |         |         |_EXP
-                                    |     |         |           |_TERM
-                                    |     |         |             |_FACTOR
-                                    |     |         |               |_1
-                                    |     |         |_;
+                                    |     |       | |_ATTRIBUTION
+                                    |     |       |   |-a
+                                    |     |       |   |-<<
+                                    |     |       |   |_BEXP
+                                    |     |       |     |_CEXP
+                                    |     |       |       |_EXP
+                                    |     |       |         |-TERM
+                                    |     |       |         | |_FACTOR
+                                    |     |       |         |   |_a
+                                    |     |       |         |--
+                                    |     |       |         |_EXP
+                                    |     |       |           |_TERM
+                                    |     |       |             |_FACTOR
+                                    |     |       |               |_1
+                                    |     |       |_;
                                     |     |_)
                                     |-;
-                                    |_EOF
+                                    |_INSTRUCTIONLIST
+                                      |-INSTRUCTION
+                                      | |_ON
+                                      |   |-On
+                                      |   |-.
+                                      |   |-Console
+                                      |   |-(
+                                      |   |-BEXP
+                                      |   | |_CEXP
+                                      |   |   |_EXP
+                                      |   |     |_TERM
+                                      |   |       |_FACTOR
+                                      |   |         |_"\n\n"
+                                      |   |_)
+                                      |-;
+                                      |_INSTRUCTIONLIST
+                                        |-INSTRUCTION
+                                        | |_DECLARATION
+                                        |   |-D
+                                        |   |_DECLAREEXP
+                                        |     |-www
+                                        |     |-<<
+                                        |     |_BEXP
+                                        |       |_CEXP
+                                        |         |_EXP
+                                        |           |_TERM
+                                        |             |_FACTOR
+                                        |               |_IN
+                                        |                 |-In
+                                        |                 |-.
+                                        |                 |-Console
+                                        |                 |-(
+                                        |                 |-)
+                                        |                 |_CASTIN
+                                        |                   |-.
+                                        |                   |-ToDecimal
+                                        |                   |-(
+                                        |                   |_)
+                                        |-;
+                                        |_INSTRUCTIONLIST
+                                          |-INSTRUCTION
+                                          | |_ON
+                                          |   |-On
+                                          |   |-.
+                                          |   |-Console
+                                          |   |-(
+                                          |   |-BEXP
+                                          |   | |_CEXP
+                                          |   |   |_EXP
+                                          |   |     |_TERM
+                                          |   |       |_FACTOR
+                                          |   |         |_www
+                                          |   |_)
+                                          |-;
+                                          |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -2073,16 +2191,6 @@ Exiting Loop
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
-Entering CONTINUE
-Entering Continue
-Exiting Continue
-Entering (
-Entering )
-Exiting Continue
-Exiting Continue
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
 Entering ON
 Entering On
 Exiting On
@@ -2142,14 +2250,106 @@ Exiting <<
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
 Entering )
 Exiting Do
 Exiting Loop
 Exiting Loop
 Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\n"
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering www
+Exiting www
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering )
+Entering CASTIN
+Entering .
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering )
+Exiting ToDecimal
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering www
+Exiting www
+Exiting www
+Exiting www
+Exiting www
+Exiting www
+Exiting www
+Entering )
+Exiting On
+Exiting On
+Entering ;
 Entering EOF
-Exiting Loop
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -2271,49 +2471,63 @@ INSTRUCTIONLIST
                                 |-<<
                                 | |-a
                                 | |_3
-                                |_Loop
-                                  |-a
-                                  |_Do
+                                |_INSTRUCTIONLIST
+                                  |-Loop
+                                  | |-a
+                                  | |_Do
+                                  |   |_INSTRUCTIONLIST
+                                  |     |-<<
+                                  |     | |-b
+                                  |     | |_3
+                                  |     |_INSTRUCTIONLIST
+                                  |       |-Loop
+                                  |       | |-b
+                                  |       | |_Do
+                                  |       |   |_INSTRUCTIONLIST
+                                  |       |     |-On
+                                  |       |     | |-Console
+                                  |       |     | |_a
+                                  |       |     |_INSTRUCTIONLIST
+                                  |       |       |-On
+                                  |       |       | |-Console
+                                  |       |       | |_,
+                                  |       |       |_INSTRUCTIONLIST
+                                  |       |         |-On
+                                  |       |         | |-Console
+                                  |       |         | |_b
+                                  |       |         |_INSTRUCTIONLIST
+                                  |       |           |-On
+                                  |       |           | |-Console
+                                  |       |           | |_\t
+                                  |       |           |_<<
+                                  |       |             |-b
+                                  |       |             |_-
+                                  |       |               |-b
+                                  |       |               |_1
+                                  |       |_INSTRUCTIONLIST
+                                  |         |-On
+                                  |         | |-Console
+                                  |         | |_\n
+                                  |         |_<<
+                                  |           |-a
+                                  |           |_-
+                                  |             |-a
+                                  |             |_1
+                                  |_INSTRUCTIONLIST
+                                    |-On
+                                    | |-Console
+                                    | |_\n\n
                                     |_INSTRUCTIONLIST
-                                      |-<<
-                                      | |-b
-                                      | |_3
-                                      |_INSTRUCTIONLIST
-                                        |-Loop
-                                        | |-b
-                                        | |_Do
-                                        |   |_INSTRUCTIONLIST
-                                        |     |-On
-                                        |     | |-Console
-                                        |     | |_a
-                                        |     |_INSTRUCTIONLIST
-                                        |       |-On
-                                        |       | |-Console
-                                        |       | |_,
-                                        |       |_INSTRUCTIONLIST
-                                        |         |-On
-                                        |         | |-Console
-                                        |         | |_b
-                                        |         |_INSTRUCTIONLIST
-                                        |           |-On
-                                        |           | |-Console
-                                        |           | |_\t
-                                        |           |_<<
-                                        |             |-b
-                                        |             |_-
-                                        |               |-b
-                                        |               |_1
-                                        |_INSTRUCTIONLIST
-                                          |-Continue
-                                          |_INSTRUCTIONLIST
-                                            |-On
-                                            | |-Console
-                                            | |_\n
-                                            |_<<
-                                              |-a
-                                              |_-
-                                                |-a
-                                                |_1
+                                      |-DECLARATION
+                                      | |-D
+                                      | |_<<
+                                      |   |-www
+                                      |   |_In
+                                      |     |-Console
+                                      |     |_ToDecimal
+                                      |_On
+                                        |-Console
+                                        |_www
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of S
@@ -2594,6 +2808,7 @@ Optimization start 3
 End Optimization of 3
 Optimization start <<
 End Optimization of <<
+Optimization of INSTRUCTIONLIST
 Optimization of Loop
 Optimization of a
 Optimization start a
@@ -2684,10 +2899,6 @@ End Optimization of Do
 Optimization start Loop
 End Optimization of Loop
 Optimization of INSTRUCTIONLIST
-Optimization of Continue
-Optimization start Continue
-End Optimization of Continue
-Optimization of INSTRUCTIONLIST
 Optimization of On
 Optimization of Console
 Optimization start Console
@@ -2719,12 +2930,57 @@ Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
 Optimization start Do
 End Optimization of Do
 Optimization start Loop
 End Optimization of Loop
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\n
+Optimization start \n\n
+End Optimization of \n\n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+Optimization start D
+End Optimization of D
+Optimization of <<
+Optimization of www
+Optimization start www
+End Optimization of www
+Optimization of In
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of ToDecimal
+Optimization start ToDecimal
+End Optimization of ToDecimal
+Optimization start In
+End Optimization of In
+Optimization start <<
+End Optimization of <<
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of www
+Optimization start www
+End Optimization of www
+Optimization start On
+End Optimization of On
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -2862,54 +3118,69 @@ INSTRUCTIONLIST
                                 |-<<
                                 | |-a
                                 | |_3
-                                |_Loop
-                                  |-a
-                                  |_Do
+                                |_INSTRUCTIONLIST
+                                  |-Loop
+                                  | |-a
+                                  | |_Do
+                                  |   |_INSTRUCTIONLIST
+                                  |     |-<<
+                                  |     | |-b
+                                  |     | |_3
+                                  |     |_INSTRUCTIONLIST
+                                  |       |-Loop
+                                  |       | |-b
+                                  |       | |_Do
+                                  |       |   |_INSTRUCTIONLIST
+                                  |       |     |-On
+                                  |       |     | |-Console
+                                  |       |     | |_a
+                                  |       |     |_INSTRUCTIONLIST
+                                  |       |       |-On
+                                  |       |       | |-Console
+                                  |       |       | |_,
+                                  |       |       |_INSTRUCTIONLIST
+                                  |       |         |-On
+                                  |       |         | |-Console
+                                  |       |         | |_b
+                                  |       |         |_INSTRUCTIONLIST
+                                  |       |           |-On
+                                  |       |           | |-Console
+                                  |       |           | |_\t
+                                  |       |           |_<<
+                                  |       |             |-b
+                                  |       |             |_-
+                                  |       |               |-b
+                                  |       |               |_1
+                                  |       |_INSTRUCTIONLIST
+                                  |         |-On
+                                  |         | |-Console
+                                  |         | |_\n
+                                  |         |_<<
+                                  |           |-a
+                                  |           |_-
+                                  |             |-a
+                                  |             |_1
+                                  |_INSTRUCTIONLIST
+                                    |-On
+                                    | |-Console
+                                    | |_\n\n
                                     |_INSTRUCTIONLIST
-                                      |-<<
-                                      | |-b
-                                      | |_3
-                                      |_INSTRUCTIONLIST
-                                        |-Loop
-                                        | |-b
-                                        | |_Do
-                                        |   |_INSTRUCTIONLIST
-                                        |     |-On
-                                        |     | |-Console
-                                        |     | |_a
-                                        |     |_INSTRUCTIONLIST
-                                        |       |-On
-                                        |       | |-Console
-                                        |       | |_,
-                                        |       |_INSTRUCTIONLIST
-                                        |         |-On
-                                        |         | |-Console
-                                        |         | |_b
-                                        |         |_INSTRUCTIONLIST
-                                        |           |-On
-                                        |           | |-Console
-                                        |           | |_\t
-                                        |           |_<<
-                                        |             |-b
-                                        |             |_-
-                                        |               |-b
-                                        |               |_1
-                                        |_INSTRUCTIONLIST
-                                          |-Continue
-                                          |_INSTRUCTIONLIST
-                                            |-On
-                                            | |-Console
-                                            | |_\n
-                                            |_<<
-                                              |-a
-                                              |_-
-                                                |-a
-                                                |_1
+                                      |-DECLARATION
+                                      | |-D
+                                      | |_<<
+                                      |   |-www
+                                      |   |_In
+                                      |     |-Console
+                                      |     |_ToDecimal
+                                      |_On
+                                        |-Console
+                                        |_www
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 17 	 | DECLARATION 	 | zx
 | 12 	 | DECLARATION 	 | a
 | 12 	 | DECLARATION 	 | b
+| 13 	 | DECLARATION 	 | www
 	t1 : times  256  db `asa`,0 
 		push t1
 		push zx
@@ -3153,9 +3424,6 @@ INSTRUCTIONLIST
 		jmp l5_looper
 		l5_looper_end:
 		;looper l5 end
-
-		jmp l4_looper_continue
-
 		push t17
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
@@ -3182,13 +3450,37 @@ INSTRUCTIONLIST
 		jmp l4_looper
 		l4_looper_end:
 		;looper l4 end
-Object File Created : nasm -f win32 D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
-Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
+		push t19
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push dword[t20] ; Temporary Read
+	t20 : dd 0.0
+		push formatindecimal; number reading
+		call _scanf; call defined function
+		add esp, 8; params * 4
+
+		fld dword[t20]
+		fstp dword[www]
+
+	www : dd 0
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, www
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 17 	 | DECLARATION 	 | zx
 | 12 	 | DECLARATION 	 | a
 | 12 	 | DECLARATION 	 | b
+| 13 	 | DECLARATION 	 | www
 | 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
 | 17 	 | INSTRUCTIONLIST 	 | formatoutdecimal
 | 17 	 | INSTRUCTIONLIST 	 | formatoutchar
@@ -3222,3 +3514,5 @@ Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\
 | 12 	 | - 	 | t16
 | 14 	 | On 	 | t17
 | 12 	 | - 	 | t18
+| 17 	 | On 	 | t19
+| 13 	 | In 	 | t20

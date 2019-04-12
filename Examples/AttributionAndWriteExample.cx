@@ -41,3 +41,7 @@ Loop(a).Do(
 	a<<a-1;
 	
 );
+
+On.Console("\n\n");
+D www<< In.Console().ToDecimal();
+On.Console(www);
