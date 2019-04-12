@@ -10,6 +10,7 @@
 #define DOUBLE_QUOTE 6
 #define QUOTE 7
 #define COMMA 8
+#define BACKLASH 9
 
 #define	UNKNOWN	999
 
