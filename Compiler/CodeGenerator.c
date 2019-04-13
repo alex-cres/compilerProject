@@ -289,13 +289,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		}
 	}
 	
-	else{
+	else {
 		while (ast->kids[i] != NULL && i < MAX_CHILDREN)
 		{
-			GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table,breakerLoop, rescode );
+			GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table, breakerLoop, rescode);
 			i++;
 		}
-		if (ast->type==RESERVED_BREAK) {
+		if (ast->type == RESERVED_BREAK) {
 			char looperID[200];
 			sprintf(looperID, "l%d", breakerLoop);
 			sprintf(buffer, "\n		jmp %s_looper_end\n\n", looperID);
@@ -311,8 +311,8 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printf(buffer);
 			fprintf(logFile, buffer);
 		}
-		else if ((ast->kids[0]!=NULL && ast->kids[1] !=NULL) && (ast->kids[0]->type == LITERAL_CHAR || ast->kids[0]->type == LITERAL_STRING) &&
-			(ast->kids[1]->type == LITERAL_CHAR || ast->kids[1]->type == LITERAL_STRING) && 
+		else if ((ast->kids[0] != NULL && ast->kids[1] != NULL) && (ast->kids[0]->type == LITERAL_CHAR || ast->kids[0]->type == LITERAL_STRING) &&
+			(ast->kids[1]->type == LITERAL_CHAR || ast->kids[1]->type == LITERAL_STRING) &&
 			(ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV)) {
 			char bufferdec[100];
 			concatString = True;
@@ -323,14 +323,14 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			sprintf(bufferdec, "t%d", registerCounter + 2);
 			insertSymbolToken(IDN_STRING, ast, bufferdec, table);
-			sprintf(buffer, "	t%d : times  256  db ``, 0\n", registerCounter+2);
+			sprintf(buffer, "	t%d : times  256  db ``, 0\n", registerCounter + 2);
 			datacode = InsertList(datacode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
 			strcpy(bufferdec, "");
 			sprintf(bufferdec, "t%d", registerCounter + 1);
 			insertSymbolToken(IDN_STRING, ast, bufferdec, table);
-			sprintf(buffer, "	t%d : times  256  db `%s`, 0\n", registerCounter+1, ast->kids[1]->info);
+			sprintf(buffer, "	t%d : times  256  db `%s`, 0\n", registerCounter + 1, ast->kids[1]->info);
 			datacode = InsertList(datacode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
@@ -347,12 +347,12 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
-		
-			sprintf(buffer, "		push	t%d ; Concat Dest\n", registerCounter+2);
+
+			sprintf(buffer, "		push	t%d ; Concat Dest\n", registerCounter + 2);
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
-	
+
 			sprintf(buffer, "		call _strcat\n");
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
@@ -363,12 +363,12 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printf(buffer);
 			fprintf(logFile, buffer);
 
-			sprintf(buffer, "		push	t%d ; Concat Second\n", registerCounter+1);
+			sprintf(buffer, "		push	t%d ; Concat Second\n", registerCounter + 1);
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
 
-			sprintf(buffer, "		push	t%d ; Concat Dest\n", registerCounter+2);
+			sprintf(buffer, "		push	t%d ; Concat Dest\n", registerCounter + 2);
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
@@ -394,18 +394,18 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				sprintf(bufferdec, "t%d", registerCounter);
 				insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 				strcpy(bufferdec, "");
-			
+
 				sprintf(buffer, "		mov eax, %s ; Moving First Operand Number\n", ast->kids[0]->info);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
-				strcpy(buffer,"");
-			
+				strcpy(buffer, "");
+
 				sprintf(buffer, "		mov ebx, %s ; Moving Second Operand Number\n", ast->kids[1]->info);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
-		
+
 			}
 			else if (ast->kids[0]->type == LITERAL_DECIMAL && ast->kids[1]->type == LITERAL_DECIMAL)
 			{
@@ -425,7 +425,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
-		
+
 			}
 			else if (ast->kids[0]->type == IDENTIFIER && ast->kids[1]->type == IDENTIFIER) {
 
@@ -504,7 +504,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 								progcode = InsertList(progcode, buffer);
 								printf(buffer);
 								fprintf(logFile, buffer);
-								
+
 
 								sprintf(buffer, "		mov ebx, dword[%s] ; Moving Second Operand Number Var\n", ast->kids[1]->info);
 								progcode = InsertList(progcode, buffer);
@@ -545,7 +545,8 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							progcode = InsertList(progcode, buffer);
 							printf(buffer);
 							fprintf(logFile, buffer);
-						}else if (type_of_var2 == IDN_BOOL) {
+						}
+						else if (type_of_var2 == IDN_BOOL) {
 							insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 							strcpy(bufferdec, "");
 							floatingpointed = False;
@@ -569,7 +570,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			{
 				if (ast->kids[1]->type == IDENTIFIER) {
 					SymbolToken*searcher = table;
-					while (searcher!=NULL) {
+					while (searcher != NULL) {
 						if (0 == strcmp(ast->kids[1]->info, searcher->name))
 						{
 							type_of_var = searcher->type_of_symbol;
@@ -577,12 +578,12 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						}
 						searcher = searcher->next;
 					}
-					if (type_of_var==IDN_DECIMAL) {
+					if (type_of_var == IDN_DECIMAL) {
 						floatingpointed = True;
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 						strcpy(bufferdec, "");
-						sprintf(bufferdec, "t%d", registerCounter+1);
+						sprintf(bufferdec, "t%d", registerCounter + 1);
 						insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 						strcpy(bufferdec, "");
 						strcpy(buffer, "");
@@ -605,7 +606,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 						strcpy(bufferdec, "");
-					
+
 						strcpy(buffer, "");
 						sprintf(buffer, "		mov eax, %s ; Moving First Operand Number\n", ast->kids[0]->info);
 						progcode = InsertList(progcode, buffer);
@@ -615,7 +616,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 						sprintf(buffer, "		mov ebx, dword[%s] ; Moving Second Operand Number Var\n", ast->kids[1]->info);
 					}
-				
+
 				}
 				else {
 					floatingpointed = False;
@@ -631,7 +632,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					strcpy(buffer, "");
 					regsub++;
 					sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", registerCounter - regsub);
-				
+
 				}
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
@@ -686,7 +687,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						fprintf(logFile, buffer);
 						strcpy(buffer, "");
 						sprintf(buffer, "		mov ebx, %s ; Moving First Operand Number\n", ast->kids[1]->info);
-				
+
 					}
 
 				}
@@ -709,10 +710,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
-			
+
 			}
-			else if (ast->kids[0]->type==LITERAL_DECIMAL) {
-		
+			else if (ast->kids[0]->type == LITERAL_DECIMAL) {
+
 				if (ast->kids[1]->type == IDENTIFIER) {
 
 					SymbolToken*searcher = table;
@@ -752,7 +753,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						strcpy(bufferdec, "");
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
-						sprintf(bufferdec, "t%d", registerCounter+1);
+						sprintf(bufferdec, "t%d", registerCounter + 1);
 						insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 						strcpy(bufferdec, "");
 						strcpy(buffer, "");
@@ -775,7 +776,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				else {
 					SymbolToken*searcher = table;
 					char searcherbuf[150];
-					sprintf(searcherbuf,"t%d",registerCounter-1);
+					sprintf(searcherbuf, "t%d", registerCounter - 1);
 					while (searcher != NULL) {
 						if (0 == strcmp(searcherbuf, searcher->name))
 						{
@@ -793,7 +794,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					strcpy(bufferdec, "");
 					strcpy(buffer, "");
 
-					if (type_of_var==IDN_DECIMAL) {
+					if (type_of_var == IDN_DECIMAL) {
 						sprintf(buffer, "	t%d : dd %s \n", registerCounter, ast->kids[0]->info);
 						datacode = InsertList(datacode, buffer);
 						printf(buffer);
@@ -804,9 +805,9 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						printf(buffer);
 						fprintf(logFile, buffer);
 						strcpy(buffer, "");
-						sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter-1);
+						sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter - 1);
 					}
-					else if(type_of_var==IDN_NUMBER) {
+					else if (type_of_var == IDN_NUMBER) {
 						sprintf(buffer, "	t%d : dd %s \n", registerCounter, ast->kids[0]->info);
 						datacode = InsertList(datacode, buffer);
 						printf(buffer);
@@ -855,8 +856,8 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						printf(buffer);
 						fprintf(logFile, buffer);
 						strcpy(buffer, "");
-				
-						sprintf(buffer, "		fld dword[%s] ; Moving First Operand Decimal Var\n", ast->kids[0]->info); 
+
+						sprintf(buffer, "		fld dword[%s] ; Moving First Operand Decimal Var\n", ast->kids[0]->info);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);
@@ -880,7 +881,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						fprintf(logFile, buffer);
 						strcpy(buffer, "");
 						sprintf(buffer, "		fild dword[%s] ; Moving First Operand Number Var\n", ast->kids[0]->info);
-				
+
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);
@@ -917,7 +918,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						printf(buffer);
 						fprintf(logFile, buffer);
 						strcpy(buffer, "");
-						sprintf(buffer, "		fld dword[t%d] ; Moving First Operand Decimal Var\n", registerCounter-1);
+						sprintf(buffer, "		fld dword[t%d] ; Moving First Operand Decimal Var\n", registerCounter - 1);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);
@@ -930,7 +931,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						printf(buffer);
 						fprintf(logFile, buffer);
 						strcpy(buffer, "");
-						sprintf(buffer, "		fild dword[t%d] ; Moving First Operand Number Var\n", registerCounter -1);
+						sprintf(buffer, "		fild dword[t%d] ; Moving First Operand Number Var\n", registerCounter - 1);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);
@@ -946,7 +947,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				fprintf(logFile, buffer);
 
 			}
-			else{
+			else {
 				sprintf(bufferdec, "t%d", registerCounter);
 				strcpy(buffer, "");
 
@@ -954,16 +955,16 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					SymbolToken*searcher = table;
 					while (searcher != NULL) {
 						char  searchbuf[100];
-						sprintf(searchbuf,"t%d", registerCounter - 1);
+						sprintf(searchbuf, "t%d", registerCounter - 1);
 						if (0 == strcmp(ast->kids[0]->info, searcher->name))
 						{
 							type_of_var = searcher->type_of_symbol;
-						
+
 						}
 						if (0 == strcmp(searchbuf, searcher->name))
 						{
 							type_of_var2 = searcher->type_of_symbol;
-						
+
 						}
 						searcher = searcher->next;
 					}
@@ -977,7 +978,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							printf(buffer);
 							fprintf(logFile, buffer);
 
-							sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", registerCounter-1);
+							sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", registerCounter - 1);
 							progcode = InsertList(progcode, buffer);
 							printf(buffer);
 							fprintf(logFile, buffer);
@@ -989,7 +990,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							printf(buffer);
 							fprintf(logFile, buffer);
 
-							sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter-1);
+							sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter - 1);
 							progcode = InsertList(progcode, buffer);
 							printf(buffer);
 							fprintf(logFile, buffer);
@@ -1009,7 +1010,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 								printf(buffer);
 								fprintf(logFile, buffer);
 
-								sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter-1);
+								sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter - 1);
 								progcode = InsertList(progcode, buffer);
 								printf(buffer);
 								fprintf(logFile, buffer);
@@ -1035,9 +1036,9 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							break;
 						}
 					}
-				
+
 				}
-			
+
 				if (ast->kids[1]->type == IDENTIFIER) {
 
 					SymbolToken*searcher = table;
@@ -1061,7 +1062,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						strcpy(bufferdec, "");
 						switch (type_of_var) {
 						case IDN_NUMBER:
-							sprintf(buffer, "		mov eax, dword[t%d] ; Moving First Operand Number Var\n", registerCounter - 1 );
+							sprintf(buffer, "		mov eax, dword[t%d] ; Moving First Operand Number Var\n", registerCounter - 1);
 							progcode = InsertList(progcode, buffer);
 							printf(buffer);
 							fprintf(logFile, buffer);
@@ -1093,7 +1094,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 								insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 								strcpy(bufferdec, "");
 								floatingpointed = True;
-								sprintf(buffer, "		fild dword[t%d] ; Moving First Operand Number Var\n", registerCounter-1);
+								sprintf(buffer, "		fild dword[t%d] ; Moving First Operand Number Var\n", registerCounter - 1);
 								progcode = InsertList(progcode, buffer);
 								printf(buffer);
 								fprintf(logFile, buffer);
@@ -1125,7 +1126,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						}
 					}
 				}
-			
+
 
 			}
 
@@ -1183,10 +1184,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			else if (concatString) {
 			}
-	
 
 
-		
+
+
 			strcpy(buffer, "");
 			sprintf(buffer, "	t%d : dd 0 \n", registerCounter);
 			datacode = InsertList(datacode, buffer);
@@ -1204,6 +1205,137 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printf(buffer);
 			fprintf(logFile, buffer);
 
+			registerCounter++;
+		}
+		else if (ast->type == OP_MINOR || ast->type == OP_BIGGER || ast->type == OP_BIGGER_EQUAL || 
+		ast->type == OP_MINOR_EQUAL || ast->type == OP_EQUAL || ast->type == OP_NOT_EQUAL) {
+			char bufferdec[100];
+			
+			if (ast->kids[0]->type == IDENTIFIER) {
+				sprintf(buffer, "		mov eax, dword[%s]\n", ast->kids[0]->info);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+			}
+			else  if(ast->kids[0]->type == LITERAL_NUMBER || ast->kids[0]->type == LITERAL_DECIMAL || ast->kids[0]->type == LITERAL_CHAR ){
+				sprintf(bufferdec, "t%d", registerCounter);
+				insertSymbolToken((ast->kids[0]->type==LITERAL_NUMBER)?IDN_NUMBER:((ast->kids[0]->type == LITERAL_DECIMAL)?IDN_DECIMAL:IDN_CHAR), ast, bufferdec, table);
+				sprintf(buffer, (ast->kids[0]->type == LITERAL_NUMBER) ? "	t%d : dd %s\n" : ((ast->kids[0]->type == "	t%d : dd %s\n") ? IDN_DECIMAL : "	t%d : times 10 db `%s`\n"), registerCounter, ast->kids[0]->info);
+				datacode = InsertList(datacode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+				registerCounter++;
+			}
+			else  if (ast->kids[0]->type == RESERVED_BOOL_FALSE || ast->kids[0]->type == RESERVED_BOOL_TRUE) {
+				sprintf(buffer, "		mov eax, %s\n", ast->kids[0]->info);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+			}
+			else {
+				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter-1);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+			}
+			if (ast->kids[1]->type == IDENTIFIER) {
+				sprintf(buffer, "		mov eax, dword[%s]\n", ast->kids[1]->info);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+			}
+			else  if (ast->kids[1]->type == LITERAL_NUMBER || ast->kids[1]->type == LITERAL_DECIMAL || ast->kids[1]->type == LITERAL_CHAR) {
+				sprintf(bufferdec, "t%d", registerCounter);
+				insertSymbolToken((ast->kids[1]->type == LITERAL_NUMBER) ? IDN_NUMBER : ((ast->kids[1]->type == LITERAL_DECIMAL) ? IDN_DECIMAL : IDN_CHAR), ast, bufferdec, table);
+				sprintf(buffer, (ast->kids[1]->type == LITERAL_NUMBER) ? "	t%d : dd %s\n" : ((ast->kids[1]->type == "	t%d : dd %s\n") ? IDN_DECIMAL : "	t%d : times 10 db `%s`\n"), registerCounter, ast->kids[1]->info);
+				datacode = InsertList(datacode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+				registerCounter++;
+			}
+			else  if (ast->kids[1]->type == RESERVED_BOOL_FALSE || ast->kids[1]->type == RESERVED_BOOL_TRUE) {
+				sprintf(buffer, "		mov eax, %s\n", ast->kids[1]->info);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+			}
+			else {
+				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter - 1);
+				progcode = InsertList(progcode, buffer);
+				printf(buffer);
+				fprintf(logFile, buffer);
+			}
+
+
+
+			sprintf(bufferdec, "t%d", registerCounter);
+			insertSymbolToken(IDN_BOOL, ast, bufferdec, table);
+			sprintf(buffer, "	t%d : dd 0\n", registerCounter);
+			datacode = InsertList(datacode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+
+
+			sprintf(buffer, "		cmp eax, ebx\n");
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+
+			switch (ast->type)
+			{ 
+				case OP_MINOR:
+					sprintf(buffer, "		jl	%s_true\n", bufferdec);
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+				break;
+				case OP_BIGGER:
+					sprintf(buffer, "		jg	%s_true\n", bufferdec);
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+				break;
+				case OP_BIGGER_EQUAL:
+					sprintf(buffer, "		jge	%s_true\n", bufferdec);
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+				break; 
+				case OP_MINOR_EQUAL:
+					sprintf(buffer, "		jle	%s_true\n", bufferdec);
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+				break;
+				case OP_EQUAL:
+					sprintf(buffer, "		je	%s_true\n", bufferdec);
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+				break;
+				case OP_NOT_EQUAL:
+					sprintf(buffer, "		jne	%s_true\n", bufferdec);
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+				break;
+			}
+			sprintf(buffer, "		mov dword[%s],FALSE\n		jmp %s_false\n", bufferdec, bufferdec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		%s_true:\n		mov dword[%s],TRUE\n		%s_false:\n\n", bufferdec, bufferdec, bufferdec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
 			registerCounter++;
 		}
 		else if (ast->type==OP_AND || ast->type == OP_OR || ast->type == OP_XOR || ast->type == OP_NOT) {
@@ -1255,7 +1387,50 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					
 					registerCounter++;
 				}
-				
+				else {
+					char bufferdecx[200];
+					sprintf(bufferdecx,"t%d",registerCounter-1);
+					int type_of_var = 0;
+					SymbolToken*current = table;
+					while (current != NULL) {
+						if (0 == strcmp(bufferdecx, current->name)) {
+							type_of_var = current->type_of_symbol;
+							break;
+						}
+						current = current->next;
+
+					}
+					if (type_of_var == IDN_BOOL) {
+
+						sprintf(buffer, "		mov eax, dword[%s]\n		cmp eax, FALSE\n", bufferdecx);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+						sprintf(buffer, "		je %s_true\n		mov dword[%s], FALSE\n", bufferdec, bufferdec);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+						sprintf(buffer, "		jmp %s_false\n		%s_true:\n", bufferdec, bufferdec);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+						sprintf(buffer, "		mov dword[%s],TRUE\n		%s_false:\n", bufferdec, bufferdec);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+					}
+					else {
+						printfAndExit(logFile, "ERROR: NON BOOL FOR OP_NOT", ERROR_OP_NOT_NON_BOOL, lineNumber, ast->kids[0]->info);
+					}
+
+					registerCounter++;
+				}
+			}
+			else {
+
 			}
 		}
 		else if (ast->type == OP_ATTRIBUTION)
