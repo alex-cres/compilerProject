@@ -2,6 +2,28 @@
 READING FROM : ..\Examples\AttributionAndWriteExample.cx
 WRITING TO : ..\Examples\AttributionAndWriteExample.cx_logFile.txt
 
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	q
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	2222
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
 Token:	015 --> IDN_BOOL                      	Lex:	B
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -12,64 +34,6 @@ Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	043 --> OP_NOT                        	Lex:	!
 Entering <BEXP>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	071 --> RESERVED_BOOL_FALSE           	Lex:	False
-Entering <BEXP>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <BEXP>
-Exiting <DECLAREEXP>
-Exiting <DECLARATION>
-Exiting <INSTRUCTION>
-Token:	012 --> IDN_NUMBER                    	Lex:	N
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <DECLARATION>
-Token:	011 --> IDENTIFIER                    	Lex:	a
-Entering <DECLAREEXP>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
-Token:	018 --> LITERAL_NUMBER                	Lex:	3
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Exiting <DECLAREEXP>
-Exiting <DECLARATION>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\n\n\n"
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ATTRIBUTION>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
 Entering <BEXP>
 Entering <CEXP>
@@ -80,18 +44,41 @@ Token:	036 --> OP_MINOR                      	Lex:	<
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Token:	011 --> IDENTIFIER                    	Lex:	a
+Token:	011 --> IDENTIFIER                    	Lex:	q
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	005 --> POINT_COMMA                   	Lex:	;
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
 Exiting <BEXP>
-Exiting <ATTRIBUTION>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
 Exiting <INSTRUCTION>
+Token:	072 --> RESERVED_IF                   	Lex:	If
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <IF>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	b
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	004 --> POINT                         	Lex:	.
+Token:	073 --> RESERVED_THEN                 	Lex:	Then
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	078 --> RESERVED_ON                   	Lex:	On
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -99,7 +86,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	b
+Token:	018 --> LITERAL_NUMBER                	Lex:	1
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -114,364 +101,115 @@ Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n"
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
+Exiting <INSTRUCTIONLIST>
 Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ATTRIBUTION>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
-Token:	043 --> OP_NOT                        	Lex:	!
-Entering <BEXP>
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <BEXP>
-Exiting <ATTRIBUTION>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n"
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ATTRIBUTION>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
-Token:	043 --> OP_NOT                        	Lex:	!
-Entering <BEXP>
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <BEXP>
-Exiting <ATTRIBUTION>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	b
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n"
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
+Exiting <IF>
 Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 20
+MAX_DEPTH_TREE FOUND : 15
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
   | |_DECLARATION
-  |   |-B
+  |   |-N
   |   |_DECLAREEXP
-  |     |-b
+  |     |-q
   |     |-<<
   |     |_BEXP
-  |       |-!
-  |       |-(
-  |       |-BEXP
-  |       | |_False
-  |       |_)
+  |       |_CEXP
+  |         |_EXP
+  |           |_TERM
+  |             |_FACTOR
+  |               |_2222
   |-;
   |_INSTRUCTIONLIST
     |-INSTRUCTION
     | |_DECLARATION
-    |   |-N
+    |   |-B
     |   |_DECLAREEXP
-    |     |-a
+    |     |-b
     |     |-<<
     |     |_BEXP
-    |       |_CEXP
-    |         |_EXP
-    |           |_TERM
-    |             |_FACTOR
-    |               |_3
+    |       |-!
+    |       |-(
+    |       |-BEXP
+    |       | |_CEXP
+    |       |   |-EXP
+    |       |   | |_TERM
+    |       |   |   |_FACTOR
+    |       |   |     |_2
+    |       |   |-<
+    |       |   |_EXP
+    |       |     |_TERM
+    |       |       |_FACTOR
+    |       |         |_q
+    |       |_)
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
-      | |_ON
-      |   |-On
-      |   |-.
-      |   |-Console
+      | |_IF
+      |   |-If
       |   |-(
       |   |-BEXP
       |   | |_CEXP
       |   |   |_EXP
       |   |     |_TERM
       |   |       |_FACTOR
-      |   |         |_"\n\n\n\n"
-      |   |_)
+      |   |         |_b
+      |   |-)
+      |   |-.
+      |   |_Then
+      |     |-(
+      |     |-INSTRUCTIONLIST
+      |     | |-INSTRUCTION
+      |     | | |_ON
+      |     | |   |-On
+      |     | |   |-.
+      |     | |   |-Console
+      |     | |   |-(
+      |     | |   |-BEXP
+      |     | |   | |_CEXP
+      |     | |   |   |_EXP
+      |     | |   |     |_TERM
+      |     | |   |       |_FACTOR
+      |     | |   |         |_1
+      |     | |   |_)
+      |     | |_;
+      |     |_)
       |-;
-      |_INSTRUCTIONLIST
-        |-INSTRUCTION
-        | |_ATTRIBUTION
-        |   |-b
-        |   |-<<
-        |   |_BEXP
-        |     |_CEXP
-        |       |-EXP
-        |       | |_TERM
-        |       |   |_FACTOR
-        |       |     |_2
-        |       |-<
-        |       |_EXP
-        |         |_TERM
-        |           |_FACTOR
-        |             |_a
-        |-;
-        |_INSTRUCTIONLIST
-          |-INSTRUCTION
-          | |_ON
-          |   |-On
-          |   |-.
-          |   |-Console
-          |   |-(
-          |   |-BEXP
-          |   | |_CEXP
-          |   |   |_EXP
-          |   |     |_TERM
-          |   |       |_FACTOR
-          |   |         |_b
-          |   |_)
-          |-;
-          |_INSTRUCTIONLIST
-            |-INSTRUCTION
-            | |_ON
-            |   |-On
-            |   |-.
-            |   |-Console
-            |   |-(
-            |   |-BEXP
-            |   | |_CEXP
-            |   |   |_EXP
-            |   |     |_TERM
-            |   |       |_FACTOR
-            |   |         |_"\n"
-            |   |_)
-            |-;
-            |_INSTRUCTIONLIST
-              |-INSTRUCTION
-              | |_ATTRIBUTION
-              |   |-b
-              |   |-<<
-              |   |_BEXP
-              |     |-!
-              |     |-(
-              |     |-BEXP
-              |     | |_CEXP
-              |     |   |_EXP
-              |     |     |_TERM
-              |     |       |_FACTOR
-              |     |         |_b
-              |     |_)
-              |-;
-              |_INSTRUCTIONLIST
-                |-INSTRUCTION
-                | |_ON
-                |   |-On
-                |   |-.
-                |   |-Console
-                |   |-(
-                |   |-BEXP
-                |   | |_CEXP
-                |   |   |_EXP
-                |   |     |_TERM
-                |   |       |_FACTOR
-                |   |         |_b
-                |   |_)
-                |-;
-                |_INSTRUCTIONLIST
-                  |-INSTRUCTION
-                  | |_ON
-                  |   |-On
-                  |   |-.
-                  |   |-Console
-                  |   |-(
-                  |   |-BEXP
-                  |   | |_CEXP
-                  |   |   |_EXP
-                  |   |     |_TERM
-                  |   |       |_FACTOR
-                  |   |         |_"\n"
-                  |   |_)
-                  |-;
-                  |_INSTRUCTIONLIST
-                    |-INSTRUCTION
-                    | |_ATTRIBUTION
-                    |   |-b
-                    |   |-<<
-                    |   |_BEXP
-                    |     |-!
-                    |     |-(
-                    |     |-BEXP
-                    |     | |_CEXP
-                    |     |   |_EXP
-                    |     |     |_TERM
-                    |     |       |_FACTOR
-                    |     |         |_b
-                    |     |_)
-                    |-;
-                    |_INSTRUCTIONLIST
-                      |-INSTRUCTION
-                      | |_ON
-                      |   |-On
-                      |   |-.
-                      |   |-Console
-                      |   |-(
-                      |   |-BEXP
-                      |   | |_CEXP
-                      |   |   |_EXP
-                      |   |     |_TERM
-                      |   |       |_FACTOR
-                      |   |         |_b
-                      |   |_)
-                      |-;
-                      |_INSTRUCTIONLIST
-                        |-INSTRUCTION
-                        | |_ON
-                        |   |-On
-                        |   |-.
-                        |   |-Console
-                        |   |-(
-                        |   |-BEXP
-                        |   | |_CEXP
-                        |   |   |_EXP
-                        |   |     |_TERM
-                        |   |       |_FACTOR
-                        |   |         |_"\n"
-                        |   |_)
-                        |-;
-                        |_EOF
+      |_EOF
 Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering q
+Exiting q
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2222
+Exiting 2222
+Exiting 2222
+Exiting 2222
+Exiting 2222
+Exiting 2222
+Exiting 2222
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
 Entering DECLARATION
@@ -487,74 +225,6 @@ Entering !
 Exiting !
 Entering (
 Entering BEXP
-Entering False
-Exiting False
-Exiting False
-Entering )
-Exiting !
-Exiting <<
-Exiting DECLARATION
-Exiting DECLARATION
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering DECLARATION
-Entering N
-Exiting N
-Entering DECLAREEXP
-Entering a
-Exiting a
-Entering <<
-Exiting <<
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering 3
-Exiting 3
-Exiting 3
-Exiting 3
-Exiting 3
-Exiting 3
-Exiting 3
-Exiting <<
-Exiting DECLARATION
-Exiting DECLARATION
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n\n\n\n"
-Exiting \n\n\n\n
-Exiting \n\n\n\n
-Exiting \n\n\n\n
-Exiting \n\n\n\n
-Exiting \n\n\n\n
-Exiting \n\n\n\n
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ATTRIBUTION
-Entering b
-Exiting b
-Entering <<
-Exiting <<
-Entering BEXP
 Entering CEXP
 Entering EXP
 Entering TERM
@@ -569,102 +239,24 @@ Exiting <
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering a
-Exiting a
-Exiting a
-Exiting a
-Exiting a
+Entering q
+Exiting q
+Exiting q
+Exiting q
+Exiting q
 Exiting <
 Exiting <
-Exiting <<
-Exiting <<
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n"
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ATTRIBUTION
-Entering b
-Exiting b
-Entering <<
-Exiting <<
-Entering BEXP
-Entering !
-Exiting !
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
 Entering )
 Exiting !
 Exiting <<
-Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
+Entering IF
+Entering If
+Exiting If
 Entering (
 Entering BEXP
 Entering CEXP
@@ -679,9 +271,9 @@ Exiting b
 Exiting b
 Exiting b
 Entering )
-Exiting On
-Exiting On
-Entering ;
+Entering .
+Entering Then
+Entering (
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
 Entering ON
@@ -696,165 +288,65 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n"
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
+Entering 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
 Entering )
 Exiting On
 Exiting On
 Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ATTRIBUTION
-Entering b
-Exiting b
-Entering <<
-Exiting <<
-Entering BEXP
-Entering !
-Exiting !
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
+Exiting On
 Entering )
-Exiting !
-Exiting <<
-Exiting <<
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Exiting b
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n"
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Entering )
-Exiting On
-Exiting On
+Exiting Then
+Exiting If
+Exiting If
 Entering ;
 Entering EOF
-Exiting On
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
+Exiting If
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
-| |-B
+| |-N
 | |_<<
-|   |-b
-|   |_!
-|     |_False
+|   |-q
+|   |_2222
 |_INSTRUCTIONLIST
   |-DECLARATION
-  | |-N
+  | |-B
   | |_<<
-  |   |-a
-  |   |_3
-  |_INSTRUCTIONLIST
-    |-On
-    | |-Console
-    | |_\n\n\n\n
-    |_INSTRUCTIONLIST
-      |-<<
-      | |-b
-      | |_<
-      |   |-2
-      |   |_a
-      |_INSTRUCTIONLIST
-        |-On
-        | |-Console
-        | |_b
-        |_INSTRUCTIONLIST
-          |-On
-          | |-Console
-          | |_\n
-          |_INSTRUCTIONLIST
-            |-<<
-            | |-b
-            | |_!
-            |   |_b
-            |_INSTRUCTIONLIST
-              |-On
-              | |-Console
-              | |_b
-              |_INSTRUCTIONLIST
-                |-On
-                | |-Console
-                | |_\n
-                |_INSTRUCTIONLIST
-                  |-<<
-                  | |-b
-                  | |_!
-                  |   |_b
-                  |_INSTRUCTIONLIST
-                    |-On
-                    | |-Console
-                    | |_b
-                    |_On
-                      |-Console
-                      |_\n
+  |   |-b
+  |   |_!
+  |     |_<
+  |       |-2
+  |       |_q
+  |_If
+    |-b
+    |_Then
+      |_On
+        |-Console
+        |_1
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization start N
+End Optimization of N
+Optimization of <<
+Optimization of q
+Optimization start q
+End Optimization of q
+Optimization of 2222
+Optimization start 2222
+End Optimization of 2222
+Optimization start <<
+End Optimization of <<
+Optimization start DECLARATION
+End Optimization of DECLARATION
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of B
@@ -865,336 +357,133 @@ Optimization of b
 Optimization start b
 End Optimization of b
 Optimization of !
-Optimization of False
-Optimization start False
-End Optimization of False
-Optimization start !
-Optimization result True
-End Optimization of True
-Optimization start <<
-End Optimization of <<
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of DECLARATION
-Optimization of N
-Optimization start N
-End Optimization of N
-Optimization of <<
-Optimization of a
-Optimization start a
-End Optimization of a
-Optimization of 3
-Optimization start 3
-End Optimization of 3
-Optimization start <<
-End Optimization of <<
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n\n\n\n
-Optimization start \n\n\n\n
-End Optimization of \n\n\n\n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of <<
-Optimization of b
-Optimization start b
-End Optimization of b
 Optimization of <
 Optimization of 2
 Optimization start 2
 End Optimization of 2
-Optimization of a
-Optimization start a
-End Optimization of a
+Optimization of q
+Optimization start q
+End Optimization of q
 Optimization start <
 Optimization result <
 End Optimization of <
-Optimization start <<
-End Optimization of <<
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of b
-Optimization start b
-End Optimization of b
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of <<
-Optimization of b
-Optimization start b
-End Optimization of b
-Optimization of !
-Optimization of b
-Optimization start b
-End Optimization of b
 Optimization start !
 Optimization result !
 End Optimization of !
 Optimization start <<
 End Optimization of <<
-Optimization of INSTRUCTIONLIST
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of If
+Optimization of b
+Optimization start b
+End Optimization of b
+Optimization of Then
 Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of b
-Optimization start b
-End Optimization of b
+Optimization of 1
+Optimization start 1
+End Optimization of 1
 Optimization start On
 End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of <<
-Optimization of b
-Optimization start b
-End Optimization of b
-Optimization of !
-Optimization of b
-Optimization start b
-End Optimization of b
-Optimization start !
-Optimization result !
-End Optimization of !
-Optimization start <<
-End Optimization of <<
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of b
-Optimization start b
-End Optimization of b
-Optimization start On
-End Optimization of On
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
+Optimization start Then
+End Optimization of Then
+Optimization start If
+End Optimization of If
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
-| |-B
+| |-N
 | |_<<
-|   |-b
-|   |_True
+|   |-q
+|   |_2222
 |_INSTRUCTIONLIST
   |-DECLARATION
-  | |-N
+  | |-B
   | |_<<
-  |   |-a
-  |   |_3
-  |_INSTRUCTIONLIST
-    |-On
-    | |-Console
-    | |_\n\n\n\n
-    |_INSTRUCTIONLIST
-      |-<<
-      | |-b
-      | |_<
-      |   |-2
-      |   |_a
-      |_INSTRUCTIONLIST
-        |-On
-        | |-Console
-        | |_b
-        |_INSTRUCTIONLIST
-          |-On
-          | |-Console
-          | |_\n
-          |_INSTRUCTIONLIST
-            |-<<
-            | |-b
-            | |_!
-            |   |_b
-            |_INSTRUCTIONLIST
-              |-On
-              | |-Console
-              | |_b
-              |_INSTRUCTIONLIST
-                |-On
-                | |-Console
-                | |_\n
-                |_INSTRUCTIONLIST
-                  |-<<
-                  | |-b
-                  | |_!
-                  |   |_b
-                  |_INSTRUCTIONLIST
-                    |-On
-                    | |-Console
-                    | |_b
-                    |_On
-                      |-Console
-                      |_\n
+  |   |-b
+  |   |_!
+  |     |_<
+  |       |-2
+  |       |_q
+  |_If
+    |-b
+    |_Then
+      |_On
+        |-Console
+        |_1
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
+| 12 	 | DECLARATION 	 | q
 | 15 	 | DECLARATION 	 | b
-| 12 	 | DECLARATION 	 | a
-		mov eax, TRUE
-		mov dword[b], eax
+		mov eax, 2222
+		mov dword[q], eax
 
-	b : dd 0
-		mov eax, 3
-		mov dword[a], eax
-
-	a : dd 0
-		push t1
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-	t2 : dd 2
-		mov eax, dword[t2]
-		mov eax, dword[a]
-	t3 : dd 0
+	q : dd 0
+	t1 : dd 2
+		mov eax, dword[t1]
+		mov eax, dword[q]
+	t2 : dd 0
 		cmp eax, ebx
-		jl	t3_true
-		mov dword[t3],FALSE
+		jl	t2_true
+		mov dword[t2],FALSE
+		jmp t2_false
+		t2_true:
+		mov dword[t2],TRUE
+		t2_false:
+
+	t3 : dd 0
+		mov eax, dword[t2]
+		cmp eax, FALSE
+		je t3_true
+		mov dword[t3], FALSE
 		jmp t3_false
 		t3_true:
 		mov dword[t3],TRUE
 		t3_false:
-
 		mov eax, dword[t3]
 		mov dword[b], eax
 
-		mov eax, dword[b]
-		cmp eax, 0
-		je t4_false
-		push stringTrue
-		jmp t4_true
-		t4_false:
-		push stringFalse
-		t4_true:
-		push formatoutbool; push message into ESP
+	b : dd 0
+	t4 : dd 0
+
+		mov ebx, dword[b]
+
+		mov dword[t4],ebx
+
+		mov ebx, dword[t4]
+
+		mov eax, TRUE
+
+		cmp eax, ebx
+
+		je t4_if_then
+
+		jmp t4_if_else
+
+		t4_if_then:
+		push dword[t5]
+		push formatoutnumber; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t5
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
 
-	t6 : dd 0
-		mov eax, dword[b]
-		cmp eax, FALSE
-		je t6_true
-		mov dword[t6], FALSE
-		jmp t6_false
-		t6_true:
-		mov dword[t6],TRUE
-		t6_false:
-		mov eax, dword[t6]
-		mov dword[b], eax
+		jmp t4_if_end
 
-		mov eax, dword[b]
-		cmp eax, 0
-		je t7_false
-		push stringTrue
-		jmp t7_true
-		t7_false:
-		push stringFalse
-		t7_true:
-		push formatoutbool; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
+		t4_if_else:
 
-		push t8
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-	t9 : dd 0
-		mov eax, dword[b]
-		cmp eax, FALSE
-		je t9_true
-		mov dword[t9], FALSE
-		jmp t9_false
-		t9_true:
-		mov dword[t9],TRUE
-		t9_false:
-		mov eax, dword[t9]
-		mov dword[b], eax
-
-		mov eax, dword[b]
-		cmp eax, 0
-		je t10_false
-		push stringTrue
-		jmp t10_true
-		t10_false:
-		push stringFalse
-		t10_true:
-		push formatoutbool; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t11
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-Object File Created : nasm -f win32 D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
-Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o D:\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
+		t4_if_end:
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\AttributionAndWriteExample.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
+| 12 	 | DECLARATION 	 | q
 | 15 	 | DECLARATION 	 | b
-| 12 	 | DECLARATION 	 | a
 | 17 	 | INSTRUCTIONLIST 	 | stringFalse
 | 17 	 | INSTRUCTIONLIST 	 | stringTrue
 | 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
@@ -1207,11 +496,7 @@ Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\
 | 17 	 | INSTRUCTIONLIST 	 | formatinchar
 | 17 	 | INSTRUCTIONLIST 	 | formatinstring
 | 17 	 | INSTRUCTIONLIST 	 | formatinbool
-| 17 	 | On 	 | t1
-| 12 	 | < 	 | t2
-| 15 	 | < 	 | t3
-| 17 	 | On 	 | t5
-| 15 	 | ! 	 | t6
-| 17 	 | On 	 | t8
-| 15 	 | ! 	 | t9
-| 17 	 | On 	 | t11
+| 12 	 | < 	 | t1
+| 15 	 | < 	 | t2
+| 15 	 | ! 	 | t3
+| 15 	 | If 	 | t4

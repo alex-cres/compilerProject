@@ -15,16 +15,13 @@ SECTION .data
 	formatinstring: db "%s", 0
 	formatinbool: db "%d", 0
 
-	b : dd 0
-	a : dd 0
-	t1 : times  256  db `\n\n\n\n`,0 
-	t2 : dd 2
+	q : dd 0
+	t1 : dd 2
+	t2 : dd 0
 	t3 : dd 0
-	t5 : times  256  db `\n`,0 
-	t6 : dd 0
-	t8 : times  256  db `\n`,0 
-	t9 : dd 0
-	t11 : times  256  db `\n`,0 
+	b : dd 0
+	t4 : dd 0
+	t5 : dd 1
 
 
 SECTION .bss
@@ -38,103 +35,57 @@ SECTION .text
 	extern _strcpy
 	_main:
 
-		mov eax, TRUE
-		mov dword[b], eax
+		mov eax, 2222
+		mov dword[q], eax
 
-		mov eax, 3
-		mov dword[a], eax
-
-		push t1
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
+		mov eax, dword[t1]
+		mov eax, dword[q]
+		cmp eax, ebx
+		jl	t2_true
+		mov dword[t2],FALSE
+		jmp t2_false
+		t2_true:
+		mov dword[t2],TRUE
+		t2_false:
 
 		mov eax, dword[t2]
-		mov eax, dword[a]
-		cmp eax, ebx
-		jl	t3_true
-		mov dword[t3],FALSE
+		cmp eax, FALSE
+		je t3_true
+		mov dword[t3], FALSE
 		jmp t3_false
 		t3_true:
 		mov dword[t3],TRUE
 		t3_false:
-
 		mov eax, dword[t3]
 		mov dword[b], eax
 
-		mov eax, dword[b]
-		cmp eax, 0
-		je t4_false
-		push stringTrue
-		jmp t4_true
-		t4_false:
-		push stringFalse
-		t4_true:
-		push formatoutbool; push message into ESP
+
+		mov ebx, dword[b]
+
+		mov dword[t4],ebx
+
+		mov ebx, dword[t4]
+
+		mov eax, TRUE
+
+		cmp eax, ebx
+
+		je t4_if_then
+
+		jmp t4_if_else
+
+		t4_if_then:
+		push dword[t5]
+		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t5
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
 
-		mov eax, dword[b]
-		cmp eax, FALSE
-		je t6_true
-		mov dword[t6], FALSE
-		jmp t6_false
-		t6_true:
-		mov dword[t6],TRUE
-		t6_false:
-		mov eax, dword[t6]
-		mov dword[b], eax
+		jmp t4_if_end
 
-		mov eax, dword[b]
-		cmp eax, 0
-		je t7_false
-		push stringTrue
-		jmp t7_true
-		t7_false:
-		push stringFalse
-		t7_true:
-		push formatoutbool; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
+		t4_if_else:
 
-		push t8
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		mov eax, dword[b]
-		cmp eax, FALSE
-		je t9_true
-		mov dword[t9], FALSE
-		jmp t9_false
-		t9_true:
-		mov dword[t9],TRUE
-		t9_false:
-		mov eax, dword[t9]
-		mov dword[b], eax
-
-		mov eax, dword[b]
-		cmp eax, 0
-		je t10_false
-		push stringTrue
-		jmp t10_true
-		t10_false:
-		push stringFalse
-		t10_true:
-		push formatoutbool; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t11
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
+		t4_if_end:
 
 
 	mov eax, 0 

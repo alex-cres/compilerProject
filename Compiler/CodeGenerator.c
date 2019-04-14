@@ -288,7 +288,87 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printfAndExit(logFile, "ERROR: SYNTAX ERROR INCOMPLETE LOOP, %s", ERROR_INCOMPLETE_LOOP, ast->info);
 		}
 	}
-	
+	else if (ast->type==RESERVED_IF && ast->kids[0]!=NULL && ast->kids[1] != NULL) {
+	char bufferDec[200];
+
+		if (ast->kids[0]->type != IDENTIFIER) {
+
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode);
+			sprintf(bufferDec, "t%d", registerCounter - 1);
+			sprintf(buffer, "\n		mov ebx, dword[%s]\n", bufferDec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+
+		}else{
+
+			
+			
+			sprintf(bufferDec, "t%d", registerCounter);
+			insertSymbolToken(IDN_BOOL, ast, bufferDec, table);
+			sprintf(buffer, "	t%d : dd 0\n", registerCounter);
+			datacode = InsertList(datacode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "\n		mov ebx, dword[%s]\n", ast->kids[0]->info);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "\n		mov dword[%s],ebx\n", bufferDec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "\n		mov ebx, dword[%s]\n", bufferDec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			registerCounter++;
+
+		}	
+
+		sprintf(buffer, "\n		mov eax, TRUE\n");
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "\n		cmp eax, ebx\n");
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		sprintf(buffer, "\n		je %s_if_then\n", bufferDec);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "\n		jmp %s_if_else\n", bufferDec);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		sprintf(buffer, "\n		%s_if_then:\n", bufferDec);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		
+		GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, breakerLoop, rescode);
+
+		sprintf(buffer, "\n		jmp %s_if_end\n", bufferDec);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		sprintf(buffer, "\n		%s_if_else:\n", bufferDec);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
+		if (ast->kids[2] != NULL) {
+			GenerateIntermidiateCode(ast->kids[2], logFile, datacode, progcode, table, breakerLoop, rescode);
+		}
+		sprintf(buffer, "\n		%s_if_end:\n", bufferDec);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+	}
 	else {
 		while (ast->kids[i] != NULL && i < MAX_CHILDREN)
 		{
