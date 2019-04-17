@@ -1,5 +1,4 @@
 N j,i;
-D e<<1.0, q<<1.0;
 For(i << 2).Step(+2).If(i<=10).Do(
 	On.Console(i);
 	On.Console('\t');
@@ -12,7 +11,9 @@ For(j << 2).Step(+2).If(True).Do(
 	On.Console('\t');
 	On.Console(j*j);
 	On.Console('\n');
-	If(j<=10).Then(
+	If(j>=10).Then(
 		Break();
 	);
 );
+
+               

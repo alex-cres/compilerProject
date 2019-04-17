@@ -349,22 +349,22 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		if (ast->kids[2]->kids[0]->type != RESERVED_BOOL_FALSE && ast->kids[2]->kids[0]->type != RESERVED_BOOL_TRUE) {
 			GenerateIntermidiateCode(ast->kids[2]->kids[0], logFile, datacode, progcode, table, loopnumber, rescode);
 			sprintf(iffer, "t%d", registerCounter - 1);
-			sprintf(buffer, "		mov eax, dword[%s]\n		cmp eax, TRUE\n", iffer);
+			sprintf(buffer, "		mov ebx, dword[%s]\n		mov eax, TRUE\n		cmp eax, ebx\n", iffer);
 
 		}
 		else {
 			strupper(ast->kids[2]->kids[0]->info);
+			sprintf(buffer, "		mov ebx, %s\n		cmp ebx, TRUE\n", ast->kids[2]->kids[0]->info);
 			
-			sprintf(buffer, "		mov eax, %s\n		cmp eax, TRUE\n", ast->kids[2]->kids[0]->info);
 		}
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
 		fprintf(logFile, buffer);
-		sprintf(buffer, "		je %s_true\n		jmp %s_looper_end\n", looperID, looperID);
+		sprintf(buffer, "		je %s_looper_true\n		jmp %s_looper_end\n", looperID, looperID);
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
 		fprintf(logFile, buffer);
-		sprintf(buffer, "		%s_true:\n", looperID);
+		sprintf(buffer, "		%s_looper_true:\n", looperID);
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
 		fprintf(logFile, buffer);
@@ -471,12 +471,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 		}	
 
-		sprintf(buffer, "\n		mov eax, TRUE\n");
-		progcode = InsertList(progcode, buffer);
-		printf(buffer);
-		fprintf(logFile, buffer);
-
-		sprintf(buffer, "\n		cmp eax, ebx\n");
+		sprintf(buffer, "\n		cmp  ebx, TRUE\n");
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
 		fprintf(logFile, buffer);
@@ -1480,20 +1475,21 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				datacode = InsertList(datacode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
-				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter);
+				sprintf(buffer, "		mov ebx, dword[t%d]\n", registerCounter);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
 				registerCounter++;
 			}
 			else  if (ast->kids[1]->type == RESERVED_BOOL_FALSE || ast->kids[1]->type == RESERVED_BOOL_TRUE) {
-				sprintf(buffer, "		mov eax, %s\n", ast->kids[1]->info);
+				strupper(ast->kids[1]->info);
+				sprintf(buffer, "		mov ebx, %s\n", ast->kids[1]->info);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
 			}
 			else {
-				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter - 1);
+				sprintf(buffer, "		mov ebx, dword[t%d]\n", registerCounter - 1);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);

@@ -17,22 +17,18 @@ SECTION .data
 
 	j : dd 0
 	i : dd 0
-	t1 : dd 1.0 
-	t2 : dd 1.0 
-	e : dd 0.0
-	q : dd 0.0
-	t3 : dd 2 ; literal stepper for loop l1
-	t4 : dd 10
-	t5 : dd 0
-	t6 : times  256  db `\t`,0 
-	t7 : dd 0 
-	t8 : times  256  db `\n`,0 
-	t9 : dd 2 ; literal stepper for loop l2
-	t10 : times  256  db `\t`,0 
-	t11 : dd 0 
-	t12 : times  256  db `\n`,0 
-	t13 : dd 10
-	t14 : dd 0
+	t1 : dd 2 ; literal stepper for loop l1
+	t2 : dd 10
+	t3 : dd 0
+	t4 : times  256  db `\t`,0 
+	t5 : dd 0 
+	t6 : times  256  db `\n`,0 
+	t7 : dd 2 ; literal stepper for loop l2
+	t8 : times  256  db `\t`,0 
+	t9 : dd 0 
+	t10 : times  256  db `\n`,0 
+	t11 : dd 10
+	t12 : dd 0
 
 
 SECTION .bss
@@ -46,32 +42,42 @@ SECTION .text
 	extern _strcpy
 	_main:
 
-		fld	dword[t1]; need to convert 32 - bit to 64 - bit
-		fstp dword[e]
-
-		fld	dword[t2]; need to convert 32 - bit to 64 - bit
-		fstp dword[q]
-
 		mov eax, 2
 		mov dword[i], eax
 
 		l1_begin:
 		mov eax, dword[i]
-		mov eax, dword[t4]
+		mov ebx, dword[t2]
 		cmp eax, ebx
-		jle	t5_true
-		mov dword[t5],FALSE
-		jmp t5_false
-		t5_true:
-		mov dword[t5],TRUE
-		t5_false:
+		jle	t3_true
+		mov dword[t3],FALSE
+		jmp t3_false
+		t3_true:
+		mov dword[t3],TRUE
+		t3_false:
 
-		mov eax, dword[t5]
-		cmp eax, TRUE
-		je l1_true
+		mov ebx, dword[t3]
+		mov eax, TRUE
+		cmp eax, ebx
+		je l1_looper_true
 		jmp l1_looper_end
-		l1_true:
+		l1_looper_true:
 		push dword[i]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t4
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[i] ; Moving First Operand Number Var
+		mov ebx, dword[i] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t5] , eax ;Result 
+
+		push dword[t5]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -81,23 +87,8 @@ SECTION .text
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[i] ; Moving First Operand Number Var
-		mov ebx, dword[i] ; Moving Second Operand Number Var
-		imul eax, ebx ; Multiplying First and Second Operand Number
-		mov dword[t7] , eax ;Result 
-
-		push dword[t7]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t8
-		push formatoutchar; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
 		mov eax, dword[i] ; Moving First Operand Number
-		mov ebx, dword[t3] ; Moving Second Operand Number
+		mov ebx, dword[t1] ; Moving Second Operand Number
 		add eax, ebx
  		mov dword[i],eax
  		l1_looper_continue:
@@ -107,12 +98,27 @@ SECTION .text
 		mov dword[j], eax
 
 		l2_begin:
-		mov eax, TRUE
-		cmp eax, TRUE
-		je l2_true
+		mov ebx, TRUE
+		cmp ebx, TRUE
+		je l2_looper_true
 		jmp l2_looper_end
-		l2_true:
+		l2_looper_true:
 		push dword[j]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t8
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[j] ; Moving First Operand Number Var
+		mov ebx, dword[j] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t9] , eax ;Result 
+
+		push dword[t9]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -122,54 +128,37 @@ SECTION .text
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[j] ; Moving First Operand Number Var
-		mov ebx, dword[j] ; Moving Second Operand Number Var
-		imul eax, ebx ; Multiplying First and Second Operand Number
-		mov dword[t11] , eax ;Result 
-
-		push dword[t11]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t12
-		push formatoutchar; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
 		mov eax, dword[j]
-		mov eax, dword[t13]
+		mov ebx, dword[t11]
 		cmp eax, ebx
-		jle	t14_true
-		mov dword[t14],FALSE
-		jmp t14_false
-		t14_true:
-		mov dword[t14],TRUE
-		t14_false:
+		jge	t12_true
+		mov dword[t12],FALSE
+		jmp t12_false
+		t12_true:
+		mov dword[t12],TRUE
+		t12_false:
 
 
-		mov ebx, dword[t14]
+		mov ebx, dword[t12]
 
-		mov eax, TRUE
+		cmp  ebx, TRUE
 
-		cmp eax, ebx
+		je t12_if_then
 
-		je t14_if_then
+		jmp t12_if_else
 
-		jmp t14_if_else
-
-		t14_if_then:
+		t12_if_then:
 
 		jmp l2_looper_end
 
 
-		jmp t14_if_end
+		jmp t12_if_end
 
-		t14_if_else:
+		t12_if_else:
 
-		t14_if_end:
+		t12_if_end:
 		mov eax, dword[j] ; Moving First Operand Number
-		mov ebx, dword[t9] ; Moving Second Operand Number
+		mov ebx, dword[t7] ; Moving Second Operand Number
 		add eax, ebx
  		mov dword[j],eax
  		l2_looper_continue:

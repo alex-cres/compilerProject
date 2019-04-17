@@ -16,44 +16,6 @@ Exiting <DECLAREEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
-Token:	013 --> IDN_DECIMAL                   	Lex:	D
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <DECLARATION>
-Token:	011 --> IDENTIFIER                    	Lex:	e
-Entering <DECLAREEXP>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
-Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	008 --> COMMA                         	Lex:	,
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	011 --> IDENTIFIER                    	Lex:	q
-Entering <DECLAREEXP>
-Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
-Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Exiting <DECLAREEXP>
-Exiting <DECLAREEXP>
-Exiting <DECLARATION>
-Exiting <INSTRUCTION>
 Token:	081 --> RESERVED_FOR                  	Lex:	For
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -367,7 +329,7 @@ Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	039 --> OP_MINOR_EQUAL                	Lex:	<=
+Token:	038 --> OP_BIGGER_EQUAL               	Lex:	>=
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
@@ -411,9 +373,8 @@ Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
-Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 20
+MAX_DEPTH_TREE FOUND : 19
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -427,27 +388,112 @@ PROGRAM
   |-;
   |_INSTRUCTIONLIST
     |-INSTRUCTION
-    | |_DECLARATION
-    |   |-D
-    |   |-DECLAREEXP
-    |   | |-e
+    | |_FOR
+    |   |-For
+    |   |-(
+    |   |-ATTRIBUTION
+    |   | |-i
     |   | |-<<
     |   | |_BEXP
     |   |   |_CEXP
     |   |     |_EXP
     |   |       |_TERM
     |   |         |_FACTOR
-    |   |           |_1.0
-    |   |-,
-    |   |_DECLAREEXP
-    |     |-q
-    |     |-<<
-    |     |_BEXP
-    |       |_CEXP
-    |         |_EXP
-    |           |_TERM
-    |             |_FACTOR
-    |               |_1.0
+    |   |           |_2
+    |   |-)
+    |   |-.
+    |   |-Step
+    |   | |-(
+    |   | |-EXP
+    |   | | |_TERM
+    |   | |   |_FACTOR
+    |   | |     |_SIGNEDNUMBER
+    |   | |       |-+
+    |   | |       |_2
+    |   | |_)
+    |   |-.
+    |   |-If
+    |   | |-(
+    |   | |-BEXP
+    |   | | |_CEXP
+    |   | |   |-EXP
+    |   | |   | |_TERM
+    |   | |   |   |_FACTOR
+    |   | |   |     |_i
+    |   | |   |-<=
+    |   | |   |_EXP
+    |   | |     |_TERM
+    |   | |       |_FACTOR
+    |   | |         |_10
+    |   | |_)
+    |   |-.
+    |   |_Do
+    |     |-(
+    |     |-INSTRUCTIONLIST
+    |     | |-INSTRUCTION
+    |     | | |_ON
+    |     | |   |-On
+    |     | |   |-.
+    |     | |   |-Console
+    |     | |   |-(
+    |     | |   |-BEXP
+    |     | |   | |_CEXP
+    |     | |   |   |_EXP
+    |     | |   |     |_TERM
+    |     | |   |       |_FACTOR
+    |     | |   |         |_i
+    |     | |   |_)
+    |     | |-;
+    |     | |_INSTRUCTIONLIST
+    |     |   |-INSTRUCTION
+    |     |   | |_ON
+    |     |   |   |-On
+    |     |   |   |-.
+    |     |   |   |-Console
+    |     |   |   |-(
+    |     |   |   |-BEXP
+    |     |   |   | |_CEXP
+    |     |   |   |   |_EXP
+    |     |   |   |     |_TERM
+    |     |   |   |       |_FACTOR
+    |     |   |   |         |_'\t'
+    |     |   |   |_)
+    |     |   |-;
+    |     |   |_INSTRUCTIONLIST
+    |     |     |-INSTRUCTION
+    |     |     | |_ON
+    |     |     |   |-On
+    |     |     |   |-.
+    |     |     |   |-Console
+    |     |     |   |-(
+    |     |     |   |-BEXP
+    |     |     |   | |_CEXP
+    |     |     |   |   |_EXP
+    |     |     |   |     |_TERM
+    |     |     |   |       |-FACTOR
+    |     |     |   |       | |_i
+    |     |     |   |       |-*
+    |     |     |   |       |_TERM
+    |     |     |   |         |_FACTOR
+    |     |     |   |           |_i
+    |     |     |   |_)
+    |     |     |-;
+    |     |     |_INSTRUCTIONLIST
+    |     |       |-INSTRUCTION
+    |     |       | |_ON
+    |     |       |   |-On
+    |     |       |   |-.
+    |     |       |   |-Console
+    |     |       |   |-(
+    |     |       |   |-BEXP
+    |     |       |   | |_CEXP
+    |     |       |   |   |_EXP
+    |     |       |   |     |_TERM
+    |     |       |   |       |_FACTOR
+    |     |       |   |         |_'\n'
+    |     |       |   |_)
+    |     |       |_;
+    |     |_)
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
@@ -455,7 +501,7 @@ PROGRAM
       |   |-For
       |   |-(
       |   |-ATTRIBUTION
-      |   | |-i
+      |   | |-j
       |   | |-<<
       |   | |_BEXP
       |   |   |_CEXP
@@ -478,16 +524,7 @@ PROGRAM
       |   |-If
       |   | |-(
       |   | |-BEXP
-      |   | | |_CEXP
-      |   | |   |-EXP
-      |   | |   | |_TERM
-      |   | |   |   |_FACTOR
-      |   | |   |     |_i
-      |   | |   |-<=
-      |   | |   |_EXP
-      |   | |     |_TERM
-      |   | |       |_FACTOR
-      |   | |         |_10
+      |   | | |_True
       |   | |_)
       |   |-.
       |   |_Do
@@ -504,7 +541,7 @@ PROGRAM
       |     | |   |   |_EXP
       |     | |   |     |_TERM
       |     | |   |       |_FACTOR
-      |     | |   |         |_i
+      |     | |   |         |_j
       |     | |   |_)
       |     | |-;
       |     | |_INSTRUCTIONLIST
@@ -534,11 +571,11 @@ PROGRAM
       |     |     |   |   |_EXP
       |     |     |   |     |_TERM
       |     |     |   |       |-FACTOR
-      |     |     |   |       | |_i
+      |     |     |   |       | |_j
       |     |     |   |       |-*
       |     |     |   |       |_TERM
       |     |     |   |         |_FACTOR
-      |     |     |   |           |_i
+      |     |     |   |           |_j
       |     |     |   |_)
       |     |     |-;
       |     |     |_INSTRUCTIONLIST
@@ -555,139 +592,39 @@ PROGRAM
       |     |       |   |       |_FACTOR
       |     |       |   |         |_'\n'
       |     |       |   |_)
-      |     |       |_;
+      |     |       |-;
+      |     |       |_INSTRUCTIONLIST
+      |     |         |-INSTRUCTION
+      |     |         | |_IF
+      |     |         |   |-If
+      |     |         |   |-(
+      |     |         |   |-BEXP
+      |     |         |   | |_CEXP
+      |     |         |   |   |-EXP
+      |     |         |   |   | |_TERM
+      |     |         |   |   |   |_FACTOR
+      |     |         |   |   |     |_j
+      |     |         |   |   |->=
+      |     |         |   |   |_EXP
+      |     |         |   |     |_TERM
+      |     |         |   |       |_FACTOR
+      |     |         |   |         |_10
+      |     |         |   |-)
+      |     |         |   |-.
+      |     |         |   |_Then
+      |     |         |     |-(
+      |     |         |     |-INSTRUCTIONLIST
+      |     |         |     | |-INSTRUCTION
+      |     |         |     | | |_BREAK
+      |     |         |     | |   |-Break
+      |     |         |     | |   |-(
+      |     |         |     | |   |_)
+      |     |         |     | |_;
+      |     |         |     |_)
+      |     |         |_;
       |     |_)
       |-;
-      |_INSTRUCTIONLIST
-        |-INSTRUCTION
-        | |_FOR
-        |   |-For
-        |   |-(
-        |   |-ATTRIBUTION
-        |   | |-j
-        |   | |-<<
-        |   | |_BEXP
-        |   |   |_CEXP
-        |   |     |_EXP
-        |   |       |_TERM
-        |   |         |_FACTOR
-        |   |           |_2
-        |   |-)
-        |   |-.
-        |   |-Step
-        |   | |-(
-        |   | |-EXP
-        |   | | |_TERM
-        |   | |   |_FACTOR
-        |   | |     |_SIGNEDNUMBER
-        |   | |       |-+
-        |   | |       |_2
-        |   | |_)
-        |   |-.
-        |   |-If
-        |   | |-(
-        |   | |-BEXP
-        |   | | |_True
-        |   | |_)
-        |   |-.
-        |   |_Do
-        |     |-(
-        |     |-INSTRUCTIONLIST
-        |     | |-INSTRUCTION
-        |     | | |_ON
-        |     | |   |-On
-        |     | |   |-.
-        |     | |   |-Console
-        |     | |   |-(
-        |     | |   |-BEXP
-        |     | |   | |_CEXP
-        |     | |   |   |_EXP
-        |     | |   |     |_TERM
-        |     | |   |       |_FACTOR
-        |     | |   |         |_j
-        |     | |   |_)
-        |     | |-;
-        |     | |_INSTRUCTIONLIST
-        |     |   |-INSTRUCTION
-        |     |   | |_ON
-        |     |   |   |-On
-        |     |   |   |-.
-        |     |   |   |-Console
-        |     |   |   |-(
-        |     |   |   |-BEXP
-        |     |   |   | |_CEXP
-        |     |   |   |   |_EXP
-        |     |   |   |     |_TERM
-        |     |   |   |       |_FACTOR
-        |     |   |   |         |_'\t'
-        |     |   |   |_)
-        |     |   |-;
-        |     |   |_INSTRUCTIONLIST
-        |     |     |-INSTRUCTION
-        |     |     | |_ON
-        |     |     |   |-On
-        |     |     |   |-.
-        |     |     |   |-Console
-        |     |     |   |-(
-        |     |     |   |-BEXP
-        |     |     |   | |_CEXP
-        |     |     |   |   |_EXP
-        |     |     |   |     |_TERM
-        |     |     |   |       |-FACTOR
-        |     |     |   |       | |_j
-        |     |     |   |       |-*
-        |     |     |   |       |_TERM
-        |     |     |   |         |_FACTOR
-        |     |     |   |           |_j
-        |     |     |   |_)
-        |     |     |-;
-        |     |     |_INSTRUCTIONLIST
-        |     |       |-INSTRUCTION
-        |     |       | |_ON
-        |     |       |   |-On
-        |     |       |   |-.
-        |     |       |   |-Console
-        |     |       |   |-(
-        |     |       |   |-BEXP
-        |     |       |   | |_CEXP
-        |     |       |   |   |_EXP
-        |     |       |   |     |_TERM
-        |     |       |   |       |_FACTOR
-        |     |       |   |         |_'\n'
-        |     |       |   |_)
-        |     |       |-;
-        |     |       |_INSTRUCTIONLIST
-        |     |         |-INSTRUCTION
-        |     |         | |_IF
-        |     |         |   |-If
-        |     |         |   |-(
-        |     |         |   |-BEXP
-        |     |         |   | |_CEXP
-        |     |         |   |   |-EXP
-        |     |         |   |   | |_TERM
-        |     |         |   |   |   |_FACTOR
-        |     |         |   |   |     |_j
-        |     |         |   |   |-<=
-        |     |         |   |   |_EXP
-        |     |         |   |     |_TERM
-        |     |         |   |       |_FACTOR
-        |     |         |   |         |_10
-        |     |         |   |-)
-        |     |         |   |-.
-        |     |         |   |_Then
-        |     |         |     |-(
-        |     |         |     |-INSTRUCTIONLIST
-        |     |         |     | |-INSTRUCTION
-        |     |         |     | | |_BREAK
-        |     |         |     | |   |-Break
-        |     |         |     | |   |-(
-        |     |         |     | |   |_)
-        |     |         |     | |_;
-        |     |         |     |_)
-        |     |         |_;
-        |     |_)
-        |-;
-        |_EOF
+      |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -703,51 +640,6 @@ Entering DECLAREEXP
 Entering i
 Exiting i
 Exiting i
-Exiting DECLARATION
-Exiting DECLARATION
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering DECLARATION
-Entering D
-Exiting D
-Entering DECLAREEXP
-Entering e
-Exiting e
-Entering <<
-Exiting <<
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting <<
-Entering ,
-Entering DECLAREEXP
-Entering q
-Exiting q
-Entering <<
-Exiting <<
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting 1.0
-Exiting <<
 Exiting DECLARATION
 Exiting DECLARATION
 Entering ;
@@ -1118,8 +1010,8 @@ Exiting j
 Exiting j
 Exiting j
 Exiting j
-Entering <=
-Exiting <=
+Entering >=
+Exiting >=
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -1128,8 +1020,8 @@ Exiting 10
 Exiting 10
 Exiting 10
 Exiting 10
-Exiting <=
-Exiting <=
+Exiting >=
+Exiting >=
 Entering )
 Entering .
 Entering Then
@@ -1165,85 +1057,75 @@ Exiting For
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
-Exiting INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
 | |-j
 | |_i
 |_INSTRUCTIONLIST
-  |-DECLARATION
-  | |-D
+  |-For
   | |-<<
-  | | |-e
-  | | |_1.0
-  | |_<<
-  |   |-q
-  |   |_1.0
-  |_INSTRUCTIONLIST
-    |-For
-    | |-<<
-    | | |-i
-    | | |_2
-    | |-Step
-    | | |_+
-    | |   |_2
-    | |-If
-    | | |_<=
-    | |   |-i
-    | |   |_10
-    | |_Do
-    |   |_INSTRUCTIONLIST
-    |     |-On
-    |     | |-Console
-    |     | |_i
-    |     |_INSTRUCTIONLIST
-    |       |-On
-    |       | |-Console
-    |       | |_\t
-    |       |_INSTRUCTIONLIST
-    |         |-On
-    |         | |-Console
-    |         | |_*
-    |         |   |-i
-    |         |   |_i
-    |         |_On
-    |           |-Console
-    |           |_\n
-    |_For
-      |-<<
-      | |-j
-      | |_2
-      |-Step
-      | |_+
-      |   |_2
-      |-If
-      | |_True
-      |_Do
+  | | |-i
+  | | |_2
+  | |-Step
+  | | |_+
+  | |   |_2
+  | |-If
+  | | |_<=
+  | |   |-i
+  | |   |_10
+  | |_Do
+  |   |_INSTRUCTIONLIST
+  |     |-On
+  |     | |-Console
+  |     | |_i
+  |     |_INSTRUCTIONLIST
+  |       |-On
+  |       | |-Console
+  |       | |_\t
+  |       |_INSTRUCTIONLIST
+  |         |-On
+  |         | |-Console
+  |         | |_*
+  |         |   |-i
+  |         |   |_i
+  |         |_On
+  |           |-Console
+  |           |_\n
+  |_For
+    |-<<
+    | |-j
+    | |_2
+    |-Step
+    | |_+
+    |   |_2
+    |-If
+    | |_True
+    |_Do
+      |_INSTRUCTIONLIST
+        |-On
+        | |-Console
+        | |_j
         |_INSTRUCTIONLIST
           |-On
           | |-Console
-          | |_j
+          | |_\t
           |_INSTRUCTIONLIST
             |-On
             | |-Console
-            | |_\t
+            | |_*
+            |   |-j
+            |   |_j
             |_INSTRUCTIONLIST
               |-On
               | |-Console
-              | |_*
-              |   |-j
-              |   |_j
-              |_INSTRUCTIONLIST
-                |-On
-                | |-Console
-                | |_\n
-                |_If
-                  |-<=
-                  | |-j
-                  | |_10
-                  |_Then
-                    |_Break
+              | |_\n
+              |_If
+                |->=
+                | |-j
+                | |_10
+                |_Then
+                  |_Break
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -1255,31 +1137,6 @@ End Optimization of j
 Optimization of i
 Optimization start i
 End Optimization of i
-Optimization start DECLARATION
-End Optimization of DECLARATION
-Optimization of INSTRUCTIONLIST
-Optimization of DECLARATION
-Optimization of D
-Optimization start D
-End Optimization of D
-Optimization of <<
-Optimization of e
-Optimization start e
-End Optimization of e
-Optimization of 1.0
-Optimization start 1.0
-End Optimization of 1.0
-Optimization start <<
-End Optimization of <<
-Optimization of <<
-Optimization of q
-Optimization start q
-End Optimization of q
-Optimization of 1.0
-Optimization start 1.0
-End Optimization of 1.0
-Optimization start <<
-End Optimization of <<
 Optimization start DECLARATION
 End Optimization of DECLARATION
 Optimization of INSTRUCTIONLIST
@@ -1448,16 +1305,16 @@ End Optimization of \n
 Optimization start On
 End Optimization of On
 Optimization of If
-Optimization of <=
+Optimization of >=
 Optimization of j
 Optimization start j
 End Optimization of j
 Optimization of 10
 Optimization start 10
 End Optimization of 10
-Optimization start <=
-Optimization result <=
-End Optimization of <=
+Optimization start >=
+Optimization result >=
+End Optimization of >=
 Optimization of Then
 Optimization of Break
 Optimization start Break
@@ -1482,121 +1339,117 @@ Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
-Optimization start INSTRUCTIONLIST
-End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
 | |-j
 | |_i
 |_INSTRUCTIONLIST
-  |-DECLARATION
-  | |-D
+  |-For
   | |-<<
-  | | |-e
-  | | |_1.0
-  | |_<<
-  |   |-q
-  |   |_1.0
-  |_INSTRUCTIONLIST
-    |-For
-    | |-<<
-    | | |-i
-    | | |_2
-    | |-Step
-    | | |_2
-    | |-If
-    | | |_<=
-    | |   |-i
-    | |   |_10
-    | |_Do
-    |   |_INSTRUCTIONLIST
-    |     |-On
-    |     | |-Console
-    |     | |_i
-    |     |_INSTRUCTIONLIST
-    |       |-On
-    |       | |-Console
-    |       | |_\t
-    |       |_INSTRUCTIONLIST
-    |         |-On
-    |         | |-Console
-    |         | |_*
-    |         |   |-i
-    |         |   |_i
-    |         |_On
-    |           |-Console
-    |           |_\n
-    |_For
-      |-<<
-      | |-j
-      | |_2
-      |-Step
-      | |_2
-      |-If
-      | |_True
-      |_Do
+  | | |-i
+  | | |_2
+  | |-Step
+  | | |_2
+  | |-If
+  | | |_<=
+  | |   |-i
+  | |   |_10
+  | |_Do
+  |   |_INSTRUCTIONLIST
+  |     |-On
+  |     | |-Console
+  |     | |_i
+  |     |_INSTRUCTIONLIST
+  |       |-On
+  |       | |-Console
+  |       | |_\t
+  |       |_INSTRUCTIONLIST
+  |         |-On
+  |         | |-Console
+  |         | |_*
+  |         |   |-i
+  |         |   |_i
+  |         |_On
+  |           |-Console
+  |           |_\n
+  |_For
+    |-<<
+    | |-j
+    | |_2
+    |-Step
+    | |_2
+    |-If
+    | |_True
+    |_Do
+      |_INSTRUCTIONLIST
+        |-On
+        | |-Console
+        | |_j
         |_INSTRUCTIONLIST
           |-On
           | |-Console
-          | |_j
+          | |_\t
           |_INSTRUCTIONLIST
             |-On
             | |-Console
-            | |_\t
+            | |_*
+            |   |-j
+            |   |_j
             |_INSTRUCTIONLIST
               |-On
               | |-Console
-              | |_*
-              |   |-j
-              |   |_j
-              |_INSTRUCTIONLIST
-                |-On
-                | |-Console
-                | |_\n
-                |_If
-                  |-<=
-                  | |-j
-                  | |_10
-                  |_Then
-                    |_Break
+              | |_\n
+              |_If
+                |->=
+                | |-j
+                | |_10
+                |_Then
+                  |_Break
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | j
-| 13 	 | DECLARATION 	 | e
 	j : dd 0
 	i : dd 0
-		fld	dword[t1]; need to convert 32 - bit to 64 - bit
-		fstp dword[e]
-
-		fld	dword[t2]; need to convert 32 - bit to 64 - bit
-		fstp dword[q]
-
-	e : dd 0.0
-	q : dd 0.0
 		mov eax, 2
 		mov dword[i], eax
 
-	t3 : dd 2 ; literal stepper for loop l1
+	t1 : dd 2 ; literal stepper for loop l1
 		l1_begin:
 		mov eax, dword[i]
-	t4 : dd 10
-		mov eax, dword[t4]
-	t5 : dd 0
+	t2 : dd 10
+		mov ebx, dword[t2]
+	t3 : dd 0
 		cmp eax, ebx
-		jle	t5_true
-		mov dword[t5],FALSE
-		jmp t5_false
-		t5_true:
-		mov dword[t5],TRUE
-		t5_false:
+		jle	t3_true
+		mov dword[t3],FALSE
+		jmp t3_false
+		t3_true:
+		mov dword[t3],TRUE
+		t3_false:
 
-		mov eax, dword[t5]
-		cmp eax, TRUE
-		je l1_true
+		mov ebx, dword[t3]
+		mov eax, TRUE
+		cmp eax, ebx
+		je l1_looper_true
 		jmp l1_looper_end
-		l1_true:
+		l1_looper_true:
 		push dword[i]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t4
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[i] ; Moving First Operand Number Var
+		mov ebx, dword[i] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t5] , eax ;Result 
+
+		push dword[t5]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -1606,12 +1459,24 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[i] ; Moving First Operand Number Var
-		mov ebx, dword[i] ; Moving Second Operand Number Var
-		imul eax, ebx ; Multiplying First and Second Operand Number
-		mov dword[t7] , eax ;Result 
+		mov eax, dword[i] ; Moving First Operand Number
+		mov ebx, dword[t1] ; Moving Second Operand Number
+		add eax, ebx
+ 		mov dword[i],eax
+ 		l1_looper_continue:
+		jmp l1_begin
+		l1_looper_end:
+		mov eax, 2
+		mov dword[j], eax
 
-		push dword[t7]
+	t7 : dd 2 ; literal stepper for loop l2
+		l2_begin:
+		mov ebx, TRUE
+		cmp ebx, TRUE
+		je l2_looper_true
+		jmp l2_looper_end
+		l2_looper_true:
+		push dword[j]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -1621,24 +1486,12 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[i] ; Moving First Operand Number
-		mov ebx, dword[t3] ; Moving Second Operand Number
-		add eax, ebx
- 		mov dword[i],eax
- 		l1_looper_continue:
-		jmp l1_begin
-		l1_looper_end:
-		mov eax, 2
-		mov dword[j], eax
+		mov eax, dword[j] ; Moving First Operand Number Var
+		mov ebx, dword[j] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t9] , eax ;Result 
 
-	t9 : dd 2 ; literal stepper for loop l2
-		l2_begin:
-		mov eax, TRUE
-		cmp eax, TRUE
-		je l2_true
-		jmp l2_looper_end
-		l2_true:
-		push dword[j]
+		push dword[t9]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -1648,67 +1501,49 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[j] ; Moving First Operand Number Var
-		mov ebx, dword[j] ; Moving Second Operand Number Var
-		imul eax, ebx ; Multiplying First and Second Operand Number
-		mov dword[t11] , eax ;Result 
-
-		push dword[t11]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t12
-		push formatoutchar; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
 		mov eax, dword[j]
-	t13 : dd 10
-		mov eax, dword[t13]
-	t14 : dd 0
+	t11 : dd 10
+		mov ebx, dword[t11]
+	t12 : dd 0
 		cmp eax, ebx
-		jle	t14_true
-		mov dword[t14],FALSE
-		jmp t14_false
-		t14_true:
-		mov dword[t14],TRUE
-		t14_false:
+		jge	t12_true
+		mov dword[t12],FALSE
+		jmp t12_false
+		t12_true:
+		mov dword[t12],TRUE
+		t12_false:
 
 
-		mov ebx, dword[t14]
+		mov ebx, dword[t12]
 
-		mov eax, TRUE
+		cmp  ebx, TRUE
 
-		cmp eax, ebx
+		je t12_if_then
 
-		je t14_if_then
+		jmp t12_if_else
 
-		jmp t14_if_else
-
-		t14_if_then:
+		t12_if_then:
 
 		jmp l2_looper_end
 
 
-		jmp t14_if_end
+		jmp t12_if_end
 
-		t14_if_else:
+		t12_if_else:
 
-		t14_if_end:
+		t12_if_end:
 		mov eax, dword[j] ; Moving First Operand Number
-		mov ebx, dword[t9] ; Moving Second Operand Number
+		mov ebx, dword[t7] ; Moving Second Operand Number
 		add eax, ebx
  		mov dword[j],eax
  		l2_looper_continue:
 		jmp l2_begin
 		l2_looper_end:
-Object File Created : nasm -f win32 D:\Documents\GitHub\compilerProject\Compiler\..\Examples\ForLoopExample.asm
-Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\ForLoopExample.obj -o D:\Documents\GitHub\compilerProject\Compiler\..\Examples\ForLoopExample.exe
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\ForLoopExample.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\ForLoopExample.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\ForLoopExample.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | j
-| 13 	 | DECLARATION 	 | e
 | 17 	 | INSTRUCTIONLIST 	 | stringFalse
 | 17 	 | INSTRUCTIONLIST 	 | stringTrue
 | 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
@@ -1723,19 +1558,15 @@ Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\..\Examples\
 | 17 	 | INSTRUCTIONLIST 	 | formatinbool
 | 12 	 | DECLARATION 	 | j
 | 12 	 | DECLARATION 	 | i
-| 13 	 | << 	 | t1
-| 13 	 | << 	 | t2
-| 13 	 | DECLARATION 	 | e
-| 13 	 | DECLARATION 	 | q
-| 12 	 | For 	 | t3
-| 12 	 | <= 	 | t4
-| 15 	 | <= 	 | t5
+| 12 	 | For 	 | t1
+| 12 	 | <= 	 | t2
+| 15 	 | <= 	 | t3
+| 14 	 | On 	 | t4
+| 12 	 | * 	 | t5
 | 14 	 | On 	 | t6
-| 12 	 | * 	 | t7
+| 12 	 | For 	 | t7
 | 14 	 | On 	 | t8
-| 12 	 | For 	 | t9
+| 12 	 | * 	 | t9
 | 14 	 | On 	 | t10
-| 12 	 | * 	 | t11
-| 14 	 | On 	 | t12
-| 12 	 | <= 	 | t13
-| 15 	 | <= 	 | t14
+| 12 	 | >= 	 | t11
+| 15 	 | >= 	 | t12
