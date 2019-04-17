@@ -99,16 +99,7 @@ int main()
 	}
 	fclose(filePointer);
 	fclose(logFile);
-
-
 	return 0;
-
-	
-
-
-
-
-
 }
 
 

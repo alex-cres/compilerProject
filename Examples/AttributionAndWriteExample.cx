@@ -1,5 +1,6 @@
-N q << 2222;
-B b << !(2<q);
-If(b).Then(
-On.Console(1);
-);
+B b<< True;
+B notb<< !(True);
+N a <<3;
+B v<< b & (notb X True) & 2=a;
+On.Console(v);
+

@@ -185,7 +185,6 @@ int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 					addChildNode(ifNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					if (nextToken == RESERVED_THEN) {
-
 						Node * thenNode = addChildNode(ifNode, nextLexeme, nextToken, logFile);
 						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 						if (nextToken == OPEN_PARENTESIS) {
@@ -200,7 +199,6 @@ int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 									nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 									if (nextToken == RESERVED_ELSE) {
 										Node * elseNode = addChildNode(ifNode, nextLexeme, nextToken, logFile);
-
 										nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 										if (nextToken == OPEN_PARENTESIS) {
 											addChildNode(elseNode, nextLexeme, nextToken, logFile);
@@ -211,44 +209,36 @@ int reservedIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, 
 												nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 											}
 											else {
-												
 												printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 											}
 										}
 										else {
-											
 											printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR ARRAY NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 										}
 									}
 									else {
-										
 										printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR ELSE NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_ELSE_NOT_FOUND,lineNumber,nextLexeme);
 									}
 								}
 							}
 						}
 						else {
-							
 							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR THEN NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_THEN_NOT_OPENED,lineNumber,nextLexeme);
 						}
 					}
 					else {
-						
 						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR THEN NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_THEN_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else {
-					
 					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 				}
 			}
 			else {
-				
 				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 		}
 		else {
-			
 			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
@@ -265,7 +255,6 @@ int reservedLooper(FILE* file, int nextToken, NextChar* nextChar, char* nextLexe
 	printf("Entering <LOOPER>\n");
 	fprintf(logFile, "Entering <LOOPER>\n");
 	Node* looperNode = addChildNode(tree, "LOOPER", -1, logFile);
-
 	if (nextToken == RESERVED_LOOP) {
 		addChildNode(looperNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
@@ -292,45 +281,37 @@ int reservedLooper(FILE* file, int nextToken, NextChar* nextChar, char* nextLexe
 							}
 							else
 							{
-								
 								printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 							}
 						}
 						else
 						{
-							
 							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 						}
 					}
 					else
 					{
-						
 						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR DO NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_DO_NOT_FOUND,lineNumber,nextLexeme);
 					}
 				}
 				else
 				{
-					
 					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR POINT NOT FOUND, %s" ,ERROR_SYNTAX_ERROR_POINT_NOT_FOUND,lineNumber,nextLexeme);
 				}
 			}
 			else
 			{
-				
 				printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED,lineNumber,nextLexeme);
 			}
 
 		}
 		else {
-			
 			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s" ,ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED,lineNumber,nextLexeme);
 		}
 	}
-
 	printf("Exiting <LOOPER>\n");
 	fprintf(logFile, "Exiting <LOOPER>\n");
 	return nextToken;
-
 }
 int reservedFor(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
 {
