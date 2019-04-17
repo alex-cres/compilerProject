@@ -41,6 +41,7 @@
 #define ERROR_NON_NUMBER_LOOP 53
 #define ERROR_INCOMPLETE_LOOP 54
 #define ERROR_OP_NOT_NON_BOOL 55
+#define ERROR_SYNTAX_ERROR_FOR_LOOP 56
 
 void errorColor();
 void normalColor();
