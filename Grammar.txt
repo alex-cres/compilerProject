@@ -138,18 +138,12 @@
 <idn_decimal> --> D
 <idn_number> --> N
 <idn_char> --> C
-<idn_string> --> S[<number>]  //missing
+<idn_string> --> S
 <idn_bool> --> B
 <idn_void> --> V
-<idn_array> --> <idn_decimal>[<number>]  //missing
-					| <idn_number>[<number>]  //missing
-					| <idn_char>[<number>]  //missing
-					| <idn_string>  //missing
-					| <idn_bool>[<number>]  //missing
 
 <var> --> <letter><word>
 		| <letter>
-		| <var>[<number>]  //missing
 <ascii_word> --> <ascii>
 			| <ascii><ascii_word>
 <word> --> <letter>
@@ -165,8 +159,6 @@
 			| -.<number>
 			| <Dcasting>  //missing
 
-<number_type> --> <Ncasting>  //missing
-				| <signed_number>
 
 <signed_number> --> +<number>
 				| -<number>
