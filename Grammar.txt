@@ -134,7 +134,8 @@
 			| <call_function>
 			| <casting>
 			| <arrayexp>
-			
+<arrayexp>--> [<bexp>]
+<arrayexp>--> [<bexp>,<bexp>...]
 <idn_decimal> --> D
 <idn_number> --> N
 <idn_char> --> C
@@ -146,6 +147,7 @@
 		| <letter>
 <ascii_word> --> <ascii>
 			| <ascii><ascii_word>
+
 <word> --> <letter>
 		|<number>
 		|<letterBig>
@@ -157,7 +159,6 @@
 			| .<number>
 			| +.<number>
 			| -.<number>
-			| <Dcasting>  //missing
 
 
 <signed_number> --> +<number>
@@ -166,20 +167,15 @@
 
 <number> --> 0...9 
 		|<number><number>
-		| <fscanEnder>
-		| <fscanSize>
 
-<ascii> --> TAB...~
-
-<letter> --> a...z
-
-<letterBig> --> A...Z
 <casting> --> ToString(<bexp>)
 <casting> --> ToDecimal(<bexp>)
 <casting> --> ToNumber(<bexp>)
 <casting> --> ToChar(<bexp>)
 <casting> --> ToBool(<bexp>)
-
-
+		
+<ascii> --> TAB...~
+<letter> --> a...z
+<letterBig> --> A...Z
 <char> --> '\(EscapedChar)'
 <char> --> '(Char)'
