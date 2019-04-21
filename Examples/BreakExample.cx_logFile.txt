@@ -15,6 +15,8 @@ Token:	011 --> IDENTIFIER                    	Lex:	a
 Entering <DECLAREEXP>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	018 --> LITERAL_NUMBER                	Lex:	0
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -22,6 +24,8 @@ Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
@@ -52,6 +56,8 @@ Entering <INSTRUCTION>
 Entering <ATTRIBUTION>
 Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
 Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -67,6 +73,8 @@ Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
 Token:	085 --> RESERVED_BREAK                	Lex:	Break
@@ -92,13 +100,9 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	093 --> RESERVED_CAST_STRING          	Lex:	ToString
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Entering <CASTINGVAR>
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -106,11 +110,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <CASTINGVAR>
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
@@ -120,7 +121,7 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 15
+MAX_DEPTH_TREE FOUND : 17
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -133,10 +134,12 @@ PROGRAM
     |   |_DECLAREEXP
     |     |-a
     |     |-<<
-    |     |_EXP
-    |       |_TERM
-    |         |_FACTOR
-    |           |_0
+    |     |_BEXP
+    |       |_CEXP
+    |         |_EXP
+    |           |_TERM
+    |             |_FACTOR
+    |               |_0
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
@@ -160,15 +163,17 @@ PROGRAM
       |     |   | |_ATTRIBUTION
       |     |   |   |-a
       |     |   |   |-<<
-      |     |   |   |_EXP
-      |     |   |     |-TERM
-      |     |   |     | |_FACTOR
-      |     |   |     |   |_a
-      |     |   |     |-+
-      |     |   |     |_EXP
-      |     |   |       |_TERM
-      |     |   |         |_FACTOR
-      |     |   |           |_1
+      |     |   |   |_BEXP
+      |     |   |     |_CEXP
+      |     |   |       |_EXP
+      |     |   |         |-TERM
+      |     |   |         | |_FACTOR
+      |     |   |         |   |_a
+      |     |   |         |-+
+      |     |   |         |_EXP
+      |     |   |           |_TERM
+      |     |   |             |_FACTOR
+      |     |   |               |_1
       |     |   |-;
       |     |   |_INSTRUCTIONLIST
       |     |     |-INSTRUCTION
@@ -186,17 +191,12 @@ PROGRAM
         |   |-.
         |   |-Console
         |   |-(
-        |   |-EXP
-        |   | |_TERM
-        |   |   |_FACTOR
-        |   |     |_CASTINGVAR
-        |   |       |-ToString
-        |   |       |-(
-        |   |       |-EXP
-        |   |       | |_TERM
-        |   |       |   |_FACTOR
-        |   |       |     |_a
-        |   |       |_)
+        |   |-BEXP
+        |   | |_CEXP
+        |   |   |_EXP
+        |   |     |_TERM
+        |   |       |_FACTOR
+        |   |         |_a
         |   |_)
         |-;
         |_EOF
@@ -215,10 +215,14 @@ Entering a
 Exiting a
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
 Entering 0
+Exiting 0
+Exiting 0
 Exiting 0
 Exiting 0
 Exiting 0
@@ -256,6 +260,8 @@ Entering a
 Exiting a
 Entering <<
 Exiting <<
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -273,6 +279,8 @@ Exiting 1
 Exiting 1
 Exiting 1
 Exiting 1
+Exiting +
+Exiting +
 Exiting +
 Exiting <<
 Exiting <<
@@ -304,13 +312,8 @@ Entering .
 Entering Console
 Exiting Console
 Entering (
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering CASTINGVAR
-Entering ToString
-Exiting ToString
-Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -319,11 +322,8 @@ Exiting a
 Exiting a
 Exiting a
 Exiting a
-Entering )
-Exiting ToString
-Exiting ToString
-Exiting ToString
-Exiting ToString
+Exiting a
+Exiting a
 Entering )
 Exiting On
 Exiting On
@@ -353,49 +353,67 @@ INSTRUCTIONLIST
   |     |_Break
   |_On
     |-Console
-    |_ToString
-      |_a
+    |_a
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
+Optimization start N
 End Optimization of N
 Optimization of <<
 Optimization of a
+Optimization start a
 End Optimization of a
 Optimization of 0
+Optimization start 0
 End Optimization of 0
+Optimization start <<
 End Optimization of <<
+Optimization start DECLARATION
 End Optimization of DECLARATION
 Optimization of INSTRUCTIONLIST
 Optimization of Loop
 Optimization of 5
+Optimization start 5
 End Optimization of 5
 Optimization of Do
 Optimization of INSTRUCTIONLIST
 Optimization of <<
 Optimization of a
+Optimization start a
 End Optimization of a
 Optimization of +
 Optimization of a
+Optimization start a
 End Optimization of a
 Optimization of 1
+Optimization start 1
 End Optimization of 1
+Optimization start +
+Optimization result +
 End Optimization of +
+Optimization start <<
 End Optimization of <<
 Optimization of Break
+Optimization start Break
 End Optimization of Break
+Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
+Optimization start Do
 End Optimization of Do
+Optimization start Loop
 End Optimization of Loop
 Optimization of On
 Optimization of Console
+Optimization start Console
 End Optimization of Console
-Optimization of ToString
 Optimization of a
+Optimization start a
 End Optimization of a
-End Optimization of ToString
+Optimization start On
 End Optimization of On
+Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
@@ -416,5 +434,68 @@ INSTRUCTIONLIST
   |     |_Break
   |_On
     |-Console
-    |_ToString
-      |_a
+    |_a
+| Symbol | Scope 	 | Name
+| 1000 	 | INSTRUCTIONLIST 	 | TABLE
+| 12 	 | DECLARATION 	 | a
+		mov eax, 0
+		mov dword[a], eax
+
+	a : dd 0
+	l1 : dd  0
+		;looper l1 begin
+		mov eax, 5
+		mov dword[l1],eax
+		l1_looper:
+
+
+
+		mov eax, dword[a] ; Moving Second Operand Number Var
+		mov ebx, 1 ; Moving First Operand Number
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t1] , eax ;Result 
+
+		mov eax, dword[t1]
+		mov dword[a], eax
+
+
+		jmp l1_looper_end
+
+
+
+		l1_looper_continue:
+
+
+		mov eax , dword[l1]
+		sub eax,1
+		mov dword[l1], eax
+		cmp eax, 0
+		jle l1_looper_end
+		jmp l1_looper
+		l1_looper_end:
+		;looper l1 end
+		push dword[a]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\BreakExample.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\BreakExample.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\BreakExample.exe
+| Symbol | Scope 	 | Name
+| 1000 	 | INSTRUCTIONLIST 	 | TABLE
+| 12 	 | DECLARATION 	 | a
+| 17 	 | INSTRUCTIONLIST 	 | stringFalse
+| 17 	 | INSTRUCTIONLIST 	 | stringTrue
+| 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
+| 17 	 | INSTRUCTIONLIST 	 | formatoutdecimal
+| 17 	 | INSTRUCTIONLIST 	 | formatoutchar
+| 17 	 | INSTRUCTIONLIST 	 | formatoutstring
+| 17 	 | INSTRUCTIONLIST 	 | formatoutbool
+| 17 	 | INSTRUCTIONLIST 	 | formatinnumber
+| 17 	 | INSTRUCTIONLIST 	 | formatindecimal
+| 17 	 | INSTRUCTIONLIST 	 | formatinchar
+| 17 	 | INSTRUCTIONLIST 	 | formatinstring
+| 17 	 | INSTRUCTIONLIST 	 | formatinbool
+| 12 	 | DECLARATION 	 | a
+| 12 	 | Loop 	 | l1
+| 12 	 | + 	 | t1

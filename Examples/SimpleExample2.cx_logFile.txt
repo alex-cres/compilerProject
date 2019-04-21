@@ -1,6 +1,6 @@
 
-READING FROM : ..\Examples\SimpleExample.cx
-WRITING TO : ..\Examples\SimpleExample.cx_logFile.txt
+READING FROM : ..\Examples\SimpleExample2.cx
+WRITING TO : ..\Examples\SimpleExample2.cx_logFile.txt
 
 Token:	012 --> IDN_NUMBER                    	Lex:	N
 Entering <INSTRUCTIONLIST>
@@ -173,7 +173,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t i << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t bool << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -195,73 +195,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	i
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t j << "
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	j
+Token:	011 --> IDENTIFIER                    	Lex:	bool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -305,7 +239,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t e << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t nbool << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -327,73 +261,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	e
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi << "
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	pi
+Token:	011 --> IDENTIFIER                    	Lex:	nbool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -437,7 +305,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t i*j << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t bool | nbool << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -459,35 +327,18 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	i
+Token:	011 --> IDENTIFIER                    	Lex:	bool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	034 --> OP_MUL                        	Lex:	*
+Token:	042 --> OP_OR                         	Lex:	|
 Exiting <FACTOR>
-Token:	011 --> IDENTIFIER                    	Lex:	j
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Token:	011 --> IDENTIFIER                    	Lex:	nbool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -499,55 +350,6 @@ Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
 Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t j/i << "
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	j
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	033 --> OP_DIV                        	Lex:	/
-Exiting <FACTOR>
-Token:	011 --> IDENTIFIER                    	Lex:	i
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
 Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
@@ -581,7 +383,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t e+j << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t nbool & bool << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -603,37 +405,18 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	e
+Token:	011 --> IDENTIFIER                    	Lex:	nbool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	032 --> OP_ADD                        	Lex:	+
+Token:	041 --> OP_AND                        	Lex:	&
 Exiting <FACTOR>
 Exiting <TERM>
-Token:	011 --> IDENTIFIER                    	Lex:	j
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
 Exiting <EXP>
 Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Token:	011 --> IDENTIFIER                    	Lex:	bool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -645,57 +428,6 @@ Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
 Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t e-j << "
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <CEXP>
-Exiting <BEXP>
-Token:	005 --> POINT_COMMA                   	Lex:	;
-Exiting <ON>
-Exiting <INSTRUCTION>
-Token:	078 --> RESERVED_ON                   	Lex:	On
-Entering <INSTRUCTIONLIST>
-Entering <INSTRUCTION>
-Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
-Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
-Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	e
-Entering <BEXP>
-Entering <CEXP>
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	031 --> OP_MINUS                      	Lex:	-
-Exiting <FACTOR>
-Exiting <TERM>
-Token:	011 --> IDENTIFIER                    	Lex:	j
-Entering <EXP>
-Entering <TERM>
-Entering <FACTOR>
-Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
-Exiting <FACTOR>
-Exiting <TERM>
-Exiting <EXP>
-Exiting <EXP>
-Exiting <CEXP>
 Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
@@ -729,7 +461,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi-i << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t bool X nbool << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -751,16 +483,20 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	011 --> IDENTIFIER                    	Lex:	pi
+Token:	011 --> IDENTIFIER                    	Lex:	bool
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	031 --> OP_MINUS                      	Lex:	-
+Token:	044 --> OP_XOR                        	Lex:	X
 Exiting <FACTOR>
 Exiting <TERM>
-Token:	011 --> IDENTIFIER                    	Lex:	i
+Exiting <EXP>
+Exiting <CEXP>
+Token:	011 --> IDENTIFIER                    	Lex:	nbool
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -768,8 +504,8 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Exiting <EXP>
 Exiting <CEXP>
+Exiting <BEXP>
 Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
@@ -803,7 +539,78 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi/j << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t !(nbool)  << "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	043 --> OP_NOT                        	Lex:	!
+Entering <BEXP>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	nbool
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi/pi=1 << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -833,12 +640,20 @@ Entering <TERM>
 Entering <FACTOR>
 Token:	033 --> OP_DIV                        	Lex:	/
 Exiting <FACTOR>
-Token:	011 --> IDENTIFIER                    	Lex:	j
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <TERM>
+Entering <FACTOR>
+Token:	040 --> OP_EQUAL                      	Lex:	=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
-Exiting <TERM>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
@@ -875,7 +690,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi*j << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi/pi=1.0 << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -903,14 +718,22 @@ Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	034 --> OP_MUL                        	Lex:	*
+Token:	033 --> OP_DIV                        	Lex:	/
 Exiting <FACTOR>
-Token:	011 --> IDENTIFIER                    	Lex:	j
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <TERM>
+Entering <FACTOR>
+Token:	040 --> OP_EQUAL                      	Lex:	=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
-Exiting <TERM>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
@@ -947,7 +770,7 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
-Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi+pi << "
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi/pi=ToDecimal(1) << "
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
@@ -975,10 +798,25 @@ Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	032 --> OP_ADD                        	Lex:	+
+Token:	033 --> OP_DIV                        	Lex:	/
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <TERM>
+Entering <FACTOR>
+Token:	040 --> OP_EQUAL                      	Lex:	=
 Exiting <FACTOR>
 Exiting <TERM>
-Token:	011 --> IDENTIFIER                    	Lex:	pi
+Exiting <TERM>
+Exiting <EXP>
+Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <CASTINGVAR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <BEXP>
+Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
@@ -986,8 +824,404 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <CASTINGVAR>
+Exiting <FACTOR>
+Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi<1.0 << "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	036 --> OP_MINOR                      	Lex:	<
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi<=1.0 << "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	039 --> OP_MINOR_EQUAL                	Lex:	<=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi>1.0 << "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	037 --> OP_BIGGER                     	Lex:	>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi>=1.0 << "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	038 --> OP_BIGGER_EQUAL               	Lex:	>=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	021 --> LITERAL_CHAR                  	Lex:	'\n'
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\t\t pi>=1.0 X pi<=1.0 << "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	038 --> OP_BIGGER_EQUAL               	Lex:	>=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	044 --> OP_XOR                        	Lex:	X
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Token:	011 --> IDENTIFIER                    	Lex:	pi
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	039 --> OP_MINOR_EQUAL                	Lex:	<=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	019 --> LITERAL_DECIMAL               	Lex:	1.0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
 Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
@@ -1082,8 +1316,14 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 53
+MAX_DEPTH_TREE FOUND : 59
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -1207,7 +1447,7 @@ PROGRAM
                   |   |   |_EXP
                   |   |     |_TERM
                   |   |       |_FACTOR
-                  |   |         |_"\n\t\t i << "
+                  |   |         |_"\n\t\t bool << "
                   |   |_)
                   |-;
                   |_INSTRUCTIONLIST
@@ -1222,7 +1462,7 @@ PROGRAM
                     |   |   |_EXP
                     |   |     |_TERM
                     |   |       |_FACTOR
-                    |   |         |_i
+                    |   |         |_bool
                     |   |_)
                     |-;
                     |_INSTRUCTIONLIST
@@ -1252,7 +1492,7 @@ PROGRAM
                         |   |   |_EXP
                         |   |     |_TERM
                         |   |       |_FACTOR
-                        |   |         |_"\n\t\t j << "
+                        |   |         |_"\n\t\t nbool << "
                         |   |_)
                         |-;
                         |_INSTRUCTIONLIST
@@ -1267,7 +1507,7 @@ PROGRAM
                           |   |   |_EXP
                           |   |     |_TERM
                           |   |       |_FACTOR
-                          |   |         |_j
+                          |   |         |_nbool
                           |   |_)
                           |-;
                           |_INSTRUCTIONLIST
@@ -1297,7 +1537,7 @@ PROGRAM
                               |   |   |_EXP
                               |   |     |_TERM
                               |   |       |_FACTOR
-                              |   |         |_"\n\t\t e << "
+                              |   |         |_"\n\t\t bool | nbool << "
                               |   |_)
                               |-;
                               |_INSTRUCTIONLIST
@@ -1308,11 +1548,18 @@ PROGRAM
                                 |   |-Console
                                 |   |-(
                                 |   |-BEXP
-                                |   | |_CEXP
-                                |   |   |_EXP
-                                |   |     |_TERM
-                                |   |       |_FACTOR
-                                |   |         |_e
+                                |   | |-CEXP
+                                |   | | |_EXP
+                                |   | |   |_TERM
+                                |   | |     |_FACTOR
+                                |   | |       |_bool
+                                |   | |-|
+                                |   | |_BEXP
+                                |   |   |_CEXP
+                                |   |     |_EXP
+                                |   |       |_TERM
+                                |   |         |_FACTOR
+                                |   |           |_nbool
                                 |   |_)
                                 |-;
                                 |_INSTRUCTIONLIST
@@ -1342,7 +1589,7 @@ PROGRAM
                                     |   |   |_EXP
                                     |   |     |_TERM
                                     |   |       |_FACTOR
-                                    |   |         |_"\n\t\t pi << "
+                                    |   |         |_"\n\t\t nbool & bool << "
                                     |   |_)
                                     |-;
                                     |_INSTRUCTIONLIST
@@ -1353,11 +1600,18 @@ PROGRAM
                                       |   |-Console
                                       |   |-(
                                       |   |-BEXP
-                                      |   | |_CEXP
-                                      |   |   |_EXP
-                                      |   |     |_TERM
-                                      |   |       |_FACTOR
-                                      |   |         |_pi
+                                      |   | |-CEXP
+                                      |   | | |_EXP
+                                      |   | |   |_TERM
+                                      |   | |     |_FACTOR
+                                      |   | |       |_nbool
+                                      |   | |-&
+                                      |   | |_BEXP
+                                      |   |   |_CEXP
+                                      |   |     |_EXP
+                                      |   |       |_TERM
+                                      |   |         |_FACTOR
+                                      |   |           |_bool
                                       |   |_)
                                       |-;
                                       |_INSTRUCTIONLIST
@@ -1387,7 +1641,7 @@ PROGRAM
                                           |   |   |_EXP
                                           |   |     |_TERM
                                           |   |       |_FACTOR
-                                          |   |         |_"\n\t\t i*j << "
+                                          |   |         |_"\n\t\t bool X nbool << "
                                           |   |_)
                                           |-;
                                           |_INSTRUCTIONLIST
@@ -1398,15 +1652,18 @@ PROGRAM
                                             |   |-Console
                                             |   |-(
                                             |   |-BEXP
-                                            |   | |_CEXP
-                                            |   |   |_EXP
-                                            |   |     |_TERM
-                                            |   |       |-FACTOR
-                                            |   |       | |_i
-                                            |   |       |-*
+                                            |   | |-CEXP
+                                            |   | | |_EXP
+                                            |   | |   |_TERM
+                                            |   | |     |_FACTOR
+                                            |   | |       |_bool
+                                            |   | |-X
+                                            |   | |_BEXP
+                                            |   |   |_CEXP
+                                            |   |     |_EXP
                                             |   |       |_TERM
                                             |   |         |_FACTOR
-                                            |   |           |_j
+                                            |   |           |_nbool
                                             |   |_)
                                             |-;
                                             |_INSTRUCTIONLIST
@@ -1436,7 +1693,7 @@ PROGRAM
                                                 |   |   |_EXP
                                                 |   |     |_TERM
                                                 |   |       |_FACTOR
-                                                |   |         |_"\n\t\t j/i << "
+                                                |   |         |_"\n\t\t !(nbool)  << "
                                                 |   |_)
                                                 |-;
                                                 |_INSTRUCTIONLIST
@@ -1447,15 +1704,15 @@ PROGRAM
                                                   |   |-Console
                                                   |   |-(
                                                   |   |-BEXP
-                                                  |   | |_CEXP
-                                                  |   |   |_EXP
-                                                  |   |     |_TERM
-                                                  |   |       |-FACTOR
-                                                  |   |       | |_j
-                                                  |   |       |-/
-                                                  |   |       |_TERM
-                                                  |   |         |_FACTOR
-                                                  |   |           |_i
+                                                  |   | |-!
+                                                  |   | |-(
+                                                  |   | |-BEXP
+                                                  |   | | |_CEXP
+                                                  |   | |   |_EXP
+                                                  |   | |     |_TERM
+                                                  |   | |       |_FACTOR
+                                                  |   | |         |_nbool
+                                                  |   | |_)
                                                   |   |_)
                                                   |-;
                                                   |_INSTRUCTIONLIST
@@ -1485,7 +1742,7 @@ PROGRAM
                                                       |   |   |_EXP
                                                       |   |     |_TERM
                                                       |   |       |_FACTOR
-                                                      |   |         |_"\n\t\t e+j << "
+                                                      |   |         |_"\n\t\t pi/pi=1 << "
                                                       |   |_)
                                                       |-;
                                                       |_INSTRUCTIONLIST
@@ -1497,15 +1754,19 @@ PROGRAM
                                                         |   |-(
                                                         |   |-BEXP
                                                         |   | |_CEXP
+                                                        |   |   |-EXP
+                                                        |   |   | |_TERM
+                                                        |   |   |   |-FACTOR
+                                                        |   |   |   | |_pi
+                                                        |   |   |   |-/
+                                                        |   |   |   |_TERM
+                                                        |   |   |     |_FACTOR
+                                                        |   |   |       |_pi
+                                                        |   |   |-=
                                                         |   |   |_EXP
-                                                        |   |     |-TERM
-                                                        |   |     | |_FACTOR
-                                                        |   |     |   |_e
-                                                        |   |     |-+
-                                                        |   |     |_EXP
-                                                        |   |       |_TERM
-                                                        |   |         |_FACTOR
-                                                        |   |           |_j
+                                                        |   |     |_TERM
+                                                        |   |       |_FACTOR
+                                                        |   |         |_1
                                                         |   |_)
                                                         |-;
                                                         |_INSTRUCTIONLIST
@@ -1535,7 +1796,7 @@ PROGRAM
                                                             |   |   |_EXP
                                                             |   |     |_TERM
                                                             |   |       |_FACTOR
-                                                            |   |         |_"\n\t\t e-j << "
+                                                            |   |         |_"\n\t\t pi/pi=1.0 << "
                                                             |   |_)
                                                             |-;
                                                             |_INSTRUCTIONLIST
@@ -1547,15 +1808,19 @@ PROGRAM
                                                               |   |-(
                                                               |   |-BEXP
                                                               |   | |_CEXP
+                                                              |   |   |-EXP
+                                                              |   |   | |_TERM
+                                                              |   |   |   |-FACTOR
+                                                              |   |   |   | |_pi
+                                                              |   |   |   |-/
+                                                              |   |   |   |_TERM
+                                                              |   |   |     |_FACTOR
+                                                              |   |   |       |_pi
+                                                              |   |   |-=
                                                               |   |   |_EXP
-                                                              |   |     |-TERM
-                                                              |   |     | |_FACTOR
-                                                              |   |     |   |_e
-                                                              |   |     |--
-                                                              |   |     |_EXP
-                                                              |   |       |_TERM
-                                                              |   |         |_FACTOR
-                                                              |   |           |_j
+                                                              |   |     |_TERM
+                                                              |   |       |_FACTOR
+                                                              |   |         |_1.0
                                                               |   |_)
                                                               |-;
                                                               |_INSTRUCTIONLIST
@@ -1585,7 +1850,7 @@ PROGRAM
                                                                   |   |   |_EXP
                                                                   |   |     |_TERM
                                                                   |   |       |_FACTOR
-                                                                  |   |         |_"\n\t\t pi-i << "
+                                                                  |   |         |_"\n\t\t pi/pi=ToDecimal(1) << "
                                                                   |   |_)
                                                                   |-;
                                                                   |_INSTRUCTIONLIST
@@ -1597,15 +1862,28 @@ PROGRAM
                                                                     |   |-(
                                                                     |   |-BEXP
                                                                     |   | |_CEXP
+                                                                    |   |   |-EXP
+                                                                    |   |   | |_TERM
+                                                                    |   |   |   |-FACTOR
+                                                                    |   |   |   | |_pi
+                                                                    |   |   |   |-/
+                                                                    |   |   |   |_TERM
+                                                                    |   |   |     |_FACTOR
+                                                                    |   |   |       |_pi
+                                                                    |   |   |-=
                                                                     |   |   |_EXP
-                                                                    |   |     |-TERM
-                                                                    |   |     | |_FACTOR
-                                                                    |   |     |   |_pi
-                                                                    |   |     |--
-                                                                    |   |     |_EXP
-                                                                    |   |       |_TERM
-                                                                    |   |         |_FACTOR
-                                                                    |   |           |_i
+                                                                    |   |     |_TERM
+                                                                    |   |       |_FACTOR
+                                                                    |   |         |_CASTINGVAR
+                                                                    |   |           |-ToDecimal
+                                                                    |   |           |-(
+                                                                    |   |           |-BEXP
+                                                                    |   |           | |_CEXP
+                                                                    |   |           |   |_EXP
+                                                                    |   |           |     |_TERM
+                                                                    |   |           |       |_FACTOR
+                                                                    |   |           |         |_1
+                                                                    |   |           |_)
                                                                     |   |_)
                                                                     |-;
                                                                     |_INSTRUCTIONLIST
@@ -1635,7 +1913,7 @@ PROGRAM
                                                                         |   |   |_EXP
                                                                         |   |     |_TERM
                                                                         |   |       |_FACTOR
-                                                                        |   |         |_"\n\t\t pi/j << "
+                                                                        |   |         |_"\n\t\t pi<1.0 << "
                                                                         |   |_)
                                                                         |-;
                                                                         |_INSTRUCTIONLIST
@@ -1647,14 +1925,15 @@ PROGRAM
                                                                           |   |-(
                                                                           |   |-BEXP
                                                                           |   | |_CEXP
+                                                                          |   |   |-EXP
+                                                                          |   |   | |_TERM
+                                                                          |   |   |   |_FACTOR
+                                                                          |   |   |     |_pi
+                                                                          |   |   |-<
                                                                           |   |   |_EXP
                                                                           |   |     |_TERM
-                                                                          |   |       |-FACTOR
-                                                                          |   |       | |_pi
-                                                                          |   |       |-/
-                                                                          |   |       |_TERM
-                                                                          |   |         |_FACTOR
-                                                                          |   |           |_j
+                                                                          |   |       |_FACTOR
+                                                                          |   |         |_1.0
                                                                           |   |_)
                                                                           |-;
                                                                           |_INSTRUCTIONLIST
@@ -1684,7 +1963,7 @@ PROGRAM
                                                                               |   |   |_EXP
                                                                               |   |     |_TERM
                                                                               |   |       |_FACTOR
-                                                                              |   |         |_"\n\t\t pi*j << "
+                                                                              |   |         |_"\n\t\t pi<=1.0 << "
                                                                               |   |_)
                                                                               |-;
                                                                               |_INSTRUCTIONLIST
@@ -1696,14 +1975,15 @@ PROGRAM
                                                                                 |   |-(
                                                                                 |   |-BEXP
                                                                                 |   | |_CEXP
+                                                                                |   |   |-EXP
+                                                                                |   |   | |_TERM
+                                                                                |   |   |   |_FACTOR
+                                                                                |   |   |     |_pi
+                                                                                |   |   |-<=
                                                                                 |   |   |_EXP
                                                                                 |   |     |_TERM
-                                                                                |   |       |-FACTOR
-                                                                                |   |       | |_pi
-                                                                                |   |       |-*
-                                                                                |   |       |_TERM
-                                                                                |   |         |_FACTOR
-                                                                                |   |           |_j
+                                                                                |   |       |_FACTOR
+                                                                                |   |         |_1.0
                                                                                 |   |_)
                                                                                 |-;
                                                                                 |_INSTRUCTIONLIST
@@ -1733,7 +2013,7 @@ PROGRAM
                                                                                     |   |   |_EXP
                                                                                     |   |     |_TERM
                                                                                     |   |       |_FACTOR
-                                                                                    |   |         |_"\n\t\t pi+pi << "
+                                                                                    |   |         |_"\n\t\t pi>1.0 << "
                                                                                     |   |_)
                                                                                     |-;
                                                                                     |_INSTRUCTIONLIST
@@ -1745,15 +2025,15 @@ PROGRAM
                                                                                       |   |-(
                                                                                       |   |-BEXP
                                                                                       |   | |_CEXP
+                                                                                      |   |   |-EXP
+                                                                                      |   |   | |_TERM
+                                                                                      |   |   |   |_FACTOR
+                                                                                      |   |   |     |_pi
+                                                                                      |   |   |->
                                                                                       |   |   |_EXP
-                                                                                      |   |     |-TERM
-                                                                                      |   |     | |_FACTOR
-                                                                                      |   |     |   |_pi
-                                                                                      |   |     |-+
-                                                                                      |   |     |_EXP
-                                                                                      |   |       |_TERM
-                                                                                      |   |         |_FACTOR
-                                                                                      |   |           |_pi
+                                                                                      |   |     |_TERM
+                                                                                      |   |       |_FACTOR
+                                                                                      |   |         |_1.0
                                                                                       |   |_)
                                                                                       |-;
                                                                                       |_INSTRUCTIONLIST
@@ -1783,10 +2063,122 @@ PROGRAM
                                                                                           |   |   |_EXP
                                                                                           |   |     |_TERM
                                                                                           |   |       |_FACTOR
-                                                                                          |   |         |_"\nFinished Tests\n"
+                                                                                          |   |         |_"\n\t\t pi>=1.0 << "
                                                                                           |   |_)
                                                                                           |-;
-                                                                                          |_EOF
+                                                                                          |_INSTRUCTIONLIST
+                                                                                            |-INSTRUCTION
+                                                                                            | |_ON
+                                                                                            |   |-On
+                                                                                            |   |-.
+                                                                                            |   |-Console
+                                                                                            |   |-(
+                                                                                            |   |-BEXP
+                                                                                            |   | |_CEXP
+                                                                                            |   |   |-EXP
+                                                                                            |   |   | |_TERM
+                                                                                            |   |   |   |_FACTOR
+                                                                                            |   |   |     |_pi
+                                                                                            |   |   |->=
+                                                                                            |   |   |_EXP
+                                                                                            |   |     |_TERM
+                                                                                            |   |       |_FACTOR
+                                                                                            |   |         |_1.0
+                                                                                            |   |_)
+                                                                                            |-;
+                                                                                            |_INSTRUCTIONLIST
+                                                                                              |-INSTRUCTION
+                                                                                              | |_ON
+                                                                                              |   |-On
+                                                                                              |   |-.
+                                                                                              |   |-Console
+                                                                                              |   |-(
+                                                                                              |   |-BEXP
+                                                                                              |   | |_CEXP
+                                                                                              |   |   |_EXP
+                                                                                              |   |     |_TERM
+                                                                                              |   |       |_FACTOR
+                                                                                              |   |         |_'\n'
+                                                                                              |   |_)
+                                                                                              |-;
+                                                                                              |_INSTRUCTIONLIST
+                                                                                                |-INSTRUCTION
+                                                                                                | |_ON
+                                                                                                |   |-On
+                                                                                                |   |-.
+                                                                                                |   |-Console
+                                                                                                |   |-(
+                                                                                                |   |-BEXP
+                                                                                                |   | |_CEXP
+                                                                                                |   |   |_EXP
+                                                                                                |   |     |_TERM
+                                                                                                |   |       |_FACTOR
+                                                                                                |   |         |_"\n\t\t pi>=1.0 X pi<=1.0 << "
+                                                                                                |   |_)
+                                                                                                |-;
+                                                                                                |_INSTRUCTIONLIST
+                                                                                                  |-INSTRUCTION
+                                                                                                  | |_ON
+                                                                                                  |   |-On
+                                                                                                  |   |-.
+                                                                                                  |   |-Console
+                                                                                                  |   |-(
+                                                                                                  |   |-BEXP
+                                                                                                  |   | |-CEXP
+                                                                                                  |   | | |-EXP
+                                                                                                  |   | | | |_TERM
+                                                                                                  |   | | |   |_FACTOR
+                                                                                                  |   | | |     |_pi
+                                                                                                  |   | | |->=
+                                                                                                  |   | | |_EXP
+                                                                                                  |   | |   |_TERM
+                                                                                                  |   | |     |_FACTOR
+                                                                                                  |   | |       |_1.0
+                                                                                                  |   | |-X
+                                                                                                  |   | |_BEXP
+                                                                                                  |   |   |_CEXP
+                                                                                                  |   |     |-EXP
+                                                                                                  |   |     | |_TERM
+                                                                                                  |   |     |   |_FACTOR
+                                                                                                  |   |     |     |_pi
+                                                                                                  |   |     |-<=
+                                                                                                  |   |     |_EXP
+                                                                                                  |   |       |_TERM
+                                                                                                  |   |         |_FACTOR
+                                                                                                  |   |           |_1.0
+                                                                                                  |   |_)
+                                                                                                  |-;
+                                                                                                  |_INSTRUCTIONLIST
+                                                                                                    |-INSTRUCTION
+                                                                                                    | |_ON
+                                                                                                    |   |-On
+                                                                                                    |   |-.
+                                                                                                    |   |-Console
+                                                                                                    |   |-(
+                                                                                                    |   |-BEXP
+                                                                                                    |   | |_CEXP
+                                                                                                    |   |   |_EXP
+                                                                                                    |   |     |_TERM
+                                                                                                    |   |       |_FACTOR
+                                                                                                    |   |         |_'\n'
+                                                                                                    |   |_)
+                                                                                                    |-;
+                                                                                                    |_INSTRUCTIONLIST
+                                                                                                      |-INSTRUCTION
+                                                                                                      | |_ON
+                                                                                                      |   |-On
+                                                                                                      |   |-.
+                                                                                                      |   |-Console
+                                                                                                      |   |-(
+                                                                                                      |   |-BEXP
+                                                                                                      |   | |_CEXP
+                                                                                                      |   |   |_EXP
+                                                                                                      |   |     |_TERM
+                                                                                                      |   |       |_FACTOR
+                                                                                                      |   |         |_"\nFinished Tests\n"
+                                                                                                      |   |_)
+                                                                                                      |-;
+                                                                                                      |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -1996,13 +2388,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t i << "
-Exiting \n\t\t i << 
-Exiting \n\t\t i << 
-Exiting \n\t\t i << 
-Exiting \n\t\t i << 
-Exiting \n\t\t i << 
-Exiting \n\t\t i << 
+Entering "\n\t\t bool << "
+Exiting \n\t\t bool << 
+Exiting \n\t\t bool << 
+Exiting \n\t\t bool << 
+Exiting \n\t\t bool << 
+Exiting \n\t\t bool << 
+Exiting \n\t\t bool << 
 Entering )
 Exiting On
 Exiting On
@@ -2021,88 +2413,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering i
-Exiting i
-Exiting i
-Exiting i
-Exiting i
-Exiting i
-Exiting i
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering '\n'
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n\t\t j << "
-Exiting \n\t\t j << 
-Exiting \n\t\t j << 
-Exiting \n\t\t j << 
-Exiting \n\t\t j << 
-Exiting \n\t\t j << 
-Exiting \n\t\t j << 
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Exiting j
-Exiting j
-Exiting j
-Exiting j
+Entering bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
 Entering )
 Exiting On
 Exiting On
@@ -2146,13 +2463,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t e << "
-Exiting \n\t\t e << 
-Exiting \n\t\t e << 
-Exiting \n\t\t e << 
-Exiting \n\t\t e << 
-Exiting \n\t\t e << 
-Exiting \n\t\t e << 
+Entering "\n\t\t nbool << "
+Exiting \n\t\t nbool << 
+Exiting \n\t\t nbool << 
+Exiting \n\t\t nbool << 
+Exiting \n\t\t nbool << 
+Exiting \n\t\t nbool << 
+Exiting \n\t\t nbool << 
 Entering )
 Exiting On
 Exiting On
@@ -2171,88 +2488,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering e
-Exiting e
-Exiting e
-Exiting e
-Exiting e
-Exiting e
-Exiting e
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering '\n'
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n\t\t pi << "
-Exiting \n\t\t pi << 
-Exiting \n\t\t pi << 
-Exiting \n\t\t pi << 
-Exiting \n\t\t pi << 
-Exiting \n\t\t pi << 
-Exiting \n\t\t pi << 
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering pi
-Exiting pi
-Exiting pi
-Exiting pi
-Exiting pi
-Exiting pi
-Exiting pi
+Entering nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
 Entering )
 Exiting On
 Exiting On
@@ -2296,13 +2538,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t i*j << "
-Exiting \n\t\t i*j << 
-Exiting \n\t\t i*j << 
-Exiting \n\t\t i*j << 
-Exiting \n\t\t i*j << 
-Exiting \n\t\t i*j << 
-Exiting \n\t\t i*j << 
+Entering "\n\t\t bool | nbool << "
+Exiting \n\t\t bool | nbool << 
+Exiting \n\t\t bool | nbool << 
+Exiting \n\t\t bool | nbool << 
+Exiting \n\t\t bool | nbool << 
+Exiting \n\t\t bool | nbool << 
+Exiting \n\t\t bool | nbool << 
 Entering )
 Exiting On
 Exiting On
@@ -2321,104 +2563,27 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering i
-Exiting i
-Exiting i
-Entering *
-Exiting *
-Entering TERM
-Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Exiting j
-Exiting *
-Exiting *
-Exiting *
-Exiting *
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
+Entering bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Entering |
+Exiting |
 Entering BEXP
 Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering '\n'
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n\t\t j/i << "
-Exiting \n\t\t j/i << 
-Exiting \n\t\t j/i << 
-Exiting \n\t\t j/i << 
-Exiting \n\t\t j/i << 
-Exiting \n\t\t j/i << 
-Exiting \n\t\t j/i << 
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Entering /
-Exiting /
-Entering TERM
-Entering FACTOR
-Entering i
-Exiting i
-Exiting i
-Exiting i
-Exiting /
-Exiting /
-Exiting /
-Exiting /
+Entering nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting |
 Entering )
 Exiting On
 Exiting On
@@ -2462,13 +2627,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t e+j << "
-Exiting \n\t\t e+j << 
-Exiting \n\t\t e+j << 
-Exiting \n\t\t e+j << 
-Exiting \n\t\t e+j << 
-Exiting \n\t\t e+j << 
-Exiting \n\t\t e+j << 
+Entering "\n\t\t nbool & bool << "
+Exiting \n\t\t nbool & bool << 
+Exiting \n\t\t nbool & bool << 
+Exiting \n\t\t nbool & bool << 
+Exiting \n\t\t nbool & bool << 
+Exiting \n\t\t nbool & bool << 
+Exiting \n\t\t nbool & bool << 
 Entering )
 Exiting On
 Exiting On
@@ -2487,108 +2652,27 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering e
-Exiting e
-Exiting e
-Exiting e
-Entering +
-Exiting +
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Exiting j
-Exiting j
-Exiting +
-Exiting +
-Exiting +
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
+Entering nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Entering &
+Exiting &
 Entering BEXP
 Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering '\n'
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Exiting \n
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering "\n\t\t e-j << "
-Exiting \n\t\t e-j << 
-Exiting \n\t\t e-j << 
-Exiting \n\t\t e-j << 
-Exiting \n\t\t e-j << 
-Exiting \n\t\t e-j << 
-Exiting \n\t\t e-j << 
-Entering )
-Exiting On
-Exiting On
-Entering ;
-Entering INSTRUCTIONLIST
-Entering INSTRUCTION
-Entering ON
-Entering On
-Exiting On
-Entering .
-Entering Console
-Exiting Console
-Entering (
-Entering BEXP
-Entering CEXP
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering e
-Exiting e
-Exiting e
-Exiting e
-Entering -
-Exiting -
-Entering EXP
-Entering TERM
-Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Exiting j
-Exiting j
-Exiting -
-Exiting -
-Exiting -
+Entering bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting &
 Entering )
 Exiting On
 Exiting On
@@ -2632,13 +2716,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t pi-i << "
-Exiting \n\t\t pi-i << 
-Exiting \n\t\t pi-i << 
-Exiting \n\t\t pi-i << 
-Exiting \n\t\t pi-i << 
-Exiting \n\t\t pi-i << 
-Exiting \n\t\t pi-i << 
+Entering "\n\t\t bool X nbool << "
+Exiting \n\t\t bool X nbool << 
+Exiting \n\t\t bool X nbool << 
+Exiting \n\t\t bool X nbool << 
+Exiting \n\t\t bool X nbool << 
+Exiting \n\t\t bool X nbool << 
+Exiting \n\t\t bool X nbool << 
 Entering )
 Exiting On
 Exiting On
@@ -2657,23 +2741,27 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering pi
-Exiting pi
-Exiting pi
-Exiting pi
-Entering -
-Exiting -
+Entering bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Exiting bool
+Entering X
+Exiting X
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering i
-Exiting i
-Exiting i
-Exiting i
-Exiting i
-Exiting -
-Exiting -
-Exiting -
+Entering nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting X
 Entering )
 Exiting On
 Exiting On
@@ -2717,13 +2805,94 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t pi/j << "
-Exiting \n\t\t pi/j << 
-Exiting \n\t\t pi/j << 
-Exiting \n\t\t pi/j << 
-Exiting \n\t\t pi/j << 
-Exiting \n\t\t pi/j << 
-Exiting \n\t\t pi/j << 
+Entering "\n\t\t !(nbool)  << "
+Exiting \n\t\t !(nbool)  << 
+Exiting \n\t\t !(nbool)  << 
+Exiting \n\t\t !(nbool)  << 
+Exiting \n\t\t !(nbool)  << 
+Exiting \n\t\t !(nbool)  << 
+Exiting \n\t\t !(nbool)  << 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering !
+Exiting !
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Exiting nbool
+Entering )
+Exiting !
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering '\n'
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\t\t pi/pi=1 << "
+Exiting \n\t\t pi/pi=1 << 
+Exiting \n\t\t pi/pi=1 << 
+Exiting \n\t\t pi/pi=1 << 
+Exiting \n\t\t pi/pi=1 << 
+Exiting \n\t\t pi/pi=1 << 
+Exiting \n\t\t pi/pi=1 << 
 Entering )
 Exiting On
 Exiting On
@@ -2749,14 +2918,24 @@ Entering /
 Exiting /
 Entering TERM
 Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Exiting j
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
 Exiting /
 Exiting /
-Exiting /
-Exiting /
+Entering =
+Exiting =
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting =
+Exiting =
 Entering )
 Exiting On
 Exiting On
@@ -2800,13 +2979,13 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t pi*j << "
-Exiting \n\t\t pi*j << 
-Exiting \n\t\t pi*j << 
-Exiting \n\t\t pi*j << 
-Exiting \n\t\t pi*j << 
-Exiting \n\t\t pi*j << 
-Exiting \n\t\t pi*j << 
+Entering "\n\t\t pi/pi=1.0 << "
+Exiting \n\t\t pi/pi=1.0 << 
+Exiting \n\t\t pi/pi=1.0 << 
+Exiting \n\t\t pi/pi=1.0 << 
+Exiting \n\t\t pi/pi=1.0 << 
+Exiting \n\t\t pi/pi=1.0 << 
+Exiting \n\t\t pi/pi=1.0 << 
 Entering )
 Exiting On
 Exiting On
@@ -2828,18 +3007,28 @@ Entering FACTOR
 Entering pi
 Exiting pi
 Exiting pi
-Entering *
-Exiting *
+Entering /
+Exiting /
 Entering TERM
 Entering FACTOR
-Entering j
-Exiting j
-Exiting j
-Exiting j
-Exiting *
-Exiting *
-Exiting *
-Exiting *
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
+Exiting /
+Exiting /
+Entering =
+Exiting =
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting =
+Exiting =
 Entering )
 Exiting On
 Exiting On
@@ -2883,13 +3072,122 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering "\n\t\t pi+pi << "
-Exiting \n\t\t pi+pi << 
-Exiting \n\t\t pi+pi << 
-Exiting \n\t\t pi+pi << 
-Exiting \n\t\t pi+pi << 
-Exiting \n\t\t pi+pi << 
-Exiting \n\t\t pi+pi << 
+Entering "\n\t\t pi/pi=ToDecimal(1) << "
+Exiting \n\t\t pi/pi=ToDecimal(1) << 
+Exiting \n\t\t pi/pi=ToDecimal(1) << 
+Exiting \n\t\t pi/pi=ToDecimal(1) << 
+Exiting \n\t\t pi/pi=ToDecimal(1) << 
+Exiting \n\t\t pi/pi=ToDecimal(1) << 
+Exiting \n\t\t pi/pi=ToDecimal(1) << 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering pi
+Exiting pi
+Exiting pi
+Entering /
+Exiting /
+Entering TERM
+Entering FACTOR
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
+Exiting /
+Exiting /
+Entering =
+Exiting =
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering CASTINGVAR
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Entering )
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting ToDecimal
+Exiting =
+Exiting =
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering '\n'
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\t\t pi<1.0 << "
+Exiting \n\t\t pi<1.0 << 
+Exiting \n\t\t pi<1.0 << 
+Exiting \n\t\t pi<1.0 << 
+Exiting \n\t\t pi<1.0 << 
+Exiting \n\t\t pi<1.0 << 
+Exiting \n\t\t pi<1.0 << 
 Entering )
 Exiting On
 Exiting On
@@ -2912,8 +3210,84 @@ Entering pi
 Exiting pi
 Exiting pi
 Exiting pi
-Entering +
-Exiting +
+Exiting pi
+Entering <
+Exiting <
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting <
+Exiting <
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering '\n'
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\t\t pi<=1.0 << "
+Exiting \n\t\t pi<=1.0 << 
+Exiting \n\t\t pi<=1.0 << 
+Exiting \n\t\t pi<=1.0 << 
+Exiting \n\t\t pi<=1.0 << 
+Exiting \n\t\t pi<=1.0 << 
+Exiting \n\t\t pi<=1.0 << 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -2922,9 +3296,297 @@ Exiting pi
 Exiting pi
 Exiting pi
 Exiting pi
-Exiting +
-Exiting +
-Exiting +
+Entering <=
+Exiting <=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting <=
+Exiting <=
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering '\n'
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\t\t pi>1.0 << "
+Exiting \n\t\t pi>1.0 << 
+Exiting \n\t\t pi>1.0 << 
+Exiting \n\t\t pi>1.0 << 
+Exiting \n\t\t pi>1.0 << 
+Exiting \n\t\t pi>1.0 << 
+Exiting \n\t\t pi>1.0 << 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
+Exiting pi
+Entering >
+Exiting >
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting >
+Exiting >
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering '\n'
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\t\t pi>=1.0 << "
+Exiting \n\t\t pi>=1.0 << 
+Exiting \n\t\t pi>=1.0 << 
+Exiting \n\t\t pi>=1.0 << 
+Exiting \n\t\t pi>=1.0 << 
+Exiting \n\t\t pi>=1.0 << 
+Exiting \n\t\t pi>=1.0 << 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
+Exiting pi
+Entering >=
+Exiting >=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting >=
+Exiting >=
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering '\n'
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\t\t pi>=1.0 X pi<=1.0 << "
+Exiting \n\t\t pi>=1.0 X pi<=1.0 << 
+Exiting \n\t\t pi>=1.0 X pi<=1.0 << 
+Exiting \n\t\t pi>=1.0 X pi<=1.0 << 
+Exiting \n\t\t pi>=1.0 X pi<=1.0 << 
+Exiting \n\t\t pi>=1.0 X pi<=1.0 << 
+Exiting \n\t\t pi>=1.0 X pi<=1.0 << 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
+Exiting pi
+Entering >=
+Exiting >=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting >=
+Entering X
+Exiting X
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering pi
+Exiting pi
+Exiting pi
+Exiting pi
+Exiting pi
+Entering <=
+Exiting <=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting 1.0
+Exiting <=
+Exiting <=
+Exiting X
 Entering )
 Exiting On
 Exiting On
@@ -3026,6 +3688,12 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -3072,11 +3740,11 @@ INSTRUCTIONLIST
               |_INSTRUCTIONLIST
                 |-On
                 | |-Console
-                | |_\n\t\t i << 
+                | |_\n\t\t bool << 
                 |_INSTRUCTIONLIST
                   |-On
                   | |-Console
-                  | |_i
+                  | |_bool
                   |_INSTRUCTIONLIST
                     |-On
                     | |-Console
@@ -3084,11 +3752,11 @@ INSTRUCTIONLIST
                     |_INSTRUCTIONLIST
                       |-On
                       | |-Console
-                      | |_\n\t\t j << 
+                      | |_\n\t\t nbool << 
                       |_INSTRUCTIONLIST
                         |-On
                         | |-Console
-                        | |_j
+                        | |_nbool
                         |_INSTRUCTIONLIST
                           |-On
                           | |-Console
@@ -3096,11 +3764,13 @@ INSTRUCTIONLIST
                           |_INSTRUCTIONLIST
                             |-On
                             | |-Console
-                            | |_\n\t\t e << 
+                            | |_\n\t\t bool | nbool << 
                             |_INSTRUCTIONLIST
                               |-On
                               | |-Console
-                              | |_e
+                              | |_|
+                              |   |-bool
+                              |   |_nbool
                               |_INSTRUCTIONLIST
                                 |-On
                                 | |-Console
@@ -3108,11 +3778,13 @@ INSTRUCTIONLIST
                                 |_INSTRUCTIONLIST
                                   |-On
                                   | |-Console
-                                  | |_\n\t\t pi << 
+                                  | |_\n\t\t nbool & bool << 
                                   |_INSTRUCTIONLIST
                                     |-On
                                     | |-Console
-                                    | |_pi
+                                    | |_&
+                                    |   |-nbool
+                                    |   |_bool
                                     |_INSTRUCTIONLIST
                                       |-On
                                       | |-Console
@@ -3120,13 +3792,13 @@ INSTRUCTIONLIST
                                       |_INSTRUCTIONLIST
                                         |-On
                                         | |-Console
-                                        | |_\n\t\t i*j << 
+                                        | |_\n\t\t bool X nbool << 
                                         |_INSTRUCTIONLIST
                                           |-On
                                           | |-Console
-                                          | |_*
-                                          |   |-i
-                                          |   |_j
+                                          | |_X
+                                          |   |-bool
+                                          |   |_nbool
                                           |_INSTRUCTIONLIST
                                             |-On
                                             | |-Console
@@ -3134,13 +3806,12 @@ INSTRUCTIONLIST
                                             |_INSTRUCTIONLIST
                                               |-On
                                               | |-Console
-                                              | |_\n\t\t j/i << 
+                                              | |_\n\t\t !(nbool)  << 
                                               |_INSTRUCTIONLIST
                                                 |-On
                                                 | |-Console
-                                                | |_/
-                                                |   |-j
-                                                |   |_i
+                                                | |_!
+                                                |   |_nbool
                                                 |_INSTRUCTIONLIST
                                                   |-On
                                                   | |-Console
@@ -3148,13 +3819,15 @@ INSTRUCTIONLIST
                                                   |_INSTRUCTIONLIST
                                                     |-On
                                                     | |-Console
-                                                    | |_\n\t\t e+j << 
+                                                    | |_\n\t\t pi/pi=1 << 
                                                     |_INSTRUCTIONLIST
                                                       |-On
                                                       | |-Console
-                                                      | |_+
-                                                      |   |-e
-                                                      |   |_j
+                                                      | |_=
+                                                      |   |-/
+                                                      |   | |-pi
+                                                      |   | |_pi
+                                                      |   |_1
                                                       |_INSTRUCTIONLIST
                                                         |-On
                                                         | |-Console
@@ -3162,13 +3835,15 @@ INSTRUCTIONLIST
                                                         |_INSTRUCTIONLIST
                                                           |-On
                                                           | |-Console
-                                                          | |_\n\t\t e-j << 
+                                                          | |_\n\t\t pi/pi=1.0 << 
                                                           |_INSTRUCTIONLIST
                                                             |-On
                                                             | |-Console
-                                                            | |_-
-                                                            |   |-e
-                                                            |   |_j
+                                                            | |_=
+                                                            |   |-/
+                                                            |   | |-pi
+                                                            |   | |_pi
+                                                            |   |_1.0
                                                             |_INSTRUCTIONLIST
                                                               |-On
                                                               | |-Console
@@ -3176,13 +3851,16 @@ INSTRUCTIONLIST
                                                               |_INSTRUCTIONLIST
                                                                 |-On
                                                                 | |-Console
-                                                                | |_\n\t\t pi-i << 
+                                                                | |_\n\t\t pi/pi=ToDecimal(1) << 
                                                                 |_INSTRUCTIONLIST
                                                                   |-On
                                                                   | |-Console
-                                                                  | |_-
-                                                                  |   |-pi
-                                                                  |   |_i
+                                                                  | |_=
+                                                                  |   |-/
+                                                                  |   | |-pi
+                                                                  |   | |_pi
+                                                                  |   |_ToDecimal
+                                                                  |     |_1
                                                                   |_INSTRUCTIONLIST
                                                                     |-On
                                                                     | |-Console
@@ -3190,13 +3868,13 @@ INSTRUCTIONLIST
                                                                     |_INSTRUCTIONLIST
                                                                       |-On
                                                                       | |-Console
-                                                                      | |_\n\t\t pi/j << 
+                                                                      | |_\n\t\t pi<1.0 << 
                                                                       |_INSTRUCTIONLIST
                                                                         |-On
                                                                         | |-Console
-                                                                        | |_/
+                                                                        | |_<
                                                                         |   |-pi
-                                                                        |   |_j
+                                                                        |   |_1.0
                                                                         |_INSTRUCTIONLIST
                                                                           |-On
                                                                           | |-Console
@@ -3204,13 +3882,13 @@ INSTRUCTIONLIST
                                                                           |_INSTRUCTIONLIST
                                                                             |-On
                                                                             | |-Console
-                                                                            | |_\n\t\t pi*j << 
+                                                                            | |_\n\t\t pi<=1.0 << 
                                                                             |_INSTRUCTIONLIST
                                                                               |-On
                                                                               | |-Console
-                                                                              | |_*
+                                                                              | |_<=
                                                                               |   |-pi
-                                                                              |   |_j
+                                                                              |   |_1.0
                                                                               |_INSTRUCTIONLIST
                                                                                 |-On
                                                                                 | |-Console
@@ -3218,20 +3896,52 @@ INSTRUCTIONLIST
                                                                                 |_INSTRUCTIONLIST
                                                                                   |-On
                                                                                   | |-Console
-                                                                                  | |_\n\t\t pi+pi << 
+                                                                                  | |_\n\t\t pi>1.0 << 
                                                                                   |_INSTRUCTIONLIST
                                                                                     |-On
                                                                                     | |-Console
-                                                                                    | |_+
+                                                                                    | |_>
                                                                                     |   |-pi
-                                                                                    |   |_pi
+                                                                                    |   |_1.0
                                                                                     |_INSTRUCTIONLIST
                                                                                       |-On
                                                                                       | |-Console
                                                                                       | |_\n
-                                                                                      |_On
-                                                                                        |-Console
-                                                                                        |_\nFinished Tests\n
+                                                                                      |_INSTRUCTIONLIST
+                                                                                        |-On
+                                                                                        | |-Console
+                                                                                        | |_\n\t\t pi>=1.0 << 
+                                                                                        |_INSTRUCTIONLIST
+                                                                                          |-On
+                                                                                          | |-Console
+                                                                                          | |_>=
+                                                                                          |   |-pi
+                                                                                          |   |_1.0
+                                                                                          |_INSTRUCTIONLIST
+                                                                                            |-On
+                                                                                            | |-Console
+                                                                                            | |_\n
+                                                                                            |_INSTRUCTIONLIST
+                                                                                              |-On
+                                                                                              | |-Console
+                                                                                              | |_\n\t\t pi>=1.0 X pi<=1.0 << 
+                                                                                              |_INSTRUCTIONLIST
+                                                                                                |-On
+                                                                                                | |-Console
+                                                                                                | |_X
+                                                                                                |   |->=
+                                                                                                |   | |-pi
+                                                                                                |   | |_1.0
+                                                                                                |   |_<=
+                                                                                                |     |-pi
+                                                                                                |     |_1.0
+                                                                                                |_INSTRUCTIONLIST
+                                                                                                  |-On
+                                                                                                  | |-Console
+                                                                                                  | |_\n
+                                                                                                  |_On
+                                                                                                    |-Console
+                                                                                                    |_\nFinished Tests\n
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -3350,9 +4060,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t i << 
-Optimization start \n\t\t i << 
-End Optimization of \n\t\t i << 
+Optimization of \n\t\t bool << 
+Optimization start \n\t\t bool << 
+End Optimization of \n\t\t bool << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3360,39 +4070,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of i
-Optimization start i
-End Optimization of i
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n\t\t j << 
-Optimization start \n\t\t j << 
-End Optimization of \n\t\t j << 
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of j
-Optimization start j
-End Optimization of j
+Optimization of bool
+Optimization start bool
+End Optimization of bool
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3410,9 +4090,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t e << 
-Optimization start \n\t\t e << 
-End Optimization of \n\t\t e << 
+Optimization of \n\t\t nbool << 
+Optimization start \n\t\t nbool << 
+End Optimization of \n\t\t nbool << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3420,39 +4100,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of e
-Optimization start e
-End Optimization of e
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n\t\t pi << 
-Optimization start \n\t\t pi << 
-End Optimization of \n\t\t pi << 
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of pi
-Optimization start pi
-End Optimization of pi
+Optimization of nbool
+Optimization start nbool
+End Optimization of nbool
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3470,9 +4120,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t i*j << 
-Optimization start \n\t\t i*j << 
-End Optimization of \n\t\t i*j << 
+Optimization of \n\t\t bool | nbool << 
+Optimization start \n\t\t bool | nbool << 
+End Optimization of \n\t\t bool | nbool << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3480,53 +4130,16 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of *
-Optimization of i
-Optimization start i
-End Optimization of i
-Optimization of j
-Optimization start j
-End Optimization of j
-Optimization start *
-Optimization result *
-End Optimization of *
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n\t\t j/i << 
-Optimization start \n\t\t j/i << 
-End Optimization of \n\t\t j/i << 
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of /
-Optimization of j
-Optimization start j
-End Optimization of j
-Optimization of i
-Optimization start i
-End Optimization of i
-Optimization start /
-Optimization result /
-End Optimization of /
+Optimization of |
+Optimization of bool
+Optimization start bool
+End Optimization of bool
+Optimization of nbool
+Optimization start nbool
+End Optimization of nbool
+Optimization start |
+Optimization result |
+End Optimization of |
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3544,9 +4157,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t e+j << 
-Optimization start \n\t\t e+j << 
-End Optimization of \n\t\t e+j << 
+Optimization of \n\t\t nbool & bool << 
+Optimization start \n\t\t nbool & bool << 
+End Optimization of \n\t\t nbool & bool << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3554,53 +4167,16 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of +
-Optimization of e
-Optimization start e
-End Optimization of e
-Optimization of j
-Optimization start j
-End Optimization of j
-Optimization start +
-Optimization result +
-End Optimization of +
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n
-Optimization start \n
-End Optimization of \n
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of \n\t\t e-j << 
-Optimization start \n\t\t e-j << 
-End Optimization of \n\t\t e-j << 
-Optimization start On
-End Optimization of On
-Optimization of INSTRUCTIONLIST
-Optimization of On
-Optimization of Console
-Optimization start Console
-End Optimization of Console
-Optimization of -
-Optimization of e
-Optimization start e
-End Optimization of e
-Optimization of j
-Optimization start j
-End Optimization of j
-Optimization start -
-Optimization result -
-End Optimization of -
+Optimization of &
+Optimization of nbool
+Optimization start nbool
+End Optimization of nbool
+Optimization of bool
+Optimization start bool
+End Optimization of bool
+Optimization start &
+Optimization result &
+End Optimization of &
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3618,9 +4194,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t pi-i << 
-Optimization start \n\t\t pi-i << 
-End Optimization of \n\t\t pi-i << 
+Optimization of \n\t\t bool X nbool << 
+Optimization start \n\t\t bool X nbool << 
+End Optimization of \n\t\t bool X nbool << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3628,16 +4204,16 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of -
-Optimization of pi
-Optimization start pi
-End Optimization of pi
-Optimization of i
-Optimization start i
-End Optimization of i
-Optimization start -
-Optimization result -
-End Optimization of -
+Optimization of X
+Optimization of bool
+Optimization start bool
+End Optimization of bool
+Optimization of nbool
+Optimization start nbool
+End Optimization of nbool
+Optimization start X
+Optimization result X
+End Optimization of X
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3655,9 +4231,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t pi/j << 
-Optimization start \n\t\t pi/j << 
-End Optimization of \n\t\t pi/j << 
+Optimization of \n\t\t !(nbool)  << 
+Optimization start \n\t\t !(nbool)  << 
+End Optimization of \n\t\t !(nbool)  << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3665,16 +4241,57 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
+Optimization of !
+Optimization of nbool
+Optimization start nbool
+End Optimization of nbool
+Optimization start !
+Optimization result !
+End Optimization of !
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\t\t pi/pi=1 << 
+Optimization start \n\t\t pi/pi=1 << 
+End Optimization of \n\t\t pi/pi=1 << 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of =
 Optimization of /
 Optimization of pi
 Optimization start pi
 End Optimization of pi
-Optimization of j
-Optimization start j
-End Optimization of j
+Optimization of pi
+Optimization start pi
+End Optimization of pi
 Optimization start /
 Optimization result /
 End Optimization of /
+Optimization of 1
+Optimization start 1
+End Optimization of 1
+Optimization start =
+Optimization result =
+End Optimization of =
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3692,9 +4309,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t pi*j << 
-Optimization start \n\t\t pi*j << 
-End Optimization of \n\t\t pi*j << 
+Optimization of \n\t\t pi/pi=1.0 << 
+Optimization start \n\t\t pi/pi=1.0 << 
+End Optimization of \n\t\t pi/pi=1.0 << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3702,16 +4319,23 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of *
+Optimization of =
+Optimization of /
 Optimization of pi
 Optimization start pi
 End Optimization of pi
-Optimization of j
-Optimization start j
-End Optimization of j
-Optimization start *
-Optimization result *
-End Optimization of *
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization start /
+Optimization result /
+End Optimization of /
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start =
+Optimization result =
+End Optimization of =
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3729,9 +4353,9 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of \n\t\t pi+pi << 
-Optimization start \n\t\t pi+pi << 
-End Optimization of \n\t\t pi+pi << 
+Optimization of \n\t\t pi/pi=ToDecimal(1) << 
+Optimization start \n\t\t pi/pi=ToDecimal(1) << 
+End Optimization of \n\t\t pi/pi=ToDecimal(1) << 
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3739,16 +4363,225 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
-Optimization of +
+Optimization of =
+Optimization of /
 Optimization of pi
 Optimization start pi
 End Optimization of pi
 Optimization of pi
 Optimization start pi
 End Optimization of pi
-Optimization start +
-Optimization result +
-End Optimization of +
+Optimization start /
+Optimization result /
+End Optimization of /
+Optimization of ToDecimal
+Optimization of 1
+Optimization start 1
+End Optimization of 1
+Optimization start ToDecimal
+End Optimization of ToDecimal
+Optimization start =
+Optimization result =
+End Optimization of =
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\t\t pi<1.0 << 
+Optimization start \n\t\t pi<1.0 << 
+End Optimization of \n\t\t pi<1.0 << 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of <
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start <
+Optimization result <
+End Optimization of <
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\t\t pi<=1.0 << 
+Optimization start \n\t\t pi<=1.0 << 
+End Optimization of \n\t\t pi<=1.0 << 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of <=
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start <=
+Optimization result <=
+End Optimization of <=
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\t\t pi>1.0 << 
+Optimization start \n\t\t pi>1.0 << 
+End Optimization of \n\t\t pi>1.0 << 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of >
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start >
+Optimization result >
+End Optimization of >
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\t\t pi>=1.0 << 
+Optimization start \n\t\t pi>=1.0 << 
+End Optimization of \n\t\t pi>=1.0 << 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of >=
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start >=
+Optimization result >=
+End Optimization of >=
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\t\t pi>=1.0 X pi<=1.0 << 
+Optimization start \n\t\t pi>=1.0 X pi<=1.0 << 
+End Optimization of \n\t\t pi>=1.0 X pi<=1.0 << 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of X
+Optimization of >=
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start >=
+Optimization result >=
+End Optimization of >=
+Optimization of <=
+Optimization of pi
+Optimization start pi
+End Optimization of pi
+Optimization of 1.0
+Optimization start 1.0
+End Optimization of 1.0
+Optimization start <=
+Optimization result <=
+End Optimization of <=
+Optimization start X
+Optimization result X
+End Optimization of X
 Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
@@ -3770,6 +4603,18 @@ Optimization start \nFinished Tests\n
 End Optimization of \nFinished Tests\n
 Optimization start On
 End Optimization of On
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -3904,11 +4749,11 @@ INSTRUCTIONLIST
               |_INSTRUCTIONLIST
                 |-On
                 | |-Console
-                | |_\n\t\t i << 
+                | |_\n\t\t bool << 
                 |_INSTRUCTIONLIST
                   |-On
                   | |-Console
-                  | |_i
+                  | |_bool
                   |_INSTRUCTIONLIST
                     |-On
                     | |-Console
@@ -3916,11 +4761,11 @@ INSTRUCTIONLIST
                     |_INSTRUCTIONLIST
                       |-On
                       | |-Console
-                      | |_\n\t\t j << 
+                      | |_\n\t\t nbool << 
                       |_INSTRUCTIONLIST
                         |-On
                         | |-Console
-                        | |_j
+                        | |_nbool
                         |_INSTRUCTIONLIST
                           |-On
                           | |-Console
@@ -3928,11 +4773,13 @@ INSTRUCTIONLIST
                           |_INSTRUCTIONLIST
                             |-On
                             | |-Console
-                            | |_\n\t\t e << 
+                            | |_\n\t\t bool | nbool << 
                             |_INSTRUCTIONLIST
                               |-On
                               | |-Console
-                              | |_e
+                              | |_|
+                              |   |-bool
+                              |   |_nbool
                               |_INSTRUCTIONLIST
                                 |-On
                                 | |-Console
@@ -3940,11 +4787,13 @@ INSTRUCTIONLIST
                                 |_INSTRUCTIONLIST
                                   |-On
                                   | |-Console
-                                  | |_\n\t\t pi << 
+                                  | |_\n\t\t nbool & bool << 
                                   |_INSTRUCTIONLIST
                                     |-On
                                     | |-Console
-                                    | |_pi
+                                    | |_&
+                                    |   |-nbool
+                                    |   |_bool
                                     |_INSTRUCTIONLIST
                                       |-On
                                       | |-Console
@@ -3952,13 +4801,13 @@ INSTRUCTIONLIST
                                       |_INSTRUCTIONLIST
                                         |-On
                                         | |-Console
-                                        | |_\n\t\t i*j << 
+                                        | |_\n\t\t bool X nbool << 
                                         |_INSTRUCTIONLIST
                                           |-On
                                           | |-Console
-                                          | |_*
-                                          |   |-i
-                                          |   |_j
+                                          | |_X
+                                          |   |-bool
+                                          |   |_nbool
                                           |_INSTRUCTIONLIST
                                             |-On
                                             | |-Console
@@ -3966,13 +4815,12 @@ INSTRUCTIONLIST
                                             |_INSTRUCTIONLIST
                                               |-On
                                               | |-Console
-                                              | |_\n\t\t j/i << 
+                                              | |_\n\t\t !(nbool)  << 
                                               |_INSTRUCTIONLIST
                                                 |-On
                                                 | |-Console
-                                                | |_/
-                                                |   |-j
-                                                |   |_i
+                                                | |_!
+                                                |   |_nbool
                                                 |_INSTRUCTIONLIST
                                                   |-On
                                                   | |-Console
@@ -3980,13 +4828,15 @@ INSTRUCTIONLIST
                                                   |_INSTRUCTIONLIST
                                                     |-On
                                                     | |-Console
-                                                    | |_\n\t\t e+j << 
+                                                    | |_\n\t\t pi/pi=1 << 
                                                     |_INSTRUCTIONLIST
                                                       |-On
                                                       | |-Console
-                                                      | |_+
-                                                      |   |-e
-                                                      |   |_j
+                                                      | |_=
+                                                      |   |-/
+                                                      |   | |-pi
+                                                      |   | |_pi
+                                                      |   |_1
                                                       |_INSTRUCTIONLIST
                                                         |-On
                                                         | |-Console
@@ -3994,13 +4844,15 @@ INSTRUCTIONLIST
                                                         |_INSTRUCTIONLIST
                                                           |-On
                                                           | |-Console
-                                                          | |_\n\t\t e-j << 
+                                                          | |_\n\t\t pi/pi=1.0 << 
                                                           |_INSTRUCTIONLIST
                                                             |-On
                                                             | |-Console
-                                                            | |_-
-                                                            |   |-e
-                                                            |   |_j
+                                                            | |_=
+                                                            |   |-/
+                                                            |   | |-pi
+                                                            |   | |_pi
+                                                            |   |_1.0
                                                             |_INSTRUCTIONLIST
                                                               |-On
                                                               | |-Console
@@ -4008,13 +4860,16 @@ INSTRUCTIONLIST
                                                               |_INSTRUCTIONLIST
                                                                 |-On
                                                                 | |-Console
-                                                                | |_\n\t\t pi-i << 
+                                                                | |_\n\t\t pi/pi=ToDecimal(1) << 
                                                                 |_INSTRUCTIONLIST
                                                                   |-On
                                                                   | |-Console
-                                                                  | |_-
-                                                                  |   |-pi
-                                                                  |   |_i
+                                                                  | |_=
+                                                                  |   |-/
+                                                                  |   | |-pi
+                                                                  |   | |_pi
+                                                                  |   |_ToDecimal
+                                                                  |     |_1
                                                                   |_INSTRUCTIONLIST
                                                                     |-On
                                                                     | |-Console
@@ -4022,13 +4877,13 @@ INSTRUCTIONLIST
                                                                     |_INSTRUCTIONLIST
                                                                       |-On
                                                                       | |-Console
-                                                                      | |_\n\t\t pi/j << 
+                                                                      | |_\n\t\t pi<1.0 << 
                                                                       |_INSTRUCTIONLIST
                                                                         |-On
                                                                         | |-Console
-                                                                        | |_/
+                                                                        | |_<
                                                                         |   |-pi
-                                                                        |   |_j
+                                                                        |   |_1.0
                                                                         |_INSTRUCTIONLIST
                                                                           |-On
                                                                           | |-Console
@@ -4036,13 +4891,13 @@ INSTRUCTIONLIST
                                                                           |_INSTRUCTIONLIST
                                                                             |-On
                                                                             | |-Console
-                                                                            | |_\n\t\t pi*j << 
+                                                                            | |_\n\t\t pi<=1.0 << 
                                                                             |_INSTRUCTIONLIST
                                                                               |-On
                                                                               | |-Console
-                                                                              | |_*
+                                                                              | |_<=
                                                                               |   |-pi
-                                                                              |   |_j
+                                                                              |   |_1.0
                                                                               |_INSTRUCTIONLIST
                                                                                 |-On
                                                                                 | |-Console
@@ -4050,20 +4905,52 @@ INSTRUCTIONLIST
                                                                                 |_INSTRUCTIONLIST
                                                                                   |-On
                                                                                   | |-Console
-                                                                                  | |_\n\t\t pi+pi << 
+                                                                                  | |_\n\t\t pi>1.0 << 
                                                                                   |_INSTRUCTIONLIST
                                                                                     |-On
                                                                                     | |-Console
-                                                                                    | |_+
+                                                                                    | |_>
                                                                                     |   |-pi
-                                                                                    |   |_pi
+                                                                                    |   |_1.0
                                                                                     |_INSTRUCTIONLIST
                                                                                       |-On
                                                                                       | |-Console
                                                                                       | |_\n
-                                                                                      |_On
-                                                                                        |-Console
-                                                                                        |_\nFinished Tests\n
+                                                                                      |_INSTRUCTIONLIST
+                                                                                        |-On
+                                                                                        | |-Console
+                                                                                        | |_\n\t\t pi>=1.0 << 
+                                                                                        |_INSTRUCTIONLIST
+                                                                                          |-On
+                                                                                          | |-Console
+                                                                                          | |_>=
+                                                                                          |   |-pi
+                                                                                          |   |_1.0
+                                                                                          |_INSTRUCTIONLIST
+                                                                                            |-On
+                                                                                            | |-Console
+                                                                                            | |_\n
+                                                                                            |_INSTRUCTIONLIST
+                                                                                              |-On
+                                                                                              | |-Console
+                                                                                              | |_\n\t\t pi>=1.0 X pi<=1.0 << 
+                                                                                              |_INSTRUCTIONLIST
+                                                                                                |-On
+                                                                                                | |-Console
+                                                                                                | |_X
+                                                                                                |   |->=
+                                                                                                |   | |-pi
+                                                                                                |   | |_1.0
+                                                                                                |   |_<=
+                                                                                                |     |-pi
+                                                                                                |     |_1.0
+                                                                                                |_INSTRUCTIONLIST
+                                                                                                  |-On
+                                                                                                  | |-Console
+                                                                                                  | |_\n
+                                                                                                  |_On
+                                                                                                    |-Console
+                                                                                                    |_\nFinished Tests\n
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | i
@@ -4111,38 +4998,37 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push dword[i]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t6
-		push formatoutchar; push format into ESP
+		mov eax, dword[bool]
+		cmp eax, 0
+		je t6_false
+		push stringTrue
+		jmp t6_true
+		t6_false:
+		push stringFalse
+		t6_true:
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t7
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push dword[j]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t8
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t9
+		push t8
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push dword[e]
-		push formatoutnumber; push message into ESP
+		mov eax, dword[nbool]
+		cmp eax, 0
+		je t9_false
+		push stringTrue
+		jmp t9_true
+		t9_false:
+		push stringFalse
+		t9_true:
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
@@ -4156,112 +5042,132 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		sub esp, 8;reserve stack for a double in stack
-		mov ebx, pi
-		fld dword[ebx];load float
-		fstp qword[esp];store double(8087 does the conversion internally)
-		push formatoutdecimal; push message into ESP
-		call _printf; call defined function
-		add esp, 12; params * 4
-
-		push t12
-		push formatoutchar; push format into ESP
+	t12 : dd 0
+		mov eax, dword[bool]
+		mov ebx, dword[nbool]
+		or eax,ebx
+		cmp eax, TRUE
+		je t12_true
+		mov dword[t12], FALSE
+		jmp t12_false
+		t12_true:
+		mov dword[t12],TRUE
+		t12_false:
+		push dword[t12]
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t13
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t14
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[i] ; Moving First Operand Number Var
-		mov ebx, dword[j] ; Moving Second Operand Number Var
-		imul eax, ebx ; Multiplying First and Second Operand Number
-		mov dword[t14] , eax ;Result 
-
-		push dword[t14]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t15
-		push formatoutchar; push format into ESP
+	t15 : dd 0
+		mov eax, dword[nbool]
+		mov ebx, dword[bool]
+		and eax,ebx
+		cmp eax, TRUE
+		je t15_true
+		mov dword[t15], FALSE
+		jmp t15_false
+		t15_true:
+		mov dword[t15],TRUE
+		t15_false:
+		push dword[t15]
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t16
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t17
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		mov eax, dword[j] ; Moving First Operand Number Var
-		mov ebx, dword[i] ; Moving Second Operand Number Var
-		idiv ebx ; Dividing First and Second Operand Number
-		mov dword[t17] , eax ;Result 
-
-		push dword[t17]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t18
-		push formatoutchar; push format into ESP
+	t18 : dd 0
+		mov eax, dword[bool]
+		mov ebx, dword[nbool]
+		xor eax,ebx
+		cmp eax, TRUE
+		je t18_true
+		mov dword[t18], FALSE
+		jmp t18_false
+		t18_true:
+		mov dword[t18],TRUE
+		t18_false:
+		push dword[t18]
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t19
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t20
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t20] , eax ;Result 
-
-		push dword[t20]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t21
-		push formatoutchar; push format into ESP
+	t21 : dd 0
+		mov eax, dword[nbool]
+		cmp eax, FALSE
+		je t21_true
+		mov eax, FALSE		mov dword[t21], eax
+		jmp t21_false
+		t21_true:
+		mov eax,TRUE
+		mov dword[t21],eax
+		t21_false:
+		push dword[t21]
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t22
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		sub eax, ebx ; Subtracting First and Second Operand Number
-		mov dword[t23] , eax ;Result 
-
-		push dword[t23]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t24
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t25
+		push t23
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		fld dword[pi] ; Moving First Operand Decimal Var
-		fild dword[i] ; Moving Second Operand Number Var
-		fsub  ; Subtracting First and Second Operand Number
-		fstp dword[t26] ;Result 
+		fld dword[pi] ; Moving Second Operand Decimal Var
+		fdiv ; Dividing First and Second Operand Number
+		fstp dword[t24] ;Result 
 
-		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t26
-		fld dword[ebx];load float
-		fstp qword[esp];store double(8087 does the conversion internally)
-		push formatoutdecimal; push message into ESP
+		mov eax, dword[t24]
+	t25 : dd 1
+		mov ebx, dword[t25]
+	t26 : dd 0
+		cmp eax, ebx
+		je	t26_true
+		mov eax,FALSE
+		mov dword[t26],eax
+		jmp t26_false
+		t26_true:
+		mov eax,TRUE
+		mov dword[t26],eax
+		t26_false:
+
+		push dword[t26]
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
-		add esp, 12; params * 4
+		add esp, 8; params * 4
 
 		push t27
 		push formatoutchar; push format into ESP
@@ -4274,76 +5180,249 @@ INSTRUCTIONLIST
 		add esp, 8; params * 4
 
 		fld dword[pi] ; Moving First Operand Decimal Var
-		fild dword[j] ; Moving Second Operand Number Var
+		fld dword[pi] ; Moving Second Operand Decimal Var
 		fdiv ; Dividing First and Second Operand Number
 		fstp dword[t29] ;Result 
 
-		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t29
-		fld dword[ebx];load float
-		fstp qword[esp];store double(8087 does the conversion internally)
-		push formatoutdecimal; push message into ESP
-		call _printf; call defined function
-		add esp, 12; params * 4
+		mov eax, dword[t29]
+	t30 : times 10 db `1.0`
+		mov ebx, dword[t30]
+	t31 : dd 0
+		cmp eax, ebx
+		je	t31_true
+		mov eax,FALSE
+		mov dword[t31],eax
+		jmp t31_false
+		t31_true:
+		mov eax,TRUE
+		mov dword[t31],eax
+		t31_false:
 
-		push t30
+		push dword[t31]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t32
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
-
-		push t31
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		fld dword[pi] ; Moving First Operand Decimal Var
-		fild dword[j] ; Moving Second Operand Number Var
-		fmul ; Multiplying First and Second Operand Number
-		fstp dword[t32] ;Result 
-
-		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t32
-		fld dword[ebx];load float
-		fstp qword[esp];store double(8087 does the conversion internally)
-		push formatoutdecimal; push message into ESP
-		call _printf; call defined function
-		add esp, 12; params * 4
 
 		push t33
-		push formatoutchar; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t34
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		fld dword[pi] ; Moving First Operand Decimal Var
 		fld dword[pi] ; Moving Second Operand Decimal Var
-		fadd ; Adding First and Second Operand Number
-		fstp dword[t35] ;Result 
+		fdiv ; Dividing First and Second Operand Number
+		fstp dword[t34] ;Result 
 
-		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t35
-		fld dword[ebx];load float
-		fstp qword[esp];store double(8087 does the conversion internally)
-		push formatoutdecimal; push message into ESP
+	t35 : dd 1
+	t36 : dd 0.0
+		fild dword[t35]
+		fstp dword[t36]
+
+		mov eax, dword[t36]
+		mov ebx, dword[t36]
+	t37 : dd 0
+		cmp eax, ebx
+		je	t37_true
+		mov eax,FALSE
+		mov dword[t37],eax
+		jmp t37_false
+		t37_true:
+		mov eax,TRUE
+		mov dword[t37],eax
+		t37_false:
+
+		push dword[t37]
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
-		add esp, 12; params * 4
+		add esp, 8; params * 4
 
-		push t36
+		push t38
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t37
+		push t39
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\SimpleExample.asm
-Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\SimpleExample.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\SimpleExample.exe
+		mov eax, dword[pi]
+	t40 : times 10 db `1.0`
+		mov ebx, dword[t40]
+	t41 : dd 0
+		cmp eax, ebx
+		jl	t41_true
+		mov eax,FALSE
+		mov dword[t41],eax
+		jmp t41_false
+		t41_true:
+		mov eax,TRUE
+		mov dword[t41],eax
+		t41_false:
+
+		push dword[t41]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t42
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t43
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[pi]
+	t44 : times 10 db `1.0`
+		mov ebx, dword[t44]
+	t45 : dd 0
+		cmp eax, ebx
+		jle	t45_true
+		mov eax,FALSE
+		mov dword[t45],eax
+		jmp t45_false
+		t45_true:
+		mov eax,TRUE
+		mov dword[t45],eax
+		t45_false:
+
+		push dword[t45]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t46
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t47
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[pi]
+	t48 : times 10 db `1.0`
+		mov ebx, dword[t48]
+	t49 : dd 0
+		cmp eax, ebx
+		jg	t49_true
+		mov eax,FALSE
+		mov dword[t49],eax
+		jmp t49_false
+		t49_true:
+		mov eax,TRUE
+		mov dword[t49],eax
+		t49_false:
+
+		push dword[t49]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t50
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t51
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[pi]
+	t52 : times 10 db `1.0`
+		mov ebx, dword[t52]
+	t53 : dd 0
+		cmp eax, ebx
+		jge	t53_true
+		mov eax,FALSE
+		mov dword[t53],eax
+		jmp t53_false
+		t53_true:
+		mov eax,TRUE
+		mov dword[t53],eax
+		t53_false:
+
+		push dword[t53]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t54
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t55
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[pi]
+	t56 : times 10 db `1.0`
+		mov ebx, dword[t56]
+	t57 : dd 0
+		cmp eax, ebx
+		jge	t57_true
+		mov eax,FALSE
+		mov dword[t57],eax
+		jmp t57_false
+		t57_true:
+		mov eax,TRUE
+		mov dword[t57],eax
+		t57_false:
+
+		mov eax, dword[pi]
+	t58 : times 10 db `1.0`
+		mov ebx, dword[t58]
+	t59 : dd 0
+		cmp eax, ebx
+		jle	t59_true
+		mov eax,FALSE
+		mov dword[t59],eax
+		jmp t59_false
+		t59_true:
+		mov eax,TRUE
+		mov dword[t59],eax
+		t59_false:
+
+	t60 : dd 0
+		mov eax, dword[t59]
+		mov ebx, dword[t58]
+		xor eax,ebx
+		cmp eax, TRUE
+		je t60_true
+		mov dword[t60], FALSE
+		jmp t60_false
+		t60_true:
+		mov dword[t60],TRUE
+		t60_false:
+		push dword[t60]
+		push formatoutbool; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t61
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t62
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\SimpleExample2.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\SimpleExample2.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\..\Examples\SimpleExample2.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | i
@@ -4373,33 +5452,58 @@ Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\.
 | 17 	 | On 	 | t3
 | 17 	 | On 	 | t4
 | 17 	 | On 	 | t5
-| 14 	 | On 	 | t6
-| 17 	 | On 	 | t7
-| 14 	 | On 	 | t8
-| 17 	 | On 	 | t9
+| 14 	 | On 	 | t7
+| 17 	 | On 	 | t8
 | 14 	 | On 	 | t10
 | 17 	 | On 	 | t11
-| 14 	 | On 	 | t12
-| 17 	 | On 	 | t13
-| 12 	 | * 	 | t14
-| 14 	 | On 	 | t15
-| 17 	 | On 	 | t16
-| 12 	 | / 	 | t17
-| 14 	 | On 	 | t18
-| 17 	 | On 	 | t19
-| 14 	 | On 	 | t21
-| 17 	 | On 	 | t22
-| 14 	 | On 	 | t24
-| 17 	 | On 	 | t25
-| 13 	 | - 	 | t26
+| 15 	 | | 	 | t12
+| 14 	 | On 	 | t13
+| 17 	 | On 	 | t14
+| 15 	 | & 	 | t15
+| 14 	 | On 	 | t16
+| 17 	 | On 	 | t17
+| 15 	 | X 	 | t18
+| 14 	 | On 	 | t19
+| 17 	 | On 	 | t20
+| 15 	 | ! 	 | t21
+| 14 	 | On 	 | t22
+| 17 	 | On 	 | t23
+| 13 	 | / 	 | t24
+| 12 	 | = 	 | t25
+| 15 	 | = 	 | t26
 | 14 	 | On 	 | t27
 | 17 	 | On 	 | t28
 | 13 	 | / 	 | t29
-| 14 	 | On 	 | t30
-| 17 	 | On 	 | t31
-| 13 	 | * 	 | t32
-| 14 	 | On 	 | t33
-| 17 	 | On 	 | t34
-| 13 	 | + 	 | t35
-| 14 	 | On 	 | t36
-| 17 	 | On 	 | t37
+| 13 	 | = 	 | t30
+| 15 	 | = 	 | t31
+| 14 	 | On 	 | t32
+| 17 	 | On 	 | t33
+| 13 	 | / 	 | t34
+| 12 	 | ToDecimal 	 | t35
+| 13 	 | ToDecimal 	 | t36
+| 15 	 | = 	 | t37
+| 14 	 | On 	 | t38
+| 17 	 | On 	 | t39
+| 13 	 | < 	 | t40
+| 15 	 | < 	 | t41
+| 14 	 | On 	 | t42
+| 17 	 | On 	 | t43
+| 13 	 | <= 	 | t44
+| 15 	 | <= 	 | t45
+| 14 	 | On 	 | t46
+| 17 	 | On 	 | t47
+| 13 	 | > 	 | t48
+| 15 	 | > 	 | t49
+| 14 	 | On 	 | t50
+| 17 	 | On 	 | t51
+| 13 	 | >= 	 | t52
+| 15 	 | >= 	 | t53
+| 14 	 | On 	 | t54
+| 17 	 | On 	 | t55
+| 13 	 | >= 	 | t56
+| 15 	 | >= 	 | t57
+| 13 	 | <= 	 | t58
+| 15 	 | <= 	 | t59
+| 15 	 | X 	 | t60
+| 14 	 | On 	 | t61
+| 17 	 | On 	 | t62

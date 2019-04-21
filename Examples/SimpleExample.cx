@@ -1,0 +1,28 @@
+N i<<1;
+N j<<1,e;
+D pi<<3.14;
+B bool << True;
+B nbool << False;
+
+On.Console("\nBegin Tests:\n");
+
+On.Console("\n\tCalculating tests:");
+On.Console("\n\t\tWith: N i<<1,j<<1,e; AND D pi<<3.14 AND B bool << True, nbool << False\n\n");
+On.Console("\n\t\t i << ");On.Console(i);On.Console('\n');
+On.Console("\n\t\t j << ");On.Console(j);On.Console('\n');
+On.Console("\n\t\t e << ");On.Console(e);On.Console('\n');
+On.Console("\n\t\t pi << ");On.Console(pi);On.Console('\n');
+
+On.Console("\n\t\t i*j << ");On.Console(i*j);On.Console('\n');
+On.Console("\n\t\t j/i << ");On.Console(j/i);On.Console('\n');
+On.Console("\n\t\t e+j << ");On.Console(e+j);On.Console('\n');
+On.Console("\n\t\t e-j << ");On.Console(e-j);On.Console('\n');
+
+On.Console("\n\t\t pi-i << ");On.Console(pi-i);On.Console('\n');
+On.Console("\n\t\t pi/j << ");On.Console(pi/j);On.Console('\n');
+On.Console("\n\t\t pi*j << ");On.Console(pi*j);On.Console('\n');
+On.Console("\n\t\t pi+pi << ");On.Console(pi+pi);On.Console('\n');
+
+On.Console("\nFinished Tests\n");
+
+

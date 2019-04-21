@@ -27,18 +27,21 @@ int main()
 	char nextLexeme[MAX_LEXEME_SIZE];
 	char fileName[500];
 	char lofFileName[512] = "";
-	//..\Examples\ArrayUsageExample.cx
-	//..\Examples\FunctionExample.cx
+	
+	//Working Examples
 	//..\Examples\AttributionAndWriteExample.cx
 	//..\Examples\BreakExample.cx
 	//..\Examples\BreakIfExample.cx
-	//..\Examples\ContinueExample.cx
-	//..\Examples\FileReadingExample.cx
 	//..\Examples\ForLoopExample.cx
 	//..\Examples\SimpleExample.cx
 	//..\Examples\SimpleLooperExample.cx
-	//..\Examples\StringAndWriteInConsoleExample.cx
+	//..\Examples\SimpleExample2.cx
+	//..\Examples\ContinueExample.cx
 
+	//Not Implemented in ASM
+	//..\Examples\FileReadingExample.cx
+	//..\Examples\ArrayUsageExample.cx
+	//..\Examples\FunctionExample.cx
 
 	scanf("%s", &fileName);
 	filePointer = fopen(fileName, "r");

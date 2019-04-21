@@ -1,0 +1,32 @@
+N i<<1;
+N j<<1,e;
+D pi<<3.14;
+B bool << True;
+B nbool << False;
+
+On.Console("\nBegin Tests:\n");
+
+On.Console("\n\tCalculating tests:");
+On.Console("\n\t\tWith: N i<<1,j<<1,e; AND D pi<<3.14 AND B bool << True, nbool << False\n\n");
+
+On.Console("\n\t\t bool << ");On.Console(bool);On.Console('\n');
+On.Console("\n\t\t nbool << ");On.Console(nbool);On.Console('\n');
+
+On.Console("\n\t\t bool | nbool << ");On.Console(bool | nbool);On.Console('\n');
+On.Console("\n\t\t nbool & bool << ");On.Console(nbool & bool);On.Console('\n');
+On.Console("\n\t\t bool X nbool << ");On.Console(bool X nbool);On.Console('\n');
+On.Console("\n\t\t !(nbool)  << ");On.Console(!(nbool));On.Console('\n');
+
+On.Console("\n\t\t pi/pi=1 << ");On.Console(pi/pi=1);On.Console('\n');
+On.Console("\n\t\t pi/pi=1.0 << ");On.Console( pi/pi=1.0);On.Console('\n');
+On.Console("\n\t\t pi/pi=ToDecimal(1) << ");On.Console( pi/pi=ToDecimal(1));On.Console('\n');
+On.Console("\n\t\t pi<1.0 << ");On.Console( pi<1.0);On.Console('\n');
+On.Console("\n\t\t pi<=1.0 << ");On.Console( pi<=1.0);On.Console('\n');
+On.Console("\n\t\t pi>1.0 << ");On.Console( pi>1.0);On.Console('\n');
+On.Console("\n\t\t pi>=1.0 << ");On.Console( pi>=1.0);On.Console('\n');
+
+On.Console("\n\t\t pi>=1.0 X pi<=1.0 << ");On.Console( pi>=1.0 X pi<=1.0);On.Console('\n');
+
+On.Console("\nFinished Tests\n");
+
+

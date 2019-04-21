@@ -11,9 +11,19 @@ For(j << 2).Step(+2).If(True).Do(
 	On.Console('\t');
 	On.Console(j*j);
 	On.Console('\n');
-	If(j>=10).Then(
+	If(j>10).Then(
 		Break();
 	);
 );
 
+
+For(j << 2).Step(+2).If(True).Do(
+	On.Console(j);
+	On.Console('\t');
+	On.Console(j*j);
+	On.Console('\n');
+	BreakIf(j>10);
+);
+
+On.Console("\n\n\nFinished");
                

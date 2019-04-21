@@ -581,14 +581,14 @@ int reservedBreakIf(FILE* file, int nextToken, NextChar* nextChar, char* nextLex
 
 	if (nextToken == RESERVED_BREAKIF)
 	{
-		addChildNode(breakIfNode, nextLexeme, nextToken, logFile);
+		Node* breakIfwordNode = addChildNode(breakIfNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 		if (nextToken == OPEN_PARENTESIS) {
-			addChildNode(breakIfNode, nextLexeme, nextToken, logFile);
+			addChildNode(breakIfwordNode, nextLexeme, nextToken, logFile);
 			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
-			nextToken = bexp(file, nextToken, nextChar, nextLexeme, breakIfNode, logFile);
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, breakIfwordNode, logFile);
 			if (nextToken == CLOSE_PARENTESIS) {
-				addChildNode(breakIfNode, nextLexeme, nextToken, logFile);
+				addChildNode(breakIfwordNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 			}
 			else
@@ -938,14 +938,21 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 	/*
 	<bexp> -->  !(<bexp>)
 		| <cexp>
+		| True
+		| False
+		| True & <bexp>
+		| True | <bexp>
+		| True X <bexp>
+		| False & <bexp>
+		| False | <bexp>
+		| False X <bexp>
 		| <cexp> & <bexp>
 		| <cexp> | <bexp>
 		| <cexp> X <bexp>
 		| !(<bexp>) & <bexp>
 		| !(<bexp>) | <bexp>
 		| !(<bexp>) X <bexp>
-		| True
-		| False
+		
 	*/
 	Node* bexpNode = addChildNode(tree, "BEXP", -1, logFile);
 	switch (nextToken) {
@@ -982,6 +989,11 @@ int bexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* 
 	case RESERVED_BOOL_TRUE: case RESERVED_BOOL_FALSE:
 		addChildNode(bexpNode, nextLexeme, nextToken, logFile);
 		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+		if (nextToken == OP_AND || nextToken == OP_OR || nextToken == OP_XOR) {
+			addChildNode(bexpNode, nextLexeme, nextToken, logFile);
+			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+			nextToken = bexp(file, nextToken, nextChar, nextLexeme, bexpNode, logFile);
+		}
 		printf("Exiting <BEXP>\n");
 		fprintf(logFile, "Exiting <BEXP>\n");
 		return nextToken;

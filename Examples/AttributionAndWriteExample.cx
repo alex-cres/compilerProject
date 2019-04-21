@@ -1,6 +1,35 @@
-B b<< True;
-B notb<< !(True);
-N a <<3;
-B v<< b & (notb X True) & 2=a;
-On.Console(v);
+N i<<1;
+N j<<1,e;
+D pi<<3.14;
+B bool << True;
+B nbool << False;
+
+On.Console("\nBegin Tests:\n");
+
+On.Console("\n\tReading from Console Tests:\n");
+
+On.Console("\n\t\tNumber: "); N number << In.Console().ToNumber();
+
+On.Console("\n\t\tDecimal: "); D decimal << In.Console().ToDecimal();
+
+On.Console("\n\t\tString: "); S string << In.Console().ToString();
+
+Comment(Escaping the final enter char);
+In.Console().ToChar();
+
+On.Console("\n\t\tChar: "); C char << In.Console().ToChar();
+
+On.Console("\n\t\tBoolean 1[True] or 0[False] : "); B boolean << In.Console().ToBool();
+
+On.Console("\n\n\tRead Results:\n");
+On.Console("\n\t\tNumber: "); On.Console(number);
+On.Console("\n\t\tDecimal: ");On.Console(decimal);
+On.Console("\n\t\tString: "); On.Console(string);
+On.Console("\n\t\tChar: "); On.Console(char);
+On.Console("\n\t\tBoolean 1[True] or 0[False] : ");On.Console(boolean); 
+On.Console("\n\n\n");
+
+
+On.Console("\nFinished Tests\n");
+
 

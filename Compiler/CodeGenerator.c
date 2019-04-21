@@ -433,6 +433,56 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		fprintf(logFile, buffer);
 
 	}
+	else if (ast->type == RESERVED_BREAKIF) {
+
+		if (ast->kids[0]->type == RESERVED_BOOL_TRUE) {
+			char looperID[200];
+			sprintf(looperID, "l%d", breakerLoop);
+			sprintf(buffer, "\n		jmp %s_looper_end\n\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+		}
+		else if (ast->kids[0]->type == RESERVED_BOOL_FALSE) {
+			//no action empty -no instructions will be executed
+		}
+		else {
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode);
+			char bufferdec[256];
+			sprintf(bufferdec, "t%d", registerCounter-1);
+			char looperID[200];
+			sprintf(looperID, "l%d", breakerLoop);
+			char ifferId[200];
+			sprintf(ifferId, "t%d", registerCounter);
+
+
+			sprintf(buffer, "		mov eax , 0 \n		mov ebx, dword[%s]\n		cmp ebx, TRUE\n", bufferdec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		je %s_if_then\n		jmp %s_if_else\n", ifferId, ifferId);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		%s_if_then:\n\n\n", ifferId);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		jmp %s_looper_end\n\n\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		%s_if_else:\n\n\n", ifferId);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			registerCounter++;
+
+			
+		}
+
+		
+	}
 	else if (ast->type==RESERVED_IF && ast->kids[0]!=NULL && ast->kids[1] != NULL) {
 	char bufferDec[200];
 
@@ -1549,11 +1599,11 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					fprintf(logFile, buffer);
 				break;
 			}
-			sprintf(buffer, "		mov dword[%s],FALSE\n		jmp %s_false\n", bufferdec, bufferdec);
+			sprintf(buffer, "		mov eax,FALSE\n		mov dword[%s],eax\n		jmp %s_false\n", bufferdec, bufferdec);
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
-			sprintf(buffer, "		%s_true:\n		mov dword[%s],TRUE\n		%s_false:\n\n", bufferdec, bufferdec, bufferdec);
+			sprintf(buffer, "		%s_true:\n		mov eax,TRUE\n		mov dword[%s],eax\n		%s_false:\n\n", bufferdec, bufferdec, bufferdec);
 			progcode = InsertList(progcode, buffer);
 			printf(buffer);
 			fprintf(logFile, buffer);
@@ -1587,7 +1637,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						printf(buffer);
 						fprintf(logFile, buffer);
 
-						sprintf(buffer, "		je %s_true\n		mov dword[%s], FALSE\n", bufferdec, bufferdec);
+						sprintf(buffer, "		je %s_true\n		mov eax, FALSE		mov dword[%s], eax\n", bufferdec, bufferdec);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);
@@ -1597,7 +1647,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						printf(buffer);
 						fprintf(logFile, buffer);
 
-						sprintf(buffer, "		mov dword[%s],TRUE\n		%s_false:\n", bufferdec, bufferdec);
+						sprintf(buffer, "		mov eax,TRUE\n		mov dword[%s],eax\n		%s_false:\n", bufferdec, bufferdec);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);

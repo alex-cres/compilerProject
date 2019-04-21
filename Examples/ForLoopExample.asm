@@ -29,6 +29,13 @@ SECTION .data
 	t10 : times  256  db `\n`,0 
 	t11 : dd 10
 	t12 : dd 0
+	t13 : dd 2 ; literal stepper for loop l3
+	t14 : times  256  db `\t`,0 
+	t15 : dd 0 
+	t16 : times  256  db `\n`,0 
+	t17 : dd 10
+	t18 : dd 0
+	t20 : times  256  db `\n\n\nFinished`,0 
 
 
 SECTION .bss
@@ -50,10 +57,12 @@ SECTION .text
 		mov ebx, dword[t2]
 		cmp eax, ebx
 		jle	t3_true
-		mov dword[t3],FALSE
+		mov eax,FALSE
+		mov dword[t3],eax
 		jmp t3_false
 		t3_true:
-		mov dword[t3],TRUE
+		mov eax,TRUE
+		mov dword[t3],eax
 		t3_false:
 
 		mov ebx, dword[t3]
@@ -131,11 +140,13 @@ SECTION .text
 		mov eax, dword[j]
 		mov ebx, dword[t11]
 		cmp eax, ebx
-		jge	t12_true
-		mov dword[t12],FALSE
+		jg	t12_true
+		mov eax,FALSE
+		mov dword[t12],eax
 		jmp t12_false
 		t12_true:
-		mov dword[t12],TRUE
+		mov eax,TRUE
+		mov dword[t12],eax
 		t12_false:
 
 
@@ -164,6 +175,78 @@ SECTION .text
  		l2_looper_continue:
 		jmp l2_begin
 		l2_looper_end:
+		mov eax, 2
+		mov dword[j], eax
+
+		l3_begin:
+		mov ebx, TRUE
+		cmp ebx, TRUE
+		je l3_looper_true
+		jmp l3_looper_end
+		l3_looper_true:
+		push dword[j]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t14
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[j] ; Moving First Operand Number Var
+		mov ebx, dword[j] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t15] , eax ;Result 
+
+		push dword[t15]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t16
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[j]
+		mov ebx, dword[t17]
+		cmp eax, ebx
+		jg	t18_true
+		mov eax,FALSE
+		mov dword[t18],eax
+		jmp t18_false
+		t18_true:
+		mov eax,TRUE
+		mov dword[t18],eax
+		t18_false:
+
+		mov eax , 0 
+		mov ebx, dword[t18]
+		cmp ebx, TRUE
+		je t19_if_then
+		jmp t19_if_else
+		t19_if_then:
+
+
+		jmp l3_looper_end
+
+
+		t19_if_else:
+
+
+		mov eax, dword[j] ; Moving First Operand Number
+		mov ebx, dword[t13] ; Moving Second Operand Number
+		add eax, ebx
+ 		mov dword[j],eax
+ 		l3_looper_continue:
+		jmp l3_begin
+		l3_looper_end:
+		push t20
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
 
 
 	mov eax, 0 
