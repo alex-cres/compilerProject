@@ -2,141 +2,102 @@
 					| <instruction>;<instructionList>
 
 <instruction> -- > <declaration>
-		| <attribution>
-		| <if_struct>
-		| <looper> 
-		| <comment>
-		| <for> 
-		| <call_function>
-		| <exit> 
-		| <continue>
-		| <continueif>
-		| <break> 
-		| <breakif>
-		| <in>
-		| <on>
-		| EOF 
+			| <attribution>
+			| <if_struct>
+			| <looper>
+			| <comment>
+			| <for>
+			| <call_function>
+			| <exit>
+			| <continue>
+			| <continueif>
+			| <break>
+			| <breakif>
+			| <in>
+			| <on>
+			| EOF
+<if_struct> --> If(<bool>).Then(<instructionList>)
+			  | If(<bool>).Then(<instructionList>).Else(<instructionList>)
 
-<in> --> <fscan> //missing
-			| <scan> //missing
-			| <fscanEnder> //missing
-			| <fscanSize> //missing
+<looper> --> Loop(<exp>).Do(<instructionList>)
+<for> --> For(<attribution>).Step(<exp>).If(<bexp>).Do(<instructionList>) 
 
-<fscan> --> In.File(<exp>,<number>)  //missing
+<exit> --> Exit(<bexp>)
+			| Exit()
 
-<fscanEnder> --> In.FileEnder(<exp>) //missing
+<continue> --> Continue()
+<continueif> -->ContinueIf(<bexp>)
+<breakif> --> BreakIf(<bexp>)
+<break> --> Break()
 
-<fscanSize> --> In.FileSize(<exp>,<number>) //missing
+<in> --> <fscan>
+		| <scan>
+		| <fscanEnder>
+		| <fscanSize>
 
-<scan> --> In.Console() //missing
+<fscan> --> In.File(<exp>,<exp>)
 
-<on> --> <fprint> //missing
-			|<print> //missing
+<fscanEnder> --> In.FileEnder(<exp>) 
 
+<fscanSize> --> In.FileSize(<exp>,<exp>)
+
+<scan> --> In.Console()
+
+<in> --> <in>.toString()
+<in> --> <in>.toDecimal()
+<in> --> <in>.toNumber()
+<in> --> <in>.toChar()
+<in> --> <in>.toBool()
+
+<on> --> <fprint>
+			|<print>
+<fprint> --> On.File(<exp>,<exp>,<mode>,<bexp>)  //filename, numberofline(ifin append adds to the end of the line), mode, stringtowrite
+<print> --> On.Console(<bexp>)
+<mode> --> "W" | "A" | "w" | "a"
+
+
+<params> --> <type_identifier> <var>
+			| <type_identifier> <var>, <params>
 			
-<fprint> --> On.File(<exp>,<exp>,<mode>,<exp>)  //missing
- 
-<mode> --> "W" | "A" | "w" | "a"  //missing
 
-			
-
-
-<declaration> --> <type_identifier> <declareExpr> //done
-				| <type_identifier> <functionDec>  //done
-					
-<functionDec> -- > <function_name>(<params>).Do(<instructionList>) //done
-<functionDec> -- > <function_name>().Do(<instructionList>)  //done
-
-<declareExpr> --> <var>  //done
-				| <var> << <exp>  //done
-				| <declareExpr>,<declareExpr>  //done
-
-
-<exit> --> Exit(<var>) //missing
-			| Exit() //missing
-
-<break> --> Break() //missing
-<breakif> --> BreakIf(<boolstruct>) //missing
-
-<continue> --> Continue() //missing
-<continueif> -->ContinueIf(<boolstruct>) //missing
-
-<function_name> --> <letterBig><word> //done
-
-<call_function> --> F.<function_name>(<params_call>) //done
-				| F.<function_name>() //done
-
-<params> --> <type_identifier> <var> //done
-			| <type_identifier> <var>, <params>  //done
-
-<params_call> -->  <exp> //done
-			| <exp>, <params_call>  //done		
-
-<print> --> On.Console(<exp>) //missing
-		
-
-<attribution> --> <var> << <exp>   //done
-				
-
-<looper> --> Loop(<number>).Do(<instructionList>) //missing
-		
-
-<comment> --> Comment(<ascii_word>)  //done
-			| Todo(<ascii_word>)  //done
-			| Fix(<ascii_word>)  //done
-
-<for> --> For(<idn_number> <attribution>).Step(<signed_number>).If(<bool>).Do(<instructionList>)  //missing
-
-<if_struct> --> If(<bool>).Then(<instructionList>)  //done
-			  | If(<bool>).Then(<instructionList>).Else(<instructionList>) //done
-
-<exp> --> <term> + <term> //done
-		| <term> - <term> //done
-		| <term> //done
-
-<term> --> <factor> * <factor> //done
-		| <factor> / <factor> //done
-		| <factor> % <factor> //done
-		| <factor> //done
-
-<factor> -- > (<exp>) //done
-			| <var> //done
-			| +<number> //done
-			| -<number> //done
-			| +<decimal> //done
-			| -<decimal> //done
-			| <number> //done
-			| <decimal> //done
-			| <string> //done
-			| <char> //done
-			| <boolstruct> //done
-			| <call_function> //done
-		
-
-<boolstruct> -->  !(<boolstruct>) //done
-		| (<boolstruct>) //done
-		| <boolexp> //done
-		| <boolstruct> & <boolstruct> //done
-		| <boolstruct> | <boolstruct> //done
-		| <boolstruct> X <boolstruct> //done
-		| True //done
-		| False //done
-
-<boolexp> --> <exp> < <exp> //done
-		| <exp> > <exp> //done
-		| <exp> >= <exp> //done
-		| <exp> <= <exp> //done
-		| <exp> = <exp> //done
-		| <exp> != <exp> //done
+<bexp> -->  !(<bexp>)
+		| <cexp>
+		| True
+		| False
+		| True & <bexp>
+		| True | <bexp>
+		| True X <bexp>
+		| False & <bexp>
+		| False | <bexp>
+		| False X <bexp>
+		| <cexp> & <bexp>
+		| <cexp> | <bexp>
+		| <cexp> X <bexp>
+		| !(<bexp>) & <bexp>
+		| !(<bexp>) | <bexp>
+		| !(<bexp>) X <bexp>
+<cexp> --> <exp> < <exp>
+		| <exp> > <exp>
+		| <exp> >= <exp>
+		| <exp> <= <exp>
+		| <exp> = <exp>
+		| <exp> != <exp>
 		| <exp>
-
-<char> --> '<ascii>' //done
-		| 
-
-<string> --> "<ascii_word>"  //done
 		
-			
+<declaration> --> <type_identifier> <declareExpr>
+				| <type_identifier> <functionDec>
+				| <type_identifier><array_def> <declareExpr>
+				| <type_identifier><array_def> <functionDec>
+				
+<functionDec> -- > <function_name>(<params>).Do(<instructionList>)
+	<functionDec> -- > <function_name>().Do(<instructionList>)
+	
+<declareExpr> --> <var>
+						| <var> << <bexp>
+						| <declareExpr>,<declareExpr>
 		
+<attribution> --> <var> << <bexp>
+
 <type_identifier> --> <idn_decimal>
 					| <idn_number>
 					| <idn_char>
@@ -144,27 +105,36 @@
 					| <idn_bool>
 					| <idn_void>
 
-<casting> --> <Scasting> //missing
-			| <Dcasting> //missing
-			| <Ncasting> //missing
-			| <Ccasting> //missing
-			| <Bcasting> //missing
-
-<Scasting> --> toString(<exp>)  //missing
-			| <in>.toString()  //missing
-			 
-<Dcasting> --> toDecimal(<exp>)  //missing
-			| <in>.toDecimal()  //missing
+<call_function> --> F.<function_name>(<params_call>)
+				| F.<function_name>()
+				
+<params_call> -->  <bexp>
+			| <bexp>, <params_call>
 			
-<Ncasting> --> toNumber(<exp>)  //missing
-			| <in>.toNumber()  //missing
+<exp> --> <term> + <exp>
+				| <term> - <exp>
+				| <term>
+<term> -- > <factor> * <term>
+				| <factor> / <term>
+				| <factor> % <term>
+				| <factor>
+				
+<factor> -- > (<bexp>)
+			| <var>
+			| <var>[<number>]
+			| +<number>
+			| -<number>
+			| +<decimal>
+			| -<decimal>
+			| <number>
+			| <decimal>
+			| <string>
+			| <char>
+			| <in>
+			| <call_function>
+			| <casting>
+			| <arrayexp>
 			
-<Ccasting> --> toChar(<exp>)  //missing
-			| <in>.toChar()  //missing
-			
-<Bcasting> --> toBool(<exp>)  //missing
-			| <in>.toBool()  //missing
-
 <idn_decimal> --> D
 <idn_number> --> N
 <idn_char> --> C
@@ -180,10 +150,8 @@
 <var> --> <letter><word>
 		| <letter>
 		| <var>[<number>]  //missing
-
 <ascii_word> --> <ascii>
 			| <ascii><ascii_word>
-
 <word> --> <letter>
 		|<number>
 		|<letterBig>
@@ -214,3 +182,12 @@
 <letter> --> a...z
 
 <letterBig> --> A...Z
+<casting> --> ToString(<bexp>)
+<casting> --> ToDecimal(<bexp>)
+<casting> --> ToNumber(<bexp>)
+<casting> --> ToChar(<bexp>)
+<casting> --> ToBool(<bexp>)
+
+
+<char> --> '\(EscapedChar)'
+<char> --> '(Char)'

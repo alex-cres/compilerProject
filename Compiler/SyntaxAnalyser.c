@@ -1472,11 +1472,11 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 	printf("Entering <CASTINGVAR>\n");
 	fprintf(logFile, "Entering <CASTINGVAR>\n");
 	/*
-<casting> --> toString(<bexp>)
-<casting> --> toDecimal(<bexp>)
-<casting> --> toNumber(<bexp>)
-<casting> --> toChar(<bexp>)
-<casting> --> toBool(<bexp>)
+<casting> --> ToString(<bexp>)
+<casting> --> ToDecimal(<bexp>)
+<casting> --> ToNumber(<bexp>)
+<casting> --> ToChar(<bexp>)
+<casting> --> ToBool(<bexp>)
 	*/
 	Node* castingVarNode = addChildNode(tree, "CASTINGVAR", -1, logFile);
 
