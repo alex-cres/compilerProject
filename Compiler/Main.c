@@ -104,32 +104,3 @@ int main()
 	fclose(logFile);
 	return 0;
 }
-
-
-
-/*
-On.Console("Starting Tests:\n");
-On.Console("	Declaring Variables:\n");
-B b<<True;
-B notb<<False;
-S str<<"Hello World!!!!";
-C cn<<'\n';
-N a<<2;
-D pi<<3.14;
-On.Console("\n		Boolean b<<");On.Console(b);
-On.Console("\n		String str<<");On.Console(str);
-On.Console("\n		Char cn<<");On.Console(cn);
-On.Console("\n		Number a<<");On.Console(a);
-On.Console("\n		Decimal pi<<");On.Console(pi);
-
-On.Console("\n\n\n\n");
-b<<2<a;
-On.Console(b);
-On.Console("\n");
-b<<!(b);
-On.Console(b);
-On.Console("\n");
-b<<!(b);
-On.Console(b);
-On.Console("\n");
-*/

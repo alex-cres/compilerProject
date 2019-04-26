@@ -294,6 +294,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		nextToken = LITERAL_NUMBER;
 		break;
 	case POINT:
+		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, '0', logFile);
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		nextToken = POINT;
 		*nextChar = getChar(file);

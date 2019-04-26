@@ -1,12 +1,9 @@
 D CalcArea(D x, D y).Do(
 	Comment(Calculate the Area);
-	D area<<x*y;
-	Exit(area);
+	Exit(x*y);
 );
 
-D x<<.0, y<<.0;
-
-If(x!=0.2).Then(x<<5.9;);
+D x<<.30, y<<.5;
 
 On.Console("\nGive me the x: ");
 x<<In.Console().ToDecimal();

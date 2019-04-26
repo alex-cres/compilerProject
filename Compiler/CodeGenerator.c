@@ -7,6 +7,7 @@
 
 int registerCounter = 1;
 int registerLoopsCounter = 1;
+int registerParamsCounter = 1;
 
 typedef int bool;
 #define True 1
@@ -46,6 +47,7 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	Element * datacode = CreateList();
 	Element * progcode = CreateList();
 	Element * rescode = CreateList();
+	Element * funcCode = CreateList();
 	char lofFileName[600] = "";
 	strcat(lofFileName, originalfilename);
 	lofFileName[strlen(lofFileName) - 3] = 0;
@@ -86,15 +88,17 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	insertSymbolToken(IDN_STRING, ast,"formatinstring", table);
 	insertSymbolToken(IDN_STRING, ast,"formatinbool", table);
 	
-	progcode = InsertList(progcode, "SECTION .text\n");
-	progcode = InsertList(progcode, "	global _main\n");
-	progcode = InsertList(progcode, "	extern _printf\n");
-	progcode = InsertList(progcode, "	extern _scanf\n");
-	progcode = InsertList(progcode, "	extern _strcat\n");
-	progcode = InsertList(progcode, "	extern _strcpy\n");
+	funcCode = InsertList(funcCode, "SECTION .text\n");
+	funcCode = InsertList(funcCode, "	global _main\n");
+	funcCode = InsertList(funcCode, "	extern _printf\n");
+	funcCode = InsertList(funcCode, "	extern _scanf\n");
+	funcCode = InsertList(funcCode, "	extern _strcat\n");
+	funcCode = InsertList(funcCode, "	extern _strcpy\n");
+	//**functions here*//
+
 	progcode = InsertList(progcode, "	_main:\n\n");
 
-	GenerateIntermidiateCode(ast, logFile, datacode, progcode, table, registerLoopsCounter, rescode);
+	GenerateIntermidiateCode(ast, logFile, datacode, progcode, table, registerLoopsCounter, rescode, funcCode);
 	progcode = InsertList(progcode, "\n\n	mov eax, 0 \n");
 	progcode = InsertList(progcode, "	ret\n\n");
 	datacode = InsertList(datacode, "\n");
@@ -104,6 +108,7 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	Element*data = datacode;
 	Element*text = progcode;
 	Element* res = rescode;
+	Element* func = funcCode;
 	while (data != NULL)
 	{
 		printf("%s", data->code);
@@ -115,6 +120,13 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 		printf("%s", res->code);
 		fprintf(asmFile, "%s", res->code);
 		res = res->next;
+	}
+	while (func != NULL)
+	{
+		printf("%s", func->code);
+		fprintf(asmFile, "%s", func->code);
+		func = func->next;
+		
 	}
 	while (text != NULL)
 	{
@@ -145,7 +157,7 @@ void GenerateMachineCode(Node * ast, FILE* logFile, char*originalfilename, Symbo
 	printf("Exe File Created : %s\n", cmd2);
 }
 
-void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode, SymbolToken * table, int breakerLoop, Element* rescode)
+void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Element* progcode, SymbolToken * table, int breakerLoop, Element* rescode, Element* funcCode)
 {
 	int loopnumber = registerLoopsCounter;
 	int i = 0;
@@ -159,6 +171,11 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 	
 
 	//loopers, ifs, things that encompass other encapsualtions
+	/*if (ast->type == DECLARE && ast->kids[1] !=NULL && ast->kids[1]->kids[0] != NULL && ast->kids[1]->kids[0]->type==IDENTIFIER_FUNCTION) {
+		funcCode = InsertList(funcCode, "	%s:\n", ast->kids[1]->kids[0]->info);
+		GenerateIntermidiateCode(ast->kids[1]->kids[1], logFile, datacode, funcCode, table, breakerLoop, rescode, funcCode);
+		funcCode = InsertList(funcCode, "	ret\n");
+	}*/
 	if (ast->type == RESERVED_LOOP) {
 		registerLoopsCounter++;
 		char looperID[100];
@@ -175,7 +192,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		fprintf(logFile, buffer);
 		
 		if (ast->kids[0]!=NULL && ast->kids[1]!=NULL) {
-			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber, rescode);
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 			if (ast->kids[0]->type==IDENTIFIER) {
 				int type_of_var = 0;
 				SymbolToken*searcher = table;
@@ -242,7 +259,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			printf(buffer);
 			fprintf(logFile, buffer);
 
-			GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, loopnumber, rescode);
+			GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 
 			sprintf(buffer, "\n\n		%s_looper_continue:\n", looperID);
 			progcode = InsertList(progcode, buffer);
@@ -294,7 +311,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		sprintf(looperID, "l%d", loopnumber);
 		char idToStepOver[256];
 		
-		GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber, rescode);
+		GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 		char stepper[100];
 		if (ast->kids[0]->type != OP_ATTRIBUTION) {
 			printfAndExit(logFile, "ERROR: SYNTAX ERROR IN ATTRIBUTION, %s", ERROR_SYNTAX_ERROR_ATTRIBUTION, "\n");
@@ -316,7 +333,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			sprintf(stepper, "%s", ast->kids[1]->kids[0]->info);
 		}
 		else {
-			GenerateIntermidiateCode(ast->kids[1]->kids[0], logFile, datacode, progcode, table, loopnumber, rescode);
+			GenerateIntermidiateCode(ast->kids[1]->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 			sprintf(stepper, "t%d",registerCounter-1);
 		}
 		
@@ -347,7 +364,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		fprintf(logFile, buffer);
 		char iffer[100];
 		if (ast->kids[2]->kids[0]->type != RESERVED_BOOL_FALSE && ast->kids[2]->kids[0]->type != RESERVED_BOOL_TRUE) {
-			GenerateIntermidiateCode(ast->kids[2]->kids[0], logFile, datacode, progcode, table, loopnumber, rescode);
+			GenerateIntermidiateCode(ast->kids[2]->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 			sprintf(iffer, "t%d", registerCounter - 1);
 			sprintf(buffer, "		mov ebx, dword[%s]\n		mov eax, TRUE\n		cmp eax, ebx\n", iffer);
 
@@ -370,7 +387,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		fprintf(logFile, buffer);
 		
 		
-		GenerateIntermidiateCode(ast->kids[3], logFile, datacode, progcode, table, loopnumber, rescode);
+		GenerateIntermidiateCode(ast->kids[3], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 		
 
 		if (type_of_var==IDN_NUMBER) {
@@ -447,7 +464,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			//no action empty -no instructions will be executed
 		}
 		else {
-			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode);
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode, funcCode);
 			char bufferdec[256];
 			sprintf(bufferdec, "t%d", registerCounter-1);
 			char looperID[200];
@@ -488,7 +505,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 		if (ast->kids[0]->type != IDENTIFIER) {
 
-			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode);
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode, funcCode);
 			sprintf(bufferDec, "t%d", registerCounter - 1);
 			sprintf(buffer, "\n		mov ebx, dword[%s]\n", bufferDec);
 			progcode = InsertList(progcode, buffer);
@@ -539,7 +556,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		printf(buffer);
 		fprintf(logFile, buffer);
 		
-		GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, breakerLoop, rescode);
+		GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, breakerLoop, rescode, funcCode);
 
 		sprintf(buffer, "\n		jmp %s_if_end\n", bufferDec);
 		progcode = InsertList(progcode, buffer);
@@ -552,7 +569,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		fprintf(logFile, buffer);
 
 		if (ast->kids[2] != NULL) {
-			GenerateIntermidiateCode(ast->kids[2], logFile, datacode, progcode, table, breakerLoop, rescode);
+			GenerateIntermidiateCode(ast->kids[2], logFile, datacode, progcode, table, breakerLoop, rescode, funcCode);
 		}
 		sprintf(buffer, "\n		%s_if_end:\n", bufferDec);
 		progcode = InsertList(progcode, buffer);
@@ -562,7 +579,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 	else {
 		while (ast->kids[i] != NULL && i < MAX_CHILDREN)
 		{
-			GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table, breakerLoop, rescode);
+			GenerateIntermidiateCode(ast->kids[i], logFile, datacode, progcode, table, breakerLoop, rescode, funcCode);
 			i++;
 		}
 		if (ast->type == RESERVED_BREAK) {
