@@ -294,7 +294,7 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 		nextToken = LITERAL_NUMBER;
 		break;
 	case POINT:
-		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, '0', logFile);
+		
 		sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 		nextToken = POINT;
 		*nextChar = getChar(file);
@@ -307,6 +307,10 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 				sizeOfLexeme = addChar(nextLexeme, sizeOfLexeme, nextChar->ch, logFile);
 				printfAndExitWithLine(logFile,"ERROR:At Line %i : ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT, %s",ERROR_DECIMAL_WITH_LETTERS_OR_SECOND_POINTS_IN_IT,lineNumber,nextLexeme);
 			}
+			char buffer[256];
+			sprintf(buffer,"%s%s" ,"0",nextLexeme);
+			strcpy(nextLexeme,buffer);
+			sizeOfLexeme++;
 			nextToken = LITERAL_DECIMAL;
 			break;
 		}

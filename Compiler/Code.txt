@@ -1,8 +1,0 @@
-
-N x ;
-N resultado;
-x << 5;
-resultado << 5 + x;
-
-On.Console(resultado);
-N anagua << In.Console().ToNumber();

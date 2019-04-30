@@ -42,7 +42,7 @@ Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
-Token:	004 --> POINT                         	Lex:	.
+Token:	004 --> POINT                         	Lex:	0.
 Token:	076 --> RESERVED_DO                   	Lex:	Do
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	083 --> RESERVED_COMMENT              	Lex:	Comment(This is not Executed)
@@ -87,7 +87,7 @@ Token:	078 --> RESERVED_ON                   	Lex:	On
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
 Entering <ON>
-Token:	004 --> POINT                         	Lex:	.
+Token:	004 --> POINT                         	Lex:	0.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	a
@@ -141,7 +141,7 @@ PROGRAM
       |   |   |_FACTOR
       |   |     |_5
       |   |-)
-      |   |-.
+      |   |-0.
       |   |_Do
       |     |-(
       |     |-INSTRUCTIONLIST
@@ -171,7 +171,7 @@ PROGRAM
         |-INSTRUCTION
         | |_ON
         |   |-On
-        |   |-.
+        |   |-0.
         |   |-Console
         |   |-(
         |   |-BEXP
@@ -229,7 +229,7 @@ Exiting 5
 Exiting 5
 Exiting 5
 Entering )
-Entering .
+Entering 0.
 Entering Do
 Entering (
 Entering INSTRUCTIONLIST
@@ -280,7 +280,7 @@ Entering INSTRUCTION
 Entering ON
 Entering On
 Exiting On
-Entering .
+Entering 0.
 Entering Console
 Exiting Console
 Entering (

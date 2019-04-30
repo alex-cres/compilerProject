@@ -672,12 +672,20 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 			registerCounter += 3;
 		}
-		else if (ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV) {// http://www.website.masmforum.com/tutorials/fptute/fpuchap5.htm // integer in float op
+		else if (ast->type == OP_ADD || ast->type == OP_MINUS || ast->type == OP_MUL || ast->type == OP_DIV || ast->type == OP_MOD) {// http://www.website.masmforum.com/tutorials/fptute/fpuchap5.htm // integer in float op
 			char bufferdec[100];
 			int type_of_var = 0;
 			int type_of_var2 = 0;
+			
 			if (ast->kids[0]->type == LITERAL_NUMBER && ast->kids[1]->type == LITERAL_NUMBER)
 			{
+				if (ast->type == OP_MOD) {
+					sprintf(buffer, "		mov edx, 0\n");
+					progcode = InsertList(progcode, buffer);
+					printf(buffer);
+					fprintf(logFile, buffer);
+
+				}
 				sprintf(bufferdec, "t%d", registerCounter);
 				insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 				strcpy(bufferdec, "");
@@ -696,6 +704,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			else if (ast->kids[0]->type == LITERAL_DECIMAL && ast->kids[1]->type == LITERAL_DECIMAL)
 			{
+				if (ast->type == OP_MOD) {
+					printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+				}
 				sprintf(bufferdec, "t%d", registerCounter);
 				insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 				strcpy(bufferdec, "");
@@ -739,6 +751,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					strcpy(bufferdec, "");
 					switch (type_of_var) {
 					case IDN_NUMBER:
+						if (ast->type == OP_MOD) {
+							sprintf(buffer, "		mov edx, 0\n");
+							progcode = InsertList(progcode, buffer);
+							printf(buffer);
+							fprintf(logFile, buffer);
+
+						}
 						sprintf(buffer, "		mov eax, dword[%s] ; Moving First Operand Number Var\n", ast->kids[0]->info);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
@@ -750,6 +769,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						fprintf(logFile, buffer);
 						break;
 					case IDN_DECIMAL:
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						floatingpointed = True;
 						sprintf(buffer, "		fld dword[%s] ; Moving First Operand Decimal Var\n", ast->kids[0]->info);
 						progcode = InsertList(progcode, buffer);
@@ -768,6 +791,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					switch (type_of_var) {
 					case IDN_NUMBER:
 						if (type_of_var2 == IDN_DECIMAL) {
+							if (ast->type == OP_MOD) {
+								printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+							}
 							insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 							strcpy(bufferdec, "");
 							floatingpointed = True;
@@ -802,6 +829,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						break;
 					case IDN_DECIMAL:
 						if (type_of_var2 == IDN_NUMBER) {
+							if (ast->type == OP_MOD) {
+								printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+							}
 							insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 							strcpy(bufferdec, "");
 							floatingpointed = True;
@@ -819,6 +850,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						break;
 					case IDN_BOOL:
 						if (type_of_var2 == IDN_NUMBER) {
+							if (ast->type == OP_MOD) {
+								sprintf(buffer, "		mov edx, 0\n");
+								progcode = InsertList(progcode, buffer);
+								printf(buffer);
+								fprintf(logFile, buffer);
+
+							}
 							insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 							strcpy(bufferdec, "");
 							floatingpointed = False;
@@ -834,6 +872,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							fprintf(logFile, buffer);
 						}
 						else if (type_of_var2 == IDN_BOOL) {
+							if (ast->type == OP_MOD) {
+								sprintf(buffer, "		mov edx, 0\n");
+								progcode = InsertList(progcode, buffer);
+								printf(buffer);
+								fprintf(logFile, buffer);
+
+							}
 							insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
 							strcpy(bufferdec, "");
 							floatingpointed = False;
@@ -866,6 +911,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						searcher = searcher->next;
 					}
 					if (type_of_var == IDN_DECIMAL) {
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						floatingpointed = True;
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
@@ -889,6 +938,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						registerCounter++;
 					}
 					else if (type_of_var == IDN_NUMBER) {
+						if (ast->type == OP_MOD) {
+							sprintf(buffer, "		mov edx, 0\n");
+							progcode = InsertList(progcode, buffer);
+							printf(buffer);
+							fprintf(logFile, buffer);
+
+						}
 						floatingpointed = False;
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
@@ -906,6 +962,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				}
 				else {
+					if (ast->type == OP_MOD) {
+						sprintf(buffer, "		mov edx, 0\n");
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+					}
 					floatingpointed = False;
 					sprintf(bufferdec, "t%d", registerCounter);
 					insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
@@ -939,6 +1002,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						searcher = searcher->next;
 					}
 					if (type_of_var == IDN_DECIMAL) {
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						floatingpointed = True;
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
@@ -962,6 +1029,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						registerCounter++;
 					}
 					else if (type_of_var == IDN_NUMBER) {
+						if (ast->type == OP_MOD) {
+							sprintf(buffer, "		mov edx, 0\n");
+							progcode = InsertList(progcode, buffer);
+							printf(buffer);
+							fprintf(logFile, buffer);
+
+						}
 						floatingpointed = False;
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
@@ -979,6 +1053,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				}
 				else {
+					if (ast->type == OP_MOD) {
+						sprintf(buffer, "		mov edx, 0\n");
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+					}
 					floatingpointed = False;
 					sprintf(bufferdec, "t%d", registerCounter);
 					insertSymbolToken(IDN_NUMBER, ast, bufferdec, table);
@@ -1013,6 +1094,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						searcher = searcher->next;
 					}
 					if (type_of_var == IDN_DECIMAL) {
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						floatingpointed = True;
 						sprintf(bufferdec, "t%d", registerCounter);
 						insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
@@ -1036,6 +1121,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						registerCounter++;
 					}
 					else if (type_of_var == IDN_NUMBER) {
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						floatingpointed = True;
 						strcpy(bufferdec, "");
 						sprintf(bufferdec, "t%d", registerCounter);
@@ -1072,6 +1161,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						}
 						searcher = searcher->next;
 					}
+					if (ast->type == OP_MOD) {
+						printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+					}
 					floatingpointed = True;
 					sprintf(bufferdec, "t%d", registerCounter);
 					insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
@@ -1082,6 +1175,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					strcpy(buffer, "");
 
 					if (type_of_var == IDN_DECIMAL) {
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						sprintf(buffer, "	t%d : dd %s \n", registerCounter, ast->kids[0]->info);
 						datacode = InsertList(datacode, buffer);
 						printf(buffer);
@@ -1095,6 +1192,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						sprintf(buffer, "		fld dword[t%d] ; Moving Second Operand Decimal Var\n", registerCounter - 1);
 					}
 					else if (type_of_var == IDN_NUMBER) {
+						if (ast->type == OP_MOD) {
+							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+						}
 						sprintf(buffer, "	t%d : dd %s \n", registerCounter, ast->kids[0]->info);
 						datacode = InsertList(datacode, buffer);
 						printf(buffer);
@@ -1117,6 +1218,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				fprintf(logFile, buffer);
 			}
 			else if (ast->kids[1]->type == LITERAL_DECIMAL) {
+			if (ast->type == OP_MOD) {
+				printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+			}
 				if (ast->kids[0]->type == IDENTIFIER) {
 
 					SymbolToken*searcher = table;
@@ -1260,6 +1365,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						strcpy(bufferdec, "");
 						switch (type_of_var) {
 						case IDN_NUMBER:
+							if (ast->type == OP_MOD) {
+								sprintf(buffer, "		mov edx, 0\n");
+								progcode = InsertList(progcode, buffer);
+								printf(buffer);
+								fprintf(logFile, buffer);
+
+							}
 							sprintf(buffer, "		mov eax, dword[%s] ; Moving First Operand Number Var\n", ast->kids[0]->info);
 							progcode = InsertList(progcode, buffer);
 							printf(buffer);
@@ -1271,6 +1383,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							fprintf(logFile, buffer);
 							break;
 						case IDN_DECIMAL:
+							if (ast->type == OP_MOD) {
+								printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+							}
 							floatingpointed = True;
 							sprintf(buffer, "		fld dword[%s] ; Moving First Operand Decimal Var\n", ast->kids[0]->info);
 							progcode = InsertList(progcode, buffer);
@@ -1289,6 +1405,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						switch (type_of_var) {
 						case IDN_NUMBER:
 							if (type_of_var2 == IDN_DECIMAL) {
+								if (ast->type == OP_MOD) {
+									printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+								}
 								insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 								strcpy(bufferdec, "");
 								floatingpointed = True;
@@ -1306,6 +1426,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							break;
 						case IDN_DECIMAL:
 							if (type_of_var == IDN_DECIMAL) {
+								if (ast->type == OP_MOD) {
+									printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+								}
 								insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 								strcpy(bufferdec, "");
 								floatingpointed = True;
@@ -1349,6 +1473,13 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						strcpy(bufferdec, "");
 						switch (type_of_var) {
 						case IDN_NUMBER:
+							if (ast->type == OP_MOD) {
+								sprintf(buffer, "		mov edx, 0\n");
+								progcode = InsertList(progcode, buffer);
+								printf(buffer);
+								fprintf(logFile, buffer);
+
+							}
 							sprintf(buffer, "		mov eax, dword[t%d] ; Moving First Operand Number Var\n", registerCounter - 1);
 							progcode = InsertList(progcode, buffer);
 							printf(buffer);
@@ -1360,6 +1491,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							fprintf(logFile, buffer);
 							break;
 						case IDN_DECIMAL:
+							if (ast->type == OP_MOD) {
+								printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+							}
 							floatingpointed = True;
 							sprintf(buffer, "		fld dword[t%d] ; Moving First Operand Decimal Var\n", registerCounter - 1);
 							progcode = InsertList(progcode, buffer);
@@ -1378,6 +1513,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						switch (type_of_var) {
 						case IDN_NUMBER:
 							if (type_of_var2 == IDN_DECIMAL) {
+								if (ast->type == OP_MOD) {
+									printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+								}
 								insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 								strcpy(bufferdec, "");
 								floatingpointed = True;
@@ -1395,6 +1534,10 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 							break;
 						case IDN_DECIMAL:
 							if (type_of_var == IDN_DECIMAL) {
+								if (ast->type == OP_MOD) {
+									printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
+
+								}
 								insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
 								strcpy(bufferdec, "");
 								floatingpointed = True;
@@ -1437,12 +1580,15 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					printf("		imul eax, ebx ; Multiplying First and Second Operand Number\n");
 					fprintf(logFile, "		imul eax, ebx ; Multiplying First and Second Operand Number\n");
 					break;
+				case OP_MOD:
 				case OP_DIV:
 					progcode = InsertList(progcode, "		idiv ebx ; Dividing First and Second Operand Number\n");
 					printf("		idiv ebx ; Dividing First and Second Operand Number\n");
 					fprintf(logFile, "		idiv ebx ; Dividing First and Second Operand Number\n");
 					break;
+
 				}
+
 			}
 			else if (floatingpointed) {
 				switch (ast->type)
@@ -1469,8 +1615,7 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					break;
 				}
 			}
-			else if (concatString) {
-			}
+			
 
 
 
@@ -1478,9 +1623,12 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			strcpy(buffer, "");
 			sprintf(buffer, "	t%d : dd 0 \n", registerCounter);
 			datacode = InsertList(datacode, buffer);
-			if (!floatingpointed) {
+			if (!floatingpointed && !ast->type==OP_MOD) {
 				strcpy(buffer, "");
 				sprintf(buffer, "		mov dword[t%d] , eax ;Result \n\n", registerCounter);
+			}else if (!floatingpointed && ast->type == OP_MOD) {
+				strcpy(buffer, "");
+				sprintf(buffer, "		mov dword[t%d] , edx ;Result \n\n", registerCounter);
 			}
 			else
 			{

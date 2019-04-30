@@ -1,0 +1,7 @@
+N a <<2;
+On.Console(a%2);
+If(a%2=0).Then(
+	On.Console("a%2 is 0");
+).Else(
+	On.Console("a%2 is 1");
+);

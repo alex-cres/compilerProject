@@ -29,6 +29,13 @@ int main()
 	char lofFileName[512] = "";
 	
 	//Working Examples
+	// mov edx, 0
+	// mov eax, dword[t%d]
+	// mov ebx, dword[t%d]
+	// idiv
+	// mov dword[t%d], edx
+
+
 	//..\Examples\AttributionAndWriteExample.cx
 	//..\Examples\BreakExample.cx
 	//..\Examples\BreakIfExample.cx
@@ -37,6 +44,7 @@ int main()
 	//..\Examples\SimpleLooperExample.cx
 	//..\Examples\SimpleExample2.cx
 	//..\Examples\ContinueExample.cx
+
 
 	//Not Implemented in ASM
 	//..\Examples\FileReadingExample.cx

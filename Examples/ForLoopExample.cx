@@ -1,4 +1,5 @@
 N j,i;
+D sses << .09;
 For(i << 2).Step(+2).If(i<=10).Do(
 	On.Console(i);
 	On.Console('\t');
