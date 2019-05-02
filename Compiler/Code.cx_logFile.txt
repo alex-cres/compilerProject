@@ -1,6 +1,6 @@
 
-READING FROM : Code.cx
-WRITING TO : Code.cx_logFile.txt
+READING FROM : code.cx
+WRITING TO : code.cx_logFile.txt
 
 Token:	012 --> IDN_NUMBER                    	Lex:	N
 Entering <INSTRUCTIONLIST>
@@ -31,6 +31,28 @@ Entering <ON>
 Token:	004 --> POINT                         	Lex:	.
 Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"Result for a%2=0<< "
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	011 --> IDENTIFIER                    	Lex:	a
 Entering <BEXP>
 Entering <CEXP>
@@ -42,9 +64,39 @@ Exiting <FACTOR>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
 Entering <TERM>
 Entering <FACTOR>
+Token:	040 --> OP_EQUAL                      	Lex:	=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Token:	018 --> LITERAL_NUMBER                	Lex:	0
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n\n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
@@ -144,8 +196,10 @@ Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 15
+MAX_DEPTH_TREE FOUND : 17
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -172,18 +226,16 @@ PROGRAM
     |   | |_CEXP
     |   |   |_EXP
     |   |     |_TERM
-    |   |       |-FACTOR
-    |   |       | |_a
-    |   |       |-%
-    |   |       |_TERM
-    |   |         |_FACTOR
-    |   |           |_2
+    |   |       |_FACTOR
+    |   |         |_"Result for a%2=0<< "
     |   |_)
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
-      | |_IF
-      |   |-If
+      | |_ON
+      |   |-On
+      |   |-.
+      |   |-Console
       |   |-(
       |   |-BEXP
       |   | |_CEXP
@@ -200,47 +252,84 @@ PROGRAM
       |   |     |_TERM
       |   |       |_FACTOR
       |   |         |_0
-      |   |-)
-      |   |-.
-      |   |-Then
-      |   | |-(
-      |   | |-INSTRUCTIONLIST
-      |   | | |-INSTRUCTION
-      |   | | | |_ON
-      |   | | |   |-On
-      |   | | |   |-.
-      |   | | |   |-Console
-      |   | | |   |-(
-      |   | | |   |-BEXP
-      |   | | |   | |_CEXP
-      |   | | |   |   |_EXP
-      |   | | |   |     |_TERM
-      |   | | |   |       |_FACTOR
-      |   | | |   |         |_"a%2 is 0"
-      |   | | |   |_)
-      |   | | |_;
-      |   | |_)
-      |   |-.
-      |   |_Else
-      |     |-(
-      |     |-INSTRUCTIONLIST
-      |     | |-INSTRUCTION
-      |     | | |_ON
-      |     | |   |-On
-      |     | |   |-.
-      |     | |   |-Console
-      |     | |   |-(
-      |     | |   |-BEXP
-      |     | |   | |_CEXP
-      |     | |   |   |_EXP
-      |     | |   |     |_TERM
-      |     | |   |       |_FACTOR
-      |     | |   |         |_"a%2 is 1"
-      |     | |   |_)
-      |     | |_;
-      |     |_)
+      |   |_)
       |-;
-      |_EOF
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_ON
+        |   |-On
+        |   |-.
+        |   |-Console
+        |   |-(
+        |   |-BEXP
+        |   | |_CEXP
+        |   |   |_EXP
+        |   |     |_TERM
+        |   |       |_FACTOR
+        |   |         |_"\n\n"
+        |   |_)
+        |-;
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_IF
+          |   |-If
+          |   |-(
+          |   |-BEXP
+          |   | |_CEXP
+          |   |   |-EXP
+          |   |   | |_TERM
+          |   |   |   |-FACTOR
+          |   |   |   | |_a
+          |   |   |   |-%
+          |   |   |   |_TERM
+          |   |   |     |_FACTOR
+          |   |   |       |_2
+          |   |   |-=
+          |   |   |_EXP
+          |   |     |_TERM
+          |   |       |_FACTOR
+          |   |         |_0
+          |   |-)
+          |   |-.
+          |   |-Then
+          |   | |-(
+          |   | |-INSTRUCTIONLIST
+          |   | | |-INSTRUCTION
+          |   | | | |_ON
+          |   | | |   |-On
+          |   | | |   |-.
+          |   | | |   |-Console
+          |   | | |   |-(
+          |   | | |   |-BEXP
+          |   | | |   | |_CEXP
+          |   | | |   |   |_EXP
+          |   | | |   |     |_TERM
+          |   | | |   |       |_FACTOR
+          |   | | |   |         |_"a%2 is 0"
+          |   | | |   |_)
+          |   | | |_;
+          |   | |_)
+          |   |-.
+          |   |_Else
+          |     |-(
+          |     |-INSTRUCTIONLIST
+          |     | |-INSTRUCTION
+          |     | | |_ON
+          |     | |   |-On
+          |     | |   |-.
+          |     | |   |-Console
+          |     | |   |-(
+          |     | |   |-BEXP
+          |     | |   | |_CEXP
+          |     | |   |   |_EXP
+          |     | |   |     |_TERM
+          |     | |   |       |_FACTOR
+          |     | |   |         |_"a%2 is 1"
+          |     | |   |_)
+          |     | |_;
+          |     |_)
+          |-;
+          |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -282,6 +371,31 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
+Entering "Result for a%2=0<< "
+Exiting Result for a%2=0<< 
+Exiting Result for a%2=0<< 
+Exiting Result for a%2=0<< 
+Exiting Result for a%2=0<< 
+Exiting Result for a%2=0<< 
+Exiting Result for a%2=0<< 
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
 Entering a
 Exiting a
 Exiting a
@@ -295,8 +409,43 @@ Exiting 2
 Exiting 2
 Exiting %
 Exiting %
-Exiting %
-Exiting %
+Entering =
+Exiting =
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting 0
+Exiting =
+Exiting =
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n\n"
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
+Exiting \n\n
 Entering )
 Exiting On
 Exiting On
@@ -408,6 +557,8 @@ Exiting If
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -417,23 +568,33 @@ INSTRUCTIONLIST
 |_INSTRUCTIONLIST
   |-On
   | |-Console
-  | |_%
-  |   |-a
-  |   |_2
-  |_If
-    |-=
-    | |-%
-    | | |-a
-    | | |_2
-    | |_0
-    |-Then
-    | |_On
-    |   |-Console
-    |   |_a%2 is 0
-    |_Else
-      |_On
-        |-Console
-        |_a%2 is 1
+  | |_Result for a%2=0<< 
+  |_INSTRUCTIONLIST
+    |-On
+    | |-Console
+    | |_=
+    |   |-%
+    |   | |-a
+    |   | |_2
+    |   |_0
+    |_INSTRUCTIONLIST
+      |-On
+      | |-Console
+      | |_\n\n
+      |_If
+        |-=
+        | |-%
+        | | |-a
+        | | |_2
+        | |_0
+        |-Then
+        | |_On
+        |   |-Console
+        |   |_a%2 is 0
+        |_Else
+          |_On
+            |-Console
+            |_a%2 is 1
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -455,6 +616,17 @@ Optimization of On
 Optimization of Console
 Optimization start Console
 End Optimization of Console
+Optimization of Result for a%2=0<< 
+Optimization start Result for a%2=0<< 
+End Optimization of Result for a%2=0<< 
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of =
 Optimization of %
 Optimization of a
 Optimization start a
@@ -465,6 +637,22 @@ End Optimization of 2
 Optimization start %
 Optimization result %
 End Optimization of %
+Optimization of 0
+Optimization start 0
+End Optimization of 0
+Optimization start =
+Optimization result =
+End Optimization of =
+Optimization start On
+End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n\n
+Optimization start \n\n
+End Optimization of \n\n
 Optimization start On
 End Optimization of On
 Optimization of If
@@ -515,6 +703,10 @@ Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -524,23 +716,33 @@ INSTRUCTIONLIST
 |_INSTRUCTIONLIST
   |-On
   | |-Console
-  | |_%
-  |   |-a
-  |   |_2
-  |_If
-    |-=
-    | |-%
-    | | |-a
-    | | |_2
-    | |_0
-    |-Then
-    | |_On
-    |   |-Console
-    |   |_a%2 is 0
-    |_Else
-      |_On
-        |-Console
-        |_a%2 is 1
+  | |_Result for a%2=0<< 
+  |_INSTRUCTIONLIST
+    |-On
+    | |-Console
+    | |_=
+    |   |-%
+    |   | |-a
+    |   | |_2
+    |   |_0
+    |_INSTRUCTIONLIST
+      |-On
+      | |-Console
+      | |_\n\n
+      |_If
+        |-=
+        | |-%
+        | | |-a
+        | | |_2
+        | |_0
+        |-Then
+        | |_On
+        |   |-Console
+        |   |_a%2 is 0
+        |_Else
+          |_On
+            |-Console
+            |_a%2 is 1
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | a
@@ -548,14 +750,8 @@ INSTRUCTIONLIST
 		mov dword[a], eax
 
 	a : dd 0
-		mov edx, 0
-		mov eax, dword[a] ; Moving Second Operand Number Var
-		mov ebx, 2 ; Moving First Operand Number
-		idiv ebx ; Dividing First and Second Operand Number
-		mov dword[t1] , edx ;Result 
-
-		push dword[t1]
-		push formatoutnumber; push message into ESP
+		push t1
+		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
@@ -579,34 +775,71 @@ INSTRUCTIONLIST
 		mov dword[t4],eax
 		t4_false:
 
-
-		mov ebx, dword[t4]
-
-		cmp  ebx, TRUE
-
-		je t4_if_then
-
-		jmp t4_if_else
-
-		t4_if_then:
-		push t5
-		push formatoutstring; push format into ESP
+		mov eax, dword[t4]
+		cmp eax, 0
+		je t5_false
+		push stringTrue
+		jmp t5_true
+		t5_false:
+		push stringFalse
+		t5_true:
+		push formatoutbool; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-
-		jmp t4_if_end
-
-		t4_if_else:
 		push t6
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
+		mov edx, 0
+		mov eax, dword[a] ; Moving Second Operand Number Var
+		mov ebx, 2 ; Moving First Operand Number
+		idiv ebx ; Dividing First and Second Operand Number
+		mov dword[t7] , edx ;Result 
 
-		t4_if_end:
-Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.asm
-Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.exe
+		mov eax, dword[t7]
+	t8 : dd 0
+		mov ebx, dword[t8]
+	t9 : dd 0
+		cmp eax, ebx
+		je	t9_true
+		mov eax,FALSE
+		mov dword[t9],eax
+		jmp t9_false
+		t9_true:
+		mov eax,TRUE
+		mov dword[t9],eax
+		t9_false:
+
+
+		mov ebx, dword[t9]
+
+		cmp  ebx, TRUE
+
+		je t9_if_then
+
+		jmp t9_if_else
+
+		t9_if_then:
+		push t10
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
+		jmp t9_if_end
+
+		t9_if_else:
+		push t11
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
+		t9_if_end:
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\code.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\code.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\code.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | a
@@ -623,9 +856,13 @@ Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\C
 | 17 	 | INSTRUCTIONLIST 	 | formatinstring
 | 17 	 | INSTRUCTIONLIST 	 | formatinbool
 | 12 	 | DECLARATION 	 | a
-| 12 	 | % 	 | t1
+| 17 	 | On 	 | t1
 | 12 	 | % 	 | t2
 | 12 	 | = 	 | t3
 | 15 	 | = 	 | t4
-| 17 	 | On 	 | t5
 | 17 	 | On 	 | t6
+| 12 	 | % 	 | t7
+| 12 	 | = 	 | t8
+| 15 	 | = 	 | t9
+| 17 	 | On 	 | t10
+| 17 	 | On 	 | t11

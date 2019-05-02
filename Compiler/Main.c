@@ -27,14 +27,6 @@ int main()
 	char nextLexeme[MAX_LEXEME_SIZE];
 	char fileName[500];
 	char lofFileName[512] = "";
-	
-	//Working Examples
-	// mov edx, 0
-	// mov eax, dword[t%d]
-	// mov ebx, dword[t%d]
-	// idiv
-	// mov dword[t%d], edx
-
 
 	//..\Examples\AttributionAndWriteExample.cx
 	//..\Examples\BreakExample.cx
@@ -62,9 +54,7 @@ int main()
 		printf("WRITING TO : %s\n\n", lofFileName);
 		fprintf(logFile, "WRITING TO : %s\n\n", lofFileName);
 		nextChar = getChar(filePointer);
-
 		do {
-
 			//identifying the lexemes
 			nextToken = lex(filePointer, &nextChar, nextLexeme, logFile);
 			if (nextToken==EOF) {

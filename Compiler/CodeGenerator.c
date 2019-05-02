@@ -2511,14 +2511,31 @@ void GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 						sprintf(buffer, "		push formatoutchar; push message into ESP\n");
 						break;
 					case IDN_BOOL:
-						strcpy(buffer, "");
-						sprintf(buffer, "		push dword[t%d]\n", registerCounter - 1);
+
+
+						sprintf(buffer, "		mov eax, dword[t%d]\n		cmp eax, 0\n",registerCounter-1);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+						sprintf(buffer, "		je t%d_false\n		push stringTrue\n", registerCounter);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+						sprintf(buffer, "		jmp t%d_true\n		t%d_false:\n", registerCounter, registerCounter);
+						progcode = InsertList(progcode, buffer);
+						printf(buffer);
+						fprintf(logFile, buffer);
+
+						sprintf(buffer, "		push stringFalse\n		t%d_true:\n", registerCounter);
 						progcode = InsertList(progcode, buffer);
 						printf(buffer);
 						fprintf(logFile, buffer);
 
 						strcpy(buffer, "");
 						sprintf(buffer, "		push formatoutbool; push message into ESP\n");
+						registerCounter++;
 						break;
 
 					default:
