@@ -83,9 +83,8 @@
 #define RESERVED_FILE 95
 #define RESERVED_FILE_ENDER 96
 #define RESERVED_FILE_SIZE 97
-
 #define DECLARE 98
-
+#define RESERVED_WHILE 99
 
 //reserved strings
 
@@ -107,6 +106,7 @@
 #define RESERVED_CONSOLE_LEXEME "Console"
 #define RESERVED_FOR_LEXEME "For"
 #define RESERVED_STEP_LEXEME "Step"
+#define RESERVED_WHILE_LEXEME "While"
 
 #define OP_ATTRIBUTION_LEXEME "<<"
 #define OP_MINOR_LEXEME "<"

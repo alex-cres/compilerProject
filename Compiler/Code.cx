@@ -1,9 +1,21 @@
-N a <<2;
-On.Console("Result for a%2=0<< ");
-On.Console(a%2=0);
-On.Console("\n\n");
-If(a%2=0).Then(
-	On.Console("a%2 is 0");
-).Else(
-	On.Console("a%2 is 1");
-);
+N azz<<5;
+While(azz!=1).Then(N a<<2;Break(););
+
+
+
+D decimal << 20;
+N numeral << 2;
+D decimal2 << 2.0;
+N numeral2 << 2.0;
+
+N nresultNumeralDecimal << numeral+decimal;
+
+D dresultNumeralDecimal << numeral+decimal;
+
+N nresultNumeralNumeral << numeral+numeral;
+
+D dresultNumeralNumeral << numeral+numeral;
+
+N nresultDecimalDecimal << decimal+decimal;
+
+D dresultDecimalDecimal << decimal+decimal;

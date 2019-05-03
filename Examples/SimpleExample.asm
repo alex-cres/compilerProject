@@ -17,46 +17,45 @@ SECTION .data
 
 	i : dd 0
 	j : dd 0
+	e : dd 0
 	t1 : dd 3.14 
 	pi : dd 0.0
 	bool : dd 0
 	nbool : dd 0
 	t2 : times  256  db `\nBegin Tests:\n`,0 
 	t3 : times  256  db `\n\tCalculating tests:`,0 
-	t4 : times  256  db `\n\t\tWith: N i<<1,j<<1,e; AND D pi<<3.14 AND B bool << True, nbool << False\n\n`,0 
+	t4 : times  256  db `\n\t\tWith: N i<<1,j<<1; AND D pi<<3.14 AND B bool << True, nbool << False\n\n`,0 
 	t5 : times  256  db `\n\t\t i << `,0 
 	t6 : times  256  db `\n`,0 
 	t7 : times  256  db `\n\t\t j << `,0 
 	t8 : times  256  db `\n`,0 
-	t9 : times  256  db `\n\t\t e << `,0 
+	t9 : times  256  db `\n\t\t pi << `,0 
 	t10 : times  256  db `\n`,0 
-	t11 : times  256  db `\n\t\t pi << `,0 
-	t12 : times  256  db `\n`,0 
-	t13 : times  256  db `\n\t\t i*j << `,0 
-	t14 : dd 0 
-	t15 : times  256  db `\n`,0 
-	t16 : times  256  db `\n\t\t j/i << `,0 
-	t17 : dd 0 
-	t18 : times  256  db `\n`,0 
-	t19 : times  256  db `\n\t\t e+j << `,0 
-	t20 : dd 0 
-	t21 : times  256  db `\n`,0 
-	t22 : times  256  db `\n\t\t e-j << `,0 
-	t23 : dd 0 
-	t24 : times  256  db `\n`,0 
-	t25 : times  256  db `\n\t\t pi-i << `,0 
-	t26 : dd 0 
-	t27 : times  256  db `\n`,0 
-	t28 : times  256  db `\n\t\t pi/j << `,0 
-	t29 : dd 0 
-	t30 : times  256  db `\n`,0 
-	t31 : times  256  db `\n\t\t pi*j << `,0 
-	t32 : dd 0 
-	t33 : times  256  db `\n`,0 
-	t34 : times  256  db `\n\t\t pi+pi << `,0 
-	t35 : dd 0 
-	t36 : times  256  db `\n`,0 
-	t37 : times  256  db `\nFinished Tests\n`,0 
+	t11 : times  256  db `\n\t\t i*j << `,0 
+	t12 : dd 0 
+	t13 : times  256  db `\n`,0 
+	t14 : times  256  db `\n\t\t j/i << `,0 
+	t15 : dd 0 
+	t16 : times  256  db `\n`,0 
+	t17 : times  256  db `\n\t\t j+j << `,0 
+	t18 : dd 0 
+	t19 : times  256  db `\n`,0 
+	t20 : times  256  db `\n\t\t j-j << `,0 
+	t21 : dd 0 
+	t22 : times  256  db `\n`,0 
+	t23 : times  256  db `\n\t\t pi-i << `,0 
+	t24 : dd 0 
+	t25 : times  256  db `\n`,0 
+	t26 : times  256  db `\n\t\t pi/j << `,0 
+	t27 : dd 0 
+	t28 : times  256  db `\n`,0 
+	t29 : times  256  db `\n\t\t pi*j << `,0 
+	t30 : dd 0 
+	t31 : times  256  db `\n`,0 
+	t32 : times  256  db `\n\t\t pi+pi << `,0 
+	t33 : dd 0 
+	t34 : times  256  db `\n`,0 
+	t35 : times  256  db `\nFinished Tests\n`,0 
 
 
 SECTION .bss
@@ -135,10 +134,13 @@ SECTION .text
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push dword[e]
-		push formatoutnumber; push message into ESP
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, pi
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
 		call _printf; call defined function
-		add esp, 8; params * 4
+		add esp, 12; params * 4
 
 		push t10
 		push formatoutchar; push format into ESP
@@ -150,40 +152,22 @@ SECTION .text
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		sub esp, 8;reserve stack for a double in stack
-		mov ebx, pi
-		fld dword[ebx];load float
-		fstp qword[esp];store double(8087 does the conversion internally)
-		push formatoutdecimal; push message into ESP
-		call _printf; call defined function
-		add esp, 12; params * 4
-
-		push t12
-		push formatoutchar; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t13
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
 		mov eax, dword[i] ; Moving First Operand Number Var
 		mov ebx, dword[j] ; Moving Second Operand Number Var
 		imul eax, ebx ; Multiplying First and Second Operand Number
-		mov dword[t14] , eax ;Result 
+		mov dword[t12] , eax ;Result 
 
-		push dword[t14]
+		push dword[t12]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t15
+		push t13
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t16
+		push t14
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -191,55 +175,59 @@ SECTION .text
 		mov eax, dword[j] ; Moving First Operand Number Var
 		mov ebx, dword[i] ; Moving Second Operand Number Var
 		idiv ebx ; Dividing First and Second Operand Number
-		mov dword[t17] , eax ;Result 
+		mov dword[t15] , eax ;Result 
 
-		push dword[t17]
+		push dword[t15]
 		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t18
+		push t16
 		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t17
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[j] ; Moving First Operand Number Var
+		mov ebx, dword[j] ; Moving Second Operand Number Var
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t18] , eax ;Result 
+
+		push dword[t18]
+		push formatoutnumber; push message into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t19
+		push formatoutchar; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t20
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t20] , eax ;Result 
+		mov eax, dword[j] ; Moving First Operand Number Var
+		mov ebx, dword[j] ; Moving Second Operand Number Var
+		sub eax, ebx ; Subtracting First and Second Operand Number
+		mov dword[t21] , eax ;Result 
 
-		push dword[t20]
+		push dword[t21]
 		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t21
-		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 		push t22
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		sub eax, ebx ; Subtracting First and Second Operand Number
-		mov dword[t23] , eax ;Result 
-
-		push dword[t23]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-		push t24
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t25
+		push t23
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -247,22 +235,22 @@ SECTION .text
 		fld dword[pi] ; Moving First Operand Decimal Var
 		fild dword[i] ; Moving Second Operand Number Var
 		fsub ; Subtracting First and Second Operand Number
-		fstp dword[t26] ;Result 
+		fstp dword[t24] ;Result 
 
 		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t26
+		mov ebx, t24
 		fld dword[ebx];load float
 		fstp qword[esp];store double(8087 does the conversion internally)
 		push formatoutdecimal; push message into ESP
 		call _printf; call defined function
 		add esp, 12; params * 4
 
-		push t27
+		push t25
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t28
+		push t26
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -270,22 +258,22 @@ SECTION .text
 		fld dword[pi] ; Moving First Operand Decimal Var
 		fild dword[j] ; Moving Second Operand Number Var
 		fdiv ; Dividing First and Second Operand Number
-		fstp dword[t29] ;Result 
+		fstp dword[t27] ;Result 
 
 		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t29
+		mov ebx, t27
 		fld dword[ebx];load float
 		fstp qword[esp];store double(8087 does the conversion internally)
 		push formatoutdecimal; push message into ESP
 		call _printf; call defined function
 		add esp, 12; params * 4
 
-		push t30
+		push t28
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t31
+		push t29
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -293,22 +281,22 @@ SECTION .text
 		fld dword[pi] ; Moving First Operand Decimal Var
 		fild dword[j] ; Moving Second Operand Number Var
 		fmul ; Multiplying First and Second Operand Number
-		fstp dword[t32] ;Result 
+		fstp dword[t30] ;Result 
 
 		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t32
+		mov ebx, t30
 		fld dword[ebx];load float
 		fstp qword[esp];store double(8087 does the conversion internally)
 		push formatoutdecimal; push message into ESP
 		call _printf; call defined function
 		add esp, 12; params * 4
 
-		push t33
+		push t31
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t34
+		push t32
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
@@ -316,22 +304,22 @@ SECTION .text
 		fld dword[pi] ; Moving First Operand Decimal Var
 		fld dword[pi] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t35] ;Result 
+		fstp dword[t33] ;Result 
 
 		sub esp, 8;reserve stack for a double in stack
-		mov ebx, t35
+		mov ebx, t33
 		fld dword[ebx];load float
 		fstp qword[esp];store double(8087 does the conversion internally)
 		push formatoutdecimal; push message into ESP
 		call _printf; call defined function
 		add esp, 12; params * 4
 
-		push t36
+		push t34
 		push formatoutchar; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-		push t37
+		push t35
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4

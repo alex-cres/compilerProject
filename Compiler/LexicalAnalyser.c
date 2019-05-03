@@ -212,6 +212,10 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 			break;
 
 		}
+		else if (0 == strcmp(nextLexeme, RESERVED_WHILE_LEXEME)){
+			nextToken = RESERVED_WHILE;
+			break;
+		}
 		else if (0 == strcmp(nextLexeme, IDN_DECIMAL_LEXEME)) {
 			nextToken = IDN_DECIMAL;
 			break;
@@ -473,6 +477,7 @@ int lookup(char ch, char* lexeme, int * lexemeLength, FILE* logFile)
 char* tokenDescription(int tokenType) {
 	switch (tokenType) {
 	case EOF: return"EOF"; break;
+	case RESERVED_WHILE: return "RESERVED_WHILE"; break;
 	case DIGIT: return"DIGIT"; break;
 	case LETTER_BIG: return"LETTER_BIG"; break;
 	case LETTER_SMALL: return"LETTER_SMALL"; break;
