@@ -175,18 +175,60 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		GenerateIntermidiateCode(ast->kids[1]->kids[1], logFile, datacode, funcCode, table, breakerLoop, rescode, funcCode);
 		funcCode = InsertList(funcCode, "	ret\n");
 	}*/
-	if(ast->type == RESERVED_WHILE)
+	if (ast->type == RESERVED_DO && ast->kids[1] != NULL && ast->kids[1]->type==RESERVED_WHILE)
 	{
 		registerLoopsCounter++;
 		char looperID[100];
 		sprintf(looperID, "l%d", loopnumber);
+		sprintf(buffer, "		%s_begin:\n", looperID);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
+		char iffer[100];
+		if (ast->kids[1]->kids[0]->type != RESERVED_BOOL_FALSE && ast->kids[1]->kids[0]->type != RESERVED_BOOL_TRUE) {
+			GenerateIntermidiateCode(ast->kids[1]->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
+			sprintf(iffer, "t%d", registerCounter - 1);
+			sprintf(buffer, "		mov ebx, dword[%s]\n		mov eax, TRUE\n		cmp eax, ebx\n", iffer);
+
+		}
+		else {
+			strupper(ast->kids[1]->kids[0]->info);
+			sprintf(buffer, "		mov ebx, %s\n		cmp ebx, TRUE\n", ast->kids[1]->kids[0]->info);
+
+		}
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		sprintf(buffer, "		je %s_looper_true\n		jmp %s_looper_end\n", looperID, looperID);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		sprintf(buffer, "		%s_looper_true:\n", looperID);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+
 		
-		
 
-
-
-		
-
+		sprintf(buffer, "		%s_looper_continue:\n", looperID);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		sprintf(buffer, "		jmp %s_begin\n", looperID);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+		sprintf(buffer, "		%s_looper_end:\n", looperID);
+		progcode = InsertList(progcode, buffer);
+		printf(buffer);
+		fprintf(logFile, buffer);
+	}
+	else if(ast->type == RESERVED_WHILE)
+	{
+		registerLoopsCounter++;
+		char looperID[100];
+		sprintf(looperID, "l%d", loopnumber);
 		sprintf(buffer, "		%s_begin:\n", looperID);
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
@@ -215,11 +257,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		printf(buffer);
 		fprintf(logFile, buffer);
 
-
 		GenerateIntermidiateCode(ast->kids[1], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 
-
-		
 		sprintf(buffer, "		%s_looper_continue:\n", looperID);
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
@@ -232,8 +271,6 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		progcode = InsertList(progcode, buffer);
 		printf(buffer);
 		fprintf(logFile, buffer);
-
-
 	}
 	else if (ast->type == RESERVED_LOOP) {
 		registerLoopsCounter++;
@@ -3011,7 +3048,6 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					datacode = InsertList(datacode, buffer);
 					printf(buffer);
 					fprintf(logFile, buffer);
-
 					sprintf(buffer, "		fild dword[%s]\n", ast->kids[0]->info);
 					progcode = InsertList(progcode, buffer);
 					printf(buffer);
@@ -3035,7 +3071,6 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					}
 					current = current->next;
 				}
-
 				switch (type_of_var) {
 				case IDN_NUMBER:
 					sprintf(bufferdec, "t%d", registerCounter);
@@ -3045,7 +3080,6 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					datacode = InsertList(datacode, buffer);
 					printf(buffer);
 					fprintf(logFile, buffer);
-
 					sprintf(buffer, "		fild dword[%s]\n", buffersearcher);
 					progcode = InsertList(progcode, buffer);
 					printf(buffer);
@@ -3065,12 +3099,10 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 void strupper(char * temp) {
 	char * name;
 	name = strtok(temp, ":");
-
 	// Convert to upper case
 	char *s = name;
 	while (*s) {
 		*s = toupper((unsigned char)*s);
 		s++;
 	}
-
 }

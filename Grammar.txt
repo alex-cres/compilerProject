@@ -13,12 +13,15 @@
 			| <continueif>
 			| <break>
 			| <breakif>
+			| <while>
+			| <dowhile>
 			| <in>
 			| <on>
 			| EOF
 <if_struct> --> If(<bool>).Then(<instructionList>)
 			  | If(<bool>).Then(<instructionList>).Else(<instructionList>)
-
+<while> --> While(<bexp>).Do(<instructionList>)
+<dowhile> --> Do(<instructionList>).While(<bexp>)
 <looper> --> Loop(<exp>).Do(<instructionList>)
 <for> --> For(<attribution>).Step(<exp>).If(<bexp>).Do(<instructionList>) 
 

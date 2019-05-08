@@ -1,5 +1,6 @@
 N azz<<5;
-While(azz!=1).Then(N a<<2;Break(););
+While(azz!=1).Do(N a<<2;Break(););
+Do( a<<4;Break();).While(azz!=1);
 
 
 

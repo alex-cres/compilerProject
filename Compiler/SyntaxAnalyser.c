@@ -104,6 +104,8 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 			| <continueif>
 			| <break>
 			| <breakif>
+			| <while>
+			| <dowhile>
 			| <in>
 			| <on>
 			| EOF
@@ -113,6 +115,9 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 	{
 	case IDN_BOOL: case IDN_NUMBER:	case IDN_DECIMAL: case IDN_CHAR: case IDN_VOID:	case IDN_STRING:
 		nextToken = declaration(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);
+		break;
+	case RESERVED_DO:
+		nextToken = reserved_do_while(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);
 		break;
 	case RESERVED_WHILE:
 		nextToken = reserved_while(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);
@@ -1515,8 +1520,75 @@ int reservedCastingVar(FILE* file, int nextToken, NextChar* nextChar, char* next
 	return nextToken;
 }
 
+int reserved_do_while(FILE * file, int nextToken, NextChar * nextChar, char * nextLexeme, Node * tree, FILE * logFile)
+{
+	/*
+	<dowhile> --> Do(<instructionList>).While(<bexp>)
+	*/
+	printf("Entering <DOWHILE>\n");
+	fprintf(logFile, "Entering <DOWHILE>\n");
+	Node* whileNode = addChildNode(tree, "DOWHILE", -1, logFile);
+	Node * reservedWhileNode = addChildNode(whileNode, nextLexeme, nextToken, logFile);
+
+	nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+	if (nextToken == OPEN_PARENTESIS) {
+		addChildNode(reservedWhileNode, nextLexeme, nextToken, logFile);
+		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+		nextToken = instructionList(file, nextToken, nextChar, nextLexeme, reservedWhileNode, logFile);
+		if (nextToken == CLOSE_PARENTESIS) {
+			addChildNode(reservedWhileNode, nextLexeme, nextToken, logFile);
+			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+			if (nextToken == POINT) {
+				addChildNode(reservedWhileNode, nextLexeme, nextToken, logFile);
+				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+
+				if (nextToken == RESERVED_WHILE) {
+					Node * thenNode = addChildNode(reservedWhileNode, nextLexeme, nextToken, logFile);
+					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+
+
+					if (nextToken == OPEN_PARENTESIS) {
+						addChildNode(thenNode, nextLexeme, nextToken, logFile);
+						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+						nextToken = bexp(file, nextToken, nextChar, nextLexeme, thenNode, logFile);
+						if (nextToken == CLOSE_PARENTESIS) {
+							addChildNode(thenNode, nextLexeme, nextToken, logFile);
+							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+						}
+						else {
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED, lineNumber, nextLexeme);
+						}
+					}
+					else {
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED, lineNumber, nextLexeme);
+					}
+				}
+			}
+		}
+		else {
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED, lineNumber, nextLexeme);
+		}
+	}
+	else {
+		printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED, lineNumber, nextLexeme);
+	}
+
+
+
+
+
+
+	printf("Exiting <DOWHILE>\n");
+	fprintf(logFile, "Exiting <DOWHILE>\n");
+	return nextToken;
+}
+
+
 int reserved_while(FILE * file, int nextToken, NextChar * nextChar, char * nextLexeme, Node * tree, FILE * logFile)
 {
+	/*
+	<while> --> While(<bexp>).Do(<instructionList>)
+	*/
 	printf("Entering <WHILE>\n");
 	fprintf(logFile, "Entering <WHILE>\n");
 	Node* whileNode = addChildNode(tree, "WHILE", -1, logFile);
@@ -1534,7 +1606,7 @@ int reserved_while(FILE * file, int nextToken, NextChar * nextChar, char * nextL
 				addChildNode(reservedWhileNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 
-				if (nextToken == RESERVED_THEN) {
+				if (nextToken == RESERVED_DO) {
 					Node * thenNode = addChildNode(reservedWhileNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 

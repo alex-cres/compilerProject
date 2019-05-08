@@ -1,6 +1,6 @@
 
-READING FROM : code.cx
-WRITING TO : code.cx_logFile.txt
+READING FROM : Code.cx
+WRITING TO : Code.cx_logFile.txt
 
 Token:	012 --> IDN_NUMBER                    	Lex:	N
 Entering <INSTRUCTIONLIST>
@@ -50,7 +50,7 @@ Exiting <EXP>
 Exiting <CEXP>
 Exiting <BEXP>
 Token:	004 --> POINT                         	Lex:	.
-Token:	073 --> RESERVED_THEN                 	Lex:	Then
+Token:	076 --> RESERVED_DO                   	Lex:	Do
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Token:	012 --> IDN_NUMBER                    	Lex:	N
 Entering <INSTRUCTIONLIST>
@@ -88,6 +88,68 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <WHILE>
+Exiting <INSTRUCTION>
+Token:	076 --> RESERVED_DO                   	Lex:	Do
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DOWHILE>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	a
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	4
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	085 --> RESERVED_BREAK                	Lex:	Break
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <BREAK>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <BREAK>
+Exiting <INSTRUCTION>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Token:	004 --> POINT                         	Lex:	.
+Token:	099 --> RESERVED_WHILE                	Lex:	While
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	azz
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	045 --> OP_NOT_EQUAL                  	Lex:	!=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	018 --> LITERAL_NUMBER                	Lex:	1
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <DOWHILE>
 Exiting <INSTRUCTION>
 Token:	013 --> IDN_DECIMAL                   	Lex:	D
 Entering <INSTRUCTIONLIST>
@@ -370,8 +432,9 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 22
+MAX_DEPTH_TREE FOUND : 23
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -405,7 +468,7 @@ PROGRAM
     |     |         |_1
     |     |-)
     |     |-.
-    |     |_Then
+    |     |_Do
     |       |-(
     |       |-INSTRUCTIONLIST
     |       | |-INSTRUCTION
@@ -432,52 +495,79 @@ PROGRAM
     |-;
     |_INSTRUCTIONLIST
       |-INSTRUCTION
-      | |_DECLARATION
-      |   |-D
-      |   |_DECLAREEXP
-      |     |-decimal
-      |     |-<<
-      |     |_BEXP
-      |       |_CEXP
-      |         |_EXP
-      |           |_TERM
-      |             |_FACTOR
-      |               |_20
+      | |_DOWHILE
+      |   |_Do
+      |     |-(
+      |     |-INSTRUCTIONLIST
+      |     | |-INSTRUCTION
+      |     | | |_ATTRIBUTION
+      |     | |   |-a
+      |     | |   |-<<
+      |     | |   |_BEXP
+      |     | |     |_CEXP
+      |     | |       |_EXP
+      |     | |         |_TERM
+      |     | |           |_FACTOR
+      |     | |             |_4
+      |     | |-;
+      |     | |_INSTRUCTIONLIST
+      |     |   |-INSTRUCTION
+      |     |   | |_BREAK
+      |     |   |   |-Break
+      |     |   |   |-(
+      |     |   |   |_)
+      |     |   |_;
+      |     |-)
+      |     |-.
+      |     |_While
+      |       |-(
+      |       |-BEXP
+      |       | |_CEXP
+      |       |   |-EXP
+      |       |   | |_TERM
+      |       |   |   |_FACTOR
+      |       |   |     |_azz
+      |       |   |-!=
+      |       |   |_EXP
+      |       |     |_TERM
+      |       |       |_FACTOR
+      |       |         |_1
+      |       |_)
       |-;
       |_INSTRUCTIONLIST
         |-INSTRUCTION
         | |_DECLARATION
-        |   |-N
+        |   |-D
         |   |_DECLAREEXP
-        |     |-numeral
+        |     |-decimal
         |     |-<<
         |     |_BEXP
         |       |_CEXP
         |         |_EXP
         |           |_TERM
         |             |_FACTOR
-        |               |_2
+        |               |_20
         |-;
         |_INSTRUCTIONLIST
           |-INSTRUCTION
           | |_DECLARATION
-          |   |-D
+          |   |-N
           |   |_DECLAREEXP
-          |     |-decimal2
+          |     |-numeral
           |     |-<<
           |     |_BEXP
           |       |_CEXP
           |         |_EXP
           |           |_TERM
           |             |_FACTOR
-          |               |_2.0
+          |               |_2
           |-;
           |_INSTRUCTIONLIST
             |-INSTRUCTION
             | |_DECLARATION
-            |   |-N
+            |   |-D
             |   |_DECLAREEXP
-            |     |-numeral2
+            |     |-decimal2
             |     |-<<
             |     |_BEXP
             |       |_CEXP
@@ -491,26 +581,21 @@ PROGRAM
               | |_DECLARATION
               |   |-N
               |   |_DECLAREEXP
-              |     |-nresultNumeralDecimal
+              |     |-numeral2
               |     |-<<
               |     |_BEXP
               |       |_CEXP
               |         |_EXP
-              |           |-TERM
-              |           | |_FACTOR
-              |           |   |_numeral
-              |           |-+
-              |           |_EXP
-              |             |_TERM
-              |               |_FACTOR
-              |                 |_decimal
+              |           |_TERM
+              |             |_FACTOR
+              |               |_2.0
               |-;
               |_INSTRUCTIONLIST
                 |-INSTRUCTION
                 | |_DECLARATION
-                |   |-D
+                |   |-N
                 |   |_DECLAREEXP
-                |     |-dresultNumeralDecimal
+                |     |-nresultNumeralDecimal
                 |     |-<<
                 |     |_BEXP
                 |       |_CEXP
@@ -527,9 +612,9 @@ PROGRAM
                 |_INSTRUCTIONLIST
                   |-INSTRUCTION
                   | |_DECLARATION
-                  |   |-N
+                  |   |-D
                   |   |_DECLAREEXP
-                  |     |-nresultNumeralNumeral
+                  |     |-dresultNumeralDecimal
                   |     |-<<
                   |     |_BEXP
                   |       |_CEXP
@@ -541,14 +626,14 @@ PROGRAM
                   |           |_EXP
                   |             |_TERM
                   |               |_FACTOR
-                  |                 |_numeral
+                  |                 |_decimal
                   |-;
                   |_INSTRUCTIONLIST
                     |-INSTRUCTION
                     | |_DECLARATION
-                    |   |-D
+                    |   |-N
                     |   |_DECLAREEXP
-                    |     |-dresultNumeralNumeral
+                    |     |-nresultNumeralNumeral
                     |     |-<<
                     |     |_BEXP
                     |       |_CEXP
@@ -565,28 +650,28 @@ PROGRAM
                     |_INSTRUCTIONLIST
                       |-INSTRUCTION
                       | |_DECLARATION
-                      |   |-N
+                      |   |-D
                       |   |_DECLAREEXP
-                      |     |-nresultDecimalDecimal
+                      |     |-dresultNumeralNumeral
                       |     |-<<
                       |     |_BEXP
                       |       |_CEXP
                       |         |_EXP
                       |           |-TERM
                       |           | |_FACTOR
-                      |           |   |_decimal
+                      |           |   |_numeral
                       |           |-+
                       |           |_EXP
                       |             |_TERM
                       |               |_FACTOR
-                      |                 |_decimal
+                      |                 |_numeral
                       |-;
                       |_INSTRUCTIONLIST
                         |-INSTRUCTION
                         | |_DECLARATION
-                        |   |-D
+                        |   |-N
                         |   |_DECLAREEXP
-                        |     |-dresultDecimalDecimal
+                        |     |-nresultDecimalDecimal
                         |     |-<<
                         |     |_BEXP
                         |       |_CEXP
@@ -600,7 +685,26 @@ PROGRAM
                         |               |_FACTOR
                         |                 |_decimal
                         |-;
-                        |_EOF
+                        |_INSTRUCTIONLIST
+                          |-INSTRUCTION
+                          | |_DECLARATION
+                          |   |-D
+                          |   |_DECLAREEXP
+                          |     |-dresultDecimalDecimal
+                          |     |-<<
+                          |     |_BEXP
+                          |       |_CEXP
+                          |         |_EXP
+                          |           |-TERM
+                          |           | |_FACTOR
+                          |           |   |_decimal
+                          |           |-+
+                          |           |_EXP
+                          |             |_TERM
+                          |               |_FACTOR
+                          |                 |_decimal
+                          |-;
+                          |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -657,7 +761,7 @@ Exiting !=
 Exiting !=
 Entering )
 Entering .
-Entering Then
+Entering Do
 Entering (
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -698,10 +802,81 @@ Entering ;
 Exiting Break
 Exiting INSTRUCTIONLIST
 Entering )
-Exiting Then
+Exiting Do
 Exiting While
 Exiting While
 Exiting While
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DOWHILE
+Entering Do
+Entering (
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering a
+Exiting a
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 4
+Exiting 4
+Exiting 4
+Exiting 4
+Exiting 4
+Exiting 4
+Exiting 4
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering BREAK
+Entering Break
+Exiting Break
+Entering (
+Entering )
+Exiting Break
+Exiting Break
+Entering ;
+Exiting Break
+Exiting INSTRUCTIONLIST
+Entering )
+Entering .
+Entering While
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering azz
+Exiting azz
+Exiting azz
+Exiting azz
+Exiting azz
+Entering !=
+Exiting !=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting 1
+Exiting !=
+Exiting !=
+Entering )
+Exiting While
+Exiting Do
+Exiting Do
+Exiting Do
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -1037,6 +1212,7 @@ Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -1048,7 +1224,7 @@ INSTRUCTIONLIST
   | |-!=
   | | |-azz
   | | |_1
-  | |_Then
+  | |_Do
   |   |_INSTRUCTIONLIST
   |     |-DECLARATION
   |     | |-N
@@ -1057,76 +1233,87 @@ INSTRUCTIONLIST
   |     |   |_2
   |     |_Break
   |_INSTRUCTIONLIST
-    |-DECLARATION
-    | |-D
-    | |_<<
-    |   |-decimal
-    |   |_20
+    |-Do
+    | |-INSTRUCTIONLIST
+    | | |-<<
+    | | | |-a
+    | | | |_4
+    | | |_Break
+    | |_While
+    |   |_!=
+    |     |-azz
+    |     |_1
     |_INSTRUCTIONLIST
       |-DECLARATION
-      | |-N
+      | |-D
       | |_<<
-      |   |-numeral
-      |   |_2
+      |   |-decimal
+      |   |_20
       |_INSTRUCTIONLIST
         |-DECLARATION
-        | |-D
+        | |-N
         | |_<<
-        |   |-decimal2
-        |   |_2.0
+        |   |-numeral
+        |   |_2
         |_INSTRUCTIONLIST
           |-DECLARATION
-          | |-N
+          | |-D
           | |_<<
-          |   |-numeral2
+          |   |-decimal2
           |   |_2.0
           |_INSTRUCTIONLIST
             |-DECLARATION
             | |-N
             | |_<<
-            |   |-nresultNumeralDecimal
-            |   |_+
-            |     |-numeral
-            |     |_decimal
+            |   |-numeral2
+            |   |_2.0
             |_INSTRUCTIONLIST
               |-DECLARATION
-              | |-D
+              | |-N
               | |_<<
-              |   |-dresultNumeralDecimal
+              |   |-nresultNumeralDecimal
               |   |_+
               |     |-numeral
               |     |_decimal
               |_INSTRUCTIONLIST
                 |-DECLARATION
-                | |-N
+                | |-D
                 | |_<<
-                |   |-nresultNumeralNumeral
+                |   |-dresultNumeralDecimal
                 |   |_+
                 |     |-numeral
-                |     |_numeral
+                |     |_decimal
                 |_INSTRUCTIONLIST
                   |-DECLARATION
-                  | |-D
+                  | |-N
                   | |_<<
-                  |   |-dresultNumeralNumeral
+                  |   |-nresultNumeralNumeral
                   |   |_+
                   |     |-numeral
                   |     |_numeral
                   |_INSTRUCTIONLIST
                     |-DECLARATION
-                    | |-N
+                    | |-D
                     | |_<<
-                    |   |-nresultDecimalDecimal
+                    |   |-dresultNumeralNumeral
                     |   |_+
-                    |     |-decimal
-                    |     |_decimal
-                    |_DECLARATION
-                      |-D
-                      |_<<
-                        |-dresultDecimalDecimal
-                        |_+
-                          |-decimal
-                          |_decimal
+                    |     |-numeral
+                    |     |_numeral
+                    |_INSTRUCTIONLIST
+                      |-DECLARATION
+                      | |-N
+                      | |_<<
+                      |   |-nresultDecimalDecimal
+                      |   |_+
+                      |     |-decimal
+                      |     |_decimal
+                      |_DECLARATION
+                        |-D
+                        |_<<
+                          |-dresultDecimalDecimal
+                          |_+
+                            |-decimal
+                            |_decimal
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -1155,7 +1342,7 @@ End Optimization of 1
 Optimization start !=
 Optimization result !=
 End Optimization of !=
-Optimization of Then
+Optimization of Do
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -1177,10 +1364,42 @@ Optimization start Break
 End Optimization of Break
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
-Optimization start Then
-End Optimization of Then
+Optimization start Do
+End Optimization of Do
 Optimization start While
 End Optimization of While
+Optimization of INSTRUCTIONLIST
+Optimization of Do
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of a
+Optimization start a
+End Optimization of a
+Optimization of 4
+Optimization start 4
+End Optimization of 4
+Optimization start <<
+End Optimization of <<
+Optimization of Break
+Optimization start Break
+End Optimization of Break
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization of While
+Optimization of !=
+Optimization of azz
+Optimization start azz
+End Optimization of azz
+Optimization of 1
+Optimization start 1
+End Optimization of 1
+Optimization start !=
+Optimization result !=
+End Optimization of !=
+Optimization start While
+End Optimization of While
+Optimization start Do
+End Optimization of Do
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of D
@@ -1404,6 +1623,8 @@ Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 INSTRUCTIONLIST
 |-DECLARATION
 | |-N
@@ -1415,7 +1636,7 @@ INSTRUCTIONLIST
   | |-!=
   | | |-azz
   | | |_1
-  | |_Then
+  | |_Do
   |   |_INSTRUCTIONLIST
   |     |-DECLARATION
   |     | |-N
@@ -1424,76 +1645,87 @@ INSTRUCTIONLIST
   |     |   |_2
   |     |_Break
   |_INSTRUCTIONLIST
-    |-DECLARATION
-    | |-D
-    | |_<<
-    |   |-decimal
-    |   |_20
+    |-Do
+    | |-INSTRUCTIONLIST
+    | | |-<<
+    | | | |-a
+    | | | |_4
+    | | |_Break
+    | |_While
+    |   |_!=
+    |     |-azz
+    |     |_1
     |_INSTRUCTIONLIST
       |-DECLARATION
-      | |-N
+      | |-D
       | |_<<
-      |   |-numeral
-      |   |_2
+      |   |-decimal
+      |   |_20
       |_INSTRUCTIONLIST
         |-DECLARATION
-        | |-D
+        | |-N
         | |_<<
-        |   |-decimal2
-        |   |_2.0
+        |   |-numeral
+        |   |_2
         |_INSTRUCTIONLIST
           |-DECLARATION
-          | |-N
+          | |-D
           | |_<<
-          |   |-numeral2
+          |   |-decimal2
           |   |_2.0
           |_INSTRUCTIONLIST
             |-DECLARATION
             | |-N
             | |_<<
-            |   |-nresultNumeralDecimal
-            |   |_+
-            |     |-numeral
-            |     |_decimal
+            |   |-numeral2
+            |   |_2.0
             |_INSTRUCTIONLIST
               |-DECLARATION
-              | |-D
+              | |-N
               | |_<<
-              |   |-dresultNumeralDecimal
+              |   |-nresultNumeralDecimal
               |   |_+
               |     |-numeral
               |     |_decimal
               |_INSTRUCTIONLIST
                 |-DECLARATION
-                | |-N
+                | |-D
                 | |_<<
-                |   |-nresultNumeralNumeral
+                |   |-dresultNumeralDecimal
                 |   |_+
                 |     |-numeral
-                |     |_numeral
+                |     |_decimal
                 |_INSTRUCTIONLIST
                   |-DECLARATION
-                  | |-D
+                  | |-N
                   | |_<<
-                  |   |-dresultNumeralNumeral
+                  |   |-nresultNumeralNumeral
                   |   |_+
                   |     |-numeral
                   |     |_numeral
                   |_INSTRUCTIONLIST
                     |-DECLARATION
-                    | |-N
+                    | |-D
                     | |_<<
-                    |   |-nresultDecimalDecimal
+                    |   |-dresultNumeralNumeral
                     |   |_+
-                    |     |-decimal
-                    |     |_decimal
-                    |_DECLARATION
-                      |-D
-                      |_<<
-                        |-dresultDecimalDecimal
-                        |_+
-                          |-decimal
-                          |_decimal
+                    |     |-numeral
+                    |     |_numeral
+                    |_INSTRUCTIONLIST
+                      |-DECLARATION
+                      | |-N
+                      | |_<<
+                      |   |-nresultDecimalDecimal
+                      |   |_+
+                      |     |-decimal
+                      |     |_decimal
+                      |_DECLARATION
+                        |-D
+                        |_<<
+                          |-dresultDecimalDecimal
+                          |_+
+                            |-decimal
+                            |_decimal
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | azz
@@ -1539,76 +1771,104 @@ INSTRUCTIONLIST
 		l1_looper_continue:
 		jmp l1_begin
 		l1_looper_end:
-		fild dword[t3]
+		l2_begin:
+		mov eax, 4
+
+		jmp l2_looper_end
+
+		mov eax, dword[azz]
+	t3 : dd 1
+		mov ebx, dword[t3]
+	t4 : dd 0
+		cmp eax, ebx
+		jne	t4_true
+		mov eax,FALSE
+		mov dword[t4],eax
+		jmp t4_false
+		t4_true:
+		mov eax,TRUE
+		mov dword[t4],eax
+		t4_false:
+
+		mov ebx, dword[t4]
+		mov eax, TRUE
+		cmp eax, ebx
+		je l2_looper_true
+		jmp l2_looper_end
+		l2_looper_true:
+		l2_looper_continue:
+		jmp l2_begin
+		l2_looper_end:
+		fild dword[t5]
 		fstp dword[decimal]
 
 	decimal : dd 0.0
 		mov eax, 2
 	numeral : dd 0
-		fld	dword[t4]; need to convert 32 - bit to 64 - bit
+		fld	dword[t6]; need to convert 32 - bit to 64 - bit
 		fstp dword[decimal2]
 
 	decimal2 : dd 0.0
-		fld	dword[t5]; need to convert 32 - bit to 64 - bit
+		fld	dword[t7]; need to convert 32 - bit to 64 - bit
 		fistp dword[numeral2]
 
 	numeral2 : dd 0
 		fild dword[numeral] ; Moving First Operand Number Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t6] ;Result 
+		fstp dword[t8] ;Result 
 
-		fld dword[t6]
+		fld dword[t8]
 		fistp dword[nresultNumeralDecimal]
 
 	nresultNumeralDecimal : dd 0
 		fild dword[numeral] ; Moving First Operand Number Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t7] ;Result 
+		fstp dword[t9] ;Result 
 
-		fld dword[t7]
+		fld dword[t9]
 		fstp dword[dresultNumeralDecimal]
 
 	dresultNumeralDecimal : dd 0.0
 		mov eax, dword[numeral] ; Moving First Operand Number Var
 		mov ebx, dword[numeral] ; Moving Second Operand Number Var
 		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t8] , eax ;Result 
+		mov dword[t10] , eax ;Result 
 
-		mov eax, dword[t8]
+		mov eax, dword[t10]
 		mov dword[nresultNumeralNumeral], eax
 
 	nresultNumeralNumeral : dd 0
 		mov eax, dword[numeral] ; Moving First Operand Number Var
 		mov ebx, dword[numeral] ; Moving Second Operand Number Var
 		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t9] , eax ;Result 
+		mov dword[t11] , eax ;Result 
 
-		fild dword[t9]
+		fild dword[t11]
 		fstp dword[dresultNumeralNumeral]
 
 	dresultNumeralNumeral : dd 0.0
 		fld dword[decimal] ; Moving First Operand Decimal Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t10] ;Result 
+		fstp dword[t12] ;Result 
 
-		fld dword[t10]
+		fld dword[t12]
 		fistp dword[nresultDecimalDecimal]
 
 	nresultDecimalDecimal : dd 0
 		fld dword[decimal] ; Moving First Operand Decimal Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t11] ;Result 
+		fstp dword[t13] ;Result 
 
-		fld dword[t11]
+		fld dword[t13]
 		fstp dword[dresultDecimalDecimal]
 
 	dresultDecimalDecimal : dd 0.0
-Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\code.asm
-Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\code.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\code.exe
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | azz
@@ -1639,22 +1899,24 @@ Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\c
 | 12 	 | != 	 | t1
 | 15 	 | != 	 | t2
 | 12 	 | DECLARATION 	 | a
-| 12 	 | << 	 | t3
+| 12 	 | != 	 | t3
+| 15 	 | != 	 | t4
+| 12 	 | << 	 | t5
 | 13 	 | DECLARATION 	 | decimal
 | 12 	 | DECLARATION 	 | numeral
-| 13 	 | << 	 | t4
+| 13 	 | << 	 | t6
 | 13 	 | DECLARATION 	 | decimal2
-| 13 	 | << 	 | t5
+| 13 	 | << 	 | t7
 | 12 	 | DECLARATION 	 | numeral2
-| 13 	 | + 	 | t6
+| 13 	 | + 	 | t8
 | 12 	 | DECLARATION 	 | nresultNumeralDecimal
-| 13 	 | + 	 | t7
+| 13 	 | + 	 | t9
 | 13 	 | DECLARATION 	 | dresultNumeralDecimal
-| 12 	 | + 	 | t8
+| 12 	 | + 	 | t10
 | 12 	 | DECLARATION 	 | nresultNumeralNumeral
-| 12 	 | + 	 | t9
+| 12 	 | + 	 | t11
 | 13 	 | DECLARATION 	 | dresultNumeralNumeral
-| 13 	 | + 	 | t10
+| 13 	 | + 	 | t12
 | 12 	 | DECLARATION 	 | nresultDecimalDecimal
-| 13 	 | + 	 | t11
+| 13 	 | + 	 | t13
 | 13 	 | DECLARATION 	 | dresultDecimalDecimal

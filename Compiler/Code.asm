@@ -19,24 +19,26 @@ SECTION .data
 	t1 : dd 1
 	t2 : dd 0
 	a : dd 0
-	t3 :  dd 20 
+	t3 : dd 1
+	t4 : dd 0
+	t5 :  dd 20 
 	decimal : dd 0.0
 	numeral : dd 0
-	t4 : dd 2.0 
+	t6 : dd 2.0 
 	decimal2 : dd 0.0
-	t5 : dd 2.0 
+	t7 : dd 2.0 
 	numeral2 : dd 0
-	t6 : dd 0 
-	nresultNumeralDecimal : dd 0
-	t7 : dd 0 
-	dresultNumeralDecimal : dd 0.0
 	t8 : dd 0 
-	nresultNumeralNumeral : dd 0
+	nresultNumeralDecimal : dd 0
 	t9 : dd 0 
-	dresultNumeralNumeral : dd 0.0
+	dresultNumeralDecimal : dd 0.0
 	t10 : dd 0 
-	nresultDecimalDecimal : dd 0
+	nresultNumeralNumeral : dd 0
 	t11 : dd 0 
+	dresultNumeralNumeral : dd 0.0
+	t12 : dd 0 
+	nresultDecimalDecimal : dd 0
+	t13 : dd 0 
 	dresultDecimalDecimal : dd 0.0
 
 
@@ -82,64 +84,92 @@ SECTION .text
 		l1_looper_continue:
 		jmp l1_begin
 		l1_looper_end:
-		fild dword[t3]
+		l2_begin:
+		mov eax, 4
+		mov dword[a], eax
+
+
+		jmp l2_looper_end
+
+		mov eax, dword[azz]
+		mov ebx, dword[t3]
+		cmp eax, ebx
+		jne	t4_true
+		mov eax,FALSE
+		mov dword[t4],eax
+		jmp t4_false
+		t4_true:
+		mov eax,TRUE
+		mov dword[t4],eax
+		t4_false:
+
+		mov ebx, dword[t4]
+		mov eax, TRUE
+		cmp eax, ebx
+		je l2_looper_true
+		jmp l2_looper_end
+		l2_looper_true:
+		l2_looper_continue:
+		jmp l2_begin
+		l2_looper_end:
+		fild dword[t5]
 		fstp dword[decimal]
 
 		mov eax, 2
 		mov dword[numeral], eax
 
-		fld	dword[t4]; need to convert 32 - bit to 64 - bit
+		fld	dword[t6]; need to convert 32 - bit to 64 - bit
 		fstp dword[decimal2]
 
-		fld	dword[t5]; need to convert 32 - bit to 64 - bit
+		fld	dword[t7]; need to convert 32 - bit to 64 - bit
 		fistp dword[numeral2]
 
 		fild dword[numeral] ; Moving First Operand Number Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t6] ;Result 
+		fstp dword[t8] ;Result 
 
-		fld dword[t6]
+		fld dword[t8]
 		fistp dword[nresultNumeralDecimal]
 
 		fild dword[numeral] ; Moving First Operand Number Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t7] ;Result 
+		fstp dword[t9] ;Result 
 
-		fld dword[t7]
+		fld dword[t9]
 		fstp dword[dresultNumeralDecimal]
 
 		mov eax, dword[numeral] ; Moving First Operand Number Var
 		mov ebx, dword[numeral] ; Moving Second Operand Number Var
 		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t8] , eax ;Result 
+		mov dword[t10] , eax ;Result 
 
-		mov eax, dword[t8]
+		mov eax, dword[t10]
 		mov dword[nresultNumeralNumeral], eax
 
 		mov eax, dword[numeral] ; Moving First Operand Number Var
 		mov ebx, dword[numeral] ; Moving Second Operand Number Var
 		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t9] , eax ;Result 
+		mov dword[t11] , eax ;Result 
 
-		fild dword[t9]
+		fild dword[t11]
 		fstp dword[dresultNumeralNumeral]
 
 		fld dword[decimal] ; Moving First Operand Decimal Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t10] ;Result 
+		fstp dword[t12] ;Result 
 
-		fld dword[t10]
+		fld dword[t12]
 		fistp dword[nresultDecimalDecimal]
 
 		fld dword[decimal] ; Moving First Operand Decimal Var
 		fld dword[decimal] ; Moving Second Operand Decimal Var
 		fadd ; Adding First and Second Operand Number
-		fstp dword[t11] ;Result 
+		fstp dword[t13] ;Result 
 
-		fld dword[t11]
+		fld dword[t13]
 		fstp dword[dresultDecimalDecimal]
 
 
