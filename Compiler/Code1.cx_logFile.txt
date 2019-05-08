@@ -1,0 +1,621 @@
+
+READING FROM : Code1.cx
+WRITING TO : Code1.cx_logFile.txt
+
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <DECLAREEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <DECLAREEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	032 --> OP_ADD                        	Lex:	+
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	018 --> LITERAL_NUMBER                	Lex:	5
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Entering <TERM>
+Entering <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	x
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	031 --> OP_MINUS                      	Lex:	-
+Exiting <FACTOR>
+Exiting <TERM>
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+
+MAX_DEPTH_TREE FOUND : 25
+PROGRAM
+|_INSTRUCTIONLIST
+  |-INSTRUCTION
+  | |_DECLARATION
+  |   |-N
+  |   |_DECLAREEXP
+  |     |_x
+  |-;
+  |_INSTRUCTIONLIST
+    |-INSTRUCTION
+    | |_DECLARATION
+    |   |-N
+    |   |_DECLAREEXP
+    |     |_resultado
+    |-;
+    |_INSTRUCTIONLIST
+      |-INSTRUCTION
+      | |_ATTRIBUTION
+      |   |-x
+      |   |-<<
+      |   |_BEXP
+      |     |_CEXP
+      |       |_EXP
+      |         |_TERM
+      |           |_FACTOR
+      |             |_5
+      |-;
+      |_INSTRUCTIONLIST
+        |-INSTRUCTION
+        | |_ATTRIBUTION
+        |   |-resultado
+        |   |-<<
+        |   |_BEXP
+        |     |_CEXP
+        |       |_EXP
+        |         |-TERM
+        |         | |_FACTOR
+        |         |   |-(
+        |         |   |-BEXP
+        |         |   | |_CEXP
+        |         |   |   |_EXP
+        |         |   |     |_TERM
+        |         |   |       |-FACTOR
+        |         |   |       | |_5
+        |         |   |       |-*
+        |         |   |       |_TERM
+        |         |   |         |_FACTOR
+        |         |   |           |_x
+        |         |   |_)
+        |         |-+
+        |         |_EXP
+        |           |_TERM
+        |             |_FACTOR
+        |               |-(
+        |               |-BEXP
+        |               | |_CEXP
+        |               |   |_EXP
+        |               |     |_TERM
+        |               |       |-FACTOR
+        |               |       | |_5
+        |               |       |-*
+        |               |       |_TERM
+        |               |         |_FACTOR
+        |               |           |-(
+        |               |           |-BEXP
+        |               |           | |_CEXP
+        |               |           |   |_EXP
+        |               |           |     |-TERM
+        |               |           |     | |_FACTOR
+        |               |           |     |   |_x
+        |               |           |     |--
+        |               |           |     |_EXP
+        |               |           |       |_TERM
+        |               |           |         |_FACTOR
+        |               |           |           |_2
+        |               |           |_)
+        |               |_)
+        |-;
+        |_INSTRUCTIONLIST
+          |-INSTRUCTION
+          | |_ON
+          |   |-On
+          |   |-.
+          |   |-Console
+          |   |-(
+          |   |-BEXP
+          |   | |_CEXP
+          |   |   |_EXP
+          |   |     |_TERM
+          |   |       |_FACTOR
+          |   |         |_resultado
+          |   |_)
+          |-;
+          |_EOF
+Entering PROGRAM
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering x
+Exiting x
+Exiting x
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering resultado
+Exiting resultado
+Exiting resultado
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering x
+Exiting x
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting 5
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering resultado
+Exiting resultado
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5
+Exiting 5
+Exiting 5
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Exiting x
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Entering )
+Exiting *
+Exiting *
+Entering +
+Exiting +
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 5
+Exiting 5
+Exiting 5
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering x
+Exiting x
+Exiting x
+Exiting x
+Entering -
+Exiting -
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting -
+Exiting -
+Exiting -
+Entering )
+Exiting -
+Exiting -
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Entering )
+Exiting *
+Exiting *
+Exiting *
+Exiting +
+Exiting +
+Exiting +
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering EOF
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_x
+|_INSTRUCTIONLIST
+  |-DECLARATION
+  | |-N
+  | |_resultado
+  |_INSTRUCTIONLIST
+    |-<<
+    | |-x
+    | |_5
+    |_INSTRUCTIONLIST
+      |-<<
+      | |-resultado
+      | |_+
+      |   |-*
+      |   | |-5
+      |   | |_x
+      |   |_*
+      |     |-5
+      |     |_-
+      |       |-x
+      |       |_2
+      |_On
+        |-Console
+        |_resultado
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization start N
+End Optimization of N
+Optimization of x
+Optimization start x
+End Optimization of x
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization start N
+End Optimization of N
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of x
+Optimization start x
+End Optimization of x
+Optimization of 5
+Optimization start 5
+End Optimization of 5
+Optimization start <<
+End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization of +
+Optimization of *
+Optimization of 5
+Optimization start 5
+End Optimization of 5
+Optimization of x
+Optimization start x
+End Optimization of x
+Optimization start *
+Optimization result *
+End Optimization of *
+Optimization of *
+Optimization of 5
+Optimization start 5
+End Optimization of 5
+Optimization of -
+Optimization of x
+Optimization start x
+End Optimization of x
+Optimization of 2
+Optimization start 2
+End Optimization of 2
+Optimization start -
+Optimization result -
+End Optimization of -
+Optimization start *
+Optimization result *
+End Optimization of *
+Optimization start +
+Optimization result +
+End Optimization of +
+Optimization start <<
+End Optimization of <<
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization start On
+End Optimization of On
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+INSTRUCTIONLIST
+|-DECLARATION
+| |-N
+| |_x
+|_INSTRUCTIONLIST
+  |-DECLARATION
+  | |-N
+  | |_resultado
+  |_INSTRUCTIONLIST
+    |-<<
+    | |-x
+    | |_5
+    |_INSTRUCTIONLIST
+      |-<<
+      | |-resultado
+      | |_+
+      |   |-*
+      |   | |-5
+      |   | |_x
+      |   |_*
+      |     |-5
+      |     |_-
+      |       |-x
+      |       |_2
+      |_On
+        |-Console
+        |_resultado
+| Symbol | Scope 	 | Name
+| 1000 	 | INSTRUCTIONLIST 	 | TABLE
+| 12 	 | DECLARATION 	 | x
+| 12 	 | DECLARATION 	 | resultado
+	x : dd 0
+	resultado : dd 0
+		mov eax, 5
+		mov eax, 5 ; Moving First Operand Number
+		mov ebx, dword[x] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t1] , eax ;Result 
+
+		mov eax, dword[x] ; Moving Second Operand Number Var
+		mov ebx, 2 ; Moving First Operand Number
+		sub eax, ebx ; Subtracting First and Second Operand Number
+		mov dword[t2] , eax ;Result 
+
+		mov eax, 5 ; Moving First Operand Number
+		mov ebx, dword[t2] ; Moving Second Operand Number Var
+		imul eax, ebx ; Multiplying First and Second Operand Number
+		mov dword[t3] , eax ;Result 
+
+		mov eax, dword[t1] ; Moving First Operand Number Var
+		mov ebx, dword[t3] ; Moving Second Operand Number Var
+		add eax, ebx ; Adding First and Second Operand Number
+		mov dword[t4] , eax ;Result 
+
+		mov eax, dword[t4]
+		mov dword[resultado], eax
+
+		push dword[resultado]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code1.asm
+Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code1.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code1.exe
+| Symbol | Scope 	 | Name
+| 1000 	 | INSTRUCTIONLIST 	 | TABLE
+| 12 	 | DECLARATION 	 | x
+| 12 	 | DECLARATION 	 | resultado
+| 17 	 | INSTRUCTIONLIST 	 | stringFalse
+| 17 	 | INSTRUCTIONLIST 	 | stringTrue
+| 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
+| 17 	 | INSTRUCTIONLIST 	 | formatoutdecimal
+| 17 	 | INSTRUCTIONLIST 	 | formatoutchar
+| 17 	 | INSTRUCTIONLIST 	 | formatoutstring
+| 17 	 | INSTRUCTIONLIST 	 | formatoutbool
+| 17 	 | INSTRUCTIONLIST 	 | formatinnumber
+| 17 	 | INSTRUCTIONLIST 	 | formatindecimal
+| 17 	 | INSTRUCTIONLIST 	 | formatinchar
+| 17 	 | INSTRUCTIONLIST 	 | formatinstring
+| 17 	 | INSTRUCTIONLIST 	 | formatinbool
+| 12 	 | DECLARATION 	 | x
+| 12 	 | DECLARATION 	 | resultado
+| 12 	 | * 	 | t1
+| 12 	 | - 	 | t2
+| 12 	 | * 	 | t3
+| 12 	 | + 	 | t4

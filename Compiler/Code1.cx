@@ -1,1 +1,5 @@
-r<<( soma + 87.2.333 ) / total;
+N x;
+N resultado;
+x << 5;
+resultado << (5*x)+(5*(x-2));
+On.Console(resultado);
