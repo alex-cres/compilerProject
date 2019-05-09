@@ -37,6 +37,7 @@ int main()
 	//..\Examples\SimpleExample2.cx
 	//..\Examples\ContinueExample.cx
 	//Code.cx
+	//Code1.cx
 
 
 	//Not Implemented in ASM

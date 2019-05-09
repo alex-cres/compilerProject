@@ -595,6 +595,55 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 
 	}
+	else if (ast->type == RESERVED_CONTINUEIF) {
+
+		if (ast->kids[0]->type == RESERVED_BOOL_TRUE) {
+			char looperID[200];
+			sprintf(looperID, "l%d", breakerLoop);
+			sprintf(buffer, "\n		jmp %s_looper_continue\n\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+		}
+		else if (ast->kids[0]->type == RESERVED_BOOL_FALSE) {
+			//no action empty -no instructions will be executed
+		}
+		else {
+			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, breakerLoop, rescode, funcCode);
+			sprintf(bufferdec, "t%d", registerCounter - 1);
+			char looperID[200];
+			sprintf(looperID, "l%d", breakerLoop);
+			char ifferId[200];
+			sprintf(ifferId, "t%d", registerCounter);
+
+
+			sprintf(buffer, "		mov eax , 0 \n		mov ebx, dword[%s]\n		cmp ebx, TRUE\n", bufferdec);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		je %s_if_then\n		jmp %s_if_else\n", ifferId, ifferId);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		%s_if_then:\n\n\n", ifferId);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		jmp %s_looper_continue\n\n\n", looperID);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			sprintf(buffer, "		%s_if_else:\n\n\n", ifferId);
+			progcode = InsertList(progcode, buffer);
+			printf(buffer);
+			fprintf(logFile, buffer);
+			registerCounter++;
+
+
+		}
+
+
+	}
 	else if (ast->type == RESERVED_IF && ast->kids[0] != NULL && ast->kids[1] != NULL) {
 		
 		if (ast->kids[0]->type != IDENTIFIER) {
@@ -1075,7 +1124,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					fprintf(logFile, buffer);
 					
 					regsub++;
-					sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", registerCounter - regsub);
+					sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", directRegisters[1]);
 
 				}
 				progcode = InsertList(progcode, buffer);
@@ -1166,7 +1215,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					fprintf(logFile, buffer);
 					
 					regsub++;
-					sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", registerCounter - regsub);
+					sprintf(buffer, "		mov ebx, dword[t%d] ; Moving Second Operand Number Var\n", directRegisters[1]);
 
 				}
 				progcode = InsertList(progcode, buffer);
@@ -1874,7 +1923,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				fprintf(logFile, buffer);
 			}
 			else {
-				sprintf(buffer, "		mov eax, dword[t%d]\n", registerCounter - 1);
+				sprintf(buffer, "		mov eax, dword[t%d]\n", directRegisters[0]);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
@@ -1906,7 +1955,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				fprintf(logFile, buffer);
 			}
 			else {
-				sprintf(buffer, "		mov ebx, dword[t%d]\n", registerCounter - 1);
+				sprintf(buffer, "		mov ebx, dword[t%d]\n", directRegisters[1]);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
@@ -2026,7 +2075,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				}
 				else {
 					char bufferdecx[200];
-					sprintf(bufferdecx, "t%d", registerCounter - 1);
+					sprintf(bufferdecx, "t%d", directRegisters[0]);
 					int type_of_var = 0;
 					SymbolToken*current = table;
 					while (current != NULL) {
@@ -2087,7 +2136,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				}
 				else {
 					regsub++;
-					sprintf(buffer1, "t%d", registerCounter - regsub);
+					sprintf(buffer1, "t%d", directRegisters[0]);
 
 				}
 				if (ast->kids[1]->type == IDENTIFIER) {
@@ -2107,7 +2156,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				}
 				else {
 					regsub++;
-					sprintf(buffer2, "t%d", registerCounter - regsub);
+					sprintf(buffer2, "t%d", directRegisters[1]);
 
 				}
 
