@@ -216,6 +216,10 @@ int lex(FILE* file, NextChar* nextChar, char* nextLexeme, FILE* logFile)
 			nextToken = RESERVED_WHILE;
 			break;
 		}
+		else if (0 == strcmp(nextLexeme, RESERVED_GOTO_LEXEME)) {
+		nextToken = RESERVED_GOTO;
+		break;
+		}
 		else if (0 == strcmp(nextLexeme, IDN_DECIMAL_LEXEME)) {
 			nextToken = IDN_DECIMAL;
 			break;
@@ -465,6 +469,11 @@ int lookup(char ch, char* lexeme, int * lexemeLength, FILE* logFile)
 		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = OP_NOT;
 		break;
+	case ':':
+		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
+		nextToken = DOUBLE_POINT;
+		break;
+
 	default:
 		*lexemeLength = addChar(lexeme, *lexemeLength, ch, logFile);
 		nextToken = EOF;
@@ -546,6 +555,8 @@ char* tokenDescription(int tokenType) {
 	case RESERVED_FILE: return"RESERVED_FILE"; break;
 	case RESERVED_FILE_ENDER: return"RESERVED_FILE_ENDER"; break;
 	case RESERVED_FILE_SIZE: return"RESERVED_FILE_SIZE"; break;
+	case RESERVED_GOTO: return"RESERVED_GOTO"; break;
+	case DOUBLE_POINT: return"DOUBLE_POINT"; break;
 	default: return"TOKEN_NOT_IDENTIFIED"; break;
 	}
 }

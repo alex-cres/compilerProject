@@ -18,5 +18,6 @@ N nresultNumeralNumeral << numeral+numeral;
 D dresultNumeralNumeral << numeral+numeral;
 
 N nresultDecimalDecimal << decimal+decimal;
-
+Goto(:label);
 D dresultDecimalDecimal << decimal+decimal;
+:label;

@@ -43,7 +43,8 @@
 #define ERROR_OP_NOT_NON_BOOL 55
 #define ERROR_SYNTAX_ERROR_FOR_LOOP 56
 #define ERROR_OP_MOD_IS_JUST_FOR_INTEGERS 57
-
+#define ERROR_SYNTAX_LABEL_NOT_DEFINED_CORRECTLY 58
+#define ERROR_SYNTAX_IF_NOT_FOUND 59
 void errorColor();
 void normalColor();
 void marineColor();

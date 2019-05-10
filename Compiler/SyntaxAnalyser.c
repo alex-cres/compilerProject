@@ -4,8 +4,88 @@
 #include "LexicalAnalyser.h"
 #include "SyntaxTree.h"
 
+int reserved_goto(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
+{ /*
+  <goto> --> Goto(<label>)
+	<goto> --> Goto(<label>).If(<bexp>)
+  */
+	printf("Entering <GOTO>\n");
+	fprintf(logFile, "Entering <GOTO>\n");
+	Node* gotoNode = addChildNode(tree, "GOTO", -1, logFile);
+	Node * gotoinNode = addChildNode(gotoNode, nextLexeme, nextToken, logFile);
+	nextToken = lex(file, nextChar, nextLexeme, logFile);
+	if (nextToken == OPEN_PARENTESIS) {
+		addChildNode(gotoinNode, nextLexeme, nextToken, logFile);
+		nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+		nextToken = label(file, nextToken, nextChar, nextLexeme, gotoinNode, logFile);
+		if (nextToken == CLOSE_PARENTESIS) {
+			addChildNode(gotoinNode, nextLexeme, nextToken, logFile);
+			nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+			if (nextToken == POINT) {
+				addChildNode(gotoinNode, nextLexeme, nextToken, logFile);
+				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+				if (nextToken == RESERVED_IF) {
+					Node * ifNode = addChildNode(gotoNode, nextLexeme, nextToken, logFile);
+					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+					if (nextToken == OPEN_PARENTESIS) {
+						addChildNode(ifNode, nextLexeme, nextToken, logFile);
+						nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+						nextToken = bexp(file, nextToken, nextChar, nextLexeme, ifNode, logFile);
+						if (nextToken == CLOSE_PARENTESIS) {
+							addChildNode(ifNode, nextLexeme, nextToken, logFile);
+							nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
+						}
+						else {
+							printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED, lineNumber, nextLexeme);
+						}
+					}
+					else {
+						printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED, lineNumber, nextLexeme);
+					}
+				}
+				else {
+					printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR IF NOT FOUND, %s", ERROR_SYNTAX_IF_NOT_FOUND, lineNumber, nextLexeme);
+				}
+			}
+		}
+		else {
+			printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT CLOSED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_CLOSED, lineNumber, nextLexeme);
+		}
+	}
+	else {
+		printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR PARENTISIS NOT OPENED, %s", ERROR_SYNTAX_ERROR_PARENTISIS_NOT_OPENED, lineNumber, nextLexeme);
+	}
+
+	
+
+	printf("Exiting <GOTO>\n");
+	fprintf(logFile, "Exiting <GOTO>\n");
+	return nextToken;
+}
 
 
+
+int label(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
+{ /*
+  <label>--> :<identifier>
+  */
+	printf("Entering <LABEL>\n");
+	fprintf(logFile, "Entering <LABEL>\n");
+	
+	Node * labelinNode = addChildNode(tree, nextLexeme, nextToken, logFile);
+	nextToken = lex(file, nextChar, nextLexeme, logFile);
+	if (nextToken==IDENTIFIER) {
+		addChildNode(labelinNode, nextLexeme, nextToken, logFile);
+		nextToken = lex(file, nextChar, nextLexeme, logFile);
+	}
+	else {
+		printfAndExitWithLine(logFile, "ERROR: At Line %i : SYNTAX ERROR LABEL NOT DEFINED CORRECTLY, %s", ERROR_SYNTAX_LABEL_NOT_DEFINED_CORRECTLY, lineNumber, nextLexeme);
+	}
+
+	printf("Exiting <LABEL>\n");
+	fprintf(logFile, "Exiting <LABEL>\n");
+	return nextToken;
+}
 
 
 int reservedArrayexp(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme, Node* tree, FILE* logFile)
@@ -108,6 +188,8 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 			| <dowhile>
 			| <in>
 			| <on>
+			| <label>
+			| <goto>
 			| EOF
 			*/
 
@@ -115,6 +197,12 @@ int instruction(FILE* file, int nextToken, NextChar* nextChar, char* nextLexeme,
 	{
 	case IDN_BOOL: case IDN_NUMBER:	case IDN_DECIMAL: case IDN_CHAR: case IDN_VOID:	case IDN_STRING:
 		nextToken = declaration(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);
+		break;
+	case DOUBLE_POINT:
+		nextToken = label(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);
+		break;
+	case RESERVED_GOTO:
+		nextToken = reserved_goto(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);
 		break;
 	case RESERVED_DO:
 		nextToken = reserved_do_while(file, nextToken, nextChar, nextLexeme, instructionNode, logFile);

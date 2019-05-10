@@ -389,6 +389,19 @@ Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
+Token:	100 --> RESERVED_GOTO                 	Lex:	Goto
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <GOTO>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	022 --> DOUBLE_POINT                  	Lex:	:
+Entering <LABEL>
+Token:	011 --> IDENTIFIER                    	Lex:	label
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <LABEL>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <GOTO>
+Exiting <INSTRUCTION>
 Token:	013 --> IDN_DECIMAL                   	Lex:	D
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -419,6 +432,14 @@ Exiting <BEXP>
 Exiting <DECLAREEXP>
 Exiting <DECLARATION>
 Exiting <INSTRUCTION>
+Token:	022 --> DOUBLE_POINT                  	Lex:	:
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <LABEL>
+Token:	011 --> IDENTIFIER                    	Lex:	label
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <LABEL>
+Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -433,8 +454,10 @@ Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 23
+MAX_DEPTH_TREE FOUND : 24
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -687,24 +710,38 @@ PROGRAM
                         |-;
                         |_INSTRUCTIONLIST
                           |-INSTRUCTION
-                          | |_DECLARATION
-                          |   |-D
-                          |   |_DECLAREEXP
-                          |     |-dresultDecimalDecimal
-                          |     |-<<
-                          |     |_BEXP
-                          |       |_CEXP
-                          |         |_EXP
-                          |           |-TERM
-                          |           | |_FACTOR
-                          |           |   |_decimal
-                          |           |-+
-                          |           |_EXP
-                          |             |_TERM
-                          |               |_FACTOR
-                          |                 |_decimal
+                          | |_GOTO
+                          |   |_Goto
+                          |     |-(
+                          |     |-:
+                          |     | |_label
+                          |     |_)
                           |-;
-                          |_EOF
+                          |_INSTRUCTIONLIST
+                            |-INSTRUCTION
+                            | |_DECLARATION
+                            |   |-D
+                            |   |_DECLAREEXP
+                            |     |-dresultDecimalDecimal
+                            |     |-<<
+                            |     |_BEXP
+                            |       |_CEXP
+                            |         |_EXP
+                            |           |-TERM
+                            |           | |_FACTOR
+                            |           |   |_decimal
+                            |           |-+
+                            |           |_EXP
+                            |             |_TERM
+                            |               |_FACTOR
+                            |                 |_decimal
+                            |-;
+                            |_INSTRUCTIONLIST
+                              |-INSTRUCTION
+                              | |_:
+                              |   |_label
+                              |-;
+                              |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -1164,6 +1201,20 @@ Exiting DECLARATION
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
+Entering GOTO
+Entering Goto
+Entering (
+Entering :
+Entering label
+Exiting label
+Exiting :
+Entering )
+Exiting Goto
+Exiting Goto
+Exiting Goto
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
 Entering DECLARATION
 Entering D
 Exiting D
@@ -1198,8 +1249,18 @@ Exiting <<
 Exiting DECLARATION
 Exiting DECLARATION
 Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering :
+Entering label
+Exiting label
+Exiting :
+Exiting :
+Entering ;
 Entering EOF
-Exiting DECLARATION
+Exiting :
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -1307,13 +1368,20 @@ INSTRUCTIONLIST
                       |   |_+
                       |     |-decimal
                       |     |_decimal
-                      |_DECLARATION
-                        |-D
-                        |_<<
-                          |-dresultDecimalDecimal
-                          |_+
-                            |-decimal
-                            |_decimal
+                      |_INSTRUCTIONLIST
+                        |-Goto
+                        | |_:
+                        |   |_label
+                        |_INSTRUCTIONLIST
+                          |-DECLARATION
+                          | |-D
+                          | |_<<
+                          |   |-dresultDecimalDecimal
+                          |   |_+
+                          |     |-decimal
+                          |     |_decimal
+                          |_:
+                            |_label
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -1579,6 +1647,17 @@ Optimization start <<
 End Optimization of <<
 Optimization start DECLARATION
 End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of Goto
+Optimization of :
+Optimization of label
+Optimization start label
+End Optimization of label
+Optimization start :
+End Optimization of :
+Optimization start Goto
+End Optimization of Goto
+Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of D
 Optimization start D
@@ -1601,6 +1680,16 @@ Optimization start <<
 End Optimization of <<
 Optimization start DECLARATION
 End Optimization of DECLARATION
+Optimization of :
+Optimization of label
+Optimization start label
+End Optimization of label
+Optimization start :
+End Optimization of :
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -1719,13 +1808,20 @@ INSTRUCTIONLIST
                       |   |_+
                       |     |-decimal
                       |     |_decimal
-                      |_DECLARATION
-                        |-D
-                        |_<<
-                          |-dresultDecimalDecimal
-                          |_+
-                            |-decimal
-                            |_decimal
+                      |_INSTRUCTIONLIST
+                        |-Goto
+                        | |_:
+                        |   |_label
+                        |_INSTRUCTIONLIST
+                          |-DECLARATION
+                          | |-D
+                          | |_<<
+                          |   |-dresultDecimalDecimal
+                          |   |_+
+                          |     |-decimal
+                          |     |_decimal
+                          |_:
+                            |_label
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | azz

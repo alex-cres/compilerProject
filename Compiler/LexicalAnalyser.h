@@ -11,6 +11,7 @@
 #define QUOTE 7
 #define COMMA 8
 #define BACKLASH 9
+#define DOUBLE_POINT 22
 
 #define	UNKNOWN	999
 
@@ -85,6 +86,7 @@
 #define RESERVED_FILE_SIZE 97
 #define DECLARE 98
 #define RESERVED_WHILE 99
+#define RESERVED_GOTO 100
 
 //reserved strings
 
@@ -130,6 +132,7 @@
 #define RESERVED_BREAKIF_LEXEME "BreakIf"
 #define RESERVED_CONTINUE_LEXEME "Continue"
 #define RESERVED_CONTINUEIF_LEXEME "ContinueIf"
+#define RESERVED_GOTO_LEXEME "Goto"
 
 
 
