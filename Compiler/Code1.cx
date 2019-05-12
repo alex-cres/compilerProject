@@ -1,5 +1,8 @@
 N x;
 N resultado;
 x << 5;
-resultado << (5*x)+(5*(x-2));
+:label;
+resultado << (5*x)+(5*(resultado+2));
 On.Console(resultado);
+On.Console("\n");
+Goto(:label).If(resultado<50);

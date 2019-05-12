@@ -25,7 +25,7 @@ int reserved_goto(FILE* file, int nextToken, NextChar* nextChar, char* nextLexem
 				addChildNode(gotoinNode, nextLexeme, nextToken, logFile);
 				nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 				if (nextToken == RESERVED_IF) {
-					Node * ifNode = addChildNode(gotoNode, nextLexeme, nextToken, logFile);
+					Node * ifNode = addChildNode(gotoinNode, nextLexeme, nextToken, logFile);
 					nextToken = lex(file, nextChar, nextLexeme, logFile);//gets next term
 					if (nextToken == OPEN_PARENTESIS) {
 						addChildNode(ifNode, nextLexeme, nextToken, logFile);

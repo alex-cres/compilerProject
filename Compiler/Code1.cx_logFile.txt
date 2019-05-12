@@ -41,6 +41,14 @@ Exiting <CEXP>
 Exiting <BEXP>
 Exiting <ATTRIBUTION>
 Exiting <INSTRUCTION>
+Token:	022 --> DOUBLE_POINT                  	Lex:	:
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <LABEL>
+Token:	011 --> IDENTIFIER                    	Lex:	label
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <LABEL>
+Exiting <INSTRUCTION>
 Token:	011 --> IDENTIFIER                    	Lex:	resultado
 Entering <INSTRUCTIONLIST>
 Entering <INSTRUCTION>
@@ -88,13 +96,13 @@ Exiting <FACTOR>
 Token:	028 --> OPEN_PARENTESIS               	Lex:	(
 Entering <TERM>
 Entering <FACTOR>
-Token:	011 --> IDENTIFIER                    	Lex:	x
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
 Entering <BEXP>
 Entering <CEXP>
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
-Token:	031 --> OP_MINUS                      	Lex:	-
+Token:	032 --> OP_ADD                        	Lex:	+
 Exiting <FACTOR>
 Exiting <TERM>
 Token:	018 --> LITERAL_NUMBER                	Lex:	2
@@ -146,14 +154,75 @@ Exiting <BEXP>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <ON>
 Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	020 --> LITERAL_STRING                	Lex:	"\n"
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
+Token:	100 --> RESERVED_GOTO                 	Lex:	Goto
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <GOTO>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	022 --> DOUBLE_POINT                  	Lex:	:
+Entering <LABEL>
+Token:	011 --> IDENTIFIER                    	Lex:	label
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <LABEL>
+Token:	004 --> POINT                         	Lex:	.
+Token:	072 --> RESERVED_IF                   	Lex:	If
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	036 --> OP_MINOR                      	Lex:	<
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	018 --> LITERAL_NUMBER                	Lex:	50
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <GOTO>
+Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 
-MAX_DEPTH_TREE FOUND : 25
+MAX_DEPTH_TREE FOUND : 26
 PROGRAM
 |_INSTRUCTIONLIST
   |-INSTRUCTION
@@ -183,71 +252,115 @@ PROGRAM
       |-;
       |_INSTRUCTIONLIST
         |-INSTRUCTION
-        | |_ATTRIBUTION
-        |   |-resultado
-        |   |-<<
-        |   |_BEXP
-        |     |_CEXP
-        |       |_EXP
-        |         |-TERM
-        |         | |_FACTOR
-        |         |   |-(
-        |         |   |-BEXP
-        |         |   | |_CEXP
-        |         |   |   |_EXP
-        |         |   |     |_TERM
-        |         |   |       |-FACTOR
-        |         |   |       | |_5
-        |         |   |       |-*
-        |         |   |       |_TERM
-        |         |   |         |_FACTOR
-        |         |   |           |_x
-        |         |   |_)
-        |         |-+
-        |         |_EXP
-        |           |_TERM
-        |             |_FACTOR
-        |               |-(
-        |               |-BEXP
-        |               | |_CEXP
-        |               |   |_EXP
-        |               |     |_TERM
-        |               |       |-FACTOR
-        |               |       | |_5
-        |               |       |-*
-        |               |       |_TERM
-        |               |         |_FACTOR
-        |               |           |-(
-        |               |           |-BEXP
-        |               |           | |_CEXP
-        |               |           |   |_EXP
-        |               |           |     |-TERM
-        |               |           |     | |_FACTOR
-        |               |           |     |   |_x
-        |               |           |     |--
-        |               |           |     |_EXP
-        |               |           |       |_TERM
-        |               |           |         |_FACTOR
-        |               |           |           |_2
-        |               |           |_)
-        |               |_)
+        | |_:
+        |   |_label
         |-;
         |_INSTRUCTIONLIST
           |-INSTRUCTION
-          | |_ON
-          |   |-On
-          |   |-.
-          |   |-Console
-          |   |-(
-          |   |-BEXP
-          |   | |_CEXP
-          |   |   |_EXP
-          |   |     |_TERM
-          |   |       |_FACTOR
-          |   |         |_resultado
-          |   |_)
+          | |_ATTRIBUTION
+          |   |-resultado
+          |   |-<<
+          |   |_BEXP
+          |     |_CEXP
+          |       |_EXP
+          |         |-TERM
+          |         | |_FACTOR
+          |         |   |-(
+          |         |   |-BEXP
+          |         |   | |_CEXP
+          |         |   |   |_EXP
+          |         |   |     |_TERM
+          |         |   |       |-FACTOR
+          |         |   |       | |_5
+          |         |   |       |-*
+          |         |   |       |_TERM
+          |         |   |         |_FACTOR
+          |         |   |           |_x
+          |         |   |_)
+          |         |-+
+          |         |_EXP
+          |           |_TERM
+          |             |_FACTOR
+          |               |-(
+          |               |-BEXP
+          |               | |_CEXP
+          |               |   |_EXP
+          |               |     |_TERM
+          |               |       |-FACTOR
+          |               |       | |_5
+          |               |       |-*
+          |               |       |_TERM
+          |               |         |_FACTOR
+          |               |           |-(
+          |               |           |-BEXP
+          |               |           | |_CEXP
+          |               |           |   |_EXP
+          |               |           |     |-TERM
+          |               |           |     | |_FACTOR
+          |               |           |     |   |_resultado
+          |               |           |     |-+
+          |               |           |     |_EXP
+          |               |           |       |_TERM
+          |               |           |         |_FACTOR
+          |               |           |           |_2
+          |               |           |_)
+          |               |_)
           |-;
-          |_EOF
+          |_INSTRUCTIONLIST
+            |-INSTRUCTION
+            | |_ON
+            |   |-On
+            |   |-.
+            |   |-Console
+            |   |-(
+            |   |-BEXP
+            |   | |_CEXP
+            |   |   |_EXP
+            |   |     |_TERM
+            |   |       |_FACTOR
+            |   |         |_resultado
+            |   |_)
+            |-;
+            |_INSTRUCTIONLIST
+              |-INSTRUCTION
+              | |_ON
+              |   |-On
+              |   |-.
+              |   |-Console
+              |   |-(
+              |   |-BEXP
+              |   | |_CEXP
+              |   |   |_EXP
+              |   |     |_TERM
+              |   |       |_FACTOR
+              |   |         |_"\n"
+              |   |_)
+              |-;
+              |_INSTRUCTIONLIST
+                |-INSTRUCTION
+                | |_GOTO
+                |   |_Goto
+                |     |-(
+                |     |-:
+                |     | |_label
+                |     |-)
+                |     |-.
+                |     |_If
+                |       |-(
+                |       |-BEXP
+                |       | |_CEXP
+                |       |   |-EXP
+                |       |   | |_TERM
+                |       |   |   |_FACTOR
+                |       |   |     |_resultado
+                |       |   |-<
+                |       |   |_EXP
+                |       |     |_TERM
+                |       |       |_FACTOR
+                |       |         |_50
+                |       |_)
+                |-;
+                |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -294,6 +407,14 @@ Exiting 5
 Exiting 5
 Exiting <<
 Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering :
+Entering label
+Exiting label
+Exiting :
+Exiting :
 Entering ;
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -355,12 +476,12 @@ Entering CEXP
 Entering EXP
 Entering TERM
 Entering FACTOR
-Entering x
-Exiting x
-Exiting x
-Exiting x
-Entering -
-Exiting -
+Entering resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Entering +
+Exiting +
 Entering EXP
 Entering TERM
 Entering FACTOR
@@ -369,12 +490,12 @@ Exiting 2
 Exiting 2
 Exiting 2
 Exiting 2
-Exiting -
-Exiting -
-Exiting -
+Exiting +
+Exiting +
+Exiting +
 Entering )
-Exiting -
-Exiting -
+Exiting +
+Exiting +
 Exiting *
 Exiting *
 Exiting *
@@ -414,8 +535,77 @@ Entering )
 Exiting On
 Exiting On
 Entering ;
-Entering EOF
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
 Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering "\n"
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Exiting \n
+Entering )
+Exiting On
+Exiting On
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering GOTO
+Entering Goto
+Entering (
+Entering :
+Entering label
+Exiting label
+Exiting :
+Entering )
+Entering .
+Entering If
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Entering <
+Exiting <
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 50
+Exiting 50
+Exiting 50
+Exiting 50
+Exiting 50
+Exiting <
+Exiting <
+Entering )
+Exiting If
+Exiting Goto
+Exiting Goto
+Exiting Goto
+Entering ;
+Entering EOF
+Exiting Goto
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -434,20 +624,35 @@ INSTRUCTIONLIST
     | |-x
     | |_5
     |_INSTRUCTIONLIST
-      |-<<
-      | |-resultado
-      | |_+
-      |   |-*
-      |   | |-5
-      |   | |_x
-      |   |_*
-      |     |-5
-      |     |_-
-      |       |-x
-      |       |_2
-      |_On
-        |-Console
-        |_resultado
+      |-:
+      | |_label
+      |_INSTRUCTIONLIST
+        |-<<
+        | |-resultado
+        | |_+
+        |   |-*
+        |   | |-5
+        |   | |_x
+        |   |_*
+        |     |-5
+        |     |_+
+        |       |-resultado
+        |       |_2
+        |_INSTRUCTIONLIST
+          |-On
+          | |-Console
+          | |_resultado
+          |_INSTRUCTIONLIST
+            |-On
+            | |-Console
+            | |_\n
+            |_Goto
+              |-:
+              | |_label
+              |_If
+                |_<
+                  |-resultado
+                  |_50
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -478,6 +683,13 @@ Optimization start 5
 End Optimization of 5
 Optimization start <<
 End Optimization of <<
+Optimization of INSTRUCTIONLIST
+Optimization of :
+Optimization of label
+Optimization start label
+End Optimization of label
+Optimization start :
+End Optimization of :
 Optimization of INSTRUCTIONLIST
 Optimization of <<
 Optimization of resultado
@@ -498,16 +710,16 @@ Optimization of *
 Optimization of 5
 Optimization start 5
 End Optimization of 5
-Optimization of -
-Optimization of x
-Optimization start x
-End Optimization of x
+Optimization of +
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
 Optimization of 2
 Optimization start 2
 End Optimization of 2
-Optimization start -
-Optimization result -
-End Optimization of -
+Optimization start +
+Optimization result +
+End Optimization of +
 Optimization start *
 Optimization result *
 End Optimization of *
@@ -516,6 +728,7 @@ Optimization result +
 End Optimization of +
 Optimization start <<
 End Optimization of <<
+Optimization of INSTRUCTIONLIST
 Optimization of On
 Optimization of Console
 Optimization start Console
@@ -525,6 +738,44 @@ Optimization start resultado
 End Optimization of resultado
 Optimization start On
 End Optimization of On
+Optimization of INSTRUCTIONLIST
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of \n
+Optimization start \n
+End Optimization of \n
+Optimization start On
+End Optimization of On
+Optimization of Goto
+Optimization of :
+Optimization of label
+Optimization start label
+End Optimization of label
+Optimization start :
+End Optimization of :
+Optimization of If
+Optimization of <
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization of 50
+Optimization start 50
+End Optimization of 50
+Optimization start <
+Optimization result <
+End Optimization of <
+Optimization start If
+End Optimization of If
+Optimization start Goto
+End Optimization of Goto
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -546,20 +797,35 @@ INSTRUCTIONLIST
     | |-x
     | |_5
     |_INSTRUCTIONLIST
-      |-<<
-      | |-resultado
-      | |_+
-      |   |-*
-      |   | |-5
-      |   | |_x
-      |   |_*
-      |     |-5
-      |     |_-
-      |       |-x
-      |       |_2
-      |_On
-        |-Console
-        |_resultado
+      |-:
+      | |_label
+      |_INSTRUCTIONLIST
+        |-<<
+        | |-resultado
+        | |_+
+        |   |-*
+        |   | |-5
+        |   | |_x
+        |   |_*
+        |     |-5
+        |     |_+
+        |       |-resultado
+        |       |_2
+        |_INSTRUCTIONLIST
+          |-On
+          | |-Console
+          | |_resultado
+          |_INSTRUCTIONLIST
+            |-On
+            | |-Console
+            | |_\n
+            |_Goto
+              |-:
+              | |_label
+              |_If
+                |_<
+                  |-resultado
+                  |_50
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | x
@@ -567,14 +833,15 @@ INSTRUCTIONLIST
 	x : dd 0
 	resultado : dd 0
 		mov eax, 5
+		label:
 		mov eax, 5 ; Moving First Operand Number
 		mov ebx, dword[x] ; Moving Second Operand Number Var
 		imul eax, ebx ; Multiplying First and Second Operand Number
 		mov dword[t1] , eax ;Result 
 
-		mov eax, dword[x] ; Moving Second Operand Number Var
+		mov eax, dword[resultado] ; Moving Second Operand Number Var
 		mov ebx, 2 ; Moving First Operand Number
-		sub eax, ebx ; Subtracting First and Second Operand Number
+		add eax, ebx ; Adding First and Second Operand Number
 		mov dword[t2] , eax ;Result 
 
 		mov eax, 5 ; Moving First Operand Number
@@ -595,8 +862,40 @@ INSTRUCTIONLIST
 		call _printf; call defined function
 		add esp, 8; params * 4
 
-Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code1.asm
-Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code1.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code1.exe
+		push t5
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		mov eax, dword[resultado]
+	t6 : dd 50
+		mov ebx, dword[t6]
+	t7 : dd 0
+		cmp eax, ebx
+		jl	t7_true
+		mov eax,FALSE
+		mov dword[t7],eax
+		jmp t7_false
+		t7_true:
+		mov eax,TRUE
+		mov dword[t7],eax
+		t7_false:
+
+
+		mov ebx, dword[t7]
+
+		cmp  ebx, TRUE
+
+		je t8_if_then
+
+		jmp t8_if_else
+
+		t8_if_then:
+		jmp label
+
+		t8_if_else:
+Object File Created : nasm -f win32 D:\Documents\GitHub\compilerProject\Compiler\Code1.asm
+Exe File Created : gcc D:\Documents\GitHub\compilerProject\Compiler\Code1.obj -o D:\Documents\GitHub\compilerProject\Compiler\Code1.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | x
@@ -616,6 +915,9 @@ Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\C
 | 12 	 | DECLARATION 	 | x
 | 12 	 | DECLARATION 	 | resultado
 | 12 	 | * 	 | t1
-| 12 	 | - 	 | t2
+| 12 	 | + 	 | t2
 | 12 	 | * 	 | t3
 | 12 	 | + 	 | t4
+| 17 	 | On 	 | t5
+| 12 	 | < 	 | t6
+| 15 	 | < 	 | t7
