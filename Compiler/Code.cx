@@ -18,6 +18,13 @@ N nresultNumeralNumeral << numeral+numeral;
 D dresultNumeralNumeral << numeral+numeral;
 
 N nresultDecimalDecimal << decimal+decimal;
-Goto(:label);
 D dresultDecimalDecimal << decimal+decimal;
+
+Goto(:label).If(2%2=0);
+
+Goto(:label);
+
 :label;
+
+
+
