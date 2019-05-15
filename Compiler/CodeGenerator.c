@@ -194,8 +194,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			else
 			{
-				
-				if (ast->kids[1]->kids[0]->type==IDENTIFIER) {
+
+				if (ast->kids[1]->kids[0]->type == IDENTIFIER) {
 					sprintf(buffer, "\n		mov ebx, dword[%s]\n", ast->kids[1]->kids[0]->info);
 					progcode = InsertList(progcode, buffer);
 					printf(buffer);
@@ -209,8 +209,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					printf(buffer);
 					fprintf(logFile, buffer);
 				}
-				
-				
+
+
 
 
 				sprintf(buffer, "\n		cmp  ebx, TRUE\n");
@@ -221,7 +221,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
 				fprintf(logFile, buffer);
-				
+
 				sprintf(buffer, "\n		jmp t%d_if_else\n", registerCounter);
 				progcode = InsertList(progcode, buffer);
 				printf(buffer);
@@ -364,15 +364,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			GenerateIntermidiateCode(ast->kids[0], logFile, datacode, progcode, table, loopnumber, rescode, funcCode);
 			if (ast->kids[0]->type == IDENTIFIER) {
 				int type_of_var = 0;
-				SymbolToken*searcher = table;
-				while (searcher != NULL) {
-					if (0 == strcmp(ast->kids[0]->info, searcher->name))
-					{
-						type_of_var = searcher->type_of_symbol;
-						break;
-					}
-					searcher = searcher->next;
-				}
+				
+				type_of_var = searchTable(table, ast->kids[0]->info, logFile);
+
 				if (type_of_var == IDN_NUMBER) {
 
 					sprintf(buffer, "		mov eax, dword[%s]\n", ast->kids[0]->info);
@@ -394,17 +388,12 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			else {
 				int type_of_var = 0;
-				SymbolToken*searcher = table;
+
 				char buffersearcher[100];
 				sprintf(buffersearcher, "t%d", registerCounter - 1);
-				while (searcher != NULL) {
-					if (0 == strcmp(buffersearcher, searcher->name))
-					{
-						type_of_var = searcher->type_of_symbol;
-						break;
-					}
-					searcher = searcher->next;
-				}
+
+				type_of_var = searchTable(table, buffersearcher, logFile);
+
 				if (type_of_var == IDN_NUMBER) {
 					sprintf(buffer, "		mov eax, dword[%s]\n", buffersearcher);
 					progcode = InsertList(progcode, buffer);
@@ -509,19 +498,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 
 		int type_of_var = 0, type_of_var2 = 0;
-		SymbolToken*searcher = table;
-		while (searcher != NULL) {
-			if (0 == strcmp(stepper, searcher->name))
-			{
-				type_of_var = searcher->type_of_symbol;
-			}
-			if (0 == strcmp(idToStepOver, searcher->name))
-			{
-				type_of_var2 = searcher->type_of_symbol;
+		type_of_var = searchTable(table, stepper, logFile);
+		type_of_var2 = searchTable(table, idToStepOver, logFile);
 
-			}
-			searcher = searcher->next;
-		}
 
 		if (type_of_var != type_of_var2) {
 			printfAndExit(logFile, "ERROR: SYNTAX ERROR DIFFERENT TYPES IN FOR LOOP AND STEP, %s", ERROR_SYNTAX_ERROR_FOR_LOOP, "\n");
@@ -947,20 +926,10 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				sprintf(bufferdec, "t%d", registerCounter);
 
 
-				SymbolToken*searcher = table;
-				while (searcher != NULL) {
-					if (0 == strcmp(ast->kids[0]->info, searcher->name))
-					{
-						type_of_var = searcher->type_of_symbol;
+				type_of_var = searchTable(table, ast->kids[0]->info, logFile);
+				type_of_var2 = searchTable(table, ast->kids[1]->info, logFile);
 
-					}
-					if (0 == strcmp(ast->kids[1]->info, searcher->name))
-					{
-						type_of_var2 = searcher->type_of_symbol;
 
-					}
-					searcher = searcher->next;
-				}
 				if (type_of_var == type_of_var2) {
 
 					insertSymbolToken(type_of_var, ast, bufferdec, table);
@@ -1117,15 +1086,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			else if (ast->kids[0]->type == LITERAL_NUMBER)
 			{
 				if (ast->kids[1]->type == IDENTIFIER) {
-					SymbolToken*searcher = table;
-					while (searcher != NULL) {
-						if (0 == strcmp(ast->kids[1]->info, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-							break;
-						}
-						searcher = searcher->next;
-					}
+
+					type_of_var = searchTable(table, ast->kids[1]->info, logFile);
+
 					if (type_of_var == IDN_DECIMAL) {
 						if (ast->type == OP_MOD) {
 							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
@@ -1208,15 +1171,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			else if (ast->kids[1]->type == LITERAL_NUMBER)
 			{
 				if (ast->kids[0]->type == IDENTIFIER) {
-					SymbolToken*searcher = table;
-					while (searcher != NULL) {
-						if (0 == strcmp(ast->kids[0]->info, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-							break;
-						}
-						searcher = searcher->next;
-					}
+
+					type_of_var = searchTable(table, ast->kids[0]->info, logFile);
+
 					if (type_of_var == IDN_DECIMAL) {
 						if (ast->type == OP_MOD) {
 							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
@@ -1299,16 +1256,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			else if (ast->kids[0]->type == LITERAL_DECIMAL) {
 
 				if (ast->kids[1]->type == IDENTIFIER) {
+					type_of_var = searchTable(table, ast->kids[1]->info, logFile);
 
-					SymbolToken*searcher = table;
-					while (searcher != NULL) {
-						if (0 == strcmp(ast->kids[1]->info, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-							break;
-						}
-						searcher = searcher->next;
-					}
 					if (type_of_var == IDN_DECIMAL) {
 						if (ast->type == OP_MOD) {
 							printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
@@ -1366,17 +1315,12 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				}
 				else {
-					SymbolToken*searcher = table;
+
+
 					char searcherbuf[150];
 					sprintf(searcherbuf, "t%d", registerCounter - 1);
-					while (searcher != NULL) {
-						if (0 == strcmp(searcherbuf, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-							break;
-						}
-						searcher = searcher->next;
-					}
+					type_of_var = searchTable(table, searcherbuf, logFile);
+
 					if (ast->type == OP_MOD) {
 						printfAndExit(logFile, "ERROR: OP_MOD IS JUST FOR NUMBERS", ERROR_OP_MOD_IS_JUST_FOR_INTEGERS, ast->kids[0]->info);
 
@@ -1439,16 +1383,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				}
 				if (ast->kids[0]->type == IDENTIFIER) {
+					type_of_var = searchTable(table, ast->kids[0]->type, logFile);
 
-					SymbolToken*searcher = table;
-					while (searcher != NULL) {
-						if (0 == strcmp(ast->kids[0]->info, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-							break;
-						}
-						searcher = searcher->next;
-					}
 					if (type_of_var == IDN_DECIMAL) {
 						floatingpointed = True;
 						sprintf(bufferdec, "t%d", registerCounter);
@@ -1500,17 +1436,10 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 				}
 				else {
-					SymbolToken*searcher = table;
 					char searcherbuf[150];
 					sprintf(searcherbuf, "t%d", registerCounter - 1);
-					while (searcher != NULL) {
-						if (0 == strcmp(searcherbuf, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-							break;
-						}
-						searcher = searcher->next;
-					}
+					type_of_var = searchTable(table, searcherbuf, logFile);
+
 					floatingpointed = True;
 					sprintf(bufferdec, "t%d", registerCounter);
 					insertSymbolToken(IDN_DECIMAL, ast, bufferdec, table);
@@ -1559,22 +1488,13 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				sprintf(bufferdec, "t%d", registerCounter);
 
 				if (ast->kids[0]->type == IDENTIFIER) {
-					SymbolToken*searcher = table;
-					while (searcher != NULL) {
-						char  searchbuf[100];
-						sprintf(searchbuf, "t%d", registerCounter - 1);
-						if (0 == strcmp(ast->kids[0]->info, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
 
-						}
-						if (0 == strcmp(searchbuf, searcher->name))
-						{
-							type_of_var2 = searcher->type_of_symbol;
+					char  searchbuf[100];
+					sprintf(searchbuf, "t%d", registerCounter - 1);
+					type_of_var = searchTable(table, ast->kids[0]->info, logFile);
+					type_of_var2 = searchTable(table, searchbuf, logFile);
 
-						}
-						searcher = searcher->next;
-					}
+
 					if (type_of_var == type_of_var2) {
 						insertSymbolToken(type_of_var, ast, bufferdec, table);
 						strcpy(bufferdec, "");
@@ -1666,22 +1586,11 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				}
 				else if (ast->kids[1]->type == IDENTIFIER) {
 
-					SymbolToken*searcher = table;
 					char  searchbuf[100];
 					sprintf(searchbuf, "t%d", registerCounter - 1);
-					while (searcher != NULL) {
-						if (0 == strcmp(searchbuf, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
-
-						}
-						if (0 == strcmp(ast->kids[1]->info, searcher->name))
-						{
-							type_of_var2 = searcher->type_of_symbol;
-
-						}
-						searcher = searcher->next;
-					}
+					type_of_var = searchTable(table, searchbuf, logFile);
+					type_of_var = searchTable(table, ast->kids[1]->info, logFile);
+					
 					if (type_of_var == type_of_var2) {
 						insertSymbolToken(type_of_var, ast, bufferdec, table);
 						strcpy(bufferdec, "");
@@ -1771,24 +1680,13 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					}
 				}
 				else {
-					SymbolToken*searcher = table;
 					char  searchbuf[100];
 					char  searchbuf2[100];
 					sprintf(searchbuf, "t%d", directRegisters[0]);
 					sprintf(searchbuf2, "t%d", directRegisters[1]);
-					while (searcher != NULL) {
-						if (0 == strcmp(searchbuf, searcher->name))
-						{
-							type_of_var = searcher->type_of_symbol;
+					type_of_var = searchTable(table, searchbuf, logFile);
+					type_of_var2 = searchTable(table, searchbuf2, logFile);
 
-						}
-						if (0 == strcmp(searchbuf2, searcher->name))
-						{
-							type_of_var2 = searcher->type_of_symbol;
-
-						}
-						searcher = searcher->next;
-					}
 					if (type_of_var == type_of_var2) {
 						insertSymbolToken(type_of_var, ast, bufferdec, table);
 						strcpy(bufferdec, "");
@@ -2109,15 +2007,7 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				fprintf(logFile, buffer);
 				if (ast->kids[0]->type == IDENTIFIER) {
 					int type_of_var = 0;
-					SymbolToken*current = table;
-					while (current != NULL) {
-						if (0 == strcmp(ast->kids[0]->info, current->name)) {
-							type_of_var = current->type_of_symbol;
-							break;
-						}
-						current = current->next;
-
-					}
+					type_of_var = searchTable(table, ast->kids[0]->info, logFile);
 					if (type_of_var == IDN_BOOL) {
 
 						sprintf(buffer, "		mov eax, dword[%s]\n		cmp eax, FALSE\n", ast->kids[0]->info);
@@ -2150,15 +2040,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 					char bufferdecx[200];
 					sprintf(bufferdecx, "t%d", directRegisters[0]);
 					int type_of_var = 0;
-					SymbolToken*current = table;
-					while (current != NULL) {
-						if (0 == strcmp(bufferdecx, current->name)) {
-							type_of_var = current->type_of_symbol;
-							break;
-						}
-						current = current->next;
-
-					}
+					type_of_var = searchTable(table, bufferdecx, logFile);
+					
 					if (type_of_var == IDN_BOOL) {
 
 						sprintf(buffer, "		mov eax, dword[%s]\n		cmp eax, FALSE\n", bufferdecx);
@@ -2275,15 +2158,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 		{
 			sprintf(buffer, "%s", ast->kids[0]->info);
 			int type_of_the_var_space = 0;
-			SymbolToken*current = table;
-			while (current != NULL) {
-				if (0 == strcmp(buffer, current->name)) {
-					type_of_the_var_space = current->type_of_symbol;
-					break;
-				}
-				current = current->next;
+			type_of_the_var_space = searchTable(table, buffer, logFile);
 
-			}
+			
 			int type_of_var = 0;
 			if (ast->kids[1]->type == LITERAL_NUMBER || ast->kids[1]->type == RESERVED_BOOL_FALSE || ast->kids[1]->type == RESERVED_BOOL_TRUE) {
 				switch (type_of_the_var_space) {
@@ -2401,15 +2278,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 
 
 				sprintf(buffer, "t%d", registerCounter - 1);
-				SymbolToken*current = table;
-				while (current != NULL) {
-					if (0 == strcmp(buffer, current->name)) {
-						type_of_var = current->type_of_symbol;
-						break;
-					}
-					current = current->next;
+				type_of_var = searchTable(table, buffer, logFile);
 
-				}
+				
 
 				if (type_of_var == type_of_the_var_space) {
 					switch (type_of_var)
@@ -2662,14 +2533,10 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				{
 
 
-					SymbolToken*current = table;
-					while (current != NULL) {
-						if (0 == strcmp(ast->kids[1]->info, current->name)) {
-							type_of_var = current->type_of_symbol;
-							break;
-						}
-						current = current->next;
-					}
+					
+					type_of_var = searchTable(table, ast->kids[1]->info, logFile);
+
+					
 					switch (type_of_var)
 					{
 					case IDN_NUMBER:
@@ -2898,15 +2765,9 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 				else {
 
 					sprintf(buffer, "t%d", registerCounter - 1);
-					SymbolToken*current = table;
-					while (current != NULL) {
-						if (0 == strcmp(buffer, current->name)) {
-							type_of_var = current->type_of_symbol;
-							break;
-						}
-						current = current->next;
+					type_of_var = searchTable(table, buffer, logFile);
 
-					}
+					
 
 
 					switch (type_of_var)
@@ -3152,14 +3013,8 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			else if (ast->kids[0]->type == IDENTIFIER) {
 				int type_of_var = 0;
-				SymbolToken*current = table;
-				while (current != NULL) {
-					if (0 == strcmp(ast->kids[0]->info, current->name)) {
-						type_of_var = current->type_of_symbol;
-						break;
-					}
-					current = current->next;
-				}
+				type_of_var = searchTable(table, ast->kids[0]->info, logFile);
+				
 				switch (type_of_var) {
 				case IDN_NUMBER:
 
@@ -3183,16 +3038,13 @@ int  GenerateIntermidiateCode(Node * ast, FILE* logFile, Element* datacode, Elem
 			}
 			else {
 				int type_of_var = 0;
-				SymbolToken*current = table;
+
+				
 				char buffersearcher[200];
 				sprintf(buffersearcher, "t%d", registerCounter - 1);
-				while (current != NULL) {
-					if (0 == strcmp(buffersearcher, current->name)) {
-						type_of_var = current->type_of_symbol;
-						break;
-					}
-					current = current->next;
-				}
+				type_of_var = searchTable(table, buffersearcher, logFile);
+
+				
 				switch (type_of_var) {
 				case IDN_NUMBER:
 					sprintf(bufferdec, "t%d", registerCounter);

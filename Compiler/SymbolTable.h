@@ -29,3 +29,4 @@ SymbolToken* generateSymbolToken(int type_of_symbol,Node * scope, char* name, Sy
 void printSymbolTable(SymbolToken* table, FILE * logfile);
 SymbolToken* insertSymbolToken(int type_of_symbol, Node * scope, char* name, SymbolToken*table);
 int isNumeric(const char * s);
+int searchTable(SymbolToken * table, char* name, FILE* logfile);

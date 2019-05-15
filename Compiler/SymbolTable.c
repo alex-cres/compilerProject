@@ -140,3 +140,15 @@ int isNumeric(const char * s)
 	strtod(s, &p);
 	return *p == '\0';
 }
+
+int searchTable(SymbolToken * table, char* name, FILE* logfile) {
+	SymbolToken*searcher = table;
+	while (searcher != NULL) {
+		if (0 == strcmp(name, searcher->name))
+		{
+			return  searcher->type_of_symbol;
+		}
+		searcher = searcher->next;
+	}
+	printfAndExit(logfile,"ERROR: IDENTIFIER NOT IN TABLE %s \n",ERROR_SYNTAX_ERROR_IDENTIFIER_NOT_FOUND,name);
+}
