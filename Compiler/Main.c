@@ -60,15 +60,9 @@ int main()
 			//identifying the lexemes
 			nextToken = lex(filePointer, &nextChar, nextLexeme, logFile);
 			if (nextToken==EOF) {
-				errorColor();
-				printf("\n\nError: File Empty");
-				fprintf(logFile, "\n\nError: File Empty");
-				normalColor();
-				return ERROR_FILE_EMPTY;
+				printfAndExit(logFile,"\n\nError: File Empty%s",ERROR_FILE_EMPTY,"");
 			}
 			nextToken = instructionList(filePointer, nextToken, &nextChar, nextLexeme, cst, logFile);
-
-
 		} while (nextToken != EOF);
 		normalColor();
 
@@ -77,29 +71,21 @@ int main()
 		arrayDepthTab[0] = True;
 		printf("\nMAX_DEPTH_TREE FOUND : %d\n", MAX_DEPTH_TREE);
 		fprintf(logFile, "\nMAX_DEPTH_TREE FOUND : %d\n", MAX_DEPTH_TREE);
-
 		printTree(cst, 0, True, arrayDepthTab, logFile);
-
 		cst = CSTtoAST(cst, logFile);
 		printTree(cst, 0, True, arrayDepthTab, logFile);
-
 		cst = Optimization(cst, logFile);
 		printTree(cst, 0, True, arrayDepthTab, logFile);
 		SymbolToken * table = generateSymbolToken(TABLE, cst, "TABLE", NULL, NULL);
 		generateSymbolTable(cst,table,logFile);
 		printSymbolTable(table,logFile);
-
 		GenerateMachineCode(cst,logFile,fileName, table);
-
 		printSymbolTable(table, logFile);
 	}
 	else {
-		errorColor();
-		printf("\n\nError: File not found");
-		fprintf(logFile, "\n\nError: File not found");
-		normalColor();
-		return ERROR_FILE_NOT_FOUND;
+		printfAndExit(logFile, "\n\nError: File not found%s", ERROR_FILE_NOT_FOUND, "");
 	}
+
 	fclose(filePointer);
 	fclose(logFile);
 	return 0;

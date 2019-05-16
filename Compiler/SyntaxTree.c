@@ -359,7 +359,9 @@ Node * Optimization(Node * current, FILE* logFile)
 			char formate[3] = "%f";
 			current->type = LITERAL_DECIMAL;
 			sprintf(str, formate, Total);
-			if (round(Total) == (int)Total) {
+			
+			if (Total == (int)Total) {
+				
 				strcpy(formate, "%d");
 				current->type = LITERAL_NUMBER;
 				sprintf(str, formate, (int)Total);

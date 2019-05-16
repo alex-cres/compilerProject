@@ -1,30 +1,8 @@
-N azz<<5;
-While(azz!=1).Do(N a<<2;Break(););
-Do( a<<4;Break();).While(azz!=1);
+D e << 3.17;
+D x, y<<1.0;
+N a << 2+2+2;
 
-
-
-D decimal << 20;
-N numeral << 2;
-D decimal2 << 2.0;
-N numeral2 << 2.0;
-
-N nresultNumeralDecimal << numeral+decimal;
-
-D dresultNumeralDecimal << numeral+decimal;
-
-N nresultNumeralNumeral << numeral+numeral;
-
-D dresultNumeralNumeral << numeral+numeral;
-
-N nresultDecimalDecimal << decimal+decimal;
-D dresultDecimalDecimal << decimal+decimal;
-
-Goto(:label).If(2%2=0);
-
-Goto(:label);
-
-:label;
-
-
-
+Loop(5).Do(
+a<<a+6;
+On.Console(a);
+);
