@@ -1,8 +1,13 @@
-D e << 3.17;
-D x, y<<1.0;
-N a << 2+2+2;
+N x,y,z;
+x<<3; y<<4; z<<4;
 
-Loop(5).Do(
-a<<a+6;
-On.Console(a);
+If(y>x).Then(
+On.Console("MAIOR\n");
+	If(y=z).Then(On.Console("IGUAL\n"););
+	If(y>=z).Then(On.Console("MAIOR OU IGUAL\n"););
+	If(x<z).Then(On.Console("MENOR\n"););
+	If(x!=z).Then(On.Console("NE\n"););
+	If(x<=z).Then(On.Console("MENOR IGUAL\n"););
+).Else(
+	On.Console("Nao");
 );
