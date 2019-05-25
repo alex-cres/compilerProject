@@ -47,7 +47,7 @@ SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile)
 					exit(ERROR_RESERVED_VARIABLES_USED);
 				}
 				syntempnext = generateSymbolToken(tree->kids[0]->type, tree, tree->kids[i]->kids[0]->info, NULL, syntemp);
-
+				syntemp = syntempnext;
 			}
 			else if (tree->kids[i]->type == IDENTIFIER) {
 				char* contents_chopped = tree->kids[i]->info + 1;
@@ -70,6 +70,7 @@ SymbolToken* generateSymbolTable(Node* tree, SymbolToken* table, FILE * logfile)
 					exit(ERROR_RESERVED_VARIABLES_USED);
 				}
 				syntempnext = generateSymbolToken(tree->kids[0]->type, tree, tree->kids[i]->info, NULL, syntemp);
+				syntemp = syntempnext;
 			}
 
 
