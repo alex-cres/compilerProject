@@ -17,7 +17,8 @@ SECTION .data
 
 	a : dd 0
 	l1 : dd  0
-	t1 : dd 0 
+	t1 : times  256  db `\n`,0 
+	t2 : dd 0 
 
 
 SECTION .bss
@@ -41,12 +42,22 @@ SECTION .text
 
 
 
+		push dword[a]
+		push formatoutnumber; push message into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+		push t1
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
 		mov eax, dword[a] ; Moving Second Operand Number Var
 		mov ebx, 1 ; Moving First Operand Number
 		add eax, ebx ; Adding First and Second Operand Number
-		mov dword[t1] , eax ;Result 
+		mov dword[t2] , eax ;Result 
 
-		mov eax, dword[t1]
+		mov eax, dword[t2]
 		mov dword[a], eax
 
 
@@ -62,11 +73,6 @@ SECTION .text
 		jmp l1_looper
 		l1_looper_end:
 		;looper l1 end
-		push dword[a]
-		push formatoutnumber; push message into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
 
 
 	mov eax, 0 

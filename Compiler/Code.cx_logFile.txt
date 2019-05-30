@@ -146,11 +146,36 @@ Token:	011 --> IDENTIFIER                    	Lex:	z
 Entering <EXP>
 Entering <TERM>
 Entering <FACTOR>
+Token:	044 --> OP_XOR                        	Lex:	X
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Token:	043 --> OP_NOT                        	Lex:	!
+Entering <BEXP>
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	y
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	038 --> OP_BIGGER_EQUAL               	Lex:	>=
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Token:	011 --> IDENTIFIER                    	Lex:	z
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
 Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
 Exiting <FACTOR>
 Exiting <TERM>
 Exiting <EXP>
 Exiting <CEXP>
+Exiting <BEXP>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <BEXP>
 Exiting <BEXP>
 Token:	004 --> POINT                         	Lex:	.
 Token:	073 --> RESERVED_THEN                 	Lex:	Then
@@ -439,7 +464,125 @@ Exiting <INSTRUCTIONLIST>
 Token:	005 --> POINT_COMMA                   	Lex:	;
 Exiting <IF>
 Exiting <INSTRUCTION>
+Token:	013 --> IDN_DECIMAL                   	Lex:	D
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	xx
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	077 --> RESERVED_IN                   	Lex:	In
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Entering <IN>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	004 --> POINT                         	Lex:	.
+Entering <CASTIN>
+Token:	094 --> RESERVED_CAST_DECIMAL         	Lex:	ToDecimal
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <CASTIN>
+Exiting <IN>
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	012 --> IDN_NUMBER                    	Lex:	N
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	yy
+Entering <DECLAREEXP>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	018 --> LITERAL_NUMBER                	Lex:	2
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	013 --> IDN_DECIMAL                   	Lex:	D
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <DECLARATION>
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <DECLAREEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <DECLAREEXP>
+Exiting <DECLARATION>
+Exiting <INSTRUCTION>
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ATTRIBUTION>
+Token:	030 --> OP_ATTRIBUTION                	Lex:	<<
+Token:	011 --> IDENTIFIER                    	Lex:	yy
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	034 --> OP_MUL                        	Lex:	*
+Exiting <FACTOR>
+Token:	011 --> IDENTIFIER                    	Lex:	xx
+Entering <TERM>
+Entering <FACTOR>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Exiting <ATTRIBUTION>
+Exiting <INSTRUCTION>
+Token:	078 --> RESERVED_ON                   	Lex:	On
+Entering <INSTRUCTIONLIST>
+Entering <INSTRUCTION>
+Entering <ON>
+Token:	004 --> POINT                         	Lex:	.
+Token:	079 --> RESERVED_CONSOLE              	Lex:	Console
+Token:	028 --> OPEN_PARENTESIS               	Lex:	(
+Token:	011 --> IDENTIFIER                    	Lex:	resultado
+Entering <BEXP>
+Entering <CEXP>
+Entering <EXP>
+Entering <TERM>
+Entering <FACTOR>
+Token:	029 --> CLOSE_PARENTESIS              	Lex:	)
+Exiting <FACTOR>
+Exiting <TERM>
+Exiting <EXP>
+Exiting <CEXP>
+Exiting <BEXP>
+Token:	005 --> POINT_COMMA                   	Lex:	;
+Exiting <ON>
+Exiting <INSTRUCTION>
 Token:	-01 --> EOF                           	Lex:	EOF
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
+Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
 Exiting <INSTRUCTIONLIST>
@@ -538,16 +681,32 @@ PROGRAM
           |   | |   |   |-If
           |   | |   |   |-(
           |   | |   |   |-BEXP
-          |   | |   |   | |_CEXP
-          |   | |   |   |   |-EXP
-          |   | |   |   |   | |_TERM
-          |   | |   |   |   |   |_FACTOR
-          |   | |   |   |   |     |_y
-          |   | |   |   |   |-=
-          |   | |   |   |   |_EXP
-          |   | |   |   |     |_TERM
-          |   | |   |   |       |_FACTOR
-          |   | |   |   |         |_z
+          |   | |   |   | |-CEXP
+          |   | |   |   | | |-EXP
+          |   | |   |   | | | |_TERM
+          |   | |   |   | | |   |_FACTOR
+          |   | |   |   | | |     |_y
+          |   | |   |   | | |-=
+          |   | |   |   | | |_EXP
+          |   | |   |   | |   |_TERM
+          |   | |   |   | |     |_FACTOR
+          |   | |   |   | |       |_z
+          |   | |   |   | |-X
+          |   | |   |   | |_BEXP
+          |   | |   |   |   |-!
+          |   | |   |   |   |-(
+          |   | |   |   |   |-BEXP
+          |   | |   |   |   | |_CEXP
+          |   | |   |   |   |   |-EXP
+          |   | |   |   |   |   | |_TERM
+          |   | |   |   |   |   |   |_FACTOR
+          |   | |   |   |   |   |     |_y
+          |   | |   |   |   |   |->=
+          |   | |   |   |   |   |_EXP
+          |   | |   |   |   |     |_TERM
+          |   | |   |   |   |       |_FACTOR
+          |   | |   |   |   |         |_z
+          |   | |   |   |   |_)
           |   | |   |   |-)
           |   | |   |   |-.
           |   | |   |   |_Then
@@ -738,7 +897,83 @@ PROGRAM
           |     | |_;
           |     |_)
           |-;
-          |_EOF
+          |_INSTRUCTIONLIST
+            |-INSTRUCTION
+            | |_DECLARATION
+            |   |-D
+            |   |_DECLAREEXP
+            |     |-xx
+            |     |-<<
+            |     |_BEXP
+            |       |_CEXP
+            |         |_EXP
+            |           |_TERM
+            |             |_FACTOR
+            |               |_IN
+            |                 |-In
+            |                 |-.
+            |                 |-Console
+            |                 |-(
+            |                 |-)
+            |                 |_CASTIN
+            |                   |-.
+            |                   |-ToDecimal
+            |                   |-(
+            |                   |_)
+            |-;
+            |_INSTRUCTIONLIST
+              |-INSTRUCTION
+              | |_DECLARATION
+              |   |-N
+              |   |_DECLAREEXP
+              |     |-yy
+              |     |-<<
+              |     |_BEXP
+              |       |_CEXP
+              |         |_EXP
+              |           |_TERM
+              |             |_FACTOR
+              |               |_2
+              |-;
+              |_INSTRUCTIONLIST
+                |-INSTRUCTION
+                | |_DECLARATION
+                |   |-D
+                |   |_DECLAREEXP
+                |     |_resultado
+                |-;
+                |_INSTRUCTIONLIST
+                  |-INSTRUCTION
+                  | |_ATTRIBUTION
+                  |   |-resultado
+                  |   |-<<
+                  |   |_BEXP
+                  |     |_CEXP
+                  |       |_EXP
+                  |         |_TERM
+                  |           |-FACTOR
+                  |           | |_yy
+                  |           |-*
+                  |           |_TERM
+                  |             |_FACTOR
+                  |               |_xx
+                  |-;
+                  |_INSTRUCTIONLIST
+                    |-INSTRUCTION
+                    | |_ON
+                    |   |-On
+                    |   |-.
+                    |   |-Console
+                    |   |-(
+                    |   |-BEXP
+                    |   | |_CEXP
+                    |   |   |_EXP
+                    |   |     |_TERM
+                    |   |       |_FACTOR
+                    |   |         |_resultado
+                    |   |_)
+                    |-;
+                    |_EOF
 Entering PROGRAM
 Entering INSTRUCTIONLIST
 Entering INSTRUCTION
@@ -912,7 +1147,37 @@ Exiting z
 Exiting z
 Exiting z
 Exiting =
-Exiting =
+Entering X
+Exiting X
+Entering BEXP
+Entering !
+Exiting !
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering y
+Exiting y
+Exiting y
+Exiting y
+Exiting y
+Entering >=
+Exiting >=
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering z
+Exiting z
+Exiting z
+Exiting z
+Exiting z
+Exiting >=
+Exiting >=
+Entering )
+Exiting !
+Exiting X
 Entering )
 Entering .
 Entering Then
@@ -1242,8 +1507,146 @@ Exiting Else
 Exiting If
 Exiting If
 Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering xx
+Exiting xx
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering IN
+Entering In
+Exiting In
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering )
+Entering CASTIN
+Entering .
+Entering ToDecimal
+Exiting ToDecimal
+Entering (
+Entering )
+Exiting ToDecimal
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting In
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering N
+Exiting N
+Entering DECLAREEXP
+Entering yy
+Exiting yy
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting 2
+Exiting <<
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering DECLARATION
+Entering D
+Exiting D
+Entering DECLAREEXP
+Entering resultado
+Exiting resultado
+Exiting resultado
+Exiting DECLARATION
+Exiting DECLARATION
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ATTRIBUTION
+Entering resultado
+Exiting resultado
+Entering <<
+Exiting <<
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering yy
+Exiting yy
+Exiting yy
+Entering *
+Exiting *
+Entering TERM
+Entering FACTOR
+Entering xx
+Exiting xx
+Exiting xx
+Exiting xx
+Exiting *
+Exiting *
+Exiting *
+Exiting *
+Exiting <<
+Exiting <<
+Entering ;
+Entering INSTRUCTIONLIST
+Entering INSTRUCTION
+Entering ON
+Entering On
+Exiting On
+Entering .
+Entering Console
+Exiting Console
+Entering (
+Entering BEXP
+Entering CEXP
+Entering EXP
+Entering TERM
+Entering FACTOR
+Entering resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Exiting resultado
+Entering )
+Exiting On
+Exiting On
+Entering ;
 Entering EOF
-Exiting If
+Exiting On
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
+Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
 Exiting INSTRUCTIONLIST
@@ -1267,63 +1670,96 @@ INSTRUCTIONLIST
       |-<<
       | |-z
       | |_4
-      |_If
-        |->
-        | |-y
-        | |_x
-        |-Then
-        | |_INSTRUCTIONLIST
-        |   |-On
-        |   | |-Console
-        |   | |_MAIOR\n
-        |   |_INSTRUCTIONLIST
-        |     |-If
-        |     | |-=
-        |     | | |-y
-        |     | | |_z
-        |     | |_Then
-        |     |   |_On
-        |     |     |-Console
-        |     |     |_IGUAL\n
-        |     |_INSTRUCTIONLIST
-        |       |-If
-        |       | |->=
-        |       | | |-y
-        |       | | |_z
-        |       | |_Then
-        |       |   |_On
-        |       |     |-Console
-        |       |     |_MAIOR OU IGUAL\n
-        |       |_INSTRUCTIONLIST
-        |         |-If
-        |         | |-<
-        |         | | |-x
-        |         | | |_z
-        |         | |_Then
-        |         |   |_On
-        |         |     |-Console
-        |         |     |_MENOR\n
-        |         |_INSTRUCTIONLIST
-        |           |-If
-        |           | |-!=
-        |           | | |-x
-        |           | | |_z
-        |           | |_Then
-        |           |   |_On
-        |           |     |-Console
-        |           |     |_NE\n
-        |           |_If
-        |             |-<=
-        |             | |-x
-        |             | |_z
-        |             |_Then
-        |               |_On
-        |                 |-Console
-        |                 |_MENOR IGUAL\n
-        |_Else
-          |_On
-            |-Console
-            |_Nao
+      |_INSTRUCTIONLIST
+        |-If
+        | |->
+        | | |-y
+        | | |_x
+        | |-Then
+        | | |_INSTRUCTIONLIST
+        | |   |-On
+        | |   | |-Console
+        | |   | |_MAIOR\n
+        | |   |_INSTRUCTIONLIST
+        | |     |-If
+        | |     | |-X
+        | |     | | |-=
+        | |     | | | |-y
+        | |     | | | |_z
+        | |     | | |_!
+        | |     | |   |_>=
+        | |     | |     |-y
+        | |     | |     |_z
+        | |     | |_Then
+        | |     |   |_On
+        | |     |     |-Console
+        | |     |     |_IGUAL\n
+        | |     |_INSTRUCTIONLIST
+        | |       |-If
+        | |       | |->=
+        | |       | | |-y
+        | |       | | |_z
+        | |       | |_Then
+        | |       |   |_On
+        | |       |     |-Console
+        | |       |     |_MAIOR OU IGUAL\n
+        | |       |_INSTRUCTIONLIST
+        | |         |-If
+        | |         | |-<
+        | |         | | |-x
+        | |         | | |_z
+        | |         | |_Then
+        | |         |   |_On
+        | |         |     |-Console
+        | |         |     |_MENOR\n
+        | |         |_INSTRUCTIONLIST
+        | |           |-If
+        | |           | |-!=
+        | |           | | |-x
+        | |           | | |_z
+        | |           | |_Then
+        | |           |   |_On
+        | |           |     |-Console
+        | |           |     |_NE\n
+        | |           |_If
+        | |             |-<=
+        | |             | |-x
+        | |             | |_z
+        | |             |_Then
+        | |               |_On
+        | |                 |-Console
+        | |                 |_MENOR IGUAL\n
+        | |_Else
+        |   |_On
+        |     |-Console
+        |     |_Nao
+        |_INSTRUCTIONLIST
+          |-DECLARATION
+          | |-D
+          | |_<<
+          |   |-xx
+          |   |_In
+          |     |-Console
+          |     |_ToDecimal
+          |_INSTRUCTIONLIST
+            |-DECLARATION
+            | |-N
+            | |_<<
+            |   |-yy
+            |   |_2
+            |_INSTRUCTIONLIST
+              |-DECLARATION
+              | |-D
+              | |_resultado
+              |_INSTRUCTIONLIST
+                |-<<
+                | |-resultado
+                | |_*
+                |   |-yy
+                |   |_xx
+                |_On
+                  |-Console
+                  |_resultado
 Optimization of INSTRUCTIONLIST
 Optimization of DECLARATION
 Optimization of N
@@ -1370,6 +1806,7 @@ Optimization start 4
 End Optimization of 4
 Optimization start <<
 End Optimization of <<
+Optimization of INSTRUCTIONLIST
 Optimization of If
 Optimization of >
 Optimization of y
@@ -1394,6 +1831,7 @@ Optimization start On
 End Optimization of On
 Optimization of INSTRUCTIONLIST
 Optimization of If
+Optimization of X
 Optimization of =
 Optimization of y
 Optimization start y
@@ -1404,6 +1842,23 @@ End Optimization of z
 Optimization start =
 Optimization result =
 End Optimization of =
+Optimization of !
+Optimization of >=
+Optimization of y
+Optimization start y
+End Optimization of y
+Optimization of z
+Optimization start z
+End Optimization of z
+Optimization start >=
+Optimization result >=
+End Optimization of >=
+Optimization start !
+Optimization result !
+End Optimization of !
+Optimization start X
+Optimization result X
+End Optimization of X
 Optimization of Then
 Optimization of On
 Optimization of Console
@@ -1547,6 +2002,90 @@ Optimization start Else
 End Optimization of Else
 Optimization start If
 End Optimization of If
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+Optimization start D
+End Optimization of D
+Optimization of <<
+Optimization of xx
+Optimization start xx
+End Optimization of xx
+Optimization of In
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of ToDecimal
+Optimization start ToDecimal
+End Optimization of ToDecimal
+Optimization start In
+End Optimization of In
+Optimization start <<
+End Optimization of <<
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of N
+Optimization start N
+End Optimization of N
+Optimization of <<
+Optimization of yy
+Optimization start yy
+End Optimization of yy
+Optimization of 2
+Optimization start 2
+End Optimization of 2
+Optimization start <<
+End Optimization of <<
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of DECLARATION
+Optimization of D
+Optimization start D
+End Optimization of D
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization start DECLARATION
+End Optimization of DECLARATION
+Optimization of INSTRUCTIONLIST
+Optimization of <<
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization of *
+Optimization of yy
+Optimization start yy
+End Optimization of yy
+Optimization of xx
+Optimization start xx
+End Optimization of xx
+Optimization start *
+Optimization result *
+End Optimization of *
+Optimization start <<
+End Optimization of <<
+Optimization of On
+Optimization of Console
+Optimization start Console
+End Optimization of Console
+Optimization of resultado
+Optimization start resultado
+End Optimization of resultado
+Optimization start On
+End Optimization of On
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
+Optimization start INSTRUCTIONLIST
+End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
 End Optimization of INSTRUCTIONLIST
 Optimization start INSTRUCTIONLIST
@@ -1573,66 +2112,102 @@ INSTRUCTIONLIST
       |-<<
       | |-z
       | |_4
-      |_If
-        |->
-        | |-y
-        | |_x
-        |-Then
-        | |_INSTRUCTIONLIST
-        |   |-On
-        |   | |-Console
-        |   | |_MAIOR\n
-        |   |_INSTRUCTIONLIST
-        |     |-If
-        |     | |-=
-        |     | | |-y
-        |     | | |_z
-        |     | |_Then
-        |     |   |_On
-        |     |     |-Console
-        |     |     |_IGUAL\n
-        |     |_INSTRUCTIONLIST
-        |       |-If
-        |       | |->=
-        |       | | |-y
-        |       | | |_z
-        |       | |_Then
-        |       |   |_On
-        |       |     |-Console
-        |       |     |_MAIOR OU IGUAL\n
-        |       |_INSTRUCTIONLIST
-        |         |-If
-        |         | |-<
-        |         | | |-x
-        |         | | |_z
-        |         | |_Then
-        |         |   |_On
-        |         |     |-Console
-        |         |     |_MENOR\n
-        |         |_INSTRUCTIONLIST
-        |           |-If
-        |           | |-!=
-        |           | | |-x
-        |           | | |_z
-        |           | |_Then
-        |           |   |_On
-        |           |     |-Console
-        |           |     |_NE\n
-        |           |_If
-        |             |-<=
-        |             | |-x
-        |             | |_z
-        |             |_Then
-        |               |_On
-        |                 |-Console
-        |                 |_MENOR IGUAL\n
-        |_Else
-          |_On
-            |-Console
-            |_Nao
+      |_INSTRUCTIONLIST
+        |-If
+        | |->
+        | | |-y
+        | | |_x
+        | |-Then
+        | | |_INSTRUCTIONLIST
+        | |   |-On
+        | |   | |-Console
+        | |   | |_MAIOR\n
+        | |   |_INSTRUCTIONLIST
+        | |     |-If
+        | |     | |-X
+        | |     | | |-=
+        | |     | | | |-y
+        | |     | | | |_z
+        | |     | | |_!
+        | |     | |   |_>=
+        | |     | |     |-y
+        | |     | |     |_z
+        | |     | |_Then
+        | |     |   |_On
+        | |     |     |-Console
+        | |     |     |_IGUAL\n
+        | |     |_INSTRUCTIONLIST
+        | |       |-If
+        | |       | |->=
+        | |       | | |-y
+        | |       | | |_z
+        | |       | |_Then
+        | |       |   |_On
+        | |       |     |-Console
+        | |       |     |_MAIOR OU IGUAL\n
+        | |       |_INSTRUCTIONLIST
+        | |         |-If
+        | |         | |-<
+        | |         | | |-x
+        | |         | | |_z
+        | |         | |_Then
+        | |         |   |_On
+        | |         |     |-Console
+        | |         |     |_MENOR\n
+        | |         |_INSTRUCTIONLIST
+        | |           |-If
+        | |           | |-!=
+        | |           | | |-x
+        | |           | | |_z
+        | |           | |_Then
+        | |           |   |_On
+        | |           |     |-Console
+        | |           |     |_NE\n
+        | |           |_If
+        | |             |-<=
+        | |             | |-x
+        | |             | |_z
+        | |             |_Then
+        | |               |_On
+        | |                 |-Console
+        | |                 |_MENOR IGUAL\n
+        | |_Else
+        |   |_On
+        |     |-Console
+        |     |_Nao
+        |_INSTRUCTIONLIST
+          |-DECLARATION
+          | |-D
+          | |_<<
+          |   |-xx
+          |   |_In
+          |     |-Console
+          |     |_ToDecimal
+          |_INSTRUCTIONLIST
+            |-DECLARATION
+            | |-N
+            | |_<<
+            |   |-yy
+            |   |_2
+            |_INSTRUCTIONLIST
+              |-DECLARATION
+              | |-D
+              | |_resultado
+              |_INSTRUCTIONLIST
+                |-<<
+                | |-resultado
+                | |_*
+                |   |-yy
+                |   |_xx
+                |_On
+                  |-Console
+                  |_resultado
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | z
+| 13 	 | DECLARATION 	 | xx
+| 12 	 | DECLARATION 	 | yy
+| 13 	 | DECLARATION 	 | resultado
 	x : dd 0
 	y : dd 0
 	z : dd 0
@@ -1680,179 +2255,244 @@ INSTRUCTIONLIST
 		mov dword[t3],eax
 		t3_false:
 
-
-		mov eax, dword[t3]
-
-		cmp  eax, TRUE
-
-		je t3_if_then
-
-		jmp t3_if_else
-
-		t3_if_then:
-		push t4
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-
-		jmp t3_if_end
-
-		t3_if_else:
-
-		t3_if_end:
 		mov eax, dword[y]
 		mov ebx, dword[z]
-	t5 : dd 0
+	t4 : dd 0
 		cmp eax, ebx
-		jge	t5_true
+		jge	t4_true
 		mov eax,FALSE
-		mov dword[t5],eax
+		mov dword[t4],eax
+		jmp t4_false
+		t4_true:
+		mov eax,TRUE
+		mov dword[t4],eax
+		t4_false:
+
+	t5 : dd 0
+		mov eax, dword[t4]
+		cmp eax, FALSE
+		je t5_true
+		mov dword[t5], FALSE
 		jmp t5_false
 		t5_true:
-		mov eax,TRUE
-		mov dword[t5],eax
+		mov dword[t5],TRUE
 		t5_false:
+	t6 : dd 0
+		mov eax, dword[t3]
+		mov ebx, dword[t5]
+		xor eax,ebx
+		cmp eax, TRUE
+		je t6_true
+		mov dword[t6], FALSE
+		jmp t6_false
+		t6_true:
+		mov dword[t6],TRUE
+		t6_false:
 
-
-		mov eax, dword[t5]
+		mov eax, dword[t6]
 
 		cmp  eax, TRUE
 
-		je t5_if_then
+		je t6_if_then
 
-		jmp t5_if_else
+		jmp t6_if_else
 
-		t5_if_then:
-		push t6
+		t6_if_then:
+		push t7
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 
-		jmp t5_if_end
+		jmp t6_if_end
 
-		t5_if_else:
+		t6_if_else:
 
-		t5_if_end:
+		t6_if_end:
+		mov eax, dword[y]
+		mov ebx, dword[z]
+	t8 : dd 0
+		cmp eax, ebx
+		jge	t8_true
+		mov eax,FALSE
+		mov dword[t8],eax
+		jmp t8_false
+		t8_true:
+		mov eax,TRUE
+		mov dword[t8],eax
+		t8_false:
+
+
+		mov eax, dword[t8]
+
+		cmp  eax, TRUE
+
+		je t8_if_then
+
+		jmp t8_if_else
+
+		t8_if_then:
+		push t9
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
+		jmp t8_if_end
+
+		t8_if_else:
+
+		t8_if_end:
 		mov eax, dword[x]
 		mov ebx, dword[z]
-	t7 : dd 0
+	t10 : dd 0
 		cmp eax, ebx
-		jl	t7_true
+		jl	t10_true
 		mov eax,FALSE
-		mov dword[t7],eax
-		jmp t7_false
-		t7_true:
+		mov dword[t10],eax
+		jmp t10_false
+		t10_true:
 		mov eax,TRUE
-		mov dword[t7],eax
-		t7_false:
+		mov dword[t10],eax
+		t10_false:
 
 
-		mov eax, dword[t7]
+		mov eax, dword[t10]
 
 		cmp  eax, TRUE
 
-		je t7_if_then
+		je t10_if_then
 
-		jmp t7_if_else
+		jmp t10_if_else
 
-		t7_if_then:
-		push t8
+		t10_if_then:
+		push t11
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 
-		jmp t7_if_end
+		jmp t10_if_end
 
-		t7_if_else:
+		t10_if_else:
 
-		t7_if_end:
+		t10_if_end:
 		mov eax, dword[x]
 		mov ebx, dword[z]
-	t9 : dd 0
+	t12 : dd 0
 		cmp eax, ebx
-		jne	t9_true
+		jne	t12_true
 		mov eax,FALSE
-		mov dword[t9],eax
-		jmp t9_false
-		t9_true:
+		mov dword[t12],eax
+		jmp t12_false
+		t12_true:
 		mov eax,TRUE
-		mov dword[t9],eax
-		t9_false:
+		mov dword[t12],eax
+		t12_false:
 
 
-		mov eax, dword[t9]
+		mov eax, dword[t12]
 
 		cmp  eax, TRUE
 
-		je t9_if_then
+		je t12_if_then
 
-		jmp t9_if_else
+		jmp t12_if_else
 
-		t9_if_then:
-		push t10
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-
-		jmp t9_if_end
-
-		t9_if_else:
-
-		t9_if_end:
-		mov eax, dword[x]
-		mov ebx, dword[z]
-	t11 : dd 0
-		cmp eax, ebx
-		jle	t11_true
-		mov eax,FALSE
-		mov dword[t11],eax
-		jmp t11_false
-		t11_true:
-		mov eax,TRUE
-		mov dword[t11],eax
-		t11_false:
-
-
-		mov eax, dword[t11]
-
-		cmp  eax, TRUE
-
-		je t11_if_then
-
-		jmp t11_if_else
-
-		t11_if_then:
-		push t12
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-
-		jmp t11_if_end
-
-		t11_if_else:
-
-		t11_if_end:
-
-		jmp t1_if_end
-
-		t1_if_else:
+		t12_if_then:
 		push t13
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 
+		jmp t12_if_end
+
+		t12_if_else:
+
+		t12_if_end:
+		mov eax, dword[x]
+		mov ebx, dword[z]
+	t14 : dd 0
+		cmp eax, ebx
+		jle	t14_true
+		mov eax,FALSE
+		mov dword[t14],eax
+		jmp t14_false
+		t14_true:
+		mov eax,TRUE
+		mov dword[t14],eax
+		t14_false:
+
+
+		mov eax, dword[t14]
+
+		cmp  eax, TRUE
+
+		je t14_if_then
+
+		jmp t14_if_else
+
+		t14_if_then:
+		push t15
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
+		jmp t14_if_end
+
+		t14_if_else:
+
+		t14_if_end:
+
+		jmp t1_if_end
+
+		t1_if_else:
+		push t16
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
 		t1_if_end:
+		push t17 ; Temporary Read
+	t17 : resd 1 
+		push formatindecimal; number reading
+		call _scanf; call defined function
+		add esp, 8; params * 4
+
+		fld dword[t17]
+		fstp dword[xx]
+
+	xx : dd 0.0
+		mov eax, 2
+	yy : dd 0
+	resultado : dd 0.0
+		fild dword[yy] ; Moving First Operand Number Var
+		fld dword[xx] ; Moving Second Operand Decimal Var
+		fmul ; Multiplying First and Second Operand Number
+		fstp dword[t18] ;Result 
+
+		fld dword[t18]
+		fstp dword[resultado]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, resultado
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
 Object File Created : nasm -f win32 C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.asm
 Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.obj -o C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\Code.exe
 | Symbol | Scope 	 | Name
 | 1000 	 | INSTRUCTIONLIST 	 | TABLE
 | 12 	 | DECLARATION 	 | z
+| 13 	 | DECLARATION 	 | xx
+| 12 	 | DECLARATION 	 | yy
+| 13 	 | DECLARATION 	 | resultado
 | 17 	 | INSTRUCTIONLIST 	 | stringFalse
 | 17 	 | INSTRUCTIONLIST 	 | stringTrue
 | 17 	 | INSTRUCTIONLIST 	 | formatoutnumber
@@ -1871,13 +2511,21 @@ Exe File Created : gcc C:\Users\Alex\Documents\GitHub\compilerProject\Compiler\C
 | 15 	 | > 	 | t1
 | 17 	 | On 	 | t2
 | 15 	 | = 	 | t3
-| 17 	 | On 	 | t4
-| 15 	 | >= 	 | t5
-| 17 	 | On 	 | t6
-| 15 	 | < 	 | t7
-| 17 	 | On 	 | t8
-| 15 	 | != 	 | t9
-| 17 	 | On 	 | t10
-| 15 	 | <= 	 | t11
-| 17 	 | On 	 | t12
+| 15 	 | >= 	 | t4
+| 15 	 | ! 	 | t5
+| 15 	 | X 	 | t6
+| 17 	 | On 	 | t7
+| 15 	 | >= 	 | t8
+| 17 	 | On 	 | t9
+| 15 	 | < 	 | t10
+| 17 	 | On 	 | t11
+| 15 	 | != 	 | t12
 | 17 	 | On 	 | t13
+| 15 	 | <= 	 | t14
+| 17 	 | On 	 | t15
+| 17 	 | On 	 | t16
+| 13 	 | In 	 | t17
+| 13 	 | DECLARATION 	 | xx
+| 12 	 | DECLARATION 	 | yy
+| 13 	 | DECLARATION 	 | resultado
+| 13 	 | * 	 | t18

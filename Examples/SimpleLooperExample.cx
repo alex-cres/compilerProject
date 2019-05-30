@@ -2,7 +2,8 @@ Comment(This is not Executed);
 N a << 0;
 Loop(5).Do(
 	Comment(This is not Executed);	
+	On.Console(a);
+	On.Console("\n");
 	a<<a+1;
 );
 
-On.Console(a);

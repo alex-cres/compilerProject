@@ -21,19 +21,27 @@ SECTION .data
 	t1 : dd 0
 	t2 : times  256  db `MAIOR\n`,0 
 	t3 : dd 0
-	t4 : times  256  db `IGUAL\n`,0 
+	t4 : dd 0
 	t5 : dd 0
-	t6 : times  256  db `MAIOR OU IGUAL\n`,0 
-	t7 : dd 0
-	t8 : times  256  db `MENOR\n`,0 
-	t9 : dd 0
-	t10 : times  256  db `NE\n`,0 
-	t11 : dd 0
-	t12 : times  256  db `MENOR IGUAL\n`,0 
-	t13 : times  256  db `Nao`,0 
+	t6 : dd 0
+	t7 : times  256  db `IGUAL\n`,0 
+	t8 : dd 0
+	t9 : times  256  db `MAIOR OU IGUAL\n`,0 
+	t10 : dd 0
+	t11 : times  256  db `MENOR\n`,0 
+	t12 : dd 0
+	t13 : times  256  db `NE\n`,0 
+	t14 : dd 0
+	t15 : times  256  db `MENOR IGUAL\n`,0 
+	t16 : times  256  db `Nao`,0 
+	xx : dd 0.0
+	yy : dd 0
+	resultado : dd 0.0
+	t18 : dd 0 
 
 
 SECTION .bss
+	t17 : resd 1 
 
 
 SECTION .text
@@ -92,170 +100,227 @@ SECTION .text
 		mov dword[t3],eax
 		t3_false:
 
-
-		mov eax, dword[t3]
-
-		cmp  eax, TRUE
-
-		je t3_if_then
-
-		jmp t3_if_else
-
-		t3_if_then:
-		push t4
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-
-		jmp t3_if_end
-
-		t3_if_else:
-
-		t3_if_end:
 		mov eax, dword[y]
 		mov ebx, dword[z]
 		cmp eax, ebx
-		jge	t5_true
+		jge	t4_true
 		mov eax,FALSE
-		mov dword[t5],eax
+		mov dword[t4],eax
+		jmp t4_false
+		t4_true:
+		mov eax,TRUE
+		mov dword[t4],eax
+		t4_false:
+
+		mov eax, dword[t4]
+		cmp eax, FALSE
+		je t5_true
+		mov dword[t5], FALSE
 		jmp t5_false
 		t5_true:
-		mov eax,TRUE
-		mov dword[t5],eax
+		mov dword[t5],TRUE
 		t5_false:
+		mov eax, dword[t3]
+		mov ebx, dword[t5]
+		xor eax,ebx
+		cmp eax, TRUE
+		je t6_true
+		mov dword[t6], FALSE
+		jmp t6_false
+		t6_true:
+		mov dword[t6],TRUE
+		t6_false:
 
-
-		mov eax, dword[t5]
+		mov eax, dword[t6]
 
 		cmp  eax, TRUE
 
-		je t5_if_then
+		je t6_if_then
 
-		jmp t5_if_else
+		jmp t6_if_else
 
-		t5_if_then:
-		push t6
+		t6_if_then:
+		push t7
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 
-		jmp t5_if_end
+		jmp t6_if_end
 
-		t5_if_else:
+		t6_if_else:
 
-		t5_if_end:
+		t6_if_end:
+		mov eax, dword[y]
+		mov ebx, dword[z]
+		cmp eax, ebx
+		jge	t8_true
+		mov eax,FALSE
+		mov dword[t8],eax
+		jmp t8_false
+		t8_true:
+		mov eax,TRUE
+		mov dword[t8],eax
+		t8_false:
+
+
+		mov eax, dword[t8]
+
+		cmp  eax, TRUE
+
+		je t8_if_then
+
+		jmp t8_if_else
+
+		t8_if_then:
+		push t9
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
+		jmp t8_if_end
+
+		t8_if_else:
+
+		t8_if_end:
 		mov eax, dword[x]
 		mov ebx, dword[z]
 		cmp eax, ebx
-		jl	t7_true
+		jl	t10_true
 		mov eax,FALSE
-		mov dword[t7],eax
-		jmp t7_false
-		t7_true:
+		mov dword[t10],eax
+		jmp t10_false
+		t10_true:
 		mov eax,TRUE
-		mov dword[t7],eax
-		t7_false:
+		mov dword[t10],eax
+		t10_false:
 
 
-		mov eax, dword[t7]
+		mov eax, dword[t10]
 
 		cmp  eax, TRUE
 
-		je t7_if_then
+		je t10_if_then
 
-		jmp t7_if_else
+		jmp t10_if_else
 
-		t7_if_then:
-		push t8
+		t10_if_then:
+		push t11
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 
-		jmp t7_if_end
+		jmp t10_if_end
 
-		t7_if_else:
+		t10_if_else:
 
-		t7_if_end:
+		t10_if_end:
 		mov eax, dword[x]
 		mov ebx, dword[z]
 		cmp eax, ebx
-		jne	t9_true
+		jne	t12_true
 		mov eax,FALSE
-		mov dword[t9],eax
-		jmp t9_false
-		t9_true:
+		mov dword[t12],eax
+		jmp t12_false
+		t12_true:
 		mov eax,TRUE
-		mov dword[t9],eax
-		t9_false:
+		mov dword[t12],eax
+		t12_false:
 
 
-		mov eax, dword[t9]
+		mov eax, dword[t12]
 
 		cmp  eax, TRUE
 
-		je t9_if_then
+		je t12_if_then
 
-		jmp t9_if_else
+		jmp t12_if_else
 
-		t9_if_then:
-		push t10
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-
-		jmp t9_if_end
-
-		t9_if_else:
-
-		t9_if_end:
-		mov eax, dword[x]
-		mov ebx, dword[z]
-		cmp eax, ebx
-		jle	t11_true
-		mov eax,FALSE
-		mov dword[t11],eax
-		jmp t11_false
-		t11_true:
-		mov eax,TRUE
-		mov dword[t11],eax
-		t11_false:
-
-
-		mov eax, dword[t11]
-
-		cmp  eax, TRUE
-
-		je t11_if_then
-
-		jmp t11_if_else
-
-		t11_if_then:
-		push t12
-		push formatoutstring; push format into ESP
-		call _printf; call defined function
-		add esp, 8; params * 4
-
-
-		jmp t11_if_end
-
-		t11_if_else:
-
-		t11_if_end:
-
-		jmp t1_if_end
-
-		t1_if_else:
+		t12_if_then:
 		push t13
 		push formatoutstring; push format into ESP
 		call _printf; call defined function
 		add esp, 8; params * 4
 
 
+		jmp t12_if_end
+
+		t12_if_else:
+
+		t12_if_end:
+		mov eax, dword[x]
+		mov ebx, dword[z]
+		cmp eax, ebx
+		jle	t14_true
+		mov eax,FALSE
+		mov dword[t14],eax
+		jmp t14_false
+		t14_true:
+		mov eax,TRUE
+		mov dword[t14],eax
+		t14_false:
+
+
+		mov eax, dword[t14]
+
+		cmp  eax, TRUE
+
+		je t14_if_then
+
+		jmp t14_if_else
+
+		t14_if_then:
+		push t15
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
+		jmp t14_if_end
+
+		t14_if_else:
+
+		t14_if_end:
+
+		jmp t1_if_end
+
+		t1_if_else:
+		push t16
+		push formatoutstring; push format into ESP
+		call _printf; call defined function
+		add esp, 8; params * 4
+
+
 		t1_if_end:
+		push t17 ; Temporary Read
+		push formatindecimal; number reading
+		call _scanf; call defined function
+		add esp, 8; params * 4
+
+		fld dword[t17]
+		fstp dword[xx]
+
+		mov eax, 2
+		mov dword[yy], eax
+
+		fild dword[yy] ; Moving First Operand Number Var
+		fld dword[xx] ; Moving Second Operand Decimal Var
+		fmul ; Multiplying First and Second Operand Number
+		fstp dword[t18] ;Result 
+
+		fld dword[t18]
+		fstp dword[resultado]
+
+		sub esp, 8;reserve stack for a double in stack
+		mov ebx, resultado
+		fld dword[ebx];load float
+		fstp qword[esp];store double(8087 does the conversion internally)
+		push formatoutdecimal; push message into ESP
+		call _printf; call defined function
+		add esp, 12; params * 4
+
 
 
 	mov eax, 0 

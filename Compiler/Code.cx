@@ -3,7 +3,7 @@ x<<3; y<<4; z<<4;
 
 If(y>x).Then(
 On.Console("MAIOR\n");
-	If(y=z).Then(On.Console("IGUAL\n"););
+	If(y=z X !(y>=z)).Then(On.Console("IGUAL\n"););
 	If(y>=z).Then(On.Console("MAIOR OU IGUAL\n"););
 	If(x<z).Then(On.Console("MENOR\n"););
 	If(x!=z).Then(On.Console("NE\n"););
@@ -11,3 +11,8 @@ On.Console("MAIOR\n");
 ).Else(
 	On.Console("Nao");
 );
+D xx<<In.Console().ToDecimal();
+N yy<<2;
+D resultado;
+resultado<<yy*xx;
+On.Console(resultado);
