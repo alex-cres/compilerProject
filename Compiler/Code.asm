@@ -52,14 +52,14 @@ SECTION .text
 	extern _strcpy
 	_main:
 
-		mov eax, 3
-		mov dword[x], eax
-
 		mov eax, 4
 		mov dword[y], eax
 
 		mov eax, 4
 		mov dword[z], eax
+
+		mov eax, 3
+		mov dword[x], eax
 
 		mov eax, dword[y]
 		mov ebx, dword[x]
